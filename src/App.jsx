@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function App() {
   useEffect(() => {
-    axios.get('http://localhost:5000/')
+    axios.get('https://smit-react-new-portfolio-backend.vercel.app/')
       .then(response => console.log(response.data))
       .catch(error => console.error(error));
   }, []);
