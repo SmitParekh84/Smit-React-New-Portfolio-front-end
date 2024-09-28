@@ -10,6 +10,7 @@ const ContactMe = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false); // New state to control form submission
+    const [isLoading, setIsLoading] = useState(false); // New state for loading
 
     const apiUrl = import.meta.env.VITE_API_URL;
     const handleSubmit = async (e) => {
@@ -21,7 +22,9 @@ const ContactMe = () => {
             subject,
             description,
         };
-
+        setIsLoading(true); // Start loading when form is submitted
+        setIsSubmitted(false); // Reset submission status
+        setTimeout(async () => {
         try {
             const response = await axios.post(`${apiUrl}/api/topost`, formData, {
                 headers: {
@@ -32,17 +35,23 @@ const ContactMe = () => {
             setSuccessMessage(contactData.successMessage);
             setErrorMessage('');
             setIsSubmitted(true); // Set submitted to true when successful
-
-            // Reset form fields
-            setName('');
-            setEmail('');
-            setSubject('');
-            setDescription('');
+            
+           
         } catch (error) {
             setErrorMessage(contactData.errorMessage);
             setSuccessMessage('');
-            setIsSubmitted(true); // Set submitted to true on error as well
+            setIsSubmitted(true);
+          
+        }finally {
+            // Stop loading regardless of success or failure
+            setIsLoading(false);
         }
+         // Reset form fields
+         setName('');
+         setEmail('');
+         setSubject('');
+         setDescription('');
+        }, 2000); // Delay for 2 seconds
     };
 
     return (
@@ -77,7 +86,6 @@ const ContactMe = () => {
                     </div>
                 </div>
 
-                {/* Show the form only if the form hasn't been submitted */}
                 {!isSubmitted ? (
                     <form onSubmit={handleSubmit} className="contact__form grid">
                         <div className="contact__inputs grid">
@@ -129,13 +137,19 @@ const ContactMe = () => {
 
                         <div>
                             <button type="submit" className="button button--flex">
-                                Send message
-                                <i className="uil uil-message button__icon"></i>
+                                {isLoading ? (
+                                    // Show loader when form is submitting
+                                    <span className="loader"></span>
+                                ) : (
+                                    <>
+                                        Send message
+                                        <i className="uil uil-message button__icon"></i>
+                                    </>
+                                )}
                             </button>
                         </div>
                     </form>
                 ) : (
-                    // Show success or error message based on submission status
                     <>
                         {successMessage && <p className="success-message">{successMessage}</p>}
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
