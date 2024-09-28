@@ -268,28 +268,28 @@ export const testimonialsData = [
   {
     name: "Preet Patel",
     client: "Java Heaven Pvt.",
-    image: "./src/assets/img/Preet.png",
+    image: "../assets/img/Preet.png",
     description: "Smit's expertise in web development transformed our online presence. He delivered high-quality work on time and was always available for support. Highly recommended!",
     rating: 4, // Add rating
   },
   {
     name: "Dhairya Mehata",
     client: "Techno Hub",
-    image: "./src/assets/img/dhairya.jpg",
+    image: "../assets/img/dhairya.jpg",
     description: "Working with Smit was a game changer for our marketing strategy. His creative insights and attention to detail helped us reach our goals effectively. We're extremely pleased with the results!",
     rating: 4, // Add rating
   },
   {
     name: "Dhru Patel",
     client: "Tech Innovations",
-    image: "./src/assets/img/dhru.jpg",
+    image: "../assets/img/dhru.jpg",
     description: "Smit consistently goes above and beyond. His ability to understand our needs and deliver tailored solutions made the entire process smooth and enjoyable. I can’t imagine working with anyone else!",
     rating: 5, // Add rating
   },
   {
     name: "Tirth Bhavsar",
     client: "GreenTech Ltd.",
-    image: "./src/assets/img/tirth.jpg",
+    image: "../assets/img/tirth.jpg",
     description: "From the initial consultation to the final product, Smit was professional and communicative. His dedication to excellence truly stands out, and he has been a valuable partner for our projects.",
     rating: 4, // Add rating
   },
