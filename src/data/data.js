@@ -1,6 +1,25 @@
 // data.js
 
+import LogoIcon from '/logo.png';
+export const headerData = {
+  logo: LogoIcon,
+  name: 'Smit Parekh',
+  navLinks: [
+      { id: 'home', label: 'Home', icon: 'uil-estate' },
+      { id: 'about', label: 'About', icon: 'uil-user' },
+      { id: 'skills', label: 'Skills', icon: 'uil-file-alt' },
+      { id: 'qualification', label: 'Qualification', icon: 'uil-graduation-cap' },
+      { id: 'services', label: 'Services', icon: 'uil-briefcase-alt' },
+      { id: 'portfolio', label: 'Portfolio', icon: 'uil-scenery' },
+      { id: 'contact', label: 'Contact', icon: 'uil-message' },
+  ],
+};
 
+
+
+
+
+import HomeImage from '/images/Smit-Parekh-Home.webp';
 export const homeData = {
   title: "Hi, I'm Smit Parekh",
   subtitle: "Marketing Manager/Node.js Developer",
@@ -17,13 +36,13 @@ export const homeData = {
       iconClass: "uil uil-github-alt",
     },
   ],
-  imageSrc: "./images/smit-1.png", // Adjust path if necessary
+  imageSrc: HomeImage, // Adjust path if necessary
 }
-
+import AboutImage from '/images/Smit-Parekh-About.webp';
 export const aboutData = {
   title: "About Me",
   subtitle: "My Introduction",
-  image: "./images/Smit-2.jpg",
+  image: AboutImage,
   description:
     "As a Marketing Manager and Back-end Developer, I blend strategy, creativity, and technical expertise to drive impactful results. I specialize in crafting data-driven marketing strategies and developing scalable backend solutions. My passion for innovation and continuous learning fuels my commitment to creating value through collaboration and results-oriented projects.",
   experience: {
@@ -175,49 +194,59 @@ export const servicesData = [
   },
 ];
 
-
+import keeper from '/images/Keeper-Note-taking-App.png';
+import FourGame from '/images/Connect-Four-Game.png';
+import toDo from '/images/todo-buddy.png';
+import uniCart from '/images/UniCart.png';
+import cardPortfolio from '/images/Card-Portfolio.png';
+import coffeShop from '/images/coffe-shop-php.png';
+import directorPortfolioImage from '/images/project-1.webp';
+import tinDogImage from '/images/project-2.webp';
+import ytYoutubeImage from '/images/yt-youtube.webp';
+import ytShortsImage from '/images/yt-shorts.webp';
+import demoVideoImage from '/images/yt3.webp';
 
 export const portfolioData = [
   {
     id: 1,
     title: 'Keeper - Note-taking App',
     description: 'A web-based application for managing notes, featuring a user-friendly interface and responsive design.',
-    image: 'https://github.com/SmitParekh84/Images/blob/main/Keeper%20app%20react/showcase.png?raw=true',
+    image: keeper,
     demoLink: 'https://github.com/SmitParekh84/Keeper/',
   },
   {
     id: 2,
     title: 'Connect Four Game',
     description: 'An interactive web game of Connect Four, allowing users to challenge each other in a fun way.',
-    image: 'https://github.com/SmitParekh84/Images/blob/main/Connect-four-game/showcase.png?raw=true',
+    image: FourGame,
     demoLink: 'https://smitparekh84.github.io/Connect-Four-Game/',
   },
   {
     id: 3,
     title: 'To-Do Buddy',
     description: 'A task management app to help users organize their to-do lists efficiently and effectively.',
-    image: 'https://github.com/SmitParekh84/Images/blob/main/To-do-Buddy/showcase.png?raw=true',
+    image: toDo,
     demoLink: 'https://smitparekh84.github.io/To-Do-Buddy/',
   },
   {
     id: 4,
     title: 'UniCart - E-commerce Web Application',
     description: 'Developed an e-commerce application with dynamic product rendering and multi-language support.',
-    image: 'https://github.com/SmitParekh84/Images/blob/main/UniCart/showcase.png?raw=true',
+    image: uniCart,
     demoLink: 'https://unicart-05bt.onrender.com/',
   },
   {
     id: 5,
     title: 'Smit Card Portfolio',
     description: 'A personal portfolio website showcasing my projects, skills, and experiences in web development.',
-    image: 'https://raw.githubusercontent.com/SmitParekh84/Images/main/smit-Card_portfolio/Web_Mobile%20%E2%80%94%20Template%20Website%20(Community)-1.png',
+    image: cardPortfolio,
     demoLink: 'https://smit-card-portfolio.onrender.com/',
   },
   {
     id: 6,
     title: 'Coffee Shop PHP',
     description: 'A PHP-based web application for managing a coffee shop, including order processing and inventory management.',
-    image: 'https://github.com/SmitParekh84/Images/blob/main/coffee-shop/showcase%20(1).png?raw=true',
+    image: coffeShop,
     demoLink: 'https://github.com/SmitParekh84/Coffee-shop-php',
   },
   {
@@ -231,38 +260,39 @@ export const portfolioData = [
     id: 8,
     title: 'Director Portfolio',
     description: 'A visually appealing portfolio website designed for a director, highlighting their work and achievements.',
-    image: '/images/project-1.png',
+    image: directorPortfolioImage,
     demoLink: 'https://directorportfolio.my.canva.site/',
   },
   {
     id: 9,
     title: 'TinDog - Bootstrap Webpage',
     description: 'A mini Bootstrap-based webpage for a fictional dog adoption service, showcasing responsive design.',
-    image: '/images/project-2.png',
+    image: tinDogImage,
     demoLink: 'https://smitparekh84.github.io/Mini-BootStrap-WebPage/',
   },
   {
     id: 10,
     title: 'Motion Graphics / YouTube Videos / Branding',
     description: 'A collection of motion graphics and branding videos created for various projects, enhancing visual storytelling.',
-    image: '/images/yt-youtube.png',
+    image: ytYoutubeImage,
     demoLink: 'https://www.youtube.com/playlist?list=PLLlMxB89AwL449pZeTMNQFe_h7Hn43HcL',
   },
   {
     id: 11,
     title: 'YT Shorts / Reels / TikTok Videos',
     description: 'Engaging short video content designed for social media platforms, maximizing viewer engagement.',
-    image: '/images/yt-shorts.png',
+    image: ytShortsImage,
     demoLink: 'https://www.youtube.com/playlist?list=PLJB1nJ8VTILlq2aZnHUYyVLJ-QnpOKb8f',
   },
   {
     id: 12,
     title: 'Demo Video',
     description: 'A showcase demo video highlighting my skills and previous works in a concise format.',
-    image: '/images/yt3.png',
+    image: demoVideoImage,
     demoLink: 'https://player.vimeo.com/video/950508563?badge=0&autopause=0&player_id=0&app_id=58479',
   },
 ];
+
 
 
 import PreetImage from '../assets/img/Preet.png';

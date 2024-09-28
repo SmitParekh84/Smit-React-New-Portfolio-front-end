@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Swiper from 'swiper/bundle'; // Import Swiper
-
+import LazyLoad from 'react-lazyload'; // Import LazyLoad
 
 
 import { testimonialsData } from '../data/data'; // Import testimonial data
@@ -13,7 +13,7 @@ const Testimonials = () => {
       grabCursor: true,
       spaceBetween: 48,
       autoplay: {
-        delay: 6000, // Time in milliseconds before switching to the next slide
+        delay: 3000, // Time in milliseconds before switching to the next slide
         disableOnInteraction: false, // Continue autoplay after user interactions
       },
       navigation: {
@@ -64,7 +64,9 @@ const Testimonials = () => {
           <div className="testimonial__content swiper-slide" key={index}>
             <div className="testimonial__data">
               <div className="testimonial__header">
-                <img src={testimonial.image} alt="Client" className="testimonial__img" />
+              <LazyLoad height={200} offset={100}>
+                    <img src={testimonial.image} alt="Client" className="testimonial__img" />
+                  </LazyLoad>
                 <div>
                   <h3 className="testimonial__name">{testimonial.name}</h3>
                   <span className="testimonial__client">{testimonial.client}</span>

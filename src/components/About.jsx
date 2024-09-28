@@ -1,6 +1,7 @@
 // components/About.jsx
 import React from 'react';
 import { aboutData } from '../data/data.js'; // Adjust the path if necessary
+import LazyLoad from 'react-lazyload';
 
 const About = () => {
     
@@ -11,7 +12,10 @@ const About = () => {
             <span className="section__subtitle">{aboutData.subtitle}</span>
 
             <div className="about__container container grid">
-                <img src={aboutData.image} alt="About Me" className="about__img" />
+            <LazyLoad className="about__img" offset={100}>
+                        <img src={aboutData.image} alt={aboutData.title} className="about__img"/>
+                    </LazyLoad>
+              
                 <div className="about__data">
                     <p className="about__description">
                         {aboutData.description}
