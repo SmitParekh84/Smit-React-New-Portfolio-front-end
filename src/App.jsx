@@ -2,6 +2,8 @@ import React from 'react';
 import Header from './components/Header';
 import Home from './components/Home';
 import './assets/css/styles.css'; // Your custom styles
+import './assets/css/swiper-bundle.min.css';
+
 import ScrollToTop from './components/ScrollToTop';
 import About from './components/About';
 import Skills from './components/Skills';

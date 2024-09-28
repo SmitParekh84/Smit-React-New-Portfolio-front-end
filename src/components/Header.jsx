@@ -75,7 +75,8 @@ const Header = () => {
     return (
         <header className="header" id="header">
             <nav className="nav container">
-                <a href="#" className="nav__logo">Smit Parekh</a>
+            
+                <a href="#" className="nav__logo"> <img src='/logo.png' alt="Smit Parekh Logo" className="logo-image"  />Smit Parekh</a>
                 <div className={`nav__menu ${isMenuOpen ? 'show-menu' : ''}`} id="nav-menu">
                     <ul className="nav__list grid">
                         <li className="nav__item">

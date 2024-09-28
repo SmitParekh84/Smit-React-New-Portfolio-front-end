@@ -12,7 +12,7 @@
 
   /* HSL color mode */
   --first-color: hsl(var(--hue-color), 93%, 32%);
-  --first-color-second: hsl(var(--hue-color), 69%, 61%);
+  --first-color-second: hsl(var(--hue-color), 93%, 32%);
   --first-color-alt: hsl(var(--hue-color), 57%, 53%);
   --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
   --title-color: hsl(var(--hue-color), 8%, 15%);
@@ -196,12 +196,19 @@ img {
 
 .nav__logo,
 .nav__toggle {
+  display: flex;
+    align-items: center;
   color: var(--title-color);
   font-weight: var(--font-medium);
 }
 
 .nav__logo:hover {
   color: var(--first-color);
+}
+.logo-image {
+  width: 40px; /* Set the width to your desired size */
+  height: auto; /* Keep the aspect ratio */
+  margin-right: 8px; /* Add some space between the image and text */
 }
 
 .nav__toggle {
@@ -847,7 +854,7 @@ img {
 }
 
 .testimonial__data {
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: var(--mb-1);
 }
 
@@ -869,6 +876,8 @@ img {
 }
 
 .testimonial__description {
+  margin: 1rem;
+  justify-content: space-around;
   margin-bottom: var(--mb-2-5);
 }
 
@@ -1029,12 +1038,14 @@ img {
 
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 480px) {
   .container {
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
   }
-
+  .logo-image {
+    width: 30px; /* Smaller logo size for mobile */
+}
   .nav__menu {
     padding: 2rem 0.25rem 4rem;
   }
@@ -1103,12 +1114,12 @@ img {
 
   .testimonial__data,
   .testimonial__description {
-    text-align: center;
+    text-align: center ;
   }
 }
 
 /* For medium devices */
-@media screen and (min-width: 568px) {
+@media screen and (min-width: 568px)  {
   .home__content {
     grid-template-columns: max-content 1fr 1fr;
   }
@@ -1267,6 +1278,7 @@ img {
       padding-top: 0.8rem;
       
     }
+    
     .footer__container {
       grid-template-columns: repeat(3, 1fr);
     }

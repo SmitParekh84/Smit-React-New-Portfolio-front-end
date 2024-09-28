@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Swiper from 'swiper';
-import '../assets/css/swiper-bundle.min.css';
 import { portfolioData } from '../data/data.js'; // Import the data
 
 const Portfolio = () => {

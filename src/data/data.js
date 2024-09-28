@@ -34,15 +34,16 @@ export const aboutData = {
 
 export const skillsData = [
   {
-    title: "Node.js",
+    title: "web Development",
     subtitle: "More than 1 year",
     skills: [
-      { name: "JavaScript", percentage: "70%" },
-      { name: "React.js", percentage: "60%" },
-      { name: "HTML/CSS", percentage: "80%" },
-      { name: "Node.js", percentage: "80%" },
+      { name: "JavaScript", percentage: "76%" },
+      { name: "React.js", percentage: "65%" },
+      { name: "HTML/CSS", percentage: "81%" },
+      { name: "Node.js", percentage: "82%" },
       { name: "PHP", percentage: "60%" },
-      { name: "SQL", percentage: "60%" },
+      { name: "SQL", percentage: "68%" },
+      { name: "MongoDb", percentage: "65%" },
     ],
     icon: "uil uil-brackets-curly",
   },
@@ -96,7 +97,7 @@ export const qualificationsData = {
       date: 'Four-week Training Program',
     },
     {
-      title: 'Video Editor Intern',
+      title: 'Video Editor/ Socia-Media Manager',
       subtitle: 'Content Beta',
       date: 'Jun 2023 - Jan 2024',
     },
@@ -131,7 +132,7 @@ export const servicesData = [
     ],
   },
   {
-    title: "Digital Marketing Strategy Management",
+    title: "Digital Marketing Strategy",
     icon: "uil uil-megaphone", // Icon for digital marketing
     description: [
       "Elevate your brand with comprehensive digital marketing strategies designed for your target audience.",
@@ -141,7 +142,7 @@ export const servicesData = [
     ],
   },
   {
-    title: "Social Media Marketing Expertise",
+    title: "Social Media Marketing",
     icon: "uil uil-share-alt", // Icon for social media marketing
     description: [
       "Engage your audience with captivating social media content that reflects your brand's voice.",
