@@ -1,0 +1,66 @@
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* or any height you prefer */
+  }
+  
+  .mySwiper {
+    width: 500px;
+    height: 528px;
+  }
+  /* Apply border radius to images */
+.img {
+    width: 100%; /* Set to 100% to fill the slide */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 18px; /* Apply border radius */
+  }
+  
+  .swiperSlide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    padding: 1rem;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--container-color); /* Use the primary color */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    overflow: hidden; /* Ensures the content respects the border radius */
+  }
+  
+  
+  .swiperSlide:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shade on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  /* Tablet devices */
+@media (max-width: 768px) {
+    .mySwiper {
+      width: 90%; /* Make the swiper take up 90% of the width */
+      height: auto;
+      padding: 50px; /* Adjust height accordingly */
+    }
+  
+    .swiperSlide {
+      font-size: 14px; /* Slightly larger text for readability */
+      padding: 0.5rem; /* Reduced padding */
+    }
+  }
+  
+  /* Mobile devices */
+  @media (max-width: 480px) {
+    .mySwiper {
+      width: 100%; /* Full width for mobile devices */
+      height: auto;
+      padding: 60px; /* Adjust height accordingly */
+    }
+  
+    .swiperSlide {
+      font-size: 12px; /* Smaller text for mobile */
+       /* Adjust padding */
+    }
+  }

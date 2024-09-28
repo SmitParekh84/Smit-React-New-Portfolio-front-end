@@ -5,13 +5,12 @@ export const headerData = {
   logo: LogoIcon,
   name: 'Smit Parekh',
   navLinks: [
-      { id: '#home', label: 'Home', icon: 'uil-estate' },
-      { id: '#about', label: 'About', icon: 'uil-user' },
-      { id: '#skills', label: 'Skills', icon: 'uil-file-alt' },
-      { id: '#qualification', label: 'Qualification', icon: 'uil-graduation-cap' },
-      { id: '#services', label: 'Services', icon: 'uil-briefcase-alt' },
-      { id: '#portfolio', label: 'Portfolio', icon: 'uil-scenery' },
-      { id: '#contact', label: 'Contact', icon: 'uil-message' },
+      { id: '/', label: 'Home', icon: 'uil-estate' },
+      { id: 'about', label: 'About', icon: 'uil-user' },
+      { id: 'skills', label: 'Skills', icon: 'uil-file-alt' },
+      { id: 'services', label: 'Services', icon: 'uil-briefcase-alt' },
+      { id: 'portfolio', label: 'Portfolio', icon: 'uil-scenery' },
+      { id: 'contact', label: 'Contact', icon: 'uil-message' },
   ],
 };
 
