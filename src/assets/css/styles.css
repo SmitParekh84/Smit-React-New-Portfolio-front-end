@@ -1,3 +1,4 @@
+
 /* ==================== GOOGLE FONTS ====================*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
@@ -381,6 +382,7 @@ img {
 .button--white {
   background-color: #fff;
   color: var(--first-color);
+  margin-bottom: 3rem;
 }
 
 .button--white:hover {
@@ -780,7 +782,7 @@ img {
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  content: "";
+  content: none !important;
 }
 
 .swiper-portfolio-icon {
@@ -1181,7 +1183,11 @@ img {
     .change-theme {
       margin: 0;
     }
-
+    .button--white {
+      background-color: #fff;
+      color: var(--first-color);
+      margin-bottom: 3rem;
+    }
     .home__container {
       row-gap: 5rem;
     }
@@ -1259,6 +1265,7 @@ img {
     }
     .project__data {
       padding-top: 0.8rem;
+      
     }
     .footer__container {
       grid-template-columns: repeat(3, 1fr);
