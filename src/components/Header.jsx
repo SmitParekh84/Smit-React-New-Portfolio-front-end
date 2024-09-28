@@ -94,7 +94,7 @@ const Header = () => {
     return (
         <header className="header" id="header">
             <nav className="nav container">
-                <a href="#" className="nav__logo">
+                <a href="https://smitparekh.studio/" alt='Smit Parekh' className="nav__logo">
                     <LazyLoad height={200} offset={100}>
                         <img src={headerData.logo} alt={`${headerData.name} Logo`} className="logo-image" />
                     </LazyLoad>
@@ -105,7 +105,7 @@ const Header = () => {
                         {headerData.navLinks.map(link => (
                             <li className="nav__item" key={link.id}>
                                 <a
-                                    href={`#${link.id}`}
+                                    href={`${link.id}`}
                                     className={`nav__link ${activeSection === link.id ? 'active-link' : ''}`}
                                     onClick={closeMenu}
                                 >
