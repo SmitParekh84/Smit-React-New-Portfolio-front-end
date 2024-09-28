@@ -41,7 +41,7 @@ const Portfolio = () => {
           {/* Dynamically map through portfolioData */}
           {portfolioData.map((item) => (
             <div className="portfolio__content grid swiper-slide" key={item.id}>
-              <img src={item.image} alt={item.title} className="portfolio__img" />
+              <img src={item.image} alt={item.title} className="portfolio__img" loading='lazy' />
               <div className="portfolio_">
                 <h3 className="portfolio__title">{item.title}</h3>
                 <p className="portfolio__description">{item.description}</p>
