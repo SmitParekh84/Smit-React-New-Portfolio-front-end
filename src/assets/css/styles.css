@@ -250,6 +250,9 @@ img {
 .nav__link:hover {
   color: var(--first-color);
 }
+.nav__link:active {
+  color: var(--first-color);
+}
 
 .nav__icon {
   font-size: 1.2rem;
@@ -807,6 +810,7 @@ img {
 
 .swiper-container-horizontal > .swiper-pagination-bullets {
   bottom: -2.5rem;
+  
 }
 
 .swiper-pagination-bullet-active {
@@ -890,6 +894,28 @@ img {
 }
 
 /*==================== CONTACT ME ====================*/
+.loader-overlay-componet {
+  position: fixed; /* Fixed to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Optional: transparent background */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.loader-componet {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px; /* Adjust size if needed */
+  height: 40px; /* Adjust size if needed */
+  animation: spin 2s linear infinite;
+}
+
 
 .loader {
   border: 4px solid #f3f3f3; /* Light grey */

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Swiper from 'swiper';
 import { portfolioData } from '../data/data.js'; // Import the data
+import LazyLoad from 'react-lazyload'; // Import LazyLoad
 
 const Portfolio = () => {
   useEffect(() => {
@@ -41,7 +42,9 @@ const Portfolio = () => {
           {/* Dynamically map through portfolioData */}
           {portfolioData.map((item) => (
             <div className="portfolio__content grid swiper-slide" key={item.id}>
-              <img src={item.image} alt={item.title} className="portfolio__img" loading='lazy' />
+            <LazyLoad height={200} offset={100}>
+                <img src={item.image} alt={item.title} className="portfolio__img" loading='lazy' />
+              </LazyLoad>
               <div className="portfolio_">
                 <h3 className="portfolio__title">{item.title}</h3>
                 <p className="portfolio__description">{item.description}</p>

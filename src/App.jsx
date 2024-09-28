@@ -1,40 +1,48 @@
-import React from 'react';
-import Header from './components/Header';
-import Home from './components/Home';
+import React, { Suspense } from 'react';
+import loadable from '@loadable/component';
 import './assets/css/styles.css'; // Your custom styles
 import './assets/css/swiper-bundle.min.css';
+import Loader from './components/Loader';
 
-import ScrollToTop from './components/ScrollToTop';
-import About from './components/About';
-import Skills from './components/Skills';
-import Qualification from './components/Qualification';
-import Services from './components/Services';
-import Portfolio from './components/Portfolio';
-import Project from './components/Project';
-import Testimonials from './components/Testimonials';
-import ContactMe from './components/ContactMe';
-import Footer from './components/Footer';
+// Import the essential components using lazy loading with fallback
+const Header = React.lazy(() => import('./components/Header'));
+const Footer = loadable(() => import('./components/Footer'), {
+    fallback: <Loader />,
+});
 
+// Load the main content dynamically based on visibility
+const Home = loadable(() => import('./components/Home'), { fallback: <Loader /> });
+const About = loadable(() => import('./components/About'), { fallback: <Loader /> });
+const Skills = loadable(() => import('./components/Skills'), { fallback: <Loader /> });
+const Qualification = loadable(() => import('./components/Qualification'), { fallback: <Loader /> });
+const Services = loadable(() => import('./components/Services'), { fallback: <Loader /> });
+const Portfolio = loadable(() => import('./components/Portfolio'), { fallback: <Loader /> });
+const Project = loadable(() => import('./components/Project'), { fallback: <Loader /> });
+const Testimonials = loadable(() => import('./components/Testimonials'), { fallback: <Loader /> });
+const ContactMe = loadable(() => import('./components/ContactMe'), { fallback: <Loader /> });
+const ScrollToTop = loadable(() => import('./components/ScrollToTop'), { fallback: <Loader /> });
 
 const App = () => {
     return (
         <>
+        <Suspense fallback={<Loader />}>
             <Header />
-            
             <main className="main">
-            <Home />
-            <About />
-            <Skills />
-            <Qualification />
-            <Services />
-            <Portfolio />
-            <Project />
-            <Testimonials />
-            <ContactMe />
+                <Home />
+                <About />
+                <Skills />
+                <Qualification />
+                <Services />
+                <Portfolio />
+                <Project />
+                {/* Lazy load Testimonials and ContactMe for optimization */}
+                <Testimonials />
+                <ContactMe />
             </main>
             <Footer />
             <ScrollToTop />
-            </>
+            </Suspense>
+        </>
     );
 };
 

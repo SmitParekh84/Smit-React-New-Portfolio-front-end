@@ -1,9 +1,10 @@
-// Header.jsx
 import React, { useEffect, useState } from 'react';
-
+import LazyLoad from 'react-lazyload'; // Import LazyLoad if you want to lazy load your logo
+import { headerData } from '../data/data.js'
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu visibility
     const [theme, setTheme] = useState('light'); // State for theme
+    const [activeSection, setActiveSection] = useState('home'); // State for active section
     const darkTheme = 'dark-theme';
     const iconTheme = 'uil-sun';
 
@@ -36,6 +37,22 @@ const Header = () => {
         }
     };
 
+    // Function to handle active link based on scroll position
+    const handleActiveLink = () => {
+        const sections = document.querySelectorAll('section'); // Assuming your sections have the <section> tag
+        let scrollY = window.scrollY;
+
+        sections.forEach((section) => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 50; // Offset to account for header height
+            const sectionId = section.getAttribute('id');
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                setActiveSection(sectionId);
+            }
+        });
+    };
+
     // Function to handle scroll events for showing scroll up button
     const scrollUp = () => {
         const scrollUp = document.getElementById("scroll-up");
@@ -61,6 +78,7 @@ const Header = () => {
         window.addEventListener("scroll", () => {
             scrollHeader();
             scrollUp();
+            handleActiveLink(); // Call the function to handle active links
         });
 
         // Cleanup event listeners on component unmount
@@ -68,6 +86,7 @@ const Header = () => {
             window.removeEventListener("scroll", () => {
                 scrollHeader();
                 scrollUp();
+                handleActiveLink(); // Call the function to handle active links
             });
         };
     }, []);
@@ -75,40 +94,25 @@ const Header = () => {
     return (
         <header className="header" id="header">
             <nav className="nav container">
-            
-                <a href="#" className="nav__logo"> <img src='/logo.png' alt="Smit Parekh Logo" className="logo-image"  />Smit Parekh</a>
+                <a href="#" className="nav__logo">
+                    <LazyLoad height={200} offset={100}>
+                        <img src={headerData.logo} alt={`${headerData.name} Logo`} className="logo-image" />
+                    </LazyLoad>
+                    {headerData.name}
+                </a>
                 <div className={`nav__menu ${isMenuOpen ? 'show-menu' : ''}`} id="nav-menu">
                     <ul className="nav__list grid">
-                        <li className="nav__item">
-                            <a href="#home" className="nav__link" onClick={closeMenu}>
-                                <i className="uil uil-estate nav__icon"></i>Home
-                            </a>
-                        </li>
-                        <li className="nav__item">
-                            <a href="#about" className="nav__link" onClick={closeMenu}>
-                                <i className="uil uil-user nav__icon"></i>About
-                            </a>
-                        </li>
-                        <li className="nav__item">
-                            <a href="#skills" className="nav__link" onClick={closeMenu}>
-                                <i className="uil uil-file-alt nav__icon"></i>Skills
-                            </a>
-                        </li>
-                        <li className="nav__item">
-                            <a href="#services" className="nav__link" onClick={closeMenu}>
-                                <i className="uil uil-briefcase-alt nav__icon"></i>Services
-                            </a>
-                        </li>
-                        <li className="nav__item">
-                            <a href="#portfolio" className="nav__link" onClick={closeMenu}>
-                                <i className="uil uil-scenery nav__icon"></i>Portfolio
-                            </a>
-                        </li>
-                        <li className="nav__item">
-                            <a href="#contact" className="nav__link" onClick={closeMenu}>
-                                <i className="uil uil-message nav__icon"></i>Contact
-                            </a>
-                        </li>
+                        {headerData.navLinks.map(link => (
+                            <li className="nav__item" key={link.id}>
+                                <a
+                                    href={`#${link.id}`}
+                                    className={`nav__link ${activeSection === link.id ? 'active-link' : ''}`}
+                                    onClick={closeMenu}
+                                >
+                                    <i className={`uil ${link.icon} nav__icon`}></i>{link.label}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                     <i className="uil uil-times nav__close" onClick={closeMenu}></i>
                 </div>
