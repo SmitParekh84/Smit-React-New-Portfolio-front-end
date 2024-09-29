@@ -1,3 +1,17 @@
+#robots.txt for https://www.smitparekh.studio/
+
+# Allow all user-agents to crawl the site
 User-agent: *
 Allow: /
-Sitemap: https://smitparekh.studio/sitemap.xml
+
+# Disallow access to certain directories
+Disallow: /admin/   # Admin area
+Disallow: /private/  # Private data
+
+# Specify the sitemap location
+
+Sitemap: https://www.smitparekh.studio/sitemap.xml
+Sitemap: https://www.smitparekh.studio/sitemap.xml.gz
+Sitemap: https://www.smitparekh.studio/ror.xml
+Sitemap: https://www.smitparekh.studio/urllist.txt
+Sitemap: https://www.smitparekh.studio/sitemap.html
