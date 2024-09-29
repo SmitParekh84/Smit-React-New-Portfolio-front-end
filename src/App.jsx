@@ -1,49 +1,79 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import loadable from '@loadable/component';
-import './assets/css/styles.css'; // Your custom styles
-import './assets/css/swiper-bundle.min.css'; // Swiper styles
-import Loader from './components/Loader';
 
+import React, { Suspense, useEffect, useState } from "react"
+import loadable from "@loadable/component"
+import "./assets/css/styles.css" // Your custom styles
+import "./assets/css/swiper-bundle.min.css"
+import Loader from "./components/Loader"
 
-// Lazy load the essential components and pages
-const Header = React.lazy(() => import('./components/Header'));
-const Footer = loadable(() => import('./components/Footer'), {
-    fallback: <Loader />,
-});
+// Import components using lazy loading
+const Header = React.lazy(() => import("./components/Header"))
+const Footer = loadable(() => import("./components/Footer"))
 
-// Pages/components for routing
-const Landing = loadable(() => import('./Landing'), { fallback: <Loader /> });
-const AboutPage = loadable(() => import('./components/About'), { fallback: <Loader /> });
-const SkillsPage = loadable(() => import('./components/Skills'), { fallback: <Loader /> });
-const PortfolioPage = loadable(() => import('./pages/PortfolioPage'), { fallback: <Loader /> });
-const ContactPage = loadable(() => import('./components/ContactMe'), { fallback: <Loader /> });
-const ServicesPage = loadable(() => import('./components/Services'), { fallback: <Loader /> });
-const ScrollToTop = loadable(() => import('./components/ScrollToTop'), { fallback: <Loader /> });
+const Home = loadable(() => import("./components/Home"))
+const About = loadable(() => import("./components/About"))
+const Skills = loadable(() => import("./components/Skills"))
+const Qualification = loadable(() => import("./components/Qualification"))
+const Services = loadable(() => import("./components/Services"))
+const Portfolio = loadable(() => import("./components/Portfolio"))
+const Project = loadable(() => import("./components/Project"))
+const Testimonials = loadable(() => import("./components/Testimonials")) // Ensure Testimonials is imported
+const ContactMe = loadable(() => import("./components/ContactMe"))
+
+const ErrorBoundary = ({ children }) => {
+  const [hasError, setHasError] = useState(false)
+
+  const handleError = (error) => {
+    console.error("Error caught by ErrorBoundary:", error)
+    setHasError(true)
+  }
+
+  if (hasError) {
+    return <h1>Something went wrong.</h1>
+  }
+
+  return children
+}
 
 const App = () => {
-    return (
-        <Router>
-            <Suspense fallback={<Loader />}>
-                <Header />
-                <main className="main">
-                    {/* Set up the routing for pages */}
-                    <Routes>
-                        <Route path="/" element={<Landing />} />
-                        <Route path="/about" element={<AboutPage />} />
-                        <Route path="/skills" element={<SkillsPage />} />
-                        <Route path="/portfolio" element={<PortfolioPage />} />
-                        <Route path="/contact" element={<ContactPage />} />
-                        <Route path="/services" element={<ServicesPage />} />
-                        {/* Add more routes as needed */}
-                    </Routes>
-                </main>
-                <Footer />
-                <ScrollToTop />
-            </Suspense>
-         
-        </Router>
-    );
-};
+  const [showTestimonials, setShowTestimonials] = useState(false)
+  const [showContactMe, setShowContactMe] = useState(false)
 
-export default App;
+  // Load Testimonials and ContactMe when the user scrolls to a certain point
+  const handleScroll = () => {
+    const scrollY = window.scrollY
+    const triggerPoint = 600 // Adjust this value based on your layout
+
+    if (scrollY > triggerPoint) {
+      setShowTestimonials(true)
+      setShowContactMe(true)
+      window.removeEventListener("scroll", handleScroll) // Remove listener after loading
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  return (
+    <ErrorBoundary>
+      <Suspense fallback={<Loader />}>
+        <Header />
+        <main className="main">
+          <Home />
+          <About />
+          <Skills />
+          <Qualification />
+          <Services />
+          <Portfolio />
+          <Project />
+          {showTestimonials && <Testimonials />}
+          {showContactMe && <ContactMe />}
+        </main>
+        <Footer />
+      </Suspense>
+    </ErrorBoundary>
+  )
+}
+
+export default App

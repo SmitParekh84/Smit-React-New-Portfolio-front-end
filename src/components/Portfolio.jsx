@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
-import Swiper from 'swiper';
-import { portfolioData } from '../data/data.js'; // Import the data
-import LazyLoad from 'react-lazyload'; // Import LazyLoad
+import React, { useEffect } from "react"
+import Swiper from "swiper"
+import { portfolioData } from "../data/data.js" // Import the data
+import LazyLoad from "react-lazyload" // Import LazyLoad
 
 const Portfolio = () => {
   useEffect(() => {
-    const swiperPortfolio = new Swiper('.portfolio__container', {
-    
+    const swiperPortfolio = new Swiper(".portfolio__container", {
       loop: true,
       grabCursor: true,
       spaceBetween: 30,
@@ -15,40 +14,48 @@ const Portfolio = () => {
         disableOnInteraction: false, // Continue autoplay after user interactions
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
         clickable: true,
         dynamicBullets: true,
       },
       mousewheel: true,
-  keyboard: true,
-    });
+      keyboard: true,
+    })
 
     return () => {
-      if (swiperPortfolio) swiperPortfolio.destroy();
-    };
-  }, []);
+      if (swiperPortfolio) swiperPortfolio.destroy()
+    }
+  }, [])
 
   return (
     <section className="portfolio section" id="portfolio">
       <h2 className="section__title">Portfolio</h2>
-      <span className="section__subtitle">Most recent works</span>
+      <span className="section__subtitle">Showcasing My Best Work</span>
 
       <div className="portfolio__container container swiper-container">
         <div className="swiper-wrapper">
           {/* Dynamically map through portfolioData */}
           {portfolioData.map((item) => (
             <div className="portfolio__content grid swiper-slide" key={item.id}>
-            <LazyLoad height={200} offset={100}>
-                <img src={item.image} alt={item.title} className="portfolio__img" loading='lazy' />
+              <LazyLoad height={200} offset={100}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="portfolio__img"
+                  loading="lazy"
+                />
               </LazyLoad>
               <div className="portfolio_">
                 <h3 className="portfolio__title">{item.title}</h3>
                 <p className="portfolio__description">{item.description}</p>
-                <a href={item.demoLink} className="button button--flex button--small portfolio__button">
+                <a
+                  href={item.demoLink}
+                  className="button button--flex button--small portfolio__button"
+                >
                   Demo
                   <i className="uil uil-arrow-right button__icon"></i>
                 </a>
@@ -69,7 +76,7 @@ const Portfolio = () => {
         <div className="swiper-pagination"></div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Portfolio;
+export default Portfolio
