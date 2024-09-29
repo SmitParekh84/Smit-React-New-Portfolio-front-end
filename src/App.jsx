@@ -1,49 +1,78 @@
-import React, { Suspense } from 'react';
-import loadable from '@loadable/component';
-import './assets/css/styles.css'; // Your custom styles
-import './assets/css/swiper-bundle.min.css';
-import Loader from './components/Loader';
+import React, { Suspense, useEffect, useState } from "react"
+import loadable from "@loadable/component"
+import "./assets/css/styles.css" // Your custom styles
+import "./assets/css/swiper-bundle.min.css"
+import Loader from "./components/Loader"
 
-// Import the essential components using lazy loading with fallback
-const Header = React.lazy(() => import('./components/Header'));
-const Footer = loadable(() => import('./components/Footer'), {
-    fallback: <Loader />,
-});
+// Import components using lazy loading
+const Header = React.lazy(() => import("./components/Header"))
+const Footer = loadable(() => import("./components/Footer"))
 
-// Load the main content dynamically based on visibility
-const Home = loadable(() => import('./components/Home'), { fallback: <Loader /> });
-const About = loadable(() => import('./components/About'), { fallback: <Loader /> });
-const Skills = loadable(() => import('./components/Skills'), { fallback: <Loader /> });
-const Qualification = loadable(() => import('./components/Qualification'), { fallback: <Loader /> });
-const Services = loadable(() => import('./components/Services'), { fallback: <Loader /> });
-const Portfolio = loadable(() => import('./components/Portfolio'), { fallback: <Loader /> });
-const Project = loadable(() => import('./components/Project'), { fallback: <Loader /> });
-const Testimonials = loadable(() => import('./components/Testimonials'), { fallback: <Loader /> });
-const ContactMe = loadable(() => import('./components/ContactMe'), { fallback: <Loader /> });
-const ScrollToTop = loadable(() => import('./components/ScrollToTop'), { fallback: <Loader /> });
+const Home = loadable(() => import("./components/Home"))
+const About = loadable(() => import("./components/About"))
+const Skills = loadable(() => import("./components/Skills"))
+const Qualification = loadable(() => import("./components/Qualification"))
+const Services = loadable(() => import("./components/Services"))
+const Portfolio = loadable(() => import("./components/Portfolio"))
+const Project = loadable(() => import("./components/Project"))
+const Testimonials = loadable(() => import("./components/Testimonials")) // Ensure Testimonials is imported
+const ContactMe = loadable(() => import("./components/ContactMe"))
+
+const ErrorBoundary = ({ children }) => {
+  const [hasError, setHasError] = useState(false)
+
+  const handleError = (error) => {
+    console.error("Error caught by ErrorBoundary:", error)
+    setHasError(true)
+  }
+
+  if (hasError) {
+    return <h1>Something went wrong.</h1>
+  }
+
+  return children
+}
 
 const App = () => {
-    return (
-        <>
-        <Suspense fallback={<Loader />}>
-            <Header />
-            <main className="main">
-                <Home />
-                <About />
-                <Skills />
-                <Qualification />
-                <Services />
-                <Portfolio />
-                <Project />
-                {/* Lazy load Testimonials and ContactMe for optimization */}
-                <Testimonials />
-                <ContactMe />
-            </main>
-            <Footer />
-            <ScrollToTop />
-            </Suspense>
-        </>
-    );
-};
+  const [showTestimonials, setShowTestimonials] = useState(false)
+  const [showContactMe, setShowContactMe] = useState(false)
 
-export default App;
+  // Load Testimonials and ContactMe when the user scrolls to a certain point
+  const handleScroll = () => {
+    const scrollY = window.scrollY
+    const triggerPoint = 600 // Adjust this value based on your layout
+
+    if (scrollY > triggerPoint) {
+      setShowTestimonials(true)
+      setShowContactMe(true)
+      window.removeEventListener("scroll", handleScroll) // Remove listener after loading
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  return (
+    <ErrorBoundary>
+      <Suspense fallback={<Loader />}>
+        <Header />
+        <main className="main">
+          <Home />
+          <About />
+          <Skills />
+          <Qualification />
+          <Services />
+          <Portfolio />
+          <Project />
+          {showTestimonials && <Testimonials />}
+          {showContactMe && <ContactMe />}
+        </main>
+        <Footer />
+      </Suspense>
+    </ErrorBoundary>
+  )
+}
+
+export default App
