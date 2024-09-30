@@ -5,7 +5,6 @@ export const headerData = {
   logo: LogoIcon,
   name: "Smit Parekh",
   navLinks: [
-
     { id: "#home", label: "Home", icon: "uil-estate" },
     { id: "#about", label: "About", icon: "uil-user" },
     { id: "#skills", label: "Skills", icon: "uil-file-alt" },
@@ -17,7 +16,6 @@ export const headerData = {
     { id: "#services", label: "Services", icon: "uil-briefcase-alt" },
     { id: "#portfolio", label: "Portfolio", icon: "uil-scenery" },
     { id: "#contact", label: "Contact", icon: "uil-message" },
-
   ],
 }
 
@@ -52,7 +50,7 @@ export const aboutData = {
     certifications: "10+",
     companies: "02+",
   },
-  cvLink: "packages/pdf/Smit-parekh.pdf",
+  cvLink: "https://www.smitparekh.studio/Smit-parekh.pdf",
 }
 
 export const skillsData = [

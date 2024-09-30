@@ -288,6 +288,20 @@ img {
 
 /*==================== HOME ====================*/
 
+.home__blob {
+  animation: floatAnimation 5s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0); /* No vertical movement */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up by 10 pixels */
+  }
+}
+
+
 .home__container {
   gap: 1rem;
 }
