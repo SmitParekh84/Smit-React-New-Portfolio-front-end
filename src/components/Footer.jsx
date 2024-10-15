@@ -10,9 +10,9 @@ const Footer = () => {
             <div className="footer__bg">
                 <div className="footer__container container grid">
                     <div>
-                    <a href="https://smitparekh.studio/" alt='Smit Parekh' >
-                    <h1 className="footer__title  ">{footerData.title}</h1>
-                        <span className="footer__subtitle">{footerData.subtitle}</span></a>
+                        <a href="https://www.smitparekh.studio/" alt='Smit Parekh' >
+                            <h1 className="footer__title  ">{footerData.title}</h1>
+                            <span className="footer__subtitle">{footerData.subtitle}</span></a>
                     </div>
 
                     <ul className="footer__links">
@@ -25,11 +25,11 @@ const Footer = () => {
 
                     <div className="footer__socials">
                         {footerData.socialLinks.map((social, index) => (
-                            <a 
-                                key={index} 
-                                href={social.href} 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
+                            <a
+                                key={index}
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="footer__social"
                             >
                                 <i className={social.iconClass}></i>
