@@ -1,18 +1,18 @@
 // src/Sitemap.jsx
 
-import { SitemapGenerator  } from 'react-sitemap-generator';
+import { SitemapGenerator } from 'react-sitemap-generator';
 
 
 const Sitemap = () => {
     return (
         <SitemapGenerator
             urls={[
-                'https://smitparekh.studio/',
-                'https://smitparekh.studio/about',
-                'https://smitparekh.studio/skills',
-                'https://smitparekh.studio/portfolio',
-                'https://smitparekh.studio/contact',
-                'https://smitparekh.studio/services',
+                'https://www.smitparekh.studio/',
+                'https://www.smitparekh.studio/about',
+                'https://www.smitparekh.studio/skills',
+                'https://www.smitparekh.studio/portfolio',
+                'https://www.smitparekh.studio/contact',
+                'https://www.smitparekh.studio/services',
                 // Add other routes here
             ]}
         />

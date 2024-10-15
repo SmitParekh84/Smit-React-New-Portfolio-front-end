@@ -106,7 +106,7 @@ const Header = () => {
     <header className="header" id="header" ref={headerRef}>
       <nav className="nav container">
         <a
-          href="https://smitparekh.studio/"
+          href="https://www.smitparekh.studio/"
           alt="Smit Parekh"
           className="nav__logo"
         >
@@ -128,9 +128,8 @@ const Header = () => {
               <li className="nav__item" key={link.id}>
                 <a
                   href={`${link.id}`}
-                  className={`nav__link ${
-                    activeSection === link.id ? "active-link" : ""
-                  }`}
+                  className={`nav__link ${activeSection === link.id ? "active-link" : ""
+                    }`}
                   onClick={closeMenu}
                 >
                   <i className={`uil ${link.icon} nav__icon`}></i>
@@ -144,9 +143,8 @@ const Header = () => {
         <div className="nav__btns">
           {/* Theme change button */}
           <i
-            className={`uil ${
-              theme === "light" ? "uil-moon" : "uil-sun"
-            } change-theme`}
+            className={`uil ${theme === "light" ? "uil-moon" : "uil-sun"
+              } change-theme`}
             id="theme-button"
             onClick={toggleTheme}
           ></i>
