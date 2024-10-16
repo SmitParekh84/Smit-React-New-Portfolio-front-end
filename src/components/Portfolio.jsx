@@ -10,7 +10,7 @@ const Portfolio = () => {
       grabCursor: true,
       spaceBetween: 30,
       autoplay: {
-        delay: 6000, // Time in milliseconds before switching to the next slide
+        delay: 3000, // Time in milliseconds before switching to the next slide
         disableOnInteraction: false, // Continue autoplay after user interactions
       },
       navigation: {

@@ -207,6 +207,34 @@ import demoVideoImage from "/images/yt3.webp"
 export const portfolioData = [
   {
     id: 1,
+    title: "UniCart - E-commerce Web Application",
+    description:
+      "Developed an e-commerce application with dynamic product rendering and multi-language support.",
+    image: uniCart,
+    demoLink: "https://unicart-05bt.onrender.com/",
+
+  },
+  {
+    id: 2,
+    title: "Smit Card Portfolio",
+    description:
+      "A personal portfolio website showcasing my projects, skills, and experiences in web development.",
+    image: cardPortfolio,
+    demoLink: "https://smit-card-portfolio.onrender.com/",
+
+  },
+  {
+    id: 3,
+    title: "Demo Video",
+    description:
+      "A showcase demo video highlighting my skills and previous works in a concise format.",
+    image: demoVideoImage,
+    demoLink:
+      "https://player.vimeo.com/video/950508563?badge=0&autopause=0&player_id=0&app_id=58479",
+
+  },
+  {
+    id: 4,
     title: "Keeper - Note-taking App",
     description:
       "A web-based application for managing notes, featuring a user-friendly interface and responsive design.",
@@ -214,36 +242,12 @@ export const portfolioData = [
     demoLink: "https://github.com/SmitParekh84/Keeper/",
   },
   {
-    id: 2,
+    id: 5,
     title: "Connect Four Game",
     description:
       "An interactive web game of Connect Four, allowing users to challenge each other in a fun way.",
     image: FourGame,
     demoLink: "https://smitparekh84.github.io/Connect-Four-Game/",
-  },
-  {
-    id: 3,
-    title: "To-Do Buddy",
-    description:
-      "A task management app to help users organize their to-do lists efficiently and effectively.",
-    image: toDo,
-    demoLink: "https://smitparekh84.github.io/To-Do-Buddy/",
-  },
-  {
-    id: 4,
-    title: "UniCart - E-commerce Web Application",
-    description:
-      "Developed an e-commerce application with dynamic product rendering and multi-language support.",
-    image: uniCart,
-    demoLink: "https://unicart-05bt.onrender.com/",
-  },
-  {
-    id: 5,
-    title: "Smit Card Portfolio",
-    description:
-      "A personal portfolio website showcasing my projects, skills, and experiences in web development.",
-    image: cardPortfolio,
-    demoLink: "https://smit-card-portfolio.onrender.com/",
   },
   {
     id: 6,
@@ -298,12 +302,11 @@ export const portfolioData = [
   },
   {
     id: 12,
-    title: "Demo Video",
+    title: "To-Do Buddy",
     description:
-      "A showcase demo video highlighting my skills and previous works in a concise format.",
-    image: demoVideoImage,
-    demoLink:
-      "https://player.vimeo.com/video/950508563?badge=0&autopause=0&player_id=0&app_id=58479",
+      "A task management app to help users organize their to-do lists efficiently and effectively.",
+    image: toDo,
+    demoLink: "https://smitparekh84.github.io/To-Do-Buddy/",
   },
 ]
 
