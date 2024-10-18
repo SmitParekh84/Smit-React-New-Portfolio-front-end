@@ -18,11 +18,7 @@ const Testimonials = () => {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        dynamicBullets: true,
-      },
+
       breakpoints: {
         320: {
           slidesPerView: 1, // For mobile devices
@@ -80,9 +76,8 @@ const Testimonials = () => {
                   {[...Array(5)].map((_, starIndex) => (
                     <i
                       key={starIndex}
-                      className={`uil uil-star testimonial__icon-star ${
-                        starIndex < testimonial.rating ? "active" : ""
-                      }`}
+                      className={`fas fa-star testimonial__icon-star ${starIndex < testimonial.rating ? "active" : ""
+                        }`}
                     ></i>
                   ))}
                 </div>

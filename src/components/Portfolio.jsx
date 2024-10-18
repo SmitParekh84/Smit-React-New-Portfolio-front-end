@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import Swiper from "swiper"
 import { portfolioData } from "../data/data.js" // Import the data
 import LazyLoad from "react-lazyload" // Import LazyLoad
-
 const Portfolio = () => {
   useEffect(() => {
     const swiperPortfolio = new Swiper(".portfolio__container", {
@@ -17,11 +16,7 @@ const Portfolio = () => {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        dynamicBullets: true,
-      },
+
       mousewheel: true,
       keyboard: true,
     })
@@ -34,7 +29,11 @@ const Portfolio = () => {
   return (
     <section className="portfolio section" id="portfolio">
       <h2 className="section__title">Portfolio</h2>
-      <span className="section__subtitle">Showcasing My Best Work</span>
+      <span className="section__subtitle">
+        Showcasing My Best Work. Client images and information are confidential; <a href="#contact" className="button button--flex button--small button--link services__button">
+          contact me
+        </a> me for project inquiries.
+      </span>
 
       <div className="portfolio__container container swiper-container">
         <div className="swiper-wrapper">
@@ -52,13 +51,15 @@ const Portfolio = () => {
               <div className="portfolio_">
                 <h3 className="portfolio__title">{item.title}</h3>
                 <p className="portfolio__description">{item.description}</p>
-                <a
-                  href={item.demoLink}
-                  className="button button--flex button--small portfolio__button"
-                >
-                  Demo
-                  <i className="uil uil-arrow-right button__icon"></i>
-                </a>
+                {item.demoLink !== "#" && (
+                  <a
+                    href={item.demoLink}
+                    className="button button--flex button--small portfolio__button"
+                  >
+                    {item.demoBtn === "view" ? "View" : "Demo"}
+                    <i className="uil uil-arrow-right button__icon"></i>
+                  </a>
+                )}
               </div>
             </div>
           ))}
