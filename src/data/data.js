@@ -6,7 +6,7 @@ export const headerData = {
   name: "Smit Parekh",
   navLinks: [
     { id: "#home", label: "Home", icon: "uil-estate" },
-    { id: "/about", label: "About", icon: "uil-user" },
+    { id: "#about", label: "About", icon: "uil-user" },
     { id: "#skills", label: "Skills", icon: "uil-file-alt" },
     {
       id: "#qualification",
