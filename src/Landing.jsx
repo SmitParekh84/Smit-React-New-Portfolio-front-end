@@ -2,8 +2,6 @@ import React, { Suspense } from 'react';
 import loadable from '@loadable/component';
 import Loader from './components/Loader';
 
-const Header = React.lazy(() => import('./components/Header'));
-const Footer = loadable(() => import('./components/Footer'), { fallback: <Loader /> });
 
 const Home = loadable(() => import('./components/Home'), { fallback: <Loader /> });
 const About = loadable(() => import('./components/About'), { fallback: <Loader /> });
@@ -19,7 +17,7 @@ const ScrollToTop = loadable(() => import('./components/ScrollToTop'), { fallbac
 const Landing = () => {
     return (
         <Suspense fallback={<Loader />}>
-            <Header />
+
             <main className="main">
                 <Home />
                 <About />
@@ -31,7 +29,7 @@ const Landing = () => {
                 <Testimonials />
                 <ContactMe />
             </main>
-            <Footer />
+
             <ScrollToTop />
         </Suspense>
     );

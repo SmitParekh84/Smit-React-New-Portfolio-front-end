@@ -792,6 +792,26 @@ img {
   justify-self: center;
  
 }
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3 columns on larger screens */
+  gap: 30px; /* Space between grid items */
+}
+
+.portfolio__content {
+ 
+  border: 1px solid var(--first-color-second); /* Optional: Add a border */
+  border-radius: 10px; /* Optional: Rounded corners */
+  padding: 20px; /* Padding inside the item */
+  text-align: center; /* Center the text */
+}
+
+@media (max-width: 768px) {
+  .portfolio__grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+}
+
 
 .portfolio__title {
   font-size: var(--h3-font-size);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react"
 import LazyLoad from "react-lazyload" // Import LazyLoad if you want to lazy load your logo
 import { headerData } from "../data/data.js"
-
+import { Link } from "react-router-dom";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false) // State for menu visibility
   const [theme, setTheme] = useState("light") // State for theme
@@ -49,19 +49,21 @@ const Header = () => {
 
   // Function to handle active link based on scroll position
   const handleActiveLink = () => {
-    const sections = document.querySelectorAll("section") // Assuming your sections have the <section> tag
-    let scrollY = window.scrollY
+    const sections = document.querySelectorAll("section");
+    let scrollY = window.scrollY;
 
     sections.forEach((section) => {
-      const sectionHeight = section.offsetHeight
-      const sectionTop = section.offsetTop - 50 // Offset to account for header height
-      const sectionId = section.getAttribute("id")
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 50; // Adjust as necessary
+      const sectionId = section.getAttribute("id");
+
+      console.log(`scrollY: ${scrollY}, sectionTop: ${sectionTop}, sectionHeight: ${sectionHeight}, sectionId: ${sectionId}`);
 
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        setActiveSection(sectionId)
+        setActiveSection(sectionId);
       }
-    })
-  }
+    });
+  };
 
   // Function to handle scroll events for showing scroll up button
   const scrollUp = () => {
@@ -100,7 +102,7 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [])
+  }, [activeSection])
 
   return (
     <header className="header" id="header" ref={headerRef}>
@@ -126,15 +128,15 @@ const Header = () => {
           <ul className="nav__list grid">
             {headerData.navLinks.map((link) => (
               <li className="nav__item" key={link.id}>
-                <a
-                  href={`${link.id}`}
+                <Link
+                  to={`/${link.id}`}
                   className={`nav__link ${activeSection === link.id ? "active-link" : ""
                     }`}
                   onClick={closeMenu}
                 >
                   <i className={`uil ${link.icon} nav__icon`}></i>
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
