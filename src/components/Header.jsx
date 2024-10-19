@@ -129,7 +129,7 @@ const Header = () => {
             {headerData.navLinks.map((link) => (
               <li className="nav__item" key={link.id}>
                 <Link
-                  href={`/${link.id}`}
+                  to={`/${link.id}`}
                   className={`nav__link ${activeSection === link.id ? "active-link" : ""
                     }`}
                   onClick={closeMenu}
