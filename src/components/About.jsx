@@ -4,7 +4,7 @@ import { aboutData } from '../data/data.js'; // Adjust the path if necessary
 import LazyLoad from 'react-lazyload';
 
 const About = () => {
-    
+
 
     return (
         <section className="about section" id="about">
@@ -12,10 +12,10 @@ const About = () => {
             <span className="section__subtitle">{aboutData.subtitle}</span>
 
             <div className="about__container container grid">
-            <LazyLoad className="about__img" offset={100}>
-                        <img src={aboutData.image} alt={aboutData.title} className="about__img"/>
-                    </LazyLoad>
-              
+                <LazyLoad className="about__img" offset={100}>
+                    <img src={aboutData.image} alt={aboutData.title} className="about__img" />
+                </LazyLoad>
+
                 <div className="about__data">
                     <p className="about__description">
                         {aboutData.description}
@@ -36,7 +36,7 @@ const About = () => {
                     </div>
 
                     <div className="about__buttons">
-                        <a download href={aboutData.cvLink} className="button button--flex">
+                        <a href={aboutData.cvLink} className="button button--flex">
                             Download CV<i className="uil uil-download-alt button__icon"></i>
                         </a>
                     </div>
