@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
-<channel>
-  <title>ROR Sitemap for https://www.smitparekh.studio/</title>
-  <link>https://www.smitparekh.studio/</link>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/">
+  <channel>
+    <title>ROR Sitemap for https://www.smitparekh.studio/</title>
+    <link>https://www.smitparekh.studio/</link>
 
-<item>
-     <link>https://www.smitparekh.studio/</link>
-     <title>Smit Parekh - Digital Marketing &amp; Web Development Portfolio</title>
-     <description>Welcome to Smit Parekh's portfolio. Discover my skills in digital marketing, web development, SEO, and video editing. Explore my projects and services that can elevate your brand's online presence.</description>
-     <ror:updatePeriod></ror:updatePeriod>
-     <ror:sortOrder>0</ror:sortOrder>
-     <ror:resourceOf>sitemap</ror:resourceOf>
-</item>
-</channel>
+    <item>
+      <link>https://www.smitparekh.studio/</link>
+      <title>Smit Parekh - Digital Marketing &amp; Web Development Portfolio</title>
+      <description>Welcome to Smit Parekh's portfolio. Discover my skills in digital marketing, web development, SEO, and video editing. Explore my projects and services that can elevate your brand's online presence.</description>
+      <ror:updatePeriod></ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+  </channel>
 </rss>
-  
