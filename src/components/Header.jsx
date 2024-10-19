@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react"
 import LazyLoad from "react-lazyload" // Import LazyLoad if you want to lazy load your logo
 import { headerData } from "../data/data.js"
-
+import { Link } from "react-router-dom";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false) // State for menu visibility
   const [theme, setTheme] = useState("light") // State for theme
@@ -107,7 +107,7 @@ const Header = () => {
   return (
     <header className="header" id="header" ref={headerRef}>
       <nav className="nav container">
-        <a
+        <Link
           href="https://www.smitparekh.studio/"
           alt="Smit Parekh"
           className="nav__logo"
@@ -120,7 +120,7 @@ const Header = () => {
             />
           </LazyLoad>
           {headerData.name}
-        </a>
+        </Link>
         <div
           className={`nav__menu ${isMenuOpen ? "show-menu" : ""}`}
           id="nav-menu"
