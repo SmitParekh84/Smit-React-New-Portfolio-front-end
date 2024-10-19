@@ -1,22 +1,25 @@
+// App.jsx
 import React, { Suspense, useEffect, useState } from "react"
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import loadable from "@loadable/component"
 import "./assets/css/styles.css" // Your custom styles
 import "./assets/css/swiper-bundle.min.css"
 import Loader from "./components/Loader"
+import { PortfolioPage } from "./components/PortfolioPage"
 
 // Import components using lazy loading
 const Header = React.lazy(() => import("./components/Header"))
 const Footer = loadable(() => import("./components/Footer"))
 
-const Home = loadable(() => import("./components/Home"))
 const About = loadable(() => import("./components/About"))
 const Skills = loadable(() => import("./components/Skills"))
 const Qualification = loadable(() => import("./components/Qualification"))
 const Services = loadable(() => import("./components/Services"))
 const Portfolio = loadable(() => import("./components/Portfolio"))
 const Project = loadable(() => import("./components/Project"))
-const Testimonials = loadable(() => import("./components/Testimonials")) // Ensure Testimonials is imported
+const Testimonials = loadable(() => import("./components/Testimonials"))
 const ContactMe = loadable(() => import("./components/ContactMe"))
+const Landing = loadable(() => import("./Landing")) // Landing page component
 
 const ErrorBoundary = ({ children }) => {
   const [hasError, setHasError] = useState(false)
@@ -55,23 +58,28 @@ const App = () => {
   }, [])
 
   return (
-    <ErrorBoundary>
-      <Suspense fallback={<Loader />}>
-        <Header />
-        <main className="main">
-          <Home />
-          <About />
-          <Skills />
-          <Qualification />
-          <Services />
-          <Portfolio />
-          <Project />
-          {showTestimonials && <Testimonials />}
-          {showContactMe && <ContactMe />}
-        </main>
-        <Footer />
-      </Suspense>
-    </ErrorBoundary>
+    <Router>
+      <ErrorBoundary>
+        <Suspense fallback={<Loader />}>
+          <Header />
+          <main className="main">
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/qualification" element={<Qualification />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/portfolio" element={<PortfolioPage />} />
+              <Route path="/project" element={<Project />} />
+              <Route path="/testimonials" element={showTestimonials ? <Testimonials /> : <Loader />} />
+              <Route path="/contact" element={<ContactMe /> } />
+              <Route path="*" element={<Navigate to="/" replace />} /> {/* Redirect unknown paths */}
+            </Routes>
+          </main>
+          <Footer />
+        </Suspense>
+      </ErrorBoundary>
+    </Router>
   )
 }
 
