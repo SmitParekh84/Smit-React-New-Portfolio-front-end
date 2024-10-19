@@ -15,7 +15,7 @@ export const headerData = {
     },
     { id: "services", label: "Services", icon: "uil-briefcase-alt" },
     { id: "portfolio", label: "Portfolio", icon: "uil-scenery" },
-    { id: "contact", label: "Contact", icon: "uil-message" },
+    { id: "contact", label: "Contact Me", icon: "uil-message" },
   ],
 }
 
