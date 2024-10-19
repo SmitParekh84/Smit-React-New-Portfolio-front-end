@@ -107,7 +107,7 @@ const Header = () => {
   return (
     <header className="header" id="header" ref={headerRef}>
       <nav className="nav container">
-        <Link
+        <a
           href="https://www.smitparekh.studio/"
           alt="Smit Parekh"
           className="nav__logo"
@@ -120,7 +120,7 @@ const Header = () => {
             />
           </LazyLoad>
           {headerData.name}
-        </Link>
+        </a>
         <div
           className={`nav__menu ${isMenuOpen ? "show-menu" : ""}`}
           id="nav-menu"
@@ -128,7 +128,7 @@ const Header = () => {
           <ul className="nav__list grid">
             {headerData.navLinks.map((link) => (
               <li className="nav__item" key={link.id}>
-                <a
+                <Link
                   href={`/${link.id}`}
                   className={`nav__link ${activeSection === link.id ? "active-link" : ""
                     }`}
@@ -136,7 +136,7 @@ const Header = () => {
                 >
                   <i className={`uil ${link.icon} nav__icon`}></i>
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
