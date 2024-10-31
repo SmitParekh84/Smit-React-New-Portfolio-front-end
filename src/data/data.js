@@ -5,17 +5,17 @@ export const headerData = {
   logo: LogoIcon,
   name: "Smit Parekh",
   navLinks: [
-    { id: "", label: "Home", icon: "uil-estate" },
-    { id: "about", label: "About", icon: "uil-user" },
-    { id: "skills", label: "Skills", icon: "uil-file-alt" },
+    { id: "https://www.smitparekh.studio/", label: "Home", icon: "uil-estate" },
+    { id: "/about", label: "About", icon: "uil-user" },
+    { id: "/skills", label: "Skills", icon: "uil-file-alt" },
     {
-      id: "qualification",
+      id: "/qualification",
       label: "Qualification",
       icon: "uil-graduation-cap",
     },
-    { id: "services", label: "Services", icon: "uil-briefcase-alt" },
-    { id: "portfolio", label: "Portfolio", icon: "uil-scenery" },
-    { id: "contact", label: "Contact Me", icon: "uil-message" },
+    { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
+    { id: "/portfolio", label: "Portfolio", icon: "uil-scenery" },
+    { id: "/contact", label: "Contact Me", icon: "uil-message" },
   ],
 }
 
@@ -40,8 +40,8 @@ export const homeData = {
 }
 import AboutImage from "/images/Smit-Parekh-About.webp"
 export const aboutData = {
-  title: "About Me",
-  subtitle: "Meet Smit Parekh",
+  title: "Smit Parekh - Marketing Manager & Back-end Developer",
+  subtitle: "Meet, Smit Parekh",
   image: AboutImage,
   description:
     "As a Marketing Manager and Back-end Developer, I blend strategy, creativity, and technical expertise to drive impactful results. I specialize in crafting data-driven marketing strategies and developing scalable backend solutions. My passion for innovation and continuous learning fuels my commitment to creating value through collaboration and results-oriented projects.",
@@ -416,7 +416,7 @@ export const footerData = {
     },
     { href: "mailto:smitparekh02@gmail.com", iconClass: "uil uil-envelope" },
     {
-      href: "https://www.linkedin.com/in/smit-parekh-497b87231/",
+      href: "https://www.linkedin.com/in/smitparekh84/",
       iconClass: "uil uil-linkedin-alt",
     },
     {
