@@ -11,7 +11,7 @@ const About = () => {
 
     return (<>
         <Helmet>
-            <title>About - Marketing Manager & Back-end Developer | Smit Parekh</title>
+            <title>About - Marketing Manager & Full-stack Developer | Smit Parekh</title>
             <meta
                 name="description"
                 content="Discover Smit Parekh, a Marketing Manager & Back-end Developer with over 3 years of experience, 10+ certifications, and a blend of strategic, creative, and technical skills."
