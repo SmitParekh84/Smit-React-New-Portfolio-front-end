@@ -1,6 +1,6 @@
 // data.js
 
-import LogoIcon from "/logo.png"
+import LogoIcon from "/favicon_512.png"
 export const headerData = {
   logo: LogoIcon,
   name: "Smit Parekh",
