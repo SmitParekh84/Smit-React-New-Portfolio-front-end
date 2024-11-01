@@ -10,7 +10,7 @@ const Project = () => {
             <p className="project__description">
               Contact me now and get discounts on your Web development projects.
             </p>
-            <a href="#contact" className="button button--flex button--white">
+            <a href="/contact" className="button button--flex button--white">
               Contact me
               <i className="uil uil-message project__icon button__icon"></i>
             </a>

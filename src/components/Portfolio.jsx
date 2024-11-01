@@ -30,7 +30,7 @@ const Portfolio = () => {
     <section className="portfolio section" id="portfolio">
       <h2 className="section__title">Portfolio</h2>
       <span className="section__subtitle">
-        Showcasing My Best Work. Client images and information are confidential; <a href="#contact" className="button button--flex button--small button--link services__button">
+        Showcasing My Best Work. Client images and information are confidential; <a href="/contact" className="button button--flex button--small button--link services__button">
           contact me
         </a> me for project inquiries.
       </span>
