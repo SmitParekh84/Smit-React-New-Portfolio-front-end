@@ -22,7 +22,7 @@ export const headerData = {
 import HomeImage from "/images/Smit-Parekh-Home.webp"
 export const homeData = {
   title: "Hi, I'm Smit Parekh",
-  subtitle: "Marketing Manager/Node.js Developer",
+  subtitle: "Marketing Manager/Full-stack Developer",
   description:
     "We create smart marketing strategies and reliable backend systems that help brands grow and thrive.",
   socialLinks: [
@@ -40,7 +40,7 @@ export const homeData = {
 }
 import AboutImage from "/images/Smit-Parekh-About.webp"
 export const aboutData = {
-  title: "Smit Parekh - Marketing Manager & Back-end Developer",
+  title: "Marketing Manager & Full-stack Developer",
   subtitle: "Meet, Smit Parekh",
   image: AboutImage,
   description:
@@ -107,7 +107,7 @@ export const qualificationsData = {
   ],
   work: [
     {
-      title: "Marketing Manager and Node.js Developer",
+      title: "Marketing Manager and Full-stack Developer",
       subtitle: "Cilans System",
       date: "Aug 2024 - Present",
     },
