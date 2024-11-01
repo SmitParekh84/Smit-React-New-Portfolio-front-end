@@ -207,7 +207,7 @@ import socialMediaCampaignImage from '/images/socialMediaCampaignImage.png';
 import wordpressProjectImage from '/images/wordpressProjectImage.png';
 import contentStrategyImage from '/images/contentStrategyImage.png';
 import seoAuditImage from '/images/seoAuditImage.png';
-export const marketixpertImage = 'https://miro.medium.com/v2/resize:fit:1400/1*qnDUcyj63RXLP4gvIiOVwg.jpeg';
+export const marketixpertImage = '/images/marketixpertImage.jpg';
 export const portfolioData = [
 
   {
@@ -405,9 +405,10 @@ export const footerData = {
   title: "Smit Parekh",
   subtitle: "Full Stack Developer & Marketing Manager",
   links: [
-    { href: "#services", label: "Services" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#contact", label: "Contact" },
+    { href: "/services", label: "Services" },
+    { href: "/portfolio", label: "Portfolio" },
+    { href: "/qualification", label: "Experience" },
+    { href: "/contact", label: "Contact Me" },
   ],
   socialLinks: [
     {
