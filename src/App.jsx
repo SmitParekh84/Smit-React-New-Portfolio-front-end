@@ -1,23 +1,22 @@
 import React, { Suspense, useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import { HelmetProvider } from "react-helmet-async"
-import loadable from "@loadable/component"
 import "./assets/css/styles.css"
 import "./assets/css/swiper-bundle.min.css"
 import Loader from "./components/Loader"
 import { PortfolioPage } from "./components/PortfolioPage"
-
+import Landing from "./Landing"
 const Header = React.lazy(() => import("./components/Header"))
-const Footer = loadable(() => import("./components/Footer"))
-const About = loadable(() => import("./components/About"))
-const Skills = loadable(() => import("./components/Skills"))
-const Qualification = loadable(() => import("./components/Qualification"))
-const Services = loadable(() => import("./components/Services"))
-const Portfolio = loadable(() => import("./components/Portfolio"))
-const Project = loadable(() => import("./components/Project"))
-const Testimonials = loadable(() => import("./components/Testimonials"))
-const ContactMe = loadable(() => import("./components/ContactMe"))
-const Landing = loadable(() => import("./Landing"))
+const Footer = React.lazy(() => import("./components/Footer"))
+const About = React.lazy(() => import("./components/About"))
+const Skills = React.lazy(() => import("./components/Skills"))
+const Qualification = React.lazy(() => import("./components/Qualification"))
+const Services = React.lazy(() => import("./components/Services"))
+const Portfolio = React.lazy(() => import("./components/Portfolio"))
+const Project = React.lazy(() => import("./components/Project"))
+const Testimonials = React.lazy(() => import("./components/Testimonials"))
+const ContactMe = React.lazy(() => import("./components/ContactMe"))
+
 
 const App = () => {
   const [showTestimonials, setShowTestimonials] = useState(false)
@@ -42,8 +41,10 @@ const App = () => {
   return (
     <HelmetProvider>
       <Router>
-        <Suspense fallback={<Loader />}>
-          <Header />
+
+
+        <Header />
+        <Suspense fallback={<div className="loader-overlay-componet"><Loader /></div>}>
           <main className="main">
             <Routes>
               <Route path="/" element={<Landing />} />
@@ -58,8 +59,8 @@ const App = () => {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
-          <Footer />
         </Suspense>
+        <Footer />
       </Router>
     </HelmetProvider>
   )

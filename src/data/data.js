@@ -5,7 +5,7 @@ export const headerData = {
   logo: LogoIcon,
   name: "Smit Parekh",
   navLinks: [
-    { id: "https://www.smitparekh.studio/", label: "Home", icon: "uil-estate" },
+    { id: "/", label: "Home", icon: "uil-estate" },
     { id: "/about", label: "About", icon: "uil-user" },
     { id: "/skills", label: "Skills", icon: "uil-file-alt" },
     {
