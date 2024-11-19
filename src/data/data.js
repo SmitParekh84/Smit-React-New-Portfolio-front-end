@@ -19,7 +19,7 @@ export const headerData = {
   ],
 }
 
-import HomeImage from "/images/Smit-Parekh-Home.webp"
+import HomeImage from "/images/Smit-Parekh-Home.png"
 export const homeData = {
   title: "Hi, I'm Smit Parekh",
   subtitle: "Marketing Manager/Full-stack Developer",
