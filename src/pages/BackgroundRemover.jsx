@@ -11,10 +11,16 @@ const BackgroundRemover = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
 
     const validFileTypes = ["image/png", "image/jpeg", "image/jpg", "image/webp"];
-
+    const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
     const handleRemoveBackground = async () => {
         if (!selectedFile) {
             toast.error("Please select an image.");
+            return;
+        }
+
+        // Validate file size
+        if (selectedFile.size > MAX_FILE_SIZE) {
+            toast.error("File is too large. Maximum size is 5MB.");
             return;
         }
         setLoading(true);

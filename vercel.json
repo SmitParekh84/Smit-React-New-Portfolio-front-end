@@ -14,5 +14,11 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/remove-bg.js": {
+      "maxDuration": 10,
+      "memory": 1024
+    }
+  }
 }
