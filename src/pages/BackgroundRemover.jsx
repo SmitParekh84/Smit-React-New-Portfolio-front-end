@@ -60,7 +60,7 @@ const BackgroundRemover = () => {
             if (file) {
                 if (validFileTypes.includes(file.type)) {
                     setSelectedFile(file);
-
+                    toast.success("Successfully Uploaded!");
                 } else {
                     toast.error("Invalid file type. Please upload PNG, JPEG, JPG, or WEBP.");
                 }
