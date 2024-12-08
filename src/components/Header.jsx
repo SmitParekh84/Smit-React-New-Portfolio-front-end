@@ -1,63 +1,55 @@
-import React, { useEffect, useState, useRef } from "react"
-import LazyLoad from "react-lazyload" // Import LazyLoad if you want to lazy load your logo
-import { headerData } from "../data/data.js"
+import React, { useEffect, useState, useRef } from "react";
+import LazyLoad from "react-lazyload";
+import { headerData } from "../data/data.js";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar"; // Import the Navbar component
+
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false) // State for menu visibility
-  const [theme, setTheme] = useState("light") // State for theme
-  const [activeSection, setActiveSection] = useState("home") // State for active section
-  const darkTheme = "dark-theme"
-  const iconTheme = "uil-sun"
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState("light");
+  const [activeSection, setActiveSection] = useState("home");
+  const darkTheme = "dark-theme";
 
-  // Ref for header element
-  const headerRef = useRef(null)
+  const headerRef = useRef(null);
 
-  // Function to toggle menu visibility
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen) // Toggle menu open/close
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-  // Function to close the menu
   const closeMenu = () => {
-    setIsMenuOpen(false) // Close menu
-  }
+    setIsMenuOpen(false);
+  };
 
-  // Function to handle theme toggle
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light"
-    setTheme(newTheme)
-    document.body.className = newTheme === "dark" ? darkTheme : "" // Apply theme class to body
-    localStorage.setItem("selected-theme", newTheme)
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.body.className = newTheme === "dark" ? darkTheme : "";
+    localStorage.setItem("selected-theme", newTheme);
     localStorage.setItem(
       "selected-icon",
       newTheme === "light" ? "uil-moon" : "uil-sun"
-    )
-  }
+    );
+  };
 
-  // Function to handle scroll events for changing header background
   const scrollHeader = () => {
-    const nav = headerRef.current // Use ref to access header
+    const nav = headerRef.current;
     if (nav) {
-      // Check if nav is not null
       if (window.scrollY >= 80) {
-        nav.classList.add("scroll-header")
+        nav.classList.add("scroll-header");
       } else {
-        nav.classList.remove("scroll-header")
+        nav.classList.remove("scroll-header");
       }
     }
-  }
+  };
 
-  // Function to handle active link based on scroll position
   const handleActiveLink = () => {
     const sections = document.querySelectorAll("section");
     let scrollY = window.scrollY;
 
     sections.forEach((section) => {
       const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 50; // Adjust as necessary
+      const sectionTop = section.offsetTop - 50;
       const sectionId = section.getAttribute("id");
-
-      console.log(`scrollY: ${scrollY}, sectionTop: ${sectionTop}, sectionHeight: ${sectionHeight}, sectionId: ${sectionId}`);
 
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
         setActiveSection(sectionId);
@@ -65,44 +57,38 @@ const Header = () => {
     });
   };
 
-  // Function to handle scroll events for showing scroll up button
   const scrollUp = () => {
-    const scrollUpButton = document.getElementById("scroll-up")
+    const scrollUpButton = document.getElementById("scroll-up");
     if (scrollUpButton) {
-      // Check if scrollUpButton is not null
       if (window.scrollY >= 560) {
-        scrollUpButton.classList.add("show-scroll")
+        scrollUpButton.classList.add("show-scroll");
       } else {
-        scrollUpButton.classList.remove("show-scroll")
+        scrollUpButton.classList.remove("show-scroll");
       }
     }
-  }
+  };
 
   useEffect(() => {
-    // Check for previously selected theme and icon
-    const selectedTheme = localStorage.getItem("selected-theme")
-    const selectedIcon = localStorage.getItem("selected-icon")
+    const selectedTheme = localStorage.getItem("selected-theme");
+    const selectedIcon = localStorage.getItem("selected-icon");
 
-    // Apply previously selected theme
     if (selectedTheme) {
-      setTheme(selectedTheme)
-      document.body.className = selectedTheme === "dark" ? darkTheme : "" // Set body class
+      setTheme(selectedTheme);
+      document.body.className = selectedTheme === "dark" ? darkTheme : "";
     }
 
-    // Set scroll event listeners
     const handleScroll = () => {
-      scrollHeader()
-      scrollUp()
-      handleActiveLink() // Call the function to handle active links
-    }
+      scrollHeader();
+      scrollUp();
+      handleActiveLink();
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
-    // Cleanup event listeners on component unmount
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [activeSection])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [activeSection]);
 
   return (
     <header className="header" id="header" ref={headerRef}>
@@ -121,32 +107,14 @@ const Header = () => {
           </LazyLoad>
           {headerData.name}
         </a>
-        <div
-          className={`nav__menu ${isMenuOpen ? "show-menu" : ""}`}
-          id="nav-menu"
-        >
-          <ul className="nav__list grid">
-            {headerData.navLinks.map((link) => (
-              <li className="nav__item" key={link.id}>
-                <Link
-                  to={`${link.id}`}
-                  className={`nav__link ${activeSection === link.id ? "active-link" : ""
-                    }`}
-                  onClick={closeMenu}
-                >
-                  <i className={`uil ${link.icon} nav__icon`}></i>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <i className="uil uil-times nav__close" onClick={closeMenu}></i>
-        </div>
+
+        {/* Navbar Component */}
+        <Navbar isMenuOpen={isMenuOpen} closeMenu={closeMenu} activeSection={activeSection} />
+
+        {/* Mobile Menu Button */}
         <div className="nav__btns">
-          {/* Theme change button */}
           <i
-            className={`uil ${theme === "light" ? "uil-moon" : "uil-sun"
-              } change-theme`}
+            className={`uil ${theme === "light" ? "uil-moon" : "uil-sun"} change-theme`}
             id="theme-button"
             onClick={toggleTheme}
           ></i>
@@ -156,7 +124,7 @@ const Header = () => {
         </div>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

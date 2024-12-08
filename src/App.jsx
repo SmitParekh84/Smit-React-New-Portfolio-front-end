@@ -6,9 +6,10 @@ import "./assets/css/swiper-bundle.min.css"
 import Loader from "./components/Loader"
 import { PortfolioPage } from "./components/PortfolioPage"
 import Landing from "./Landing"
+import BackgroundRemover from "./pages/BackgroundRemover"
 const Header = React.lazy(() => import("./components/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
-const About = React.lazy(() => import("./components/About"))
+const AboutPage = React.lazy(() => import("./pages/AboutPage"))
 const Skills = React.lazy(() => import("./components/Skills"))
 const Qualification = React.lazy(() => import("./components/Qualification"))
 const Services = React.lazy(() => import("./components/Services"))
@@ -48,7 +49,7 @@ const App = () => {
           <main className="main">
             <Routes>
               <Route path="/" element={<Landing />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/qualification" element={<Qualification />} />
               <Route path="/services" element={<Services />} />
@@ -57,6 +58,8 @@ const App = () => {
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/contact" element={<ContactMe />} />
               <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="/background-remover" element={<BackgroundRemover />} />
+
             </Routes>
           </main>
         </Suspense>

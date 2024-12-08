@@ -1,18 +1,18 @@
 import React from 'react';
 import { footerData } from '../data/data'; // Adjust the path as necessary
 import LazyLoad from 'react-lazyload';
-import { headerData } from '../data/data.js'
+import { headerData } from '../data/data.js';
 
-// Import LazyLoad if you want to lazy load your logo
 const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer__bg">
                 <div className="footer__container container grid">
-                    <div>
-                        <a href="https://www.smitparekh.studio/" alt='Smit Parekh' >
-                            <h1 className="footer__title  ">{footerData.title}</h1>
-                            <span className="footer__subtitle">{footerData.subtitle}</span></a>
+                    <div className="footer__brand">
+                        <a href="https://www.smitparekh.studio/" alt="Smit Parekh">
+                            <h1 className="footer__title">{footerData.title}</h1>
+                            <span className="footer__subtitle">{footerData.subtitle}</span>
+                        </a>
                     </div>
 
                     <ul className="footer__links">

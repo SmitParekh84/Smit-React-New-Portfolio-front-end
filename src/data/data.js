@@ -4,17 +4,22 @@ import LogoIcon from "/favicon_512.png"
 export const headerData = {
   logo: LogoIcon,
   name: "Smit Parekh",
-  navLinks: [
+  desktopNavLinks: [
+    { id: "/", label: "Home", icon: "uil-estate" },
+    { id: "/about", label: "About", icon: "uil-user" },
+    { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
+    { id: "/portfolio", label: "Portfolio", icon: "uil-scenery" },
+    { id: "/background-remover", label: "Bg-Remover", icon: "uil-trash" },
+    { id: "/contact", label: "Contact Me", icon: "uil-message" },
+  ],
+  mobileNavLinks: [
     { id: "/", label: "Home", icon: "uil-estate" },
     { id: "/about", label: "About", icon: "uil-user" },
     { id: "/skills", label: "Skills", icon: "uil-file-alt" },
-    {
-      id: "/qualification",
-      label: "Qualification",
-      icon: "uil-graduation-cap",
-    },
+    { id: "/qualification", label: "Qualification", icon: "uil-graduation-cap" },
     { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
     { id: "/portfolio", label: "Portfolio", icon: "uil-scenery" },
+    { id: "/background-remover", label: "Bg-Remover", icon: "uil-trash" },
     { id: "/contact", label: "Contact Me", icon: "uil-message" },
   ],
 }
