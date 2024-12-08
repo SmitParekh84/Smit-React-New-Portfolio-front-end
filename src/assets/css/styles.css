@@ -1113,8 +1113,9 @@ img {
 
 .bg-remover-image {
   max-width: 100%; /* Ensure image doesn't overflow horizontally */
-  max-height: 500px; 
+ 
   object-fit: cover;
+  
   height: auto;
   border: 1px solid #ddd;
   border-radius: 8px;
