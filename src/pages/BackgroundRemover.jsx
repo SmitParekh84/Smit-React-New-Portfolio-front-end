@@ -60,7 +60,7 @@ const BackgroundRemover = () => {
             if (file) {
                 if (validFileTypes.includes(file.type)) {
                     setSelectedFile(file);
-                    toast.success("Valid image file selected!");
+
                 } else {
                     toast.error("Invalid file type. Please upload PNG, JPEG, JPG, or WEBP.");
                 }
@@ -73,44 +73,45 @@ const BackgroundRemover = () => {
     });
 
     return (
-        <><Helmet>
-            <title>Background Remover | Free Image Background Removal Tool</title>
-            <meta
-                name="description"
-                content="Use our free background remover tool to easily remove the background from your images. Upload your image and download the background-free version in seconds!"
-            />
-            <meta
-                name="keywords"
-                content="background remover, free background remover, remove image background, background removal tool, online image background removal"
-            />
-            <meta name="author" content="Smit Parekh" />
-            <link rel="canonical" href="https://www.smitparekh.studio/background-remover" />
+        <>
+            <Helmet>
+                <title>Background Remover | Free Image Background Removal Tool</title>
+                <meta
+                    name="description"
+                    content="Use our free background remover tool to easily remove the background from your images. Upload your image and download the background-free version in seconds!"
+                />
+                <meta
+                    name="keywords"
+                    content="background remover, free background remover, remove image background, background removal tool, online image background removal"
+                />
+                <meta name="author" content="Smit Parekh" />
+                <link rel="canonical" href="https://www.smitparekh.studio/background-remover" />
 
-            {/* Open Graph Tags */}
-            <meta property="og:title" content="Free Background Remover Tool" />
-            <meta
-                property="og:description"
-                content="Easily remove the background from your images using our free tool. Perfect for professionals and casual users alike. Upload and download your image in seconds!"
-            />
-            <meta
-                property="og:image"
-                content="https://www.smitparekh.studio/images/Background-Remover.png"
-            />
-            <meta property="og:url" content="https://www.smitparekh.studio/background-remover" />
-            <meta property="og:type" content="website" />
+                {/* Open Graph Tags */}
+                <meta property="og:title" content="Free Background Remover Tool" />
+                <meta
+                    property="og:description"
+                    content="Easily remove the background from your images using our free tool. Perfect for professionals and casual users alike. Upload and download your image in seconds!"
+                />
+                <meta
+                    property="og:image"
+                    content="https://www.smitparekh.studio/images/Background-Remover.png"
+                />
+                <meta property="og:url" content="https://www.smitparekh.studio/background-remover" />
+                <meta property="og:type" content="website" />
 
-            {/* Twitter Card Tags */}
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Free Background Remover Tool" />
-            <meta
-                name="twitter:description"
-                content="Use our free tool to quickly remove backgrounds from images. Upload and download your image in just a few clicks!"
-            />
-            <meta name="twitter:image" content="https://www.smitparekh.studio/images/Background-Remover.png" />
+                {/* Twitter Card Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Free Background Remover Tool" />
+                <meta
+                    name="twitter:description"
+                    content="Use our free tool to quickly remove backgrounds from images. Upload and download your image in just a few clicks!"
+                />
+                <meta name="twitter:image" content="https://www.smitparekh.studio/images/Background-Remover.png" />
 
-            {/* Structured Data - JSON-LD */}
-            <script type="application/ld+json">
-                {`
+                {/* Structured Data - JSON-LD */}
+                <script type="application/ld+json">
+                    {`
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
@@ -125,8 +126,8 @@ const BackgroundRemover = () => {
             }
         }
         `}
-            </script>
-        </Helmet>
+                </script>
+            </Helmet>
             <section className="bg-remover-box container">
                 {/* The ToastContainer is where toasts will be shown */}
                 <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
@@ -139,7 +140,7 @@ const BackgroundRemover = () => {
                             className="bg-dropzone"
                             style={{
                                 border: "2px dashed #ddd",
-                                padding: "20px",
+                                padding: "100px",
                                 textAlign: "center",
                                 marginBottom: "20px",
                             }}
