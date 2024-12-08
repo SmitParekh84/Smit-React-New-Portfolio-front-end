@@ -72,6 +72,7 @@ export const skillsData = [
     title: "Digital Marketing",
     subtitle: "More than 3 years",
     skills: [
+      { name: "SEO", percentage: "90%" },
       { name: "Social Media Management", percentage: "80%" },
       { name: "Brand Promotion", percentage: "80%" },
       { name: "Video Content Creation", percentage: "70%" },
