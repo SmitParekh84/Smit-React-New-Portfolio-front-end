@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 const BackgroundRemover = () => {
-
+    
     const [selectedFile, setSelectedFile] = useState(null);
     const [processedImage, setProcessedImage] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ const BackgroundRemover = () => {
         formData.append("image", selectedFile);
 
         try {
-            const response = await fetch(`${apiUrl}`, {
+            const response = await fetch(`${apiUrl}/api/remove-bg`, {
                 method: "POST",
                 body: formData,
             });
