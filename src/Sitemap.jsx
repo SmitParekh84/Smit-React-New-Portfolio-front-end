@@ -13,6 +13,7 @@ const Sitemap = () => {
                 'https://www.smitparekh.studio/portfolio',
                 'https://www.smitparekh.studio/contact',
                 'https://www.smitparekh.studio/services',
+                'https://www.smitparekh.studio/background-remover',
                 // Add other routes here
             ]}
         />
