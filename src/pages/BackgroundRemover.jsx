@@ -202,7 +202,7 @@ const BackgroundRemover = () => {
                                 />
                             </div>
                         )}
-
+                        {selectedFile && (
                         <button
                             onClick={handleClear}
                             className="button button--clear"
@@ -217,7 +217,7 @@ const BackgroundRemover = () => {
                             }}
                         >
                             Clear
-                        </button>
+                        </button>)}
 
                         <button
                             onClick={handleRemoveBackground}
