@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Helmet } from "react-helmet";
-import { ToastContainer, toast } from "react-toastify";  // Import ToastContainer and toast from react-toastify
-import "react-toastify/dist/ReactToastify.css";  // Import the CSS for toastify
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BackgroundRemover = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -11,7 +11,8 @@ const BackgroundRemover = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
 
     const validFileTypes = ["image/png", "image/jpeg", "image/jpg", "image/webp"];
-    const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
+    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 5MB in bytes
+
     const handleRemoveBackground = async () => {
         if (!selectedFile) {
             toast.error("Please select an image.");
@@ -20,13 +21,13 @@ const BackgroundRemover = () => {
 
         // Validate file size
         if (selectedFile.size > MAX_FILE_SIZE) {
-            toast.error("File is too large. Maximum size is 5MB.");
+            toast.error("File is too large. Maximum size is 10MB.");
             return;
         }
         setLoading(true);
 
         const formData = new FormData();
-        formData.append("image", selectedFile);
+        formData.append("image", selectedFile);  // Ensure you're appending the image here
 
         try {
             const response = await fetch(`${apiUrl}/api/remove-bg`, {
@@ -34,13 +35,21 @@ const BackgroundRemover = () => {
                 body: formData,
             });
 
-            if (!response.ok) throw new Error("Failed to process image.");
+            if (!response.ok) {
+                const data = await response.json();
+                toast.error(data.error || "Failed to process the image. Please try again.");
+                return;
+            }
 
-            const blob = await response.blob();
-            setProcessedImage(URL.createObjectURL(blob));
-            toast.success("Image processed successfully!");
+            const data = await response.json();  // Expecting JSON with imageUrl
+            if (data.imageUrl) {
+                setProcessedImage(data.imageUrl);  // Set the image URL directly from the response
+                toast.success("Image processed successfully!");
+            } else {
+                toast.error("Unexpected error occurred. Please try again.");
+            }
         } catch (error) {
-            toast.error("Failed to process the image. Please try again.");
+            toast.error("Failed to process the image. Please check your connection or try again later.");
             console.error(error.message);
         } finally {
             setLoading(false);
@@ -48,8 +57,33 @@ const BackgroundRemover = () => {
     };
 
     const handleDownload = () => {
+        if (!processedImage) {
+            toast.error("No processed image available to download.");
+            return;
+        }
+
+        // Create an anchor link for downloading
         const link = document.createElement("a");
-        link.href = processedImage;
+
+        // If the processed image is a Blob URL, use it directly
+        if (processedImage.startsWith('data:image')) {
+            link.href = processedImage;
+        } else {
+            // If the processed image is a URL (e.g., a URL returned by the API), fetch the image as a Blob
+            fetch(processedImage)
+                .then((res) => res.blob())
+                .then((blob) => {
+                    const objectURL = URL.createObjectURL(blob);
+                    link.href = objectURL;
+                    link.download = "processed-image.png";
+                    link.click();
+                })
+                .catch((err) => {
+                    toast.error("Error fetching image.");
+                    console.error(err);
+                });
+        }
+
         link.download = "processed-image.png";
         link.click();
     };
@@ -66,7 +100,7 @@ const BackgroundRemover = () => {
             if (file) {
                 if (validFileTypes.includes(file.type)) {
                     setSelectedFile(file);
-                    toast.success("Successfully Uploaded!");
+                    toast.success("File selected successfully.");
                 } else {
                     toast.error("Invalid file type. Please upload PNG, JPEG, JPG, or WEBP.");
                 }
@@ -118,24 +152,23 @@ const BackgroundRemover = () => {
                 {/* Structured Data - JSON-LD */}
                 <script type="application/ld+json">
                     {`
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Background Remover",
-            "url": "https://www.smitparekh.studio/background-remover",
-            "description": "Use this free background remover tool to remove the background from images quickly and easily. Perfect for designers, marketers, and casual users.",
-            "image": "https://www.smitparekh.studio/images/Background-Remover.png",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Smit Parekh Studio",
-                "url": "https://www.smitparekh.studio"
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "Background Remover",
+                "url": "https://www.smitparekh.studio/background-remover",
+                "description": "Use this free background remover tool to remove the background from images quickly and easily. Perfect for designers, marketers, and casual users.",
+                "image": "https://www.smitparekh.studio/images/Background-Remover.png",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Smit Parekh Studio",
+                    "url": "https://www.smitparekh.studio"
+                }
             }
-        }
-        `}
+            `}
                 </script>
             </Helmet>
             <section className="bg-remover-box container">
-                {/* The ToastContainer is where toasts will be shown */}
                 <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
                 <h2 className="section__title">Background Remover</h2>
                 <p className="section__subtitle">Upload an image to remove its background.</p>
@@ -167,25 +200,25 @@ const BackgroundRemover = () => {
                                         marginBottom: "20px",
                                     }}
                                 />
-
                             </div>
                         )}
-                        {selectedFile && (
-                            <button
-                                onClick={handleClear}
-                                className="button button--clear"
-                                style={{
-                                    backgroundColor: "#ff6b6b",
-                                    color: "#fff",
-                                    border: "none",
-                                    padding: "10px 15px",
-                                    cursor: "pointer",
-                                    marginTop: "10px",
-                                    marginBottom: "20px",
-                                }}
-                            >
-                                Clear
-                            </button>)}
+
+                        <button
+                            onClick={handleClear}
+                            className="button button--clear"
+                            style={{
+                                backgroundColor: "#ff6b6b",
+                                color: "#fff",
+                                border: "none",
+                                padding: "10px 15px",
+                                cursor: "pointer",
+                                marginTop: "20px",
+                                marginBottom: "20px",
+                            }}
+                        >
+                            Clear
+                        </button>
+
                         <button
                             onClick={handleRemoveBackground}
                             className="button button--flex"
