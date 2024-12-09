@@ -1,5 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import { Helmet } from "react-helmet-async";  // Import Helmet
 import "./assets/css/styles.css"
 import "./assets/css/swiper-bundle.min.css"
 import Loader from "./components/Loader"
@@ -42,8 +43,8 @@ const App = () => {
     <Router>
 
 
+      <Header />
       <Suspense fallback={<div className="loader-overlay-componet"><Loader /></div>}>
-        <Header />
         <main className="main">
           <Routes>
             <Route path="/" element={<Landing />} />
@@ -60,8 +61,8 @@ const App = () => {
 
           </Routes>
         </main>
-        <Footer />
       </Suspense>
+      <Footer />
     </Router>
   )
 }
