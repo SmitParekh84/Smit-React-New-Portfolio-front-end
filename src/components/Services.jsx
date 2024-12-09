@@ -18,7 +18,7 @@ const Services = () => {
     <>
       <Helmet>
 
-        <title>Smit Parekh - Professional Services: Web Development, SEO, Marketing & More</title>
+        <title>Professional Services: Web Development, SEO, Marketing & More | Smit Parekh</title>
         <meta
           name="description"
           content="Explore a range of professional services by Smit Parekh, including Full Stack Web Development, SEO Optimization, Digital Marketing Strategy, Social Media Marketing, Video Editing, and Graphic Design. Tailored to elevate your brand's digital presence."

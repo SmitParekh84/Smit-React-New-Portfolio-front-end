@@ -10,7 +10,7 @@ export const PortfolioPage = () => {
         <>
 
             <Helmet>
-                <title>Smit Parekh - Portfolio of Projects: Web Development, SEO, Digital Marketing & More</title>
+                <title>Portfolio of Projects: Web Development, SEO, Digital Marketing & More | Smit Parekh</title>
                 <meta
                     name="description"
                     content="Explore the diverse portfolio of Smit Parekh, showcasing projects in SEO Optimization, Digital Marketing, Web Development, Video Editing, and Graphic Design. Discover innovative solutions tailored for various clients."
