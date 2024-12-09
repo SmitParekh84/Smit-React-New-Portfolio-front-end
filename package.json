@@ -23,7 +23,7 @@
     "react-helmet-async": "^2.0.5",
     "react-lazyload": "^3.2.1",
     "react-query": "^3.39.3",
-    "react-router-dom": "^6.27.0",
+    "react-router-dom": "^7.0.2",
     "react-scroll": "^1.9.0",
     "react-toastify": "^10.0.6",
     "sitemap": "^8.0.0",
