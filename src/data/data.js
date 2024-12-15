@@ -224,7 +224,7 @@ export const portfolioData = [
     description:
       "Performed on-page and off-page SEO for a client, including keyword research, page ranking analysis, and optimization strategies to enhance search visibility.",
     image: insightifiImage,
-    demoLink: "#",
+    demoLink: "https://www.smitparekh.studio/contact",
   },
   {
     id: 14,
@@ -232,7 +232,7 @@ export const portfolioData = [
     description:
       "Developed comprehensive digital marketing strategies for a client, focusing on SEO optimization, social media engagement, and lead generation to enhance online presence.",
     image: marketixpertImage,
-    demoLink: "#",
+    demoLink: "https://www.smitparekh.studio/contact",
   },
   {
     id: 15,
@@ -240,7 +240,7 @@ export const portfolioData = [
     description:
       "Executed SEO optimization for a client using WordPress, enhancing site visibility through on-page and off-page strategies, keyword research, and content optimization.",
     image: cilansImage,
-    demoLink: "#",
+    demoLink: "https://www.smitparekh.studio/contact",
   },
   {
     id: 16,
@@ -248,7 +248,7 @@ export const portfolioData = [
     description:
       "Designed and developed a responsive WordPress website for a client, implementing custom themes and plugins to enhance functionality and user experience.",
     image: wordpressProjectImage,
-    demoLink: "#",
+    demoLink: "https://www.smitparekh.studio/contact",
   },
   {
     id: 17,
@@ -256,7 +256,7 @@ export const portfolioData = [
     description:
       "Created a comprehensive content strategy for a client, focusing on audience engagement, SEO integration, and content calendar planning to drive traffic and conversions.",
     image: contentStrategyImage,
-    demoLink: "#",
+    demoLink: "https://www.smitparekh.studio/contact",
   },
   {
     id: 18,
@@ -264,7 +264,7 @@ export const portfolioData = [
     description:
       "Conducted a detailed SEO audit for a client, identifying areas for improvement and implementing strategies to enhance site performance and search engine rankings.",
     image: seoAuditImage, // replace with the actual image variable
-    demoLink: "#",
+    demoLink: "https://www.smitparekh.studio/contact",
   },
   {
     id: 19,
@@ -272,7 +272,7 @@ export const portfolioData = [
     description:
       "Developed and executed a targeted social media marketing campaign for a client, focusing on brand awareness, engagement, and lead generation through effective content strategies.",
     image: socialMediaCampaignImage,
-    demoLink: "#",
+    demoLink: "https://www.smitparekh.studio/contact",
   },
   {
     id: 1,
