@@ -21,6 +21,7 @@ export const headerData = {
     { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
     { id: "/portfolio", label: "Portfolio", icon: "uil-scenery" },
     { id: "/background-remover", label: "Bg-Remover", icon: "uil-trash" },
+    { id: "/viral-linkedin-post-generator", label: "Linkedln Post", icon: "uil-linkedin" },
     { id: "/contact", label: "Contact Me", icon: "uil-message" },
   ],
 }
