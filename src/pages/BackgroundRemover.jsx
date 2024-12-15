@@ -50,7 +50,7 @@ const BackgroundRemover = () => {
             }
         } catch (error) {
             toast.error("Failed to process the image. Please check your connection or try again later.");
-          
+
         } finally {
             setLoading(false);
         }
@@ -80,7 +80,7 @@ const BackgroundRemover = () => {
                 })
                 .catch((err) => {
                     toast.error("Error fetching image.");
-                  
+
                 });
         }
 
@@ -179,7 +179,7 @@ const BackgroundRemover = () => {
                             className="bg-dropzone"
                             style={{
                                 border: "2px dashed #ddd",
-                                padding: "100px",
+                                padding: "80px",
                                 textAlign: "center",
                                 marginBottom: "20px",
                             }}
@@ -203,21 +203,21 @@ const BackgroundRemover = () => {
                             </div>
                         )}
                         {selectedFile && (
-                        <button
-                            onClick={handleClear}
-                            className="button button--clear"
-                            style={{
-                                backgroundColor: "#ff6b6b",
-                                color: "#fff",
-                                border: "none",
-                                padding: "10px 15px",
-                                cursor: "pointer",
-                                marginTop: "20px",
-                                marginBottom: "20px",
-                            }}
-                        >
-                            Clear
-                        </button>)}
+                            <button
+                                onClick={handleClear}
+                                className="button button--clear"
+                                style={{
+                                    backgroundColor: "#ff6b6b",
+                                    color: "#fff",
+                                    border: "none",
+                                    padding: "10px 15px",
+                                    cursor: "pointer",
+                                    marginTop: "20px",
+                                    marginBottom: "20px",
+                                }}
+                            >
+                                Clear
+                            </button>)}
 
                         <button
                             onClick={handleRemoveBackground}
