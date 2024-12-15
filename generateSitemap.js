@@ -14,6 +14,7 @@ const urls = [
     { url: '/testimonials', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
     { url: '/contact', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
     { url: '/background-remover', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
+    { url: '/viral-linkedin-post-generator', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
 ];
 
 // Function to generate XML sitemap
