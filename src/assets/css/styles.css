@@ -830,7 +830,8 @@ img {
 }
 
 .portfolio__content {
- 
+  background-color: var(--container-color);
+
   border: 1px solid var(--first-color-second); /* Optional: Add a border */
   border-radius: 10px; /* Optional: Rounded corners */
   padding: 20px; /* Padding inside the item */
@@ -856,40 +857,30 @@ img {
 .portfolio__button:hover .button__icon {
   transform: translateX(0.25rem);
 }
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  content: none !important;
+.slick-arrow {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white; /* Button color */
+  font-size: 20px; /* Increase size for better visibility */
+  border: none;
+  border-radius: 50%; /* Rounded buttons */
+  padding: 100px;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%); /* Vertically center */
 }
 
-.swiper-portfolio-icon {
-  font-size: 2rem;
-
-  color: var(--first-color);
-  
+.slick-prev {
+  left: 10px; /* Position the previous button on the left */
 }
 
-.swiper-button-prev {
-  left: -0.5rem;
+.slick-next {
+  right: 10px; /* Position the next button on the right */
 }
 
-.swiper-button-next {
-  right: -0.5rem;
-}
-
-.swiper-container-horizontal > .swiper-pagination-bullets {
-  bottom: -2.5rem;
-  
-}
-
-.swiper-pagination-bullet-active {
-  background-color: var(--first-color);
-}
-
-.swiper-button-prev,
-.swiper-button-next,
-.swiper-pagination-bullet {
-  outline: none;
+/* Make sure arrows are always visible */
+.slick-prev, .slick-next {
+  display: block;
 }
 /*==================== PROJECT IN MIND ====================*/
 .project {
@@ -1149,6 +1140,131 @@ img {
   align-items: center;
 }
 
+
+
+
+/*==================== Linekdln post  ====================*/
+.linkedin-post-generator {
+  padding: 30px;
+  max-width: 600px;
+  margin: 30px auto;
+  background-color: var(--container-color) ;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.linkedin-post-generator h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: var(--title-color, #333);
+}
+
+.linkedin-post-generator label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: var(--title-color);
+}
+
+.linkedin-post-generator input[type="text"],
+.linkedin-post-generator input[type="range"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--input-color);
+    transition: border-color 0.3s;
+}
+
+.linkedin-post-generator input[type="text"]:focus,
+.linkedin-post-generator input[type="range"]:focus {
+  border-color: var(--primary-color, #007bff);
+  outline: none;
+}
+
+.linkedin-post-generator button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: var(--font-medium);
+    background-color: var(--first-color);
+  color: #fff;
+  border: none;
+    border-radius: 0.5rem;
+
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.linkedin-post-generator button:hover {
+  background-color: var(--primary-hover-color, #0056b3);
+  transform: translateY(-2px);
+}
+
+.linkedin-post-generator .generated-post {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e9f5ff;
+  border-left: 4px solid var(--primary-color, #007bff);
+  border-radius: 6px;
+}
+
+.linkedin-post-generator .generated-post h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: var(--primary-color, #007bff);
+}
+
+.linkedin-post-generator .generated-post p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Range Slider Styling */
+.range-container {
+  position: relative;
+}
+
+.range-container input[type="range"] {
+  width: 100%;
+}
+
+.range-container .range-value {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  color: var(--primary-color, #007bff);
+  font-weight: bold;
+}
+.copy-button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background-color: #0056b3;
+}
+
+.copy-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 
 
 /*==================== FOOTER ====================*/

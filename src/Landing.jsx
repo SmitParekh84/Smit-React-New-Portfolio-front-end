@@ -6,6 +6,12 @@ import { aboutData, contactData, homeData, portfolioData, qualificationsData, se
 import LazyLoad from 'react-lazyload';
 import Swiper from 'swiper';
 import axios from 'axios'
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Portfolio from './components/Portfolio';
+import ContactMe from './components/ContactMe';
+
 // Loadable components with fallback for loading state
 const Home = () => {
     return (
@@ -359,83 +365,9 @@ const Services = () => {
         </>
     )
 }
-const Portfolio = () => {
-    useEffect(() => {
-        const swiperPortfolio = new Swiper(".portfolio__container", {
-            loop: true,
-            grabCursor: true,
-            spaceBetween: 30,
-            autoplay: {
-                delay: 3000, // Time in milliseconds before switching to the next slide
-                disableOnInteraction: false, // Continue autoplay after user interactions
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
 
-            mousewheel: true,
-            keyboard: true,
-        })
 
-        return () => {
-            if (swiperPortfolio) swiperPortfolio.destroy()
-        }
-    }, [])
 
-    return (
-        <section className="portfolio section" id="portfolio">
-            <h2 className="section__title">Portfolio</h2>
-            <span className="section__subtitle">
-                Showcasing My Best Work. Client images and information are confidential; <a href="/contact" className="button button--flex button--small button--link services__button">
-                    contact me
-                </a> me for project inquiries.
-            </span>
-
-            <div className="portfolio__container container swiper-container">
-                <div className="swiper-wrapper">
-                    {/* Dynamically map through portfolioData */}
-                    {portfolioData.map((item) => (
-                        <div className="portfolio__content grid swiper-slide" key={item.id}>
-                            <LazyLoad height={200} offset={100}>
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="portfolio__img"
-                                    loading="lazy"
-                                />
-                            </LazyLoad>
-                            <div className="portfolio_">
-                                <h3 className="portfolio__title">{item.title}</h3>
-                                <p className="portfolio__description">{item.description}</p>
-                                {item.demoLink !== "#" && (
-                                    <a
-                                        href={item.demoLink}
-                                        className="button button--flex button--small portfolio__button"
-                                    >
-                                        {item.demoBtn === "view" ? "View" : "Demo"}
-                                        <i className="uil uil-arrow-right button__icon"></i>
-                                    </a>
-                                )}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Add arrows */}
-                <div className="swiper-button-next">
-                    <i className="uil uil-angle-right-b swiper-portfolio-icon"></i>
-                </div>
-                <div className="swiper-button-prev">
-                    <i className="uil uil-angle-left-b swiper-portfolio-icon"></i>
-                </div>
-
-                {/* Add Pagination */}
-                <div className="swiper-pagination"></div>
-            </div>
-        </section>
-    )
-}
 const Project = () => {
     return (
         <section className="project section">
@@ -553,167 +485,7 @@ const Testimonials = () => {
         </>
     )
 }
-const ContactMe = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [subject, setSubject] = useState('');
-    const [description, setDescription] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-    const [isSubmitted, setIsSubmitted] = useState(false); // New state to control form submission
-    const [isLoading, setIsLoading] = useState(false); // New state for loading
 
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        const formData = {
-            name,
-            email,
-            subject,
-            description,
-        };
-        setIsLoading(true); // Start loading when form is submitted
-        setIsSubmitted(false); // Reset submission status
-        setTimeout(async () => {
-            try {
-                const response = await axios.post(`${apiUrl}/api/topost`, formData, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
-
-                setSuccessMessage(contactData.successMessage);
-                setErrorMessage('');
-                setIsSubmitted(true); // Set submitted to true when successful
-
-
-            } catch (error) {
-                setErrorMessage(contactData.errorMessage);
-                setSuccessMessage('');
-                setIsSubmitted(true);
-
-            } finally {
-                // Stop loading regardless of success or failure
-                setIsLoading(false);
-            }
-            // Reset form fields
-            setName('');
-            setEmail('');
-            setSubject('');
-            setDescription('');
-        }, 2000); // Delay for 2 seconds
-    };
-
-    return (
-        <>
-
-
-            <section className="contact section" id="contact">
-                <h2 className="section__title">Contact me</h2>
-                <span className="section__subtitle">Get in touch</span>
-
-                <div className="contact__container container grid">
-                    <div>
-                        <div className="contact__information">
-                            <i className="uil uil-phone-alt contact__icon"></i>
-                            <div>
-                                <h3 className="contact__title">Call me</h3>
-                                <span className="contact__subtitle">{contactData.phone}</span>
-                            </div>
-                        </div>
-
-                        <div className="contact__information">
-                            <i className="uil uil-envelope contact__icon"></i>
-                            <div>
-                                <h3 className="contact__title">E-mail</h3>
-                                <span className="contact__subtitle">{contactData.email}</span>
-                            </div>
-                        </div>
-
-                        <div className="contact__information">
-                            <i className="uil uil-map-marker contact__icon"></i>
-                            <div>
-                                <h3 className="contact__title">Location</h3>
-                                <span className="contact__subtitle">{contactData.location}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {!isSubmitted ? (
-                        <form onSubmit={handleSubmit} className="contact__form grid">
-                            <div className="contact__inputs grid">
-                                <div className="contact__content">
-                                    <label className="contact__label">Name</label>
-                                    <input
-                                        type="text"
-                                        className="contact__input"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        required
-                                    />
-                                </div>
-
-                                <div className="contact__content">
-                                    <label className="contact__label">E-mail</label>
-                                    <input
-                                        type="email"
-                                        className="contact__input"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="contact__content">
-                                <label className="contact__label">Subject</label>
-                                <input
-                                    type="text"
-                                    className="contact__input"
-                                    value={subject}
-                                    onChange={(e) => setSubject(e.target.value)}
-                                    required
-                                />
-                            </div>
-
-                            <div className="contact__content">
-                                <label className="contact__label">Description</label>
-                                <textarea
-                                    cols="0"
-                                    rows="7"
-                                    className="contact__input"
-                                    value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
-                                    required
-                                ></textarea>
-                            </div>
-
-                            <div>
-                                <button type="submit" className="button button--flex">
-                                    {isLoading ? (
-                                        // Show loader when form is submitting
-                                        <span className="loader"></span>
-                                    ) : (
-                                        <>
-                                            Send message
-                                            <i className="uil uil-message button__icon"></i>
-                                        </>
-                                    )}
-                                </button>
-                            </div>
-                        </form>
-                    ) : (
-                        <>
-                            {successMessage && <p className="success-message">{successMessage}</p>}
-                            {errorMessage && <p className="error-message">{errorMessage}</p>}
-                        </>
-                    )}
-                </div>
-            </section>
-        </>
-    );
-};
 const ScrollToTop = React.lazy(() => import('./components/ScrollToTop'));
 
 const Landing = () => {

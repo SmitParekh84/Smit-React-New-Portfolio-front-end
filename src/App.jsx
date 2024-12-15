@@ -4,16 +4,17 @@ import { Helmet } from "react-helmet-async";  // Import Helmet
 import "./assets/css/styles.css"
 import "./assets/css/swiper-bundle.min.css"
 import Loader from "./components/Loader"
-import { PortfolioPage } from "./components/PortfolioPage"
+import { PortfolioPage } from "./pages/PortfolioPage"
 import Landing from "./Landing"
 import BackgroundRemover from "./pages/BackgroundRemover"
-const Header = React.lazy(() => import("./components/Header"))
+import LinkedInPostGeneratorPage from "./pages/LinkedInPostGeneratorPage";
+import ContactPage from "./pages/ContactPage";
+const Header = React.lazy(() => import("./components/Header/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
 const AboutPage = React.lazy(() => import("./pages/AboutPage"))
 const Skills = React.lazy(() => import("./components/Skills"))
 const Qualification = React.lazy(() => import("./components/Qualification"))
 const Services = React.lazy(() => import("./components/Services"))
-const Portfolio = React.lazy(() => import("./components/Portfolio"))
 const Project = React.lazy(() => import("./components/Project"))
 const Testimonials = React.lazy(() => import("./components/Testimonials"))
 const ContactMe = React.lazy(() => import("./components/ContactMe"))
@@ -55,9 +56,10 @@ const App = () => {
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/project" element={<Project />} />
             <Route path="/testimonials" element={<Testimonials />} />
-            <Route path="/contact" element={<ContactMe />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
             <Route path="/background-remover" element={<BackgroundRemover />} />
+            <Route path="/viral-linkedin-post-generator" element={<LinkedInPostGeneratorPage />} />
 
           </Routes>
         </main>

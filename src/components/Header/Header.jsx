@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import LazyLoad from "react-lazyload";
-import { headerData } from "../data/data.js";
+import { headerData } from "../../data/data.js";
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar"; // Import the Navbar component
+import Navbar from "../Navbar.jsx"; // Import the Navbar component
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

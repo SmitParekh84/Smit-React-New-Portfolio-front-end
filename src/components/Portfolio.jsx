@@ -1,30 +1,42 @@
-import React, { useEffect } from "react"
-import Swiper from "swiper"
-import { portfolioData } from "../data/data.js" // Import the data
-import LazyLoad from "react-lazyload" // Import LazyLoad
+import React from "react";
+import { portfolioData } from "../data/data.js"; // Import the data
+import Slider from 'react-slick';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';  // Import arrow icons from react-icons
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 const Portfolio = () => {
-  useEffect(() => {
-    const swiperPortfolio = new Swiper(".portfolio__container", {
-      loop: true,
-      grabCursor: true,
-      spaceBetween: 30,
-      autoplay: {
-        delay: 3000, // Time in milliseconds before switching to the next slide
-        disableOnInteraction: false, // Continue autoplay after user interactions
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,  // Show one slide per view on mobile
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    nextArrow: <button className="slick-arrow slick-next"><FaArrowRight /></button>,
+    prevArrow: <button className="slick-arrow slick-prev"><FaArrowLeft /></button>,
+    responsive: [
+      {
+        breakpoint: 768, // Mobile devices (tablets and below)
+        settings: {
+          slidesToShow: 1, // Show one slide per view on mobile
+        }
       },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+      {
+        breakpoint: 1024, // Tablets and small laptops
+        settings: {
+          slidesToShow: 2, // Show two slides per view
+        }
       },
-
-      mousewheel: true,
-      keyboard: true,
-    })
-
-    return () => {
-      if (swiperPortfolio) swiperPortfolio.destroy()
-    }
-  }, [])
+      {
+        breakpoint: 1200, // Larger screens (desktops)
+        settings: {
+          slidesToShow: 3, // Show three slides per view
+        }
+      }
+    ]
+  };
 
   return (
     <section className="portfolio section" id="portfolio">
@@ -35,27 +47,16 @@ const Portfolio = () => {
         </a> me for project inquiries.
       </span>
 
-      <div className="portfolio__container container swiper-container">
-        <div className="swiper-wrapper">
-          {/* Dynamically map through portfolioData */}
+      <div className="portfolio__container container">
+        <Slider {...settings}>
           {portfolioData.map((item) => (
-            <div className="portfolio__content grid swiper-slide" key={item.id}>
-              <LazyLoad height={200} offset={100}>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="portfolio__img"
-                  loading="lazy"
-                />
-              </LazyLoad>
+            <div className="portfolio__content grid" key={item.id}>
+              <img src={item.image} alt={item.title} className="portfolio__img" loading="lazy" />
               <div className="portfolio_">
                 <h3 className="portfolio__title">{item.title}</h3>
                 <p className="portfolio__description">{item.description}</p>
                 {item.demoLink !== "#" && (
-                  <a
-                    href={item.demoLink}
-                    className="button button--flex button--small portfolio__button"
-                  >
+                  <a href={item.demoLink} className="button button--flex button--small portfolio__button">
                     {item.demoBtn === "view" ? "View" : "Demo"}
                     <i className="uil uil-arrow-right button__icon"></i>
                   </a>
@@ -63,21 +64,10 @@ const Portfolio = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Add arrows */}
-        <div className="swiper-button-next">
-          <i className="uil uil-angle-right-b swiper-portfolio-icon"></i>
-        </div>
-        <div className="swiper-button-prev">
-          <i className="uil uil-angle-left-b swiper-portfolio-icon"></i>
-        </div>
-
-        {/* Add Pagination */}
-        <div className="swiper-pagination"></div>
+        </Slider>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Portfolio
+export default Portfolio;

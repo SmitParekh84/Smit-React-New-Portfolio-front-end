@@ -2,8 +2,10 @@
 import React from "react";
 import About from "../components/About"; // Adjust the path based on your folder structure
 import { Helmet } from "react-helmet-async";
+
 // Create the AboutPage component
 const AboutPage = () => {
+
     return (
         <>
             <Helmet>

@@ -22,7 +22,7 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
                         {link.id === "/about" && (
                             <div className="nav__dropdown">
                                 <Link to="/skills" className="nav__dropdown-link">Skills</Link>
-                                <Link to="/qualification" className="nav__dropdown-link">Qualification</Link>
+                                <Link to="/qualification" className="nav__dropdown-link">Experience</Link>
                             </div>
                         )}
                     </li>

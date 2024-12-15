@@ -50,7 +50,7 @@ const BackgroundRemover = () => {
             }
         } catch (error) {
             toast.error("Failed to process the image. Please check your connection or try again later.");
-            console.error(error.message);
+          
         } finally {
             setLoading(false);
         }
@@ -80,7 +80,7 @@ const BackgroundRemover = () => {
                 })
                 .catch((err) => {
                     toast.error("Error fetching image.");
-                    console.error(err);
+                  
                 });
         }
 
