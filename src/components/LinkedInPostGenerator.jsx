@@ -5,12 +5,12 @@ import { ToastContainer, toast } from "react-toastify";
 const LinkedInPostGenerator = () => {
     const [activity, setActivity] = useState("");
     const [advice, setAdvice] = useState("");
-    const [cringeLevel, setCringeLevel] = useState(3);
+    const [cringeLevel, setCringeLevel] = useState(2);
     const [generatedPost, setGeneratedPost] = useState("");
     const [selectedHook, setSelectedHook] = useState(""); // New state for selected hook
     const [ask, setAsk] = useState(""); // New state for selected hook
     const [loading, setLoading] = useState(false); // State to track loading status
-    const [xValue, setXValue] = useState(2); // Value of X (range between 2 and 5)  
+    const [xValue, setXValue] = useState(); // Value of X (range between 2 and 5)  
     const apiUrl = import.meta.env.VITE_API_URL;
     const hooks = [
         { id: 1, label: "A Superior Method", template: "[Common belief or practice] [negative consequence]. Here's the [notable method] [famous individuals or groups] use instead:" },
@@ -18,6 +18,11 @@ const LinkedInPostGenerator = () => {
         { id: 3, label: "Impactful Advice", ask: "How Many Advice ?", template: "[Unusual habit/action] solves [high percentage of major problem]. X more [simple/quick/easy] [habits/actions] to [improve/change a specific situation]:" },
         { id: 4, label: "Simple Steps", ask: "How Many Steps ?", template: "X [easy/simple/quick] steps to [achieve impressive result] in [short time frame] - even if you [face common obstacle]:" },
         { id: 5, label: "Industry Issues", ask: "How Many Issues ?", template: "X huge issues we're dealing with in [industry/profession] today: [Specific problem] → [Striking statistic or fact]." },
+        { id: 6, label: "Personal Story", template: "I remember when I [specific event]. It taught me [important lesson]. Now, I [action taken] to [improve/change specific situation]:" },
+        { id: 7, label: "Professional Challenge", template: "I faced a major challenge at work today: [Specific problem]. I handled it by [specific action]. Here's what I learned:" },
+        { id: 8, label: "Industry Trend", template: "I've noticed a new trend in [industry/profession] lately: [Specific trend]. Here's why it's [positive/negative] for [profession/industry]:" },
+        { id: 9, label: "Career Milestone", template: "I've reached a major milestone in my career: [Specific achievement]. It's a reminder that [important lesson learned]:" },
+        { id: 10, label: "Professional Growth", template: "I've grown so much in my career since [specific event]. I'm proud of how far I've come, and I'm excited for what's next:" },
     ];
 
 

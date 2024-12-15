@@ -1278,11 +1278,12 @@ img {
   font-size: var(--normal-font-size);
   font-family: var(--body-font);
   transition: border-color 0.3s;
-}
-
-.linkedin-post-generator select:focus {
-  border-color: var(--primary-color, #007bff);
-  outline: none;
+  height: auto; /* Make sure the height is not restricted */
+  max-height: 180px; /* Show only 5 options (adjust this value based on option size) */
+  overflow-y: auto; /* Enable vertical scrolling when there are more than 5 options */
+  -webkit-appearance: none;  /* Remove the default dropdown arrow in Webkit-based browsers */
+  -moz-appearance: none;     /* Remove the default dropdown arrow in Firefox */
+  appearance: none;          /* Remove the default dropdown arrow in modern browsers */
 }
 
 /* Option Styling */
@@ -1294,16 +1295,21 @@ img {
   font-size: var(--normal-font-size);
 }
 
-/* Custom Dropdown Arrow Styling */
+/* Remove the default dropdown arrow */
 .linkedin-post-generator select::-ms-expand {
   display: none; /* Hides the default dropdown arrow in Internet Explorer */
 }
 
+/* Custom Dropdown Arrow Styling */
 .linkedin-post-generator select::after {
   content: " ▼"; /* Adds a custom dropdown arrow */
   font-size: 1rem;
   color: var(--primary-color, #007bff);
+  pointer-events: none; /* Makes sure the custom arrow doesn't interfere with the dropdown */
 }
+
+
+
 /*==================== FOOTER ====================*/
 .footer {
   padding-top: 2rem;
