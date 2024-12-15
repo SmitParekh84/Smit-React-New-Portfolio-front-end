@@ -7,16 +7,49 @@ const LinkedInPostGenerator = () => {
     const [advice, setAdvice] = useState("");
     const [cringeLevel, setCringeLevel] = useState(3);
     const [generatedPost, setGeneratedPost] = useState("");
+    const [selectedHook, setSelectedHook] = useState(""); // New state for selected hook
+    const [ask, setAsk] = useState(""); // New state for selected hook
     const [loading, setLoading] = useState(false); // State to track loading status
+    const [xValue, setXValue] = useState(2); // Value of X (range between 2 and 5)  
     const apiUrl = import.meta.env.VITE_API_URL;
+    const hooks = [
+        { id: 1, label: "A Superior Method", template: "[Common belief or practice] [negative consequence]. Here's the [notable method] [famous individuals or groups] use instead:" },
+        { id: 2, label: "My Takeaways", ask: "How Many Takeaways ?", template: "I had a great time working for [Company/Organization]. Here are X [insights/lessons/learnings] I've picked up along the way:" },
+        { id: 3, label: "Impactful Advice", ask: "How Many Advice ?", template: "[Unusual habit/action] solves [high percentage of major problem]. X more [simple/quick/easy] [habits/actions] to [improve/change a specific situation]:" },
+        { id: 4, label: "Simple Steps", ask: "How Many Steps ?", template: "X [easy/simple/quick] steps to [achieve impressive result] in [short time frame] - even if you [face common obstacle]:" },
+        { id: 5, label: "Industry Issues", ask: "How Many Issues ?", template: "X huge issues we're dealing with in [industry/profession] today: [Specific problem] → [Striking statistic or fact]." },
+    ];
+
+
+    const handleHookChange = (e) => {
+        const selectedValue = e.target.value;
+        const selectedId = hooks.find((hook) => hook.template === selectedValue)?.id;
+        setAsk(hooks.find((hook) => hook.template === selectedValue)?.ask || ""); // Set the ask value based on the selected hook
+        setSelectedHook(selectedValue);
+
+        // For hooks with IDs 2, 3, 4, and 5, set a random X value between 2 and 5
+        if ([2, 3, 4, 5].includes(selectedId)) {
+
+            setXValue(2);
+
+        } else {
+            setXValue(0); // Reset for other hooks
+        }
+    };
+
+
+
 
     const handleGeneratePost = async () => {
         setLoading(true); // Set loading to true when the button is clicked
+
         try {
+            const modifiedTemplate = selectedHook.replace(/X/g, xValue);
             const response = await axios.post(`${apiUrl}/api/generate-post`, {
                 activity,
                 advice,
                 cringeLevel,
+                modifiedTemplate,
             });
             setGeneratedPost(response.data.generatedPost || "Failed to generate a post.");
         } catch (error) {
@@ -60,6 +93,38 @@ const LinkedInPostGenerator = () => {
                     <h2>Viral LinkedIn Post Generator</h2>
                     <div>
                         <label>
+                            Select a Viral Hook:
+                            <select
+                                value={selectedHook}
+                                onChange={handleHookChange}
+                            >
+                                <option value="">-- Select Hook --</option>
+                                {hooks.map((hook) => (
+                                    <option key={hook.id} value={hook.template}>
+                                        {hook.label}
+                                    </option>
+                                ))}
+                            </select>
+                        </label>
+                        {xValue > 0 && (
+                            <div>
+
+                                <label>
+                                    {ask}  <span className="range-value">{xValue}</span>
+                                    <div className="range-container">
+                                        <input
+                                            type="range"
+                                            min="2"
+                                            max="5"
+                                            value={xValue}
+                                            onChange={(e) => setXValue(e.target.value)}
+                                        />
+
+                                    </div>
+                                </label>
+                            </div>
+                        )}
+                        <label>
                             What did you do today?
                             <input
                                 type="text"
@@ -86,7 +151,7 @@ const LinkedInPostGenerator = () => {
                             <div className="range-container">
                                 <input
                                     type="range"
-                                    min="1"
+                                    min="0"
                                     max="5"
                                     value={cringeLevel}
                                     onChange={(e) => setCringeLevel(e.target.value)}

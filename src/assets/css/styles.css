@@ -1266,7 +1266,44 @@ img {
   cursor: not-allowed;
 }
 
+/* Dropdown (Select) Styling */
+.linkedin-post-generator select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: var(--input-color);
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+  transition: border-color 0.3s;
+}
 
+.linkedin-post-generator select:focus {
+  border-color: var(--primary-color, #007bff);
+  outline: none;
+}
+
+/* Option Styling */
+.linkedin-post-generator select option {
+  padding: 10px;
+  background-color: var(--container-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+/* Custom Dropdown Arrow Styling */
+.linkedin-post-generator select::-ms-expand {
+  display: none; /* Hides the default dropdown arrow in Internet Explorer */
+}
+
+.linkedin-post-generator select::after {
+  content: " ▼"; /* Adds a custom dropdown arrow */
+  font-size: 1rem;
+  color: var(--primary-color, #007bff);
+}
 /*==================== FOOTER ====================*/
 .footer {
   padding-top: 2rem;
