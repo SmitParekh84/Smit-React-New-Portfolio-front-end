@@ -14,7 +14,7 @@ const LinkedInPostGeneratorPage = () => {
                 />
                 <meta
                     name="keywords"
-                    content="LinkedIn post generator, viral posts, social media engagement, LinkedIn content, digital marketing, professional content, post creation"
+                    content="Free ai tool ,Free LinkedIn post generator, viral posts, social media engagement, LinkedIn content, digital marketing, professional content, post creation"
                 />
                 <meta name="author" content="Smit Parekh" />
                 <link rel="canonical" href="https://www.smitparekh.studio/viral-linkedin-post-generator" />
