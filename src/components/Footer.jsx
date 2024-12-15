@@ -14,7 +14,6 @@ const Footer = () => {
                             <span className="footer__subtitle">{footerData.subtitle}</span>
                         </a>
                     </div>
-
                     <ul className="footer__links">
                         {footerData.links.map((link, index) => (
                             <li key={index}>
@@ -22,7 +21,6 @@ const Footer = () => {
                             </li>
                         ))}
                     </ul>
-
                     <div className="footer__socials">
                         {footerData.socialLinks.map((social, index) => (
                             <a

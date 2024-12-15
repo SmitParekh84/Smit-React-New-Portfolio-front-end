@@ -1694,8 +1694,10 @@ img {
     }
 
     .footer__links {
-      flex-direction: row;
+      display: grid;
+  grid-template-columns: 1fr 1fr;  /* Two equal-width columns */
       column-gap: 2rem;
+      gap: 2rem;
     }
     .footer__socials {
       justify-self: flex-end;
