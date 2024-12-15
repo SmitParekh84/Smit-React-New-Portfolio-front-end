@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { headerData } from "../data/data";  // Import your header data
+import { headerData } from "../../data/data";  // Import your header data
 
 const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
     const navLinks = isMenuOpen ? headerData.mobileNavLinks : headerData.desktopNavLinks;
