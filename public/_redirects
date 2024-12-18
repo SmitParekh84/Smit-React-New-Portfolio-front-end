@@ -1,1 +1,11 @@
 /*    /index.html   200
+
+
+# Redirect HTTP to HTTPS
+
+http://smitparekh.studio/_ https://www.smitparekh.studio/:splat 301!
+http://www.smitparekh.studio/_ https://www.smitparekh.studio/:splat 301!
+
+# Redirect non-www to www for HTTPS
+
+https://smitparekh.studio/* https://www.smitparekh.studio/:splat 301!
