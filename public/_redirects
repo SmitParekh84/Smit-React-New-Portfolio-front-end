@@ -9,3 +9,4 @@ http://www.smitparekh.studio/_ https://www.smitparekh.studio/:splat 301!
 # Redirect non-www to www for HTTPS
 
 https://smitparekh.studio/* https://www.smitparekh.studio/:splat 301!
+

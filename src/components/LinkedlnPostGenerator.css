@@ -1,0 +1,335 @@
+/* LinkedInCard.css */
+
+/*==================== Linekdln post  ====================*/
+.linkedin-post-generator {
+    padding: 30px;
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: var(--container-color) ;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: var(--body-font);
+  }
+  
+  .linkedin-post-generator h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: var(--title-color, #333);
+  }
+  
+  .linkedin-post-generator label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: var(--title-color);
+  }
+  
+  
+  .linkedin-post-generator textarea,
+  .linkedin-post-generator input[type="range"],
+  .linkedin-post-generator input[type="number"],
+.linkedin-post-generator input[type="checkbox"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--input-color);
+      transition: border-color 0.3s;
+  }
+  
+  
+  .linkedin-post-generator textarea:focus,
+  .linkedin-post-generator input[type="range"]:focus,
+  .linkedin-post-generator input[type="number"]:focus,
+.linkedin-post-generator input[type="checkbox"]:focus {
+    border-color: var(--primary-color, #007bff);
+    outline: none;
+  }
+  .linkedin-post-generator textarea {
+    overflow-y: hidden; /* Hide scrollbar */
+    min-height: 80px;
+    height: auto; /* Automatically adjust height */
+    resize: none; /* Prevent resizing from the corner */
+    border-color: var(--primary-color, #007bff);
+    outline: none;
+}
+.linkedin-post-generator textarea:focus {
+    min-height: 120px; /* Expand the height on focus */
+}
+/* Checkbox Styling */
+.linkedin-post-generator input[type="checkbox"] {
+    width: 50px;
+    height: 1rem;
+    display: inline-block;
+    padding-right: 15px;
+}
+.checkbox-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;  /* Spacing between checkbox and dropdown */
+    margin-bottom: 20px;
+}
+
+
+
+/* Checkbox Styling */
+
+/* Select Element Styling for Bullet Type */
+.linkedin-post-generator select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: var(--input-color, #f9f9f9);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+/* Select Element Focus State */
+.linkedin-post-generator select:focus {
+    border-color: var(--primary-color, #007bff);
+    outline: none;
+}
+
+
+  .linkedin-post-generator button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: var(--font-medium);
+      background-color: var(--first-color);
+    color: #fff;
+    border: none;
+      border-radius: 0.5rem;
+  
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .linkedin-post-generator button:hover {
+    background-color: var(--primary-hover-color, #0056b3);
+    transform: translateY(-2px);
+  }
+  
+  .linkedin-post-generator .generated-post {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9f5ff;
+    border-left: 4px solid var(--primary-color, #007bff);
+    border-radius: 6px;
+  }
+  
+  .linkedin-post-generator .generated-post h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: var(--primary-color, #007bff);
+  }
+  
+  .linkedin-post-generator .generated-post p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Range Slider Styling */
+  .range-container {
+    position: relative;
+  }
+  
+  .range-container input[type="range"] {
+    width: 100%;
+  }
+  
+  .range-container .range-value {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.1rem;
+    color: var(--primary-color, #007bff);
+    font-weight: bold;
+  }
+  .copy-button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .copy-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .copy-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+ 
+  /* Custom dropdown container */
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+/* Dropdown (Select) Styling */
+.linkedin-post-generator select {
+    width: 100%;
+    padding: 12px 24px 12px 12px; /* Extra padding on the right for the arrow */
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: var(--input-color);
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    transition: border-color 0.3s;
+    height: auto; /* Make sure the height is not restricted */
+    max-height: 180px; /* Show only 5 options (adjust this value based on option size) */
+    overflow-y: auto; /* Enable vertical scrolling when there are more than 5 options */
+    -webkit-appearance: none;  /* Remove the default dropdown arrow in Webkit-based browsers */
+    -moz-appearance: none;     /* Remove the default dropdown arrow in Firefox */
+    appearance: none;          /* Remove the default dropdown arrow in modern browsers */
+}
+
+/* Option Styling */
+.linkedin-post-generator select option {
+    padding: 10px;
+    background-color: var(--container-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+/* Remove the default dropdown arrow */
+.linkedin-post-generator select::-ms-expand {
+    display: none; /* Hides the default dropdown arrow in Internet Explorer */
+}
+
+/* Custom Dropdown Arrow Styling */
+.custom-dropdown::after {
+    content: " ▼"; /* Adds a custom dropdown arrow */
+    position: absolute;
+    top: 50%;
+    right: 12px; /* Position the arrow on the right side */
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: var(--primary-color, #007bff);
+    pointer-events: none; /* Makes sure the custom arrow doesn't interfere with the dropdown */
+}
+  .custom-dropdown.open::after {
+    content: " ▲"; /* Up arrow when dropdown is open */
+}
+  
+.card-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.304), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    justify-content: space-between;
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+.profile-info {
+    color: black;
+    flex-grow: 1; 
+}
+
+.profile-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profile-description {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.profile-time {
+    font-size: 12px;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    color: #6b7280;
+}
+.linkedln-copybutton {
+    background-color: #0077b5; /* LinkedIn blue color */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.linkedln-copybutton:hover {
+    background-color: #005582; /* Darker blue on hover */
+}
+
+.linkedln-copybutton .fa-copy {
+    margin-right: 8px; /* Space between the icon and text */
+}
+.content-section {
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 16px;
+    color: black;
+    margin-bottom: 16px;
+}
+
+/* Image Styles */
+.linkedIn-image {
+    width: 100%; /* Equivalent to `w-full` */
+    object-fit: contain; /* Equivalent to `object-contain` */
+    display: block; /* Ensures the image is displayed as a block-level element */
+}
+
+/* Mobile Responsive Font Sizes */
+@media (max-width: 767px) {
+    .profile-name {
+        font-size: 16px; /* Smaller font size for mobile */
+    }
+
+    .profile-description,
+    .profile-time {
+        font-size: 10px; /* Smaller font size for mobile */
+    }
+
+    .content-section {
+        font-size: 12px; /* Smaller font size for mobile */
+    }
+}
