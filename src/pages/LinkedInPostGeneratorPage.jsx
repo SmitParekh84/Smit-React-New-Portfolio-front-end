@@ -2,8 +2,27 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import LinkedInPostGenerator from "../components/LinkedInPostGenerator/LinkedInPostGenerator";
+import LazyLoad from "react-lazyload";
+import FAQ from "../components/LinkedInPostGenerator/FAQ";
+import { faqData } from "../data/data"; // Import the data
 // Create the AboutPage component
+
+
+
 const LinkedInPostGeneratorPage = () => {
+
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqData.map(item => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+            }
+        }))
+    };
     return (
         <>
             <Helmet>
@@ -58,6 +77,7 @@ const LinkedInPostGeneratorPage = () => {
         }
         `}
                 </script>
+                <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
             </Helmet>
 
 
@@ -66,9 +86,9 @@ const LinkedInPostGeneratorPage = () => {
 
 
             <LinkedInPostGenerator />
-<div>
 
-</div>
+            <FAQ />
+
         </>
 
     );

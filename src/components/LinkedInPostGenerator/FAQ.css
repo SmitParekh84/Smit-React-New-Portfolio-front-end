@@ -1,0 +1,51 @@
+/* Section styling */
+.section {
+    padding: 40px 0;
+    background-color: #f8f8f8;
+}
+
+/* Section title */
+.section__title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section__subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Container for FAQ items */
+.faq__container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr; /* Default single column for mobile */
+}
+
+.faq__item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.faq__question {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.faq__answer {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* For desktop, two columns */
+@media (min-width: 768px) {
+    .faq__container {
+        grid-template-columns: 1fr ; /* Two columns on desktop */
+    }
+}

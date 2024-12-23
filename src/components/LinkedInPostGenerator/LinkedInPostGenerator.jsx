@@ -21,7 +21,7 @@ const LinkedInPostGenerator = () => {
     const [characterLength, setCharacterLength] = useState("");
     const [scrollAfterGenerate, setScrollAfterGenerate] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-
+    const [useAdvanceOption, setUseAdvanceOption] = useState(false);
     const apiUrl = import.meta.env.VITE_API_URL;
     const hooks = [
         { id: 1, label: "A Superior Method", template: "[Common belief or practice] [negative consequence]. Here's the [notable method] [famous individuals or groups] use instead:" },
@@ -202,80 +202,95 @@ const LinkedInPostGenerator = () => {
                                 onChange={(e) => setAdvice(e.target.value)}
                             />
                         </label>
-                    </div>
-                    <div>
-
-                        <div className="checkbox-container">
-                            <label>
-                                Use Emojis :
-                                <input
-                                    type="checkbox"
-                                    checked={useEmojis}
-                                    onChange={(e) => setUseEmojis(e.target.checked)}
-                                />
-                            </label>
-                            <label>
-                                Use Bullet Points:
-                                <input
-                                    type="checkbox"
-                                    checked={useBulletPoints}
-                                    onChange={(e) => setUseBulletPoints(e.target.checked)}
-                                />
-                            </label>
-                        </div>
-                        {useBulletPoints && (
-                            <label>
-                                Bullet Type:
-                                <div className={`custom-dropdown ${isOpen ? 'open' : ''}`}> {/* Add 'open' class based on state */}
-
-                                    <select value={bulletType} onChange={(e) => setBulletType(e.target.value)}>
-                                        <option value="emoji">Emoji</option>
-                                        <option value="dash">Dash</option>
-                                    </select>
-                                </div>
-                            </label>
-                        )}
                         <label>
+                            Cringe level <span className="range-value">{cringeLevel}</span>
+                            <div className="range-container">
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="5"
+                                    value={cringeLevel}
+                                    onChange={(e) => setCringeLevel(e.target.value)}
+                                />
 
-                            Desired Character Length:
-                            <input
-                                type="number"
-                                placeholder="500"
-                                value={characterLength}
-                                onChange={(e) => setCharacterLength(e.target.value)}
-                            />
+                            </div>
                         </label>
                     </div>
-                    <label>
-                        Cringe level <span className="range-value">{cringeLevel}</span>
-                        <div className="range-container">
-                            <input
-                                type="range"
-                                min="0"
-                                max="5"
-                                value={cringeLevel}
-                                onChange={(e) => setCringeLevel(e.target.value)}
-                            />
 
-                        </div>
-                    </label>
-                    <button onClick={handleGeneratePost} disabled={loading} className="generate-button">
-                        {loading ? 'Generating...' : 'Generate Post'}
-                    </button>
+                    {useAdvanceOption && (
+                        <div>
 
-                    {generatedPost && (
-                        <div className="generated-post">
-                            <h3>Generated Post:</h3>
-                            {/* <p>{renderGeneratedPost()}</p> 
-                            <button onClick={handleCopyPost} className="copy-button">
-                        <FontAwesomeIcon icon={faCopy} /> Copy
-                    </button>*/}
+                            <div className="checkbox-container">
+                                <label>
+                                    Use Emojis :
+                                    <input
+                                        type="checkbox"
+                                        checked={useEmojis}
+                                        onChange={(e) => setUseEmojis(e.target.checked)}
+                                    />
+                                </label>
+                                <label>
+                                    Use Bullet Points:
+                                    <input
+                                        type="checkbox"
+                                        checked={useBulletPoints}
+                                        onChange={(e) => setUseBulletPoints(e.target.checked)}
+                                    />
+                                </label>
+                            </div>
+                            {useBulletPoints && (
+                                <label>
+                                    Bullet Type:
+                                    <div className={`custom-dropdown ${isOpen ? 'open' : ''}`}> {/* Add 'open' class based on state */}
 
-                        </div>
-                    )}
+                                        <select value={bulletType} onChange={(e) => setBulletType(e.target.value)}>
+                                            <option value="emoji">Emoji(▪️)</option>
+                                            <option value="dash">Dash(-)</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            )}
+                            <label>
+
+                                Desired Character Length:
+                                <input
+                                    type="number"
+                                    placeholder="500"
+                                    value={characterLength}
+                                    onChange={(e) => setCharacterLength(e.target.value)}
+                                />
+                            </label>
+                        </div>)}
+                    <div className="button-container">
+                        <button
+                            onClick={() => setUseAdvanceOption(prev => !prev)}
+                            className="btn-toggle-advanced"
+                        >
+                            {useAdvanceOption ? "Hide Advanced Options" : "Show Advanced Options"}
+                        </button>
+
+                        <button
+                            onClick={handleGeneratePost}
+                            disabled={loading}
+                            className="generate-button"
+                        >
+                            {loading ? 'Generating...' : 'Generate Post'}
+                        </button>
+                    </div>
+
+
 
 
                 </div>
+                {loading && (
+                    <div className="loading-post" >
+                        <svg className="pl" width="240" height="240" viewBox="0 0 240 240">
+                            <circle className="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 660" strokeDashoffset="-330" strokeLinecap="round"></circle>
+                            <circle className="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 220" strokeDashoffset="-110" strokeLinecap="round"></circle>
+                            <circle className="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 440" strokeLinecap="round"></circle>
+                            <circle className="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 440" strokeLinecap="round"></circle>
+                        </svg></div>
+                )}
                 {generatedPost && (
                     <div className="card-container" id="card-container">
                         {/* Profile Section */}

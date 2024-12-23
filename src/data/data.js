@@ -439,3 +439,55 @@ export const footerData = {
   ],
   copyright: "&#169; Smit Parekh. All rights reserved.",
 }
+export const faqData = [
+  {
+    question: "What is the Viral LinkedIn Post Generator?",
+    answer:
+      "The Viral LinkedIn Post Generator is a powerful tool designed to help you create engaging LinkedIn posts quickly and easily. By selecting a viral hook, adding emojis, and customizing bullet points and character length, you can generate posts that grab attention and increase engagement. Whether you're sharing inspirational advice, project updates, or thought-provoking questions, this tool has got you covered!",
+  },
+  {
+    question: "Is this tool free to use?",
+    answer:
+      "Yes, the Viral LinkedIn Post Generator is completely free to use. You can generate as many posts as you want without any cost. We believe in giving you the tools to create impactful content on LinkedIn without barriers.",
+  },
+  {
+    question: "How do I use the tool?",
+    answer:
+      "Using the Viral LinkedIn Post Generator is simple. Start by selecting a viral hook such as 'What did you do today?' or 'Believe in yourself...'. Then, choose whether you want to include emojis or bullet points. You can also set a desired character length for your post (default is 500 characters). Once you're ready, click 'Generate Post' and watch the tool create a perfect post for you to share!",
+  },
+  {
+    question: "What are viral hooks?",
+    answer:
+      "Viral hooks are popular opening lines that grab attention on LinkedIn. Examples include questions like 'What did you do today?' or motivational phrases like 'Believe in yourself...'. These hooks are designed to spark curiosity and encourage engagement with your post.",
+  },
+  {
+    question: "Can I adjust the character length of my post?",
+    answer:
+      "Yes! You can easily set a desired character length for your post. The default character limit is 500, but you can customize it based on your preferences. This flexibility helps you tailor your posts for different LinkedIn audiences.",
+  },
+  {
+    question: "What does the 'Show Advanced Options' feature do?",
+    answer:
+      "The 'Show Advanced Options' feature lets you fine-tune your post by adding extra customization options, such as choosing specific emojis or adjusting bullet points. This option helps you tailor your post for better engagement with your audience.",
+  },
+  {
+    question: "How many posts can I generate?",
+    answer:
+      "You can generate as many posts as you want for free! There are no limits to how many viral posts you can create using this tool. Just keep creating and engaging with your LinkedIn audience!",
+  },
+  {
+    question: "How do I ensure my post goes viral?",
+    answer:
+      "While there is no guaranteed formula for a post to go viral, using the right viral hook, keeping your post concise and engaging, and including relevant emojis or bullet points can help maximize engagement. This tool is designed to guide you in creating posts that have a higher chance of going viral by focusing on popular, attention-grabbing formats.",
+  },
+  {
+    question: "What should I do if I don't like the generated post?",
+    answer:
+      "If you're not satisfied with the generated post, you can modify it by selecting a different hook, adjusting the options, or editing the post after it's been created. The tool gives you flexibility, so feel free to tweak it until you're happy with the result!",
+  },
+  {
+    question: "Can I generate multiple posts at once?",
+    answer:
+      "Currently, you can only generate one post at a time. However, you can quickly refresh and generate another post by selecting a different hook or modifying the options.",
+  },
+];
