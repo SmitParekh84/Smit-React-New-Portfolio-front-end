@@ -12,12 +12,11 @@ import ContactPage from "./pages/ContactPage";
 const Header = React.lazy(() => import("./components/Header/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
 const AboutPage = React.lazy(() => import("./pages/AboutPage"))
-const Skills = React.lazy(() => import("./components/Skills"))
+const SkillsPage = React.lazy(() => import("./pages/SkillsPage"))
 const Qualification = React.lazy(() => import("./components/Qualification"))
 const Services = React.lazy(() => import("./components/Services"))
 const Project = React.lazy(() => import("./components/Project"))
 const Testimonials = React.lazy(() => import("./components/Testimonials"))
-const ContactMe = React.lazy(() => import("./components/ContactMe"))
 
 
 const App = () => {
@@ -50,7 +49,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/skills" element={<Skills />} />
+            <Route path="/skills" element={<SkillsPage />} />
             <Route path="/qualification" element={<Qualification />} />
             <Route path="/services" element={<Services />} />
             <Route path="/portfolio" element={<PortfolioPage />} />

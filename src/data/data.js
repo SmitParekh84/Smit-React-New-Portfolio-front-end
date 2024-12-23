@@ -414,12 +414,12 @@ export const footerData = {
   subtitle: "Full Stack Developer & Marketing Manager",
   links: [
     { href: "/services", label: "Services" },
-    { id: "/about", label: "About", icon: "uil-user" },
+    { href: "/about", label: "About", icon: "uil-user" },
     { href: "/portfolio", label: "Portfolio" },
     { href: "/qualification", label: "Experience" },
     { href: "/contact", label: "Contact Me" },
-    { id: "/background-remover", label: "Bg-Remover", icon: "uil-trash" },
-    { id: "/viral-linkedin-post-generator", label: "Linkedln Post Generator ", icon: "uil-linkedin" },
+    { href: "/background-remover", label: "Bg-Remover", icon: "uil-trash" },
+    { href: "/viral-linkedin-post-generator", label: "Linkedln Post Generator ", icon: "uil-linkedin" },
 
   ],
   socialLinks: [
