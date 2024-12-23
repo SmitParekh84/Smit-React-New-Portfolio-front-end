@@ -366,7 +366,9 @@
     .profile-time {
         font-size: 10px; /* Smaller font size for mobile */
     }
-
+.profile-icon {
+        font-size: 12px; /* Smaller icon size for mobile */
+    }
     .content-section {
         font-size: 12px; /* Smaller font size for mobile */
     }

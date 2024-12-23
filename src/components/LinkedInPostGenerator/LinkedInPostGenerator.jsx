@@ -5,7 +5,7 @@ import { marked } from "marked";
 import './LinkedlnPostGenerator.css';
 import linekedln from '../../assets/img/linkeldn.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import { faCopy, faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 const LinkedInPostGenerator = () => {
     const [activity, setActivity] = useState("");
     const [advice, setAdvice] = useState("");
@@ -314,18 +314,7 @@ const LinkedInPostGenerator = () => {
                                 </span>
                                 <span className="profile-time">
                                     3h •
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="profile-icon"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M12 2a10 10 0 100 20 10 10 0 000-20zm-7.938 9.5h5.127a1.501 1.501 0 001.282-.72l.69-1.037c.19-.283.14-.652-.109-.876l-1.292-1.177a.502.502 0 01-.138-.545l.84-2.506A8.035 8.035 0 0112 4c.36 0 .716.03 1.065.09a.5.5 0 01.364.682l-.703 2.108c-.13.39.092.81.481.946l1.628.543c.33.11.543.432.543.78v1.5a.5.5 0 00.496.5h.553a.499.499 0 00.451-.28l.276-.552a.5.5 0 01.894.013l.582 1.363a.5.5 0 01-.454.694h-.76a.5.5 0 00-.471.333l-.276.828a.499.499 0 00.06.468l.845 1.268c.345.517.92.855 1.546.898a8.01 8.01 0 01-4.794 2.437 1.502 1.502 0 00-1.147.642l-.826 1.102a8.007 8.007 0 01-7.514-6.68z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
+                                    <FontAwesomeIcon icon={faEarthAmericas} className="profile-icon" />
                                 </span>
                             </div>
                             <button onClick={handleCopyPost} className="linkedln-copybutton">
