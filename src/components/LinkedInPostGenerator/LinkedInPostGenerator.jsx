@@ -3,7 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { marked } from "marked";
 import './LinkedlnPostGenerator.css';
-import linekedln from '../assets/img/linkeldn.png'
+import linekedln from '../../assets/img/linkeldn.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 const LinkedInPostGenerator = () => {

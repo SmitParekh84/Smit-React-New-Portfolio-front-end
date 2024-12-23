@@ -1,7 +1,7 @@
 // Import React and the About component
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import LinkedInPostGenerator from "../components/LinkedInPostGenerator";
+import LinkedInPostGenerator from "../components/LinkedInPostGenerator/LinkedInPostGenerator";
 // Create the AboutPage component
 const LinkedInPostGeneratorPage = () => {
     return (
@@ -66,7 +66,9 @@ const LinkedInPostGeneratorPage = () => {
 
 
             <LinkedInPostGenerator />
+<div>
 
+</div>
         </>
 
     );
