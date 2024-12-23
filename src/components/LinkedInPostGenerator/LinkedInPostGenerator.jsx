@@ -88,8 +88,8 @@ const LinkedInPostGenerator = () => {
             toast.success("Post successfully generated!");
             setScrollAfterGenerate(true);
         } catch (error) {
-            toast.error("Error generating post:", error);
-            setGeneratedPost("An error occurred while generating the post.");
+            toast.error("Oops! Something went wrong. Please try again.", error);
+            setGeneratedPost("Sorry, there was an issue generating the post. Please try again later.");
         } finally {
             setLoading(false); // Set loading to false once the request is complete
         }
