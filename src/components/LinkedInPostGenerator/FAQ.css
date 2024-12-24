@@ -8,15 +8,14 @@
 }
 
 .faq__item {
-    background-color: #ffffff;
+    background-color: var(--container-color);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
 
 .faq__question {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1rem;
     margin-bottom: 10px;
 }
 
@@ -29,5 +28,9 @@
 @media (min-width: 768px) {
     .faq__container {
         grid-template-columns: 1fr ; /* Two columns on desktop */
+    }
+    .faq__question {
+        font-size: 1.2rem;
+        
     }
 }
