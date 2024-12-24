@@ -1,22 +1,4 @@
-/* Section styling */
-.section {
-    padding: 40px 0;
-    background-color: #f8f8f8;
-}
 
-/* Section title */
-.section__title {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.section__subtitle {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #666;
-}
 
 /* Container for FAQ items */
 .faq__container {
