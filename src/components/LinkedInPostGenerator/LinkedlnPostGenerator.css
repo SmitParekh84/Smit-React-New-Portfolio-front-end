@@ -48,7 +48,7 @@
   .linkedin-post-generator input[type="range"]:focus,
   .linkedin-post-generator input[type="number"]:focus,
 .linkedin-post-generator input[type="checkbox"]:focus {
-    border-color: var(--primary-color, #007bff);
+    border-color: var(--first-color, #007bff);
     outline: none;
   }
   .linkedin-post-generator textarea {
@@ -56,7 +56,7 @@
     min-height: 80px;
     height: auto; /* Automatically adjust height */
     resize: none; /* Prevent resizing from the corner */
-    border-color: var(--primary-color, #007bff);
+    border-color: var(--first-color, #007bff);
     outline: none;
 }
 .linkedin-post-generator textarea:focus {
@@ -99,45 +99,28 @@
 }
 
 
-  .linkedin-post-generator button {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    font-size: 1rem;
-    font-weight: var(--font-medium);
-      background-color: var(--first-color);
-    color: #fff;
-    border: none;
-      border-radius: 0.5rem;
+.linkedin-post-generator .linkedin-button-class {
+  display: block;
+  width: 100%;
+  padding: 12px;
+ 
+  font-size: 1rem;
+  font-weight: var(--font-medium);
+  background-color: var(--first-color);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.linkedin-post-generator .linkedin-button-class:hover {
+  background-color: var(--primary-hover-color, #0056b3);
+  transform: translateY(-2px);
+}
   
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-  }
   
-  .linkedin-post-generator button:hover {
-    background-color: var(--primary-hover-color, #0056b3);
-    transform: translateY(-2px);
-  }
-  
-  .linkedin-post-generator .generated-post {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #e9f5ff;
-    border-left: 4px solid var(--primary-color, #007bff);
-    border-radius: 6px;
-  }
-  
-  .linkedin-post-generator .generated-post h3 {
-    margin: 0 0 10px;
-    font-size: 1.2rem;
-    color: var(--primary-color, #007bff);
-  }
-  
-  .linkedin-post-generator .generated-post p {
-    font-size: 1rem;
-    color: #333;
-  }
+ 
   
   /* Range Slider Styling */
   .range-container {
@@ -319,49 +302,65 @@
 }
 
 /* Button styles */
-.btn-toggle-advanced {
-  background-color: #4CAF50;  /* Green background */
-  color: white; /* White text */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 20px; /* Padding inside the button */
-  font-size: 16px; /* Font size */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
-}
 
-/* Button hover effect */
-.btn-toggle-advanced:hover {
-  background-color: #45a049; /* Darker green on hover */
-  transform: scale(1.05); /* Slightly enlarge the button */
-}
-
-/* Focused button (for accessibility) */
-.btn-toggle-advanced:focus {
-  outline: none; /* Remove default outline */
-  box-shadow: 0 0 3px 3px rgba(72, 144, 255, 0.5); /* Add custom focus effect */
-}
-
-/* Disabled state */
-.btn-toggle-advanced:disabled {
-  background-color: #ccc; /* Light gray background */
-  cursor: not-allowed; /* Change cursor to indicate it's disabled */
-}
 .button-container {
-  display: flex; /* Enable flexbox */
-  gap: 15px; /* Space between buttons */
-  justify-content: center; /* Center buttons horizontally */
-  align-items: center; /* Align buttons vertically */
-  margin-top: 20px; /* Space from the top */
+  display: grid; /* Use grid instead of flex */
+  grid-template-columns: 2fr 1fr; /* 2fr for the first column, 1fr for the second */
+  gap: 15px;
+  justify-items: center; /* Center content horizontally in each grid cell */
+  justify-content: baseline ;
+  align-items: center; /* Center content vertically in each grid cell */
+}
+.toggle-container {
+  display: grid; /* Use grid instead of flex */
+  grid-template-columns: 2fr 1fr; /* 2fr for the first column, 1fr for the second */
+  gap: 15px;
+  justify-items: center; /* Center content horizontally in each grid cell */
+  justify-content: baseline ;
+  align-items: center; /* Center content vertically in each grid cell */
 }
 
+/* Wrapper for the toggle switch */
+.toggle-switch {
+  width: 50px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Active state for toggle */
+.toggle-switch.active {
+  background-color: var(--first-color); /* Green when active */
+}
+
+/* Toggle thumb (the circle) */
+.toggle-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(0, -50%);
+  transition: left 0.3s ease;
+}
+
+/* Move the thumb when active */
+.toggle-switch.active .toggle-thumb {
+  left: calc(100% - 25px);
+}
+/* ---------------------------- */
 
 /* Mobile Responsive Font Sizes */
 @media (max-width: 767px) {
     .profile-name {
         font-size: 16px; /* Smaller font size for mobile */
     }
-
+    
     .profile-description,
     .profile-time {
         font-size: 10px; /* Smaller font size for mobile */
@@ -371,6 +370,9 @@
     }
     .content-section {
         font-size: 12px; /* Smaller font size for mobile */
+    }
+    .button-container{
+      grid-template-columns: 1fr; /* Single column for mobile */
     }
 }
 
@@ -586,3 +588,6 @@
     stroke-dashoffset: -440;
   }
 }
+
+
+

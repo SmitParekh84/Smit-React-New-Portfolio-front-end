@@ -219,7 +219,7 @@ const LinkedInPostGenerator = () => {
 
                     {useAdvanceOption && (
                         <div>
-
+                            <p>Here are the advanced options...</p>
                             <div className="checkbox-container">
                                 <label>
                                     Use Emojis :
@@ -261,18 +261,26 @@ const LinkedInPostGenerator = () => {
                                 />
                             </label>
                         </div>)}
-                    <div className="button-container">
-                        <button
-                            onClick={() => setUseAdvanceOption(prev => !prev)}
-                            className="btn-toggle-advanced"
-                        >
-                            {useAdvanceOption ? "Hide Advanced Options" : "Show Advanced Options"}
-                        </button>
 
+
+                    <div className="button-container ">
+
+
+                        <div className="toggle-container ">
+                           
+                                {useAdvanceOption ? "Advanced Options" : "Advanced Options"}
+                           
+                            <div
+                                onClick={() => setUseAdvanceOption((prev) => !prev)}
+                                className={`toggle-switch ${useAdvanceOption ? "active" : ""}`}
+                            >
+                                <span className="toggle-thumb"></span>
+                            </div>    
+                        </div>
                         <button
                             onClick={handleGeneratePost}
                             disabled={loading}
-                            className="generate-button"
+                            className="linkedin-button-class"
                         >
                             {loading ? 'Generating...' : 'Generate Post'}
                         </button>
