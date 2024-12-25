@@ -1277,7 +1277,7 @@ img {
 @media screen and (max-width: 480px) {
   .container {
     margin-left: var(--mb-1);
-    margin-right: var(--mb-1);
+    /* margin-right: var(--mb-1); */
   }
   .logo-image {
     width: 30px; /* Smaller logo size for mobile */
