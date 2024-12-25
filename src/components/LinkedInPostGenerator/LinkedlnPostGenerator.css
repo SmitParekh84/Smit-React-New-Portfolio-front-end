@@ -52,7 +52,7 @@
     outline: none;
   }
   .linkedin-post-generator textarea {
-    overflow-y: hidden; /* Hide scrollbar */
+    overflow-y: auto; /* Show scrollbar when needed */
     min-height: 80px;
     height: auto; /* Automatically adjust height */
     resize: none; /* Prevent resizing from the corner */
