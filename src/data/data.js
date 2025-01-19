@@ -14,8 +14,9 @@ export const headerData = {
       label: "Free Tools",
       icon: "uil-tools",
       subLinks: [
-        { id: "/background-remover", label: "Bg Remover", icon: "uil-trash" },
-        { id: "/viral-linkedin-post-generator", label: "LinkedIn Post Generator", icon: "uil-linkedin" },
+        { id: "/free-tools/background-remover", label: "Bg Remover", icon: "uil-trash" },
+        { id: "/free-tools/viral-linkedin-post-generator", label: "LinkedIn Post Generator", icon: "uil-linkedin" },
+        { id: "/free-tools/meta-tag-checker", label: "Meta Tag Checker", icon: "uil-search" },
       ],
     },
     { id: "/contact", label: "Contact Me", icon: "uil-message" },
@@ -39,19 +40,19 @@ export const toolsData = [
     title: "Background Remover",
     icon: "uil-trash",
     shortDescription: "Remove backgrounds from your images effortlessly.",
-    path: "/background-remover",
+    path: "/free-tools/background-remover",
   },
   {
     title: "Viral LinkedIn Post Generator",
     icon: "uil-linkedin",
     shortDescription: "Generate viral LinkedIn posts with ease.",
-    path: "/viral-linkedin-post-generator",
+    path: "/free-tools/viral-linkedin-post-generator",
   },
   {
-    title: "Viral LinkedIn Post Generator",
+    title: "Meta Tag Checker",
     icon: "uil-linkedin",
-    shortDescription: "Generate viral LinkedIn posts with ease.",
-    path: "/viral-linkedin-post-generator",
+    shortDescription: "Check the meta tags of any website.",
+    path: "/free-tools/meta-tag-checker",
   },
 ];
 
