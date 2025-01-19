@@ -6,8 +6,10 @@ const MetaChecker = () => {
     const [metaInfo, setMetaInfo] = useState(null);
     const [error, setError] = useState(null);
 
+    // Handle URL input change
     const handleUrlChange = (e) => setUrl(e.target.value);
 
+    // Check meta info when the button is clicked
     const handleCheckMeta = async () => {
         setError(null);
         setMetaInfo(null); // Reset previous data
@@ -35,53 +37,67 @@ const MetaChecker = () => {
     };
 
     return (
-        <main className="index-main ">
+        <main className="index-main">
             <section className="index-metadata section">
                 <div className="index-metadata__sticky">
                     <header>
                         <h3>Metadata</h3>
                     </header>
                     <section className="index-metadata__content">
-                        <h4>Image <span className="index-metadata__count">Recommend 1200×628</span></h4>
-                        <label htmlFor="input" className="index-metadata__image" style={{ backgroundImage: `url(${metaInfo?.image || ""})` }}>
-                            <div className="index-metadata__image-button">
-                                <div className="index-metadata__image-button-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 22 24">
-                                        <g fill="none" fillRule="evenodd" stroke="#2A81FB" strokeWidth="4" transform="translate(2 3)">
-                                            <polyline points="0 9 9 0 18 9"></polyline>
-                                            <path d="M9,0 L9,21"></path>
+                        <h4>URL</h4>
+                        <input
+                            type="text"
+                            value={url}
+                            onChange={handleUrlChange}
+                            placeholder="Enter website URL"
+                            className="index-metadata__input"
+                        />
+                        <button className="index-metadata__button" onClick={handleCheckMeta}>Check Meta</button>
+
+                        {error && <p className="error-message">{error}</p>}
+
+                        {metaInfo && (
+                            <>
+                                <h4>Image <span className="index-metadata__count">Recommend 1200×628</span></h4>
+                                <label htmlFor="input" className="index-metadata__image" style={{ backgroundImage: `url(${metaInfo.image || ""})` }}>
+                                    <div className="index-metadata__image-button">
+                                        <div className="index-metadata__image-button-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 22 24">
+                                                <g fill="none" fillRule="evenodd" stroke="#2A81FB" strokeWidth="4" transform="translate(2 3)">
+                                                    <polyline points="0 9 9 0 18 9"></polyline>
+                                                    <path d="M9,0 L9,21"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div className="index-metadata__image-button-text">Drag & Drop or Click</div>
+                                    </div>
+                                </label>
+                                <input id="input" type="file" style={{ display: "none" }} />
+                                <h4>Title <span className="index-metadata__count js-title-count">{metaInfo?.title?.length || 0}</span></h4>
+                                <textarea
+                                    className="index-metadata__text"
+                                    rows="2"
+                                    spellCheck="false"
+                                    value={metaInfo?.title || ""}
+                                    readOnly
+                                />
+                                <h4>Description <span className="index-metadata__count js-description-count">{metaInfo?.description?.length || 0}</span></h4>
+                                <textarea
+                                    className="index-metadata__text"
+                                    rows="5"
+                                    value={metaInfo?.description || ""}
+                                    readOnly
+                                />
+                                <a className="index-preview__button">
+                                    <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
+                                        <g stroke="#FFF" strokeWidth="2" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M5.744 2.857L1 7.732l4.696 4.953M14.304 2.857L19 7.81l-4.696 4.952M11.957 1L8 14"></path>
                                         </g>
                                     </svg>
-                                </div>
-                                <div className="index-metadata__image-button-text">Drag & Drop or Click</div>
-                            </div>
-                        </label>
-                        <input id="input" type="file" style={{ display: "none" }} />
-
-                        <h4>Title <span className="index-metadata__count js-title-count">{metaInfo?.title?.length || 0}</span></h4>
-                        <textarea
-                            className="index-metadata__text"
-                            rows="2"
-                            spellCheck="false"
-                            value={metaInfo?.title || ""}
-                            readOnly
-                        />
-
-                        <h4>Description <span className="index-metadata__count js-description-count">{metaInfo?.description?.length || 0}</span></h4>
-                        <textarea
-                            className="index-metadata__text"
-                            rows="5"
-                            value={metaInfo?.description || ""}
-                            readOnly
-                        />
-                        <a className="index-preview__button">
-                            <svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg">
-                                <g stroke="#FFF" strokeWidth="2" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M5.744 2.857L1 7.732l4.696 4.953M14.304 2.857L19 7.81l-4.696 4.952M11.957 1L8 14"></path>
-                                </g>
-                            </svg>
-                            <span>Get Code</span>
-                        </a>
+                                    <span>Get Code</span>
+                                </a>
+                            </>
+                        )}
                     </section>
 
                     {/* SEO Tools Links */}
