@@ -1,6 +1,7 @@
 /* LinkedInCard.css */
 
 /*==================== Linekdln post  ====================*/
+
 .linkedin-post-generator {
     padding: 30px;
     max-width: 600px;
@@ -11,7 +12,45 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: var(--body-font);
   }
-  
+  .generated-post-container {
+    position: relative;
+}
+.hashtag {
+  color: #3182ce; /* Tailwind blue-500 */
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hashtag:hover {
+  color: #2b6cb0; /* Tailwind blue-600 */
+  text-decoration: underline;
+}
+
+/* Styling for "See More" button */
+.see-more-btn {
+    color: #3182ce; /* Tailwind blue-500 */
+    font-weight: 600;
+    cursor: pointer;
+    background: none;
+    border: none;
+    position: absolute;
+    right: 0; /* Align to the right side of the container */
+    bottom: 0; /* Position at the bottom */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+.generated-post span {
+  word-wrap: break-word; /* Ensure long words break correctly */
+}
+.see-more-btn:hover {
+    color: #2b6cb0; /* Tailwind blue-600 */
+}
+
+/* Hover effect for 'See More' */
+.see-more-btn:hover {
+    color: #2b6cb0; /* Tailwind blue-600 */
+}
   .linkedin-post-generator h2 {
     text-align: center;
     margin-bottom: 20px;

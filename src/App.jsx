@@ -6,9 +6,10 @@ import "./assets/css/swiper-bundle.min.css"
 import Loader from "./components/Loader"
 import { PortfolioPage } from "./pages/PortfolioPage"
 import Landing from "./Landing"
-import BackgroundRemover from "./pages/BackgroundRemover"
+import BackgroundRemoverPage from "./pages/BackgroundRemoverPage"
 import LinkedInPostGeneratorPage from "./pages/LinkedInPostGeneratorPage";
 import ContactPage from "./pages/ContactPage";
+import ToolsPage from "./pages/ToolsPage";
 const Header = React.lazy(() => import("./components/Header/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
 const AboutPage = React.lazy(() => import("./pages/AboutPage"))
@@ -57,13 +58,14 @@ const App = () => {
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
-            <Route path="/background-remover" element={<BackgroundRemover />} />
+            <Route path="/background-remover" element={<BackgroundRemoverPage />} />
             <Route path="/viral-linkedin-post-generator" element={<LinkedInPostGeneratorPage />} />
+            <Route path="/free-tools" element={<ToolsPage />} />
 
           </Routes>
         </main>
+        <Footer />
       </Suspense>
-      <Footer />
     </Router>
   )
 }

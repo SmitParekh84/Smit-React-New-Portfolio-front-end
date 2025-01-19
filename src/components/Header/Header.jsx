@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import LazyLoad from "react-lazyload";
 import { headerData } from "../../data/data.js";
+import { useLocation } from "react-router-dom"; // Import useLocation for route changes
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar.jsx"; // Import the Navbar component
 
@@ -11,7 +12,7 @@ const Header = () => {
   const darkTheme = "dark-theme";
 
   const headerRef = useRef(null);
-
+  const location = useLocation(); // Use the location hook to track route changes
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -89,7 +90,10 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [activeSection]);
-
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scroll to top on route change
+  }, [location]);
   return (
     <header className="header" id="header" ref={headerRef}>
       <nav className="nav container">

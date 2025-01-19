@@ -3,8 +3,8 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import LinkedInPostGenerator from "../components/LinkedInPostGenerator/LinkedInPostGenerator";
 import LazyLoad from "react-lazyload";
-import FAQ from "../components/LinkedInPostGenerator/FAQ";
-import { faqData } from "../data/data"; // Import the data
+import FAQ from "../components/FAQ/FAQ";
+import { faqDataLinkedin } from "../data/data"; // Import the data
 // Create the AboutPage component
 
 
@@ -14,7 +14,7 @@ const LinkedInPostGeneratorPage = () => {
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": faqData.map(item => ({
+        "mainEntity": faqDataLinkedin.map(item => ({
             "@type": "Question",
             "name": item.question,
             "acceptedAnswer": {
@@ -87,7 +87,8 @@ const LinkedInPostGeneratorPage = () => {
 
             <LinkedInPostGenerator />
 
-            <FAQ />
+           
+            <FAQ faqData={faqDataLinkedin} toolName="Viral LinkedIn Post Generator" />
 
         </>
 

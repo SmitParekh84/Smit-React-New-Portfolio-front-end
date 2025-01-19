@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { headerData } from "../../data/data";  // Import your header data
+import { headerData } from "../../data/data"; // Import your header data
 
 const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
     const navLinks = isMenuOpen ? headerData.mobileNavLinks : headerData.desktopNavLinks;
+
     return (
         <div className={`nav__menu ${isMenuOpen ? "show-menu" : ""}`} id="nav-menu">
             <ul className="nav__list grid">
                 {navLinks.map((link) => (
                     <li className="nav__item" key={link.id}>
                         <Link
-                            to={`${link.id}`}
+                            to={link.id}
                             className={`nav__link ${activeSection === link.id ? "active-link" : ""}`}
                             onClick={closeMenu}
                         >
@@ -18,11 +19,19 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
                             {link.label}
                         </Link>
 
-                        {/* Dropdown for "About" section */}
-                        {link.id === "/about" && (
+                        {/* If this link has subLinks, display the dropdown */}
+                        {link.subLinks && (
                             <div className="nav__dropdown">
-                                <Link to="/skills" className="nav__dropdown-link">Skills</Link>
-                                <Link to="/qualification" className="nav__dropdown-link">Experience</Link>
+                                {link.subLinks.map((subLink) => (
+                                    <Link
+                                        key={subLink.id}
+                                        to={subLink.id}
+                                        className="nav__dropdown-link"
+                                    >
+                                        <i className={`uil ${subLink.icon} nav__dropdown-icon`}></i>
+                                        {subLink.label}
+                                    </Link>
+                                ))}
                             </div>
                         )}
                     </li>

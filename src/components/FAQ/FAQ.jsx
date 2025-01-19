@@ -1,16 +1,16 @@
-import React from "react"
-import "./FAQ.css"
-import { faqData } from "../../data/data"
-function FAQ() {
+import React from "react";
+import "./FAQ.css";
+
+function FAQ({ faqData, toolName }) {  // Accepting faqData as a prop
     return (
         <section className="section" id="about">
             <h2 className="section__title">Frequently Asked Questions</h2>
             <span className="section__subtitle">
-                Answers to common questions about the Viral LinkedIn Post Generator
+                Answers to common questions about the {toolName}
             </span>
 
             <div className="faq__container container grid">
-                {faqData.map((item, index) => (
+                {faqData.map((item, index) => (  // Using passed prop
                     <div className="faq__item" key={index}>
                         <details>
                             <summary className="faq__question">{item.question}</summary>
@@ -20,7 +20,7 @@ function FAQ() {
                 ))}
             </div>
         </section>
-    )
+    );
 }
 
-export default FAQ
+export default FAQ;

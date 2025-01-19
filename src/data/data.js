@@ -9,8 +9,15 @@ export const headerData = {
     { id: "/about", label: "About", icon: "uil-user" },
     { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
     { id: "/portfolio", label: "Portfolio", icon: "uil-scenery" },
-    { id: "/background-remover", label: "Bg-Remover", icon: "uil-trash" },
-    { id: "/viral-linkedin-post-generator", label: "Linkedln Post", icon: "uil-linkedin" },
+    {
+      id: "free-tools",
+      label: "Free Tools",
+      icon: "uil-tools",
+      subLinks: [
+        { id: "/background-remover", label: "Bg Remover", icon: "uil-trash" },
+        { id: "/viral-linkedin-post-generator", label: "LinkedIn Post Generator", icon: "uil-linkedin" },
+      ],
+    },
     { id: "/contact", label: "Contact Me", icon: "uil-message" },
   ],
   mobileNavLinks: [
@@ -20,11 +27,34 @@ export const headerData = {
     { id: "/qualification", label: "Experience", icon: "uil-graduation-cap" },
     { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
     { id: "/portfolio", label: "Portfolio", icon: "uil-scenery" },
-    { id: "/background-remover", label: "Bg-Remover", icon: "uil-trash" },
-    { id: "/viral-linkedin-post-generator", label: "Linkedln Post", icon: "uil-linkedin" },
+
+    { id: "/free-tools", label: "Free Tools", icon: "uil uil-wrench" },
+    // { id: "/background-remover", label: "Bg-Remover", icon: "uil-trash" },
+    // { id: "/viral-linkedin-post-generator", label: "Linkedln Post", icon: "uil-linkedin" },
     { id: "/contact", label: "Contact Me", icon: "uil-message" },
   ],
 }
+export const toolsData = [
+  {
+    title: "Background Remover",
+    icon: "uil-trash",
+    shortDescription: "Remove backgrounds from your images effortlessly.",
+    path: "/background-remover",
+  },
+  {
+    title: "Viral LinkedIn Post Generator",
+    icon: "uil-linkedin",
+    shortDescription: "Generate viral LinkedIn posts with ease.",
+    path: "/viral-linkedin-post-generator",
+  },
+  {
+    title: "Viral LinkedIn Post Generator",
+    icon: "uil-linkedin",
+    shortDescription: "Generate viral LinkedIn posts with ease.",
+    path: "/viral-linkedin-post-generator",
+  },
+];
+
 
 import HomeImage from "/images/Smit-Parekh-Home.png"
 export const homeData = {
@@ -402,7 +432,7 @@ export const testimonialsData = [
 ]
 
 export const contactData = {
-  phone: "(+91) 99042-53143",
+  phone: "Fill the form to get my phone number",
   email: "smitparekh02@gmail.com",
   location: "Anand, Gujarat, 388001",
   successMessage: "Your message has been sent successfully!",
@@ -439,7 +469,7 @@ export const footerData = {
   ],
   copyright: "&#169; Smit Parekh. All rights reserved.",
 }
-export const faqData = [
+export const faqDataLinkedin = [
   {
     question: "What is the Viral LinkedIn Post Generator?",
     answer:
@@ -489,5 +519,110 @@ export const faqData = [
     question: "Can I generate multiple posts at once?",
     answer:
       "Currently, you can only generate one post at a time. However, you can quickly refresh and generate another post by selecting a different hook or modifying the options.",
+  },
+];
+
+export const faqDataBackgroundRemover = [
+  {
+    question: "What is the Free Background Remover?",
+    answer:
+      "The Free Background Remover is a simple yet powerful tool designed to help you remove backgrounds from images in just a few seconds. Whether you need a transparent background for your product photos, profile pictures, or graphic design projects, this tool makes it easy to achieve professional results without any technical skills.",
+  },
+  {
+    question: "Is this tool free to use?",
+    answer:
+      "Yes, the Free Background Remover is completely free to use. You can remove the background from as many images as you like, without any cost or hidden fees. We believe in making it easy for anyone to create clean, professional-looking images.",
+  },
+  {
+    question: "How do I use the tool?",
+    answer:
+      "Using the Free Background Remover is simple! Just upload your image, and the tool will automatically detect and remove the background. You can then download the image with a transparent background or save it in your desired format. It's quick and effortless!",
+  },
+  {
+    question: "Can I use the tool for any type of image?",
+    answer:
+      "Yes! The Free Background Remover works with various types of images, including product photos, portraits, logos, and more. However, for best results, high-quality images with clear separation between the subject and background work best.",
+  },
+  {
+    question: "What image formats are supported?",
+    answer:
+      "The Free Background Remover supports common image formats like JPEG, PNG, and GIF. Simply upload an image in one of these formats, and the tool will handle the rest.",
+  },
+  {
+    question: "Can I download the edited image with a transparent background?",
+    answer:
+      "Yes! Once the background is removed, you can download the image with a transparent background in PNG format. This is ideal for use in graphic design, presentations, or on e-commerce platforms.",
+  },
+  {
+    question: "How long does it take to remove the background?",
+    answer:
+      "The background removal process typically takes just a few seconds. The tool is designed for speed and accuracy, so you can get your images ready in no time!",
+  },
+  {
+    question: "Can I edit the background after removal?",
+    answer:
+      "Currently, the tool removes the background automatically, but you can edit the image afterward using other image editing tools. If you need to add a new background, you can do so in any graphic design software.",
+  },
+  {
+    question: "Are there any limits on how many images I can process?",
+    answer:
+      "No, there are no limits! You can use the Free Background Remover as many times as you need, whether you’re processing a few images or hundreds.",
+  },
+  {
+    question: "What should I do if the tool doesn't remove the background properly?",
+    answer:
+      "If the background removal isn't perfect, you can try uploading a higher-quality image with clearer subject-background separation. You can also use the 'Edit' option to refine the edges or use other photo editing tools to perfect the result.",
+  },
+];
+export const faqDataTools = [
+  {
+    question: "What are the Free Tools available?",
+    answer:
+      "Our Free Tools page includes various utilities to help enhance your productivity, such as the Free Background Remover and the Viral LinkedIn Post Generator. These tools are designed to simplify common tasks and improve the quality of your work without any cost.",
+  },
+  {
+    question: "Are these tools free to use?",
+    answer:
+      "Yes, all the tools available on the Free Tools page are completely free to use. There are no hidden fees or subscriptions. You can use them as much as you need!",
+  },
+  {
+    question: "How do I use these tools?",
+    answer:
+      "Each tool on the page has a simple interface. Just follow the on-screen instructions for uploading files or generating content. For example, for the Background Remover, you can upload an image, and the tool will automatically remove the background. For the Post Generator, simply select your parameters and generate the post.",
+  },
+  {
+    question: "Can I use the tools for commercial purposes?",
+    answer:
+      "Yes! You are free to use the outputs from the tools for personal and commercial purposes. The images you edit with the Free Background Remover can be used for websites, e-commerce, and marketing, while posts generated from the Viral LinkedIn Post Generator can be used for your LinkedIn and other social media platforms.",
+  },
+  {
+    question: "Are the tools easy to use?",
+    answer:
+      "Absolutely! We’ve designed these tools to be intuitive and user-friendly. Whether you're a beginner or a pro, you can start using them right away with minimal instructions. Our goal is to make these tools accessible to everyone, regardless of technical skills.",
+  },
+  {
+    question: "What if the tool doesn’t work properly?",
+    answer:
+      "If you encounter any issues with the tools, try refreshing the page or clearing your cache. If the issue persists, you can contact our support team for assistance. We’re here to help ensure everything runs smoothly.",
+  },
+  {
+    question: "What file types are supported for the tools?",
+    answer:
+      "For the Free Background Remover, we support popular image formats such as JPEG, PNG, and GIF. For the Viral LinkedIn Post Generator, the tool works with text input to create the post, so there are no specific file type requirements.",
+  },
+  {
+    question: "Can I save the results from the tools?",
+    answer:
+      "Yes, after processing an image with the Free Background Remover, you can download the result in PNG format with a transparent background. For the Viral LinkedIn Post Generator, you can copy the generated post content and paste it into your LinkedIn or other social media platforms.",
+  },
+  {
+    question: "How long does it take to process a tool request?",
+    answer:
+      "Processing time is typically very quick, taking only a few seconds for both tools. The Free Background Remover quickly removes backgrounds, and the Viral LinkedIn Post Generator instantly generates your post based on the settings you choose.",
+  },
+  {
+    question: "Can I use these tools offline?",
+    answer:
+      "Currently, the tools require an internet connection to function. They rely on cloud-based technology for processing. However, you can save the outputs to your device and use them offline afterward.",
   },
 ];

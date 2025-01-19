@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { servicesData } from "../data/data" // Adjust the import path as necessary
 import { Helmet } from "react-helmet-async"
-
+import "./Services.css"
 const Services = () => {
   const [activeModalIndex, setActiveModalIndex] = useState(null)
 
