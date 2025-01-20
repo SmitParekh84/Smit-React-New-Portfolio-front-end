@@ -10,7 +10,7 @@ import BackgroundRemoverPage from "./pages/BackgroundRemoverPage"
 import LinkedInPostGeneratorPage from "./pages/LinkedInPostGeneratorPage";
 import ContactPage from "./pages/ContactPage";
 import ToolsPage from "./pages/ToolsPage";
-import MetaChecker from "./components/MetaChecker/MetaChecker";
+import MetaCheckerPage from "./pages/MetaCheckerPage";
 const Header = React.lazy(() => import("./components/Header/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
 const AboutPage = React.lazy(() => import("./pages/AboutPage"))
@@ -62,7 +62,7 @@ const App = () => {
             <Route path="/free-tools/background-remover" element={<BackgroundRemoverPage />} />
             <Route path="/free-tools/viral-linkedin-post-generator" element={<LinkedInPostGeneratorPage />} />
             <Route path="/free-tools" element={<ToolsPage />} />
-            <Route path="/free-tools/meta-tag-checker" element={<MetaChecker />} />
+            <Route path="/free-tools/meta-tag-checker" element={<MetaCheckerPage />} />
 
           </Routes>
         </main>
