@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./MetaChecker.css";  // Import the enhanced CSS file
 
-const MetaChecker = (apiUrl) => {
+const MetaChecker = ({apiUrl}) => {
     const [url, setUrl] = useState("");
     const [metaInfo, setMetaInfo] = useState(null);
     const [error, setError] = useState(null);
