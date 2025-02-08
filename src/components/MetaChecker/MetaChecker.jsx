@@ -27,11 +27,11 @@ const MetaChecker = ({apiUrl}) => {
         }
         const formattedUrl = formatUrl(url);
         // Define the local API URL (your backend server)
-        const apiUrl = `${apiUrl}/api/meta-check?url=${encodeURIComponent(formattedUrl)}`;
+        const apiUrlMeta = `${apiUrl}/api/meta-check?url=${encodeURIComponent(formattedUrl)}`;
 
         try {
             // Fetch meta information from the backend
-            const response = await fetch(apiUrl);
+            const response = await fetch(apiUrlMeta);
             const data = await response.json();
 
             if (data.error) {
