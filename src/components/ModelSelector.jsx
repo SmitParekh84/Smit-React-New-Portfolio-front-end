@@ -24,7 +24,7 @@ const ModelSelector = ({ model, setModel }) => {
                         height="24"
                         className="model-image"
                     />
-                    <span>{model.toUpperCase()}</span>
+                    <span>{model.charAt(0).toUpperCase() + model.slice(1)}</span>
                 </div>
                 {isOpen && (
                     <div className="dropdown-options">
@@ -38,7 +38,7 @@ const ModelSelector = ({ model, setModel }) => {
                                 }}
                             >
                                 <img className="model-image" src={logo} alt={name} width="24" height="24" />
-                                <span>{name.toUpperCase()}</span>
+                                <span>{name.charAt(0).toUpperCase() + name.slice(1)}</span>
                             </div>
                         ))}
                     </div>
