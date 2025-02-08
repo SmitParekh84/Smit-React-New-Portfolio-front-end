@@ -165,12 +165,21 @@ const MetaChecker = ({ apiUrl }) => {
 
                 {/* Preview Cards */}
                 {metaInfo && ["Google", "Twitter", "Facebook", "LinkedIn"].map(platform => (
-                    <>  <header className="index-preview__header">
-                        <h3>Preview</h3>
-                    </header>
-                        <div key={platform} id={platform.toLowerCase()} className="metadata-group__display is-active">
+                    <div key={platform}>
+                        <header className="index-preview__header">
+                            <h3>Preview</h3>
+                        </header>
+                        <div id={platform.toLowerCase()} className="metadata-group__display is-active">
                             <h4 className="metadata-group__title"><span>{platform}</span></h4>
                             <div className={`card-seo-${platform.toLowerCase()}`}>
+                                {/* Image from metaInfo */}
+                                {metaInfo.image && (
+                                    <img
+                                        src={metaInfo.image}
+                                        alt={`${platform} preview`}
+                                        className={`card-seo-${platform.toLowerCase()}__image`}
+                                    />
+                                )}
                                 <span className={`card-seo-${platform.toLowerCase()}__title js-preview-title`}>
                                     {metaInfo.title}
                                 </span>
@@ -178,14 +187,16 @@ const MetaChecker = ({ apiUrl }) => {
                                     <span className={`card-seo-${platform.toLowerCase()}__url-title js-preview-domain`}>
                                         {metaInfo.url}
                                     </span>
-                                    <span className="card-seo-facebook__url-arrow"></span>
+                                    <span className={`card-seo-${platform.toLowerCase()}__url-arrow`}></span>
                                 </div>
                                 <span className={`card-seo-${platform.toLowerCase()}__description js-preview-description`}>
                                     {metaInfo.description}
                                 </span>
                             </div>
-                        </div></>
+                        </div>
+                    </div>
                 ))}
+
             </div>
 
         </section>

@@ -8,10 +8,12 @@ import './LinkedlnPostGenerator.css';
 import linekedln from '../../assets/img/linkeldn.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faEarthAmericas, faCheckCircle, faMagic } from "@fortawesome/free-solid-svg-icons";
+import ModelSelector from "../ModelSelector";
 const LinkedInPostGenerator = () => {
+    const [model, setModel] = useState("gemini"); // Default model selection
     const [activity, setActivity] = useState("");
     const [advice, setAdvice] = useState("");
-    const [cringeLevel, setCringeLevel] = useState(2);
+    const [cringeLevel, setCringeLevel] = useState(0);
     const [generatedPost, setGeneratedPost] = useState("");
     const [selectedHook, setSelectedHook] = useState(""); // New state for selected hook
     const [ask, setAsk] = useState(""); // New state for selected hook
@@ -27,7 +29,10 @@ const LinkedInPostGenerator = () => {
     const [copied, setCopied] = useState(false);  // State to manage the copied status  
     const [showFullContent, setShowFullContent] = useState(false);
     const apiUrl = import.meta.env.VITE_API_URL;
-    const hooks = [
+    const models = [
+        { name: "gemini", logo: "/images/Ai/gemini.png" },
+        { name: "deepseek", logo: "/images/Ai/deepseek.png" },
+    ]; const hooks = [
         { id: 1, label: "A Superior Method", template: "[Common belief or practice] [negative consequence]. Here's the [notable method] [famous individuals or groups] use instead:" },
         // { id: 2, label: "My Takeaways", ask: "How Many Takeaways ?", template: "Here are X [insights/lessons/learnings] I've picked up along the way:" },
         { id: 3, label: "Impactful Advice", ask: "How Many Advice ?", template: "[Unusual habit/action] solves [high percentage of major problem]. X more [simple/quick/easy] [habits/actions] to [improve/change a specific situation]:" },
@@ -73,10 +78,18 @@ const LinkedInPostGenerator = () => {
 
     const handleGeneratePost = async () => {
         setLoading(true); // Set loading to true when the button is clicked
+
+        let timeoutId;
+        if (model === "deepseek") {
+            timeoutId = setTimeout(() => {
+                toast.info("DeepSeek takes time, please be patient.");
+            }, 5000); // Show after 5 seconds
+        }
         try {
             const modifiedHookTemplate = selectedHook.replace(/X/g, xValue);
             const response = await axios.post(`${apiUrl}/api/generate-post`, {
                 activity,
+                model,
                 advice,
                 cringeLevel,
                 modifiedHookTemplate,
@@ -97,6 +110,7 @@ const LinkedInPostGenerator = () => {
             setGeneratedPost("Sorry, there was an issue generating the post. Please try again later.");
         } finally {
             setLoading(false); // Set loading to false once the request is complete
+            clearTimeout(timeoutId);// Clear the timeout if request finishes early
         }
     };
 
@@ -179,7 +193,7 @@ const LinkedInPostGenerator = () => {
     return (
         <>
             <section className="bg-remover-box container">
-                <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
+                <ToastContainer position="top-center" />
 
                 <div className="linkedin-post-generator">
                     <h2>Viral LinkedIn Post Generator</h2>
@@ -291,11 +305,14 @@ const LinkedInPostGenerator = () => {
                                 Desired Character Length:
                                 <input
                                     type="number"
-                                    placeholder="500"
+                                    placeholder="600"
                                     value={characterLength}
                                     onChange={(e) => setCharacterLength(e.target.value)}
                                 />
                             </label>
+                            {/* Model Selection Dropdown */}
+                            <ModelSelector model={model} setModel={setModel} />
+
                         </div>)}
 
 
