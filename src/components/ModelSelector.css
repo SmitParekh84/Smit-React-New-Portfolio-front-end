@@ -12,7 +12,7 @@
     color: var(--title-color, #333);
 }
 .model-image{
-    width: ;
+    width: 10%;
     height: auto;
 
 }
@@ -31,7 +31,7 @@
     justify-content: space-between;
 }
 
-.custom-dropdown.open {
+.custom-dropdown-model.open {
     border-color: var(--first-color, #007bff);
 }
 
@@ -43,13 +43,13 @@
 }
 
 /* Dropdown arrow */
-.custom-dropdown::after {
+.custom-dropdown-model::after {
     content: " ▼";
     font-size: 1rem;
     color: var(--primary-color, #007bff);
 }
 
-.custom-dropdown.open::after {
+.custom-dropdown-model.open::after {
     content: " ▲";
 }
 

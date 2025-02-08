@@ -22,6 +22,7 @@ const ModelSelector = ({ model, setModel }) => {
                         alt={model}
                         width="24"
                         height="24"
+                        className="model-image"
                     />
                     <span>{model.toUpperCase()}</span>
                 </div>
