@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./MetaChecker.css";  // Import the enhanced CSS file
 
-const MetaChecker = ({apiUrl}) => {
+const MetaChecker = ({ apiUrl }) => {
     const [url, setUrl] = useState("");
     const [metaInfo, setMetaInfo] = useState(null);
     const [error, setError] = useState(null);
-    
+    const [loading, setLoading] = useState(false); // State to track loading status
+
     // Handle URL input change
     // Handle URL input change
     const handleUrlChange = (e) => setUrl(e.target.value);
@@ -21,6 +22,7 @@ const MetaChecker = ({apiUrl}) => {
     const handleCheckMeta = async () => {
         setError(null);
         setMetaInfo(null); // Reset previous data
+        setLoading(true);
         if (!url.trim()) {
             setError("Please enter a URL.");
             return;
@@ -41,6 +43,9 @@ const MetaChecker = ({apiUrl}) => {
             }
         } catch (err) {
             setError("Failed to fetch meta information. Please try again.");
+            setLoading(false);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -60,8 +65,17 @@ const MetaChecker = ({apiUrl}) => {
                     placeholder="www.smitparekh.studio"
                     className="index-metadata__input"
                 />
-                <button className="index-metadata__button" onClick={handleCheckMeta}>Check Meta</button>
+                <button className="index-metadata__button" disabled={loading} onClick={handleCheckMeta}> {loading ? 'Checking...' : 'Check Meta'}</button>
+                {loading && (
+                    <div className="loading-post" >
+                        <svg className="pl" width="240" height="240" viewBox="0 0 240 240">
+                            <circle className="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 660" strokeDashoffset="-330" strokeLinecap="round"></circle>
+                            <circle className="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 220" strokeDashoffset="-110" strokeLinecap="round"></circle>
+                            <circle className="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 440" strokeLinecap="round"></circle>
+                            <circle className="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" strokeWidth="20" strokeDasharray="0 440" strokeLinecap="round"></circle>
+                        </svg></div>
 
+                )}
                 {error && <p className="error-message">{error}</p>}
 
                 {metaInfo && (
