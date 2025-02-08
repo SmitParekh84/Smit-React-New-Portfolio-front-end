@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./MetaChecker.css";  // Import the enhanced CSS file
 
-const MetaChecker = () => {
+const MetaChecker = (apiUrl) => {
     const [url, setUrl] = useState("");
     const [metaInfo, setMetaInfo] = useState(null);
     const [error, setError] = useState(null);
-
+    
     // Handle URL input change
     // Handle URL input change
     const handleUrlChange = (e) => setUrl(e.target.value);
@@ -27,7 +27,7 @@ const MetaChecker = () => {
         }
         const formattedUrl = formatUrl(url);
         // Define the local API URL (your backend server)
-        const apiUrl = `http://localhost:5000/api/meta-check?url=${encodeURIComponent(formattedUrl)}`;
+        const apiUrl = `${apiUrl}/api/meta-check?url=${encodeURIComponent(formattedUrl)}`;
 
         try {
             // Fetch meta information from the backend

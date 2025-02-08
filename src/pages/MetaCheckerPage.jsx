@@ -7,11 +7,12 @@ import MetaChecker from "../components/MetaChecker/MetaChecker";
 
 // Create the AboutPage component
 const MetaCheckerPage = () => {
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     return (
         <>
             <Helmet>
-                <title>Meta Checker Tool - Analyze Your Website&apos;s Meta Tags | Smit Parekh</title>
+                <title>Free Meta Checker Tool - Analyze Your Website&apos;s Meta Tags | Smit Parekh</title>
 
                 <meta
                     name="description"
@@ -70,7 +71,7 @@ const MetaCheckerPage = () => {
 
 
 
-            <MetaChecker />
+            <MetaChecker apiUrl={apiUrl} toolName="Website Meta Tag Checker" />
             <FAQ faqData={faqDataMetaChecker} toolName="Website Meta Tag Checker" />
 
 
