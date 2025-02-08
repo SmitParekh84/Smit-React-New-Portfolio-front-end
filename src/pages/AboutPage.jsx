@@ -2,6 +2,9 @@
 import React from "react";
 import About from "../components/About"; // Adjust the path based on your folder structure
 import { Helmet } from "react-helmet-async";
+import Skills from "../components/Skills";
+import Qualification from "../components/Qualification";
+import Project from "../components/Project";
 
 // Create the AboutPage component
 const AboutPage = () => {
@@ -72,7 +75,9 @@ const AboutPage = () => {
 
 
             <About />
-
+            <Skills />
+            <Qualification />
+            <Project />
         </>
 
     );

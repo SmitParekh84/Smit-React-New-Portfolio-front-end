@@ -24,8 +24,8 @@ export const headerData = {
   mobileNavLinks: [
     { id: "/", label: "Home", icon: "uil-estate" },
     { id: "/about", label: "About", icon: "uil-user" },
-    { id: "/skills", label: "Skills", icon: "uil-file-alt" },
-    { id: "/qualification", label: "Experience", icon: "uil-graduation-cap" },
+    // { id: "/skills", label: "Skills", icon: "uil-file-alt" },
+    // { id: "/qualification", label: "Experience", icon: "uil-graduation-cap" },
     { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
     { id: "/portfolio", label: "Portfolio", icon: "uil-scenery" },
 
