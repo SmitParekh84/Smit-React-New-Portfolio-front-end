@@ -299,3 +299,33 @@ export const faqDataImageCompressor = [
         answer: "Yes, our image compressor is completely free to use with no hidden charges or premium tiers. We don't add watermarks to your images or require you to create an account."
     }
 ];
+export const faqDataImageConverter = [
+  {
+      question: "What image formats can I convert with this tool?",
+      answer: "Our tool supports conversion between multiple formats including PNG, JPG, WEBP, GIF, and BMP. You can convert from any of these formats to another with high quality results."
+  },
+  {
+      question: "Will my image lose quality during conversion?",
+      answer: "Our image converter is designed to maintain the highest possible quality during format conversion. However, some format changes (like converting from lossless PNG to lossy JPG) inherently involve some quality reduction due to the nature of the formats."
+  },
+  {
+      question: "Is there a file size limit for image conversion?",
+      answer: "Yes, you can upload images up to 10MB in size. This limit ensures fast processing and optimal conversion results."
+  },
+  {
+      question: "Which format is best for web images?",
+      answer: "WEBP is generally the best format for web images as it provides excellent compression while maintaining good quality. PNG is best for images requiring transparency, while JPG is suitable for photographs where transparency isn't needed."
+  },
+  {
+      question: "Is my data secure when using this converter?",
+      answer: "Yes, your images are processed securely. We don't store your original or converted images on our servers longer than needed for the conversion process. All files are automatically deleted after processing."
+  },
+  {
+      question: "Can I convert multiple images at once?",
+      answer: "Currently, our tool processes one image at a time for optimal quality. For bulk conversions, you'll need to convert each image individually."
+  },
+  {
+      question: "Do I need to create an account to use this tool?",
+      answer: "No, this image converter is completely free to use without any registration or account creation. Simply upload your image, select your desired format, and convert."
+  }
+];
