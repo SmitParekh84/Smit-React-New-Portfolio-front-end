@@ -1,6 +1,7 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import Loader from './components/Loader';
 import Home from './components/Home';
+// Import About directly to avoid lazy loading issues with modal
 import About from './components/About';
 import Skills from './components/Skills';
 import SEO from './components/SEO/SEO';
@@ -8,7 +9,8 @@ import { Qualification, Services, Project, Testimonials } from "./components/Lan
 import Portfolio from './components/Portfolio';
 import ContactMe from './components/ContactMe';
 
-const ScrollToTop = React.lazy(() => import('./components/ScrollToTop'));
+// Lazy load only components that don't have immediate user interaction
+const ScrollToTop = lazy(() => import('./components/ScrollToTop'));
 
 const Landing = () => {
     // Combine all main schema information
@@ -78,8 +80,9 @@ const Landing = () => {
 
             <main className="main">
                 <Home />
+                {/* Load About outside of Suspense to avoid modal issues */}
+                <About />
                 <Suspense fallback={<div className="loader-overlay-componet"><Loader /></div>}>
-                    <About />
                     <Skills />
                     <Qualification />
                     <Services />
@@ -90,7 +93,9 @@ const Landing = () => {
                 </Suspense>
             </main>
 
-            <ScrollToTop />
+            <Suspense fallback={null}>
+                <ScrollToTop />
+            </Suspense>
         </>
     );
 };

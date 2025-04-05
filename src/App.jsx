@@ -12,6 +12,7 @@ import ToolsPage from "./pages/ToolsPage";
 import MetaCheckerPage from "./pages/MetaCheckerPage";
 import ToolsShowcasePage from "./pages/ToolsShowcasePage";
 import ServicesPage from "./pages/ServicesPage";
+import CVViewer from "./pages/CVViewer";
 
 const Header = React.lazy(() => import("./components/Header/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
@@ -62,6 +63,7 @@ const App = () => {
             <Route path="/free-tools/viral-linkedin-post-generator" element={<LinkedInPostGeneratorPage />} />
             <Route path="/free-tools" element={<ToolsPage />} />
             <Route path="/free-tools/meta-tag-checker" element={<MetaCheckerPage />} />
+            <Route path="/cv-viewer" element={<CVViewer />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
