@@ -767,51 +767,7 @@ img {
   overflow: initial;
 }
 
-.portfolio__content {
-  padding: 0 1.5rem;
-}
-
-.portfolio__img {
-  width: 265px;
-  
-  border-radius: 0.5rem;
-  justify-self: center;
- 
-}
-.portfolio__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 3 columns on larger screens */
-  gap: 30px; /* Space between grid items */
-}
-
-.portfolio__content {
-  background-color: var(--container-color);
-
-  border: 1px solid var(--first-color-second); /* Optional: Add a border */
-  border-radius: 10px; /* Optional: Rounded corners */
-  padding: 20px; /* Padding inside the item */
-  text-align: center; /* Center the text */
-}
-
-@media (max-width: 768px) {
-  .portfolio__grid {
-    grid-template-columns: 1fr; /* 1 column on mobile */
-  }
-}
-
-
-.portfolio__title {
-  font-size: var(--h3-font-size);
-  margin-bottom: var(--mb-0-5);
-}
-
-.portfolio__description {
-  margin-bottom: var(--mb-0-75);
-}
-
-.portfolio__button:hover .button__icon {
-  transform: translateX(0.25rem);
-}
+/* Only keeping styles that might be used elsewhere in the site */
 .slick-arrow {
   background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   color: white; /* Button color */
@@ -837,6 +793,7 @@ img {
 .slick-prev, .slick-next {
   display: block;
 }
+
 /*==================== PROJECT IN MIND ====================*/
 .project {
   text-align: center;

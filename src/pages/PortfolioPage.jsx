@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { portfolioData } from "../data/data";
 import LazyLoad from "react-lazyload";
 import SEO from "../components/SEO/SEO";
+// Import the new CSS file
+import "../assets/css/portfolio.css";
 
 export const PortfolioPage = () => {
   // Schema for structured data
@@ -38,16 +40,28 @@ export const PortfolioPage = () => {
         structuredData={portfolioSchema}
       />
 
-      {/* Navigation links at top of portfolio page */}
-      <div className="portfolio-nav container" style={{marginTop: "5rem", textAlign: "center", marginBottom: "2rem"}}>
-        <h1 className="section__title">My Projects</h1>
-        <div style={{display: "flex", justifyContent: "center", gap: "1rem", marginTop: "1rem"}}>
-          <Link to="/portfolio" className="button button--flex button--small" style={{backgroundColor: window.location.pathname === "/portfolio" ? "var(--first-color)" : "var(--first-color-alt)"}}>
-            <i className="uil uil-presentation-play button__icon"></i> Full Portfolio
-          </Link>
-          <Link to="/project" className="button button--flex button--small" style={{backgroundColor: window.location.pathname === "/project" ? "var(--first-color)" : "var(--first-color-alt)"}}>
-            <i className="uil uil-image button__icon"></i> Projects Gallery
-          </Link>
+      {/* Improved navigation links at top of portfolio page */}
+      <div className="portfolio-nav-section section">
+        <div className="container">
+          <h1 className="section__title">My Projects</h1>
+          <p className="portfolio-nav__description">Browse through my collection of web development and digital marketing projects</p>
+          
+          <div className="portfolio-nav__tabs">
+            <Link 
+              to="/portfolio" 
+              className={`portfolio-nav__tab ${window.location.pathname === "/portfolio" ? "portfolio-nav__tab--active" : ""}`}
+            >
+              <i className="uil uil-presentation-play portfolio-nav__icon"></i>
+              Full Portfolio
+            </Link>
+            <Link 
+              to="/project" 
+              className={`portfolio-nav__tab ${window.location.pathname === "/project" ? "portfolio-nav__tab--active" : ""}`}
+            >
+              <i className="uil uil-image portfolio-nav__icon"></i>
+              Projects Gallery
+            </Link>
+          </div>
         </div>
       </div>
 

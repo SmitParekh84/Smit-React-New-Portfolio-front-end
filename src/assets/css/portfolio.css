@@ -1,0 +1,164 @@
+/* Portfolio Page Specific Styles */
+
+/* Portfolio navigation section */
+.portfolio-nav-section {
+  padding-top: 6rem;
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+  background-color: var(--body-color);
+}
+
+.portfolio-nav__description {
+  color: var(--text-color);
+  text-align: center;
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  font-size: var(--normal-font-size);
+}
+
+/* Portfolio navigation tabs */
+.portfolio-nav__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  position: relative;
+}
+
+.portfolio-nav__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  font-size: var(--normal-font-size);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background-color: var(--container-color);
+  flex: 1;
+  max-width: 220px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+  z-index: 1;
+}
+
+/* Improved hover effect */
+.portfolio-nav__tab:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  color: var(--first-color);
+}
+
+/* Enhanced active tab styling */
+.portfolio-nav__tab--active {
+  background-color: var(--first-color);
+  color: #fff;
+  border-color: var(--first-color);
+  box-shadow: 0 4px 10px rgba(var(--first-color-rgb), 0.4);
+}
+
+.portfolio-nav__tab--active:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Add bottom indicator for active tab */
+.portfolio-nav__tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 3px 3px 0 0;
+}
+
+.portfolio-nav__icon {
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+}
+
+/* Portfolio grid layout */
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.portfolio__content {
+  background-color: var(--container-color);
+  border: 1px solid rgba(var(--first-color-rgb), 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.portfolio__content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio__img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+.portfolio__title {
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-0-75);
+  color: var(--title-color);
+}
+
+.portfolio__description {
+  margin-bottom: var(--mb-1);
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.portfolio__button {
+  margin-top: 0.5rem;
+}
+
+.portfolio__button:hover .button__icon {
+  transform: translateX(0.25rem);
+}
+
+/* Portfolio page responsive */
+@media screen and (max-width: 768px) {
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .portfolio-nav__tabs {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio-nav__tabs {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .portfolio-nav__tab {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .portfolio-nav-section {
+    padding-top: 5rem;
+  }
+}

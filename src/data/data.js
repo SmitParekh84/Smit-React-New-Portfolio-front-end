@@ -6,15 +6,13 @@ export const headerData = {
   name: "Smit Parekh",
   desktopNavLinks: [
     { id: "/", label: "Home", icon: "uil-estate" },
-    { id: "/about", label: "About", icon: "uil-user" },
-    { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
     { 
-      id: "/project", 
+      id: "/portfolio", 
       label: "Portfolio", 
       icon: "uil-scenery",
       subLinks: [
-        { id: "/project", label: "Projects Gallery", icon: "uil-image" },
-        { id: "/portfolio", label: "Full Portfolio", icon: "uil-presentation-play" }
+        { id: "/portfolio", label: "Full Portfolio", icon: "uil-presentation-play" },
+        { id: "/project", label: "Projects Gallery", icon: "uil-image" }
       ] 
     },
     {
@@ -27,6 +25,9 @@ export const headerData = {
         { id: "/free-tools/meta-tag-checker", label: "Meta Tag Checker", icon: "uil-search" },
       ],
     },
+    { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
+
+    { id: "/about", label: "About", icon: "uil-user" },
     { id: "/contact", label: "Contact Me", icon: "uil-message" },
   ],
   mobileNavLinks: [

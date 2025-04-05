@@ -14,6 +14,13 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
 
     return (
         <div className={`nav__menu ${isMenuOpen ? "show-menu" : ""}`} id="nav-menu">
+            {/* Add close button for mobile view */}
+            {isMenuOpen && (
+                <div className="nav__close" id="nav-close" onClick={closeMenu}>
+                    <i className="uil uil-times"></i>
+                </div>
+            )}
+
             <ul className="nav__list grid">
                 {navLinks.map((link) => (
                     <li className="nav__item" key={link.id}>
