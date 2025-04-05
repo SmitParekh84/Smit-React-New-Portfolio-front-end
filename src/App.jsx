@@ -13,6 +13,7 @@ import MetaCheckerPage from "./pages/MetaCheckerPage";
 import ToolsShowcasePage from "./pages/ToolsShowcasePage";
 import ServicesPage from "./pages/ServicesPage";
 import CVViewer from "./pages/CVViewer";
+import QRCodeGeneratorPage from "./pages/QRCodeGeneratorPage";
 
 const Header = React.lazy(() => import("./components/Header/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
@@ -22,7 +23,6 @@ const Qualification = React.lazy(() => import("./components/Qualification"))
 const Services = React.lazy(() => import("./components/Services"))
 const Project = React.lazy(() => import("./components/Project"))
 const Testimonials = React.lazy(() => import("./components/Testimonials"))
-
 
 const App = () => {
   const [showTestimonials, setShowTestimonials] = useState(false)
@@ -63,6 +63,7 @@ const App = () => {
             <Route path="/free-tools/viral-linkedin-post-generator" element={<LinkedInPostGeneratorPage />} />
             <Route path="/free-tools" element={<ToolsPage />} />
             <Route path="/free-tools/meta-tag-checker" element={<MetaCheckerPage />} />
+            <Route path="/free-tools/qr-code-generator" element={<QRCodeGeneratorPage />} />
             <Route path="/cv-viewer" element={<CVViewer />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

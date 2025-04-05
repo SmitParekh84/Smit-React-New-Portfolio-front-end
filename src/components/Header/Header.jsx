@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import LazyLoad from "react-lazyload";
 import { headerData } from "../../data/data.js";
-import { useLocation, Link } from "react-router-dom"; // Import useLocation for route changes
-import Navbar from "./Navbar.jsx"; // Import the Navbar component
+import { useLocation, Link } from "react-router-dom";
+import Navbar from "./Navbar.jsx";
+import "./Header.css"; // Import the new CSS file
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ const Header = () => {
   const darkTheme = "dark-theme";
 
   const headerRef = useRef(null);
-  const location = useLocation(); // Use the location hook to track route changes
+  const location = useLocation();
   
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
