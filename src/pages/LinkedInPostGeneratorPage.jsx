@@ -1,16 +1,11 @@
-// Import React and the About component
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import LinkedInPostGenerator from "../components/LinkedInPostGenerator/LinkedInPostGenerator";
-import LazyLoad from "react-lazyload";
 import FAQ from "../components/FAQ/FAQ";
-import { faqDataLinkedin } from "../data/data"; // Import the data
-// Create the AboutPage component
-
-
+import { faqDataLinkedin } from "../data/data";
+import SEO from "../components/SEO/SEO";
 
 const LinkedInPostGeneratorPage = () => {
-
+    // FAQ Schema
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -23,79 +18,67 @@ const LinkedInPostGeneratorPage = () => {
             }
         }))
     };
+
+    // SoftwareApplication schema for the tool
+    const toolSchema = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Free AI-Powered LinkedIn Post Generator",
+        "applicationCategory": "BusinessApplication, UtilitiesApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Person",
+            "name": "Smit Parekh"
+        }
+    };
+
+    // Breadcrumb structured data
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.smitparekh.studio"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Free Tools",
+                "item": "https://www.smitparekh.studio/tools"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "LinkedIn Post Generator",
+                "item": "https://www.smitparekh.studio/viral-linkedin-post-generator"
+            }
+        ]
+    };
+
     return (
         <>
-            <Helmet>
-                <title>Free AI-Powered Viral LinkedIn Post Generator | Boost Engagement with Creative Content</title>
-                <meta
-                    name="description"
-                    content="Generate free viral LinkedIn posts with AI! Our AI-powered, free tool helps you craft engaging content to boost your professional visibility and foster connections."
-                />
-                <meta
-                    name="keywords"
-                    content="Free AI tool, Free AI LinkedIn post generator, viral posts, social media engagement, LinkedIn content, digital marketing, professional content, free AI post creation"
-                />
-                <meta name="author" content="Smit Parekh" />
-                <link rel="canonical" href="https://www.smitparekh.studio/viral-linkedin-post-generator" />
-
-                {/* Open Graph Tags */}
-                <meta property="og:title" content="Free AI-Powered Viral LinkedIn Post Generator | Boost Engagement with Creative Content" />
-                <meta
-                    property="og:description"
-                    content="Create free viral LinkedIn posts effortlessly with AI! Generate high-quality content that resonates with your professional audience and drives engagement."
-                />
-                <meta
-                    property="og:image"
-                    content="https://www.smitparekh.studio/images/viral-linkedin-post-generator.webp"
-                />
-                <meta property="og:url" content="https://www.smitparekh.studio/viral-linkedin-post-generator" />
-                <meta property="og:type" content="website" />
-
-                {/* Twitter Card Tags */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Free AI-Powered Viral LinkedIn Post Generator | Boost Engagement with Creative Content" />
-                <meta
-                    name="twitter:description"
-                    content="Generate free viral LinkedIn posts with AI to boost your professional visibility. Engage your audience with compelling content created in minutes!"
-                />
-                <meta name="twitter:image" content="https://www.smitparekh.studio/images/viral-linkedin-post-generator.webp" />
-
-                {/* Structured Data - JSON-LD */}
-                <script type="application/ld+json">
-                    {`
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Free AI-Powered Viral LinkedIn Post Generator",
-            "url": "https://www.smitparekh.studio/viral-linkedin-post-generator",
-            "description": "Generate free viral LinkedIn posts effortlessly with AI! Create engaging content that drives professional visibility and engagement.",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Smit Parekh Studio"
-            },
-            "image": "https://www.smitparekh.studio/images/viral-linkedin-post-generator.webp"
-        }
-        `}
-                </script>
-                <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-            </Helmet>
-
-
-
-
-
+            <SEO 
+                title="Free AI LinkedIn Post Generator | Create Viral Content Instantly"
+                description="Generate engaging, viral-worthy LinkedIn posts with our free AI tool. Save time, increase engagement, and grow your professional network with compelling content created in seconds."
+                keywords="Free LinkedIn post generator, AI content creator, viral LinkedIn posts, professional content writing, LinkedIn engagement tool, free AI writing tool, social media content"
+                canonicalUrl="https://www.smitparekh.studio/viral-linkedin-post-generator"
+                ogImage="https://www.smitparekh.studio/images/viral-linkedin-post-generator.webp"
+                twitterImage="https://www.smitparekh.studio/images/viral-linkedin-post-generator.webp"
+                structuredData={[toolSchema, faqSchema, breadcrumbSchema]}
+            />
 
             <LinkedInPostGenerator />
-
-           
             <FAQ faqData={faqDataLinkedin} toolName="Viral LinkedIn Post Generator" />
-
         </>
-
     );
 };
-
-
-
 
 export default LinkedInPostGeneratorPage;

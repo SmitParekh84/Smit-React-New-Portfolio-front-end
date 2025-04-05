@@ -1,66 +1,72 @@
-// Import React and the About component
 import React from "react";
-import About from "../components/About"; // Adjust the path based on your folder structure
-import { Helmet } from "react-helmet-async";
-import { contactData } from '../data/data'; // Adjust the import path as necessary
+import { contactData } from '../data/data';
 import ContactMe from "../components/ContactMe";
+import SEO from "../components/SEO/SEO";
 
-// Create the AboutPage component
 const ContactPage = () => {
+    // Contact page schema
+    const contactSchema = {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact Smit Parekh",
+        "url": "https://www.smitparekh.studio/contact",
+        "description": "Contact Smit Parekh for inquiries regarding web development, digital marketing, and SEO services.",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Smit Parekh",
+            "telephone": contactData.phone,
+            "email": contactData.email,
+            "url": "https://www.smitparekh.studio",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": contactData.phone,
+                "contactType": "customer service",
+                "areaServed": "IN",
+                "availableLanguage": "English"
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Anand",
+                "addressRegion": "Gujarat",
+                "postalCode": "388001",
+                "addressCountry": "IN"
+            }
+        }
+    };
+
+    // Breadcrumb structured data
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.smitparekh.studio"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact",
+                "item": "https://www.smitparekh.studio/contact"
+            }
+        ]
+    };
+
     return (
         <>
-            <Helmet>
-                <title>Contact Us - Smit Parekh</title>
-                <meta
-                    name="description"
-                    content="Get in touch with Smit Parekh for web development, digital marketing, and SEO services. Reach out via phone or email for inquiries."
-                />
-                <meta
-                    name="keywords"
-                    content="contact, web development, digital marketing, SEO, Smit Parekh, inquiry"
-                />
-
-                {/* JSON-LD Schema for Contact Information */}
-                <script type="application/ld+json">
-                    {`
-                                    {
-                                        "@context": "https://schema.org",
-                                        "@type": "WebPage",
-                                        "name": "Contact Us - Smit Parekh",
-                                        "url": "https://www.smitparekh.studio/contact",
-                                        "description": "Contact Smit Parekh for inquiries regarding web development, digital marketing, and SEO services.",
-                                        "contactPoint": {
-                                            "@type": "ContactPoint",
-                                            "telephone": "${contactData.phone}",
-                                            "contactType": "customer service",
-                                            "areaServed": "IN",
-                                            "availableLanguage": "English"
-                                        },
-                                        "address": {
-                                            "@type": "PostalAddress",
-                                            "addressLocality": "Anand",
-                                            "addressRegion": "Gujarat",
-                                            "postalCode": "388001",
-                                            "addressCountry": "IN"
-                                        },
-                                        "email": "${contactData.email}"
-                                    }
-                                `}
-                </script>
-            </Helmet>
-
-
-
-
+            <SEO 
+                title="Contact Smit Parekh | Web Development & Digital Marketing Services"
+                description="Get in touch with Smit Parekh for professional web development, digital marketing, and SEO services. Receive a personalized consultation for your business needs."
+                keywords="contact Smit Parekh, web development services, digital marketing inquiry, SEO consultation, hire web developer, professional marketing services, business website development"
+                canonicalUrl="https://www.smitparekh.studio/contact"
+                structuredData={[contactSchema, breadcrumbSchema]}
+            />
 
             <ContactMe />
-
         </>
-
     );
 };
 
-
-
-// Export the AboutPage
 export default ContactPage;

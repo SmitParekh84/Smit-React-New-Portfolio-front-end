@@ -1,71 +1,89 @@
-import { Helmet } from "react-helmet-async";
-
+import React from "react";
 import "react-toastify/dist/ReactToastify.css";
 import BackgroundRemover from "../components/BackgroundRemover/BackgroundRemover";
 import FAQ from "../components/FAQ/FAQ";
 import { faqDataBackgroundRemover } from "../data/data";
+import SEO from "../components/SEO/SEO";
 
 const BackgroundRemoverPage = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
+    
+    // FAQ Schema
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqDataBackgroundRemover.map(item => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+            }
+        }))
+    };
+
+    // SoftwareApplication schema for the tool
+    const toolSchema = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Free Background Remover Tool",
+        "applicationCategory": "DesignApplication, UtilitiesApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Use this free background remover tool to remove the background from images quickly and easily. Perfect for designers, marketers, and casual users.",
+        "featureList": "Remove image backgrounds automatically, Download transparent PNG images, Process images in seconds",
+        "creator": {
+            "@type": "Person",
+            "name": "Smit Parekh"
+        }
+    };
+
+    // Breadcrumb structured data
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.smitparekh.studio"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Free Tools",
+                "item": "https://www.smitparekh.studio/tools"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Background Remover",
+                "item": "https://www.smitparekh.studio/background-remover"
+            }
+        ]
+    };
+
     return (
         <>
-            <Helmet>
-                <title>Background Remover | Free Image Background Removal Tool</title>
-                <meta
-                    name="description"
-                    content="Use our free background remover tool to easily remove the background from your images. Upload your image and download the background-free version in seconds!"
-                />
-                <meta
-                    name="keywords"
-                    content="background remover, free background remover, remove image background, background removal tool, online image background removal"
-                />
-                <meta name="author" content="Smit Parekh" />
-                <link rel="canonical" href="https://www.smitparekh.studio/background-remover" />
-
-                {/* Open Graph Tags */}
-                <meta property="og:title" content="Free Background Remover Tool" />
-                <meta
-                    property="og:description"
-                    content="Easily remove the background from your images using our free tool. Perfect for professionals and casual users alike. Upload and download your image in seconds!"
-                />
-                <meta
-                    property="og:image"
-                    content="https://www.smitparekh.studio/images/Background-Remover.png"
-                />
-                <meta property="og:url" content="https://www.smitparekh.studio/background-remover" />
-                <meta property="og:type" content="website" />
-
-                {/* Twitter Card Tags */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Free Background Remover Tool" />
-                <meta
-                    name="twitter:description"
-                    content="Use our free tool to quickly remove backgrounds from images. Upload and download your image in just a few clicks!"
-                />
-                <meta name="twitter:image" content="https://www.smitparekh.studio/images/Background-Remover.png" />
-
-                {/* Structured Data - JSON-LD */}
-                <script type="application/ld+json">
-                    {`
-            {
-                "@context": "https://schema.org",
-                "@type": "WebPage",
-                "name": "Background Remover",
-                "url": "https://www.smitparekh.studio/background-remover",
-                "description": "Use this free background remover tool to remove the background from images quickly and easily. Perfect for designers, marketers, and casual users.",
-                "image": "https://www.smitparekh.studio/images/Background-Remover.png",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Smit Parekh Studio",
-                    "url": "https://www.smitparekh.studio"
-                }
-            }
-            `}
-                </script>
-            </Helmet>
+            <SEO 
+                title="Free Background Remover Tool | Remove Image Backgrounds Instantly"
+                description="Remove image backgrounds in seconds with our free online tool. Get transparent PNG files with perfect edge detection for product photos, portraits, and graphics without any cost."
+                keywords="free background remover, remove image background online, transparent PNG creator, background eraser tool, remove background from photo free, no-cost background removal"
+                canonicalUrl="https://www.smitparekh.studio/background-remover"
+                ogImage="https://www.smitparekh.studio/images/Background-Remover.png"
+                ogTitle="Free Online Background Remover Tool - No Sign-up Required"
+                twitterImage="https://www.smitparekh.studio/images/Background-Remover.png"
+                structuredData={[toolSchema, faqSchema, breadcrumbSchema]}
+            />
+            
             <BackgroundRemover
-                toolName="Background Remover"  // Pass dynamic tool name
-                apiUrl={apiUrl}  // Pass dynamic API URL
+                toolName="Background Remover"
+                apiUrl={apiUrl}
             />
             <FAQ faqData={faqDataBackgroundRemover} toolName="Background Remover" />
         </>

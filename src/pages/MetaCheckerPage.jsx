@@ -1,85 +1,88 @@
-// Import React and the About component
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import { faqDataMetaChecker } from "../data/data";
 import FAQ from "../components/FAQ/FAQ";
 import MetaChecker from "../components/MetaChecker/MetaChecker";
+import SEO from "../components/SEO/SEO";
 
-// Create the AboutPage component
 const MetaCheckerPage = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
+    
+    // FAQ Schema
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqDataMetaChecker.map(item => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+            }
+        }))
+    };
+
+    // SoftwareApplication schema for the tool
+    const toolSchema = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Meta Tag Checker Tool",
+        "applicationCategory": "SEOApplication, WebApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Use the Meta Tag Checker Tool to analyze your website's meta tags and optimize for SEO. Check your title, description, Open Graph, and Twitter Cards.",
+        "featureList": "Analyze website meta tags, Verify Open Graph and Twitter Cards, Check SEO compliance",
+        "creator": {
+            "@type": "Person",
+            "name": "Smit Parekh"
+        }
+    };
+
+    // Breadcrumb structured data
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.smitparekh.studio"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Free Tools",
+                "item": "https://www.smitparekh.studio/tools"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Meta Tag Checker",
+                "item": "https://www.smitparekh.studio/meta-checker"
+            }
+        ]
+    };
 
     return (
         <>
-            <Helmet>
-                <title>Free Meta Checker Tool - Analyze Your Website&apos;s Meta Tags | Smit Parekh</title>
-
-                <meta
-                    name="description"
-                    content="Use the Meta Checker Tool to analyze your website's meta tags, including title, description, Open Graph, and Twitter Cards. Ensure your webpage is optimized for search engines and social media."
-                />
-                <meta
-                    name="keywords"
-                    content="Meta Checker, meta tags, SEO tool, Open Graph, Twitter Cards, website optimization, search engine optimization, Smit Parekh"
-                />
-                <meta name="author" content="Smit Parekh" />
-                <link rel="canonical" href="https://www.smitparekh.studio/meta-checker" />
-
-                {/* Open Graph Tags */}
-                <meta property="og:title" content="Meta Checker Tool - Analyze Your Website's Meta Tags | Smit Parekh" />
-                <meta
-                    property="og:description"
-                    content="Analyze and optimize your website's meta tags using the Meta Checker Tool. Check your title, description, image, and social media metadata for better SEO and visibility."
-                />
-                <meta
-                    property="og:image"
-                    content="https://www.smitparekh.studio/images/Meta-Checker-Image.webp"
-                />
-                <meta property="og:url" content="https://www.smitparekh.studio/meta-checker" />
-                <meta property="og:type" content="website" />
-
-                {/* Twitter Card Tags */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Meta Checker Tool - Analyze Your Website's Meta Tags | Smit Parekh" />
-                <meta
-                    name="twitter:description"
-                    content="Check your website's meta tags with the Meta Checker Tool by Smit Parekh. Ensure your page is properly optimized for search engines and social media platforms."
-                />
-                <meta name="twitter:image" content="https://www.smitparekh.studio/images/Meta-Checker-Image.webp" />
-
-                {/* Structured Data - JSON-LD */}
-                <script type="application/ld+json">
-                    {`
-      {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Meta Checker Tool - Smit Parekh",
-        "url": "https://www.smitparekh.studio/meta-checker",
-        "description": "Use the Meta Checker Tool to analyze your website's meta tags and optimize for SEO. Check your title, description, Open Graph, and Twitter Cards.",
-        "image": "https://www.smitparekh.studio/images/Meta-Checker-Image.webp",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Smit Parekh Studio",
-          "url": "https://www.smitparekh.studio"
-        }
-      }
-    `}
-                </script>
-            </Helmet>
-
-
-
-
+            <SEO 
+                title="Free Meta Tag Checker Tool | Analyze & Optimize Your Website SEO"
+                description="Instantly analyze your website's meta tags, Open Graph tags, and Twitter Cards with our free Meta Tag Checker. Improve your SEO and social media presence with actionable insights."
+                keywords="meta tag checker tool, SEO analyzer, Open Graph validation, Twitter Card checker, website metadata tool, free SEO tool, meta description analyzer, social media preview tester"
+                canonicalUrl="https://www.smitparekh.studio/meta-checker"
+                ogImage="https://www.smitparekh.studio/images/Meta-Checker-Image.webp"
+                twitterImage="https://www.smitparekh.studio/images/Meta-Checker-Image.webp"
+                structuredData={[toolSchema, faqSchema, breadcrumbSchema]}
+            />
 
             <MetaChecker apiUrl={apiUrl} toolName="Website Meta Tag Checker" />
             <FAQ faqData={faqDataMetaChecker} toolName="Website Meta Tag Checker" />
-
-
         </>
-
     );
 };
-
-
 
 export default MetaCheckerPage;
