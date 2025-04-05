@@ -26,7 +26,7 @@ const ContactMe = () => {
         setIsLoading(true); // Start loading when form is submitted
 
         try {
-            const response = await axios.post(`${apiUrl}/api/topost`, formData, {
+            const response = await axios.post(`${apiUrl}/topost`, formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

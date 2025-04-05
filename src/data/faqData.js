@@ -264,3 +264,38 @@ export const faqDataQRCode = [
       "After generating your QR code, you can test it by scanning it with your smartphone's camera or a QR code scanning app. Most modern smartphones have built-in QR code scanning capabilities in their default camera apps.",
   },
 ];
+
+export const faqDataImageCompressor = [
+    {
+        question: "How does the image compressor work?",
+        answer: "Our image compressor uses advanced algorithms to reduce the file size of your images while maintaining visual quality. It works by optimizing the compression level, removing unnecessary metadata, and applying smart encoding techniques based on your chosen quality setting."
+    },
+    {
+        question: "What image formats are supported?",
+        answer: "Currently, our tool supports JPEG, PNG, and WebP image formats. These are the most commonly used formats for web and digital media."
+    },
+    {
+        question: "Is there a file size limit?",
+        answer: "Yes, the maximum file size for each image is 10MB. This limit helps ensure optimal performance of our compression service."
+    },
+    {
+        question: "Will compressing images affect their quality?",
+        answer: "The compression process does reduce some data to achieve smaller file sizes. However, our tool is designed to minimize visual quality loss. You can control the quality level using the slider - higher values preserve more quality but result in larger files."
+    },
+    {
+        question: "Are my images stored on your servers?",
+        answer: "No, we do not store your images permanently. Files are temporarily processed on our servers during compression and then immediately deleted. Your privacy is important to us."
+    },
+    {
+        question: "How many images can I compress at once?",
+        answer: "You can upload and compress multiple images in one session. There's no strict limit on the number of images, but we recommend processing batches of 10-20 images at a time for optimal performance."
+    },
+    {
+        question: "What's the best quality setting to use?",
+        answer: "It depends on your needs. For web images, 70-80% usually provides a good balance between quality and file size. For printing or archival purposes, you might want to use 90% or higher. We recommend experimenting with different settings to find what works best for your specific images."
+    },
+    {
+        question: "Is this tool completely free to use?",
+        answer: "Yes, our image compressor is completely free to use with no hidden charges or premium tiers. We don't add watermarks to your images or require you to create an account."
+    }
+];

@@ -29,7 +29,7 @@ const BackgroundRemover = ({ toolName, apiUrl }) => {
         formData.append("image", selectedFile);
 
         try {
-            const response = await fetch(`${apiUrl}/api/remove-bg`, {
+            const response = await fetch(`${apiUrl}/remove-bg`, {
                 method: "POST",
                 body: formData,
             });

@@ -3,19 +3,19 @@ export const testimonials = [
     {
         name: "John Smith",
         position: "Marketing Director",
-        image: "https://randomuser.me/api/portraits/men/32.jpg",
+        image: "https://randomuser.me/portraits/men/32.jpg",
         testimonial: "The LinkedIn post generator has transformed our social media strategy. We're seeing 300% more engagement on our posts!"
     },
     {
         name: "Sarah Johnson",
         position: "Product Designer",
-        image: "https://randomuser.me/api/portraits/women/44.jpg",
+        image: "https://randomuser.me/portraits/women/44.jpg",
         testimonial: "The background remover tool saved me countless hours of tedious editing. It's incredibly accurate and super fast."
     },
     {
         name: "Michael Chen",
         position: "SEO Specialist",
-        image: "https://randomuser.me/api/portraits/men/22.jpg",
+        image: "https://randomuser.me/portraits/men/22.jpg",
         testimonial: "The meta tag checker has become an essential part of our SEO workflow. It helps us catch issues we'd otherwise miss."
     },
 ];

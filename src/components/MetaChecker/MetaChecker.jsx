@@ -31,7 +31,7 @@ const MetaChecker = ({ apiUrl, toolName }) => {
         }
         
         const formattedUrl = formatUrl(url);
-        const apiUrlMeta = `${apiUrl}/api/meta-check?url=${encodeURIComponent(formattedUrl)}`;
+        const apiUrlMeta = `${apiUrl}/meta-check?url=${encodeURIComponent(formattedUrl)}`;
 
         try {
             const response = await fetch(apiUrlMeta);

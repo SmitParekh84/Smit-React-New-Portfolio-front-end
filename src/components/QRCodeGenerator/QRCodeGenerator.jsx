@@ -39,7 +39,7 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
         setLoading(true);
 
         try {
-            const response = await fetch(`${apiUrl}/api/generate-qr`, {
+            const response = await fetch(`${apiUrl}/generate-qr`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -108,7 +108,7 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                 type: qrType
             });
             
-            const directUrl = `${apiUrl}/api/generate-qr-image?${params.toString()}`;
+            const directUrl = `${apiUrl}/generate-qr-image?${params.toString()}`;
             console.log("Direct image URL:", directUrl); // Debug the URL
             return directUrl;
         } catch (error) {

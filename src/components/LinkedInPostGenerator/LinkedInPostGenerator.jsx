@@ -86,7 +86,7 @@ const LinkedInPostGenerator = () => {
         }
         try {
             const modifiedHookTemplate = selectedHook.replace(/X/g, xValue);
-            const response = await axios.post(`${apiUrl}/api/generate-post`, {
+            const response = await axios.post(`${apiUrl}/generate-post`, {
                 activity,
                 model,
                 advice,

@@ -17,8 +17,12 @@ import {
   faqDataBackgroundRemover,
   faqDataTools,
   faqDataMetaChecker,
-  faqDataQRCode
+  faqDataQRCode,
+  faqDataImageCompressor
 } from './faqData';
+
+// Add this new FAQ data for the image compressor
+
 
 // Re-export everything for backward compatibility
 export {
@@ -38,5 +42,6 @@ export {
   faqDataBackgroundRemover,
   faqDataTools,
   faqDataMetaChecker,
-  faqDataQRCode
+  faqDataQRCode,
+  faqDataImageCompressor
 };

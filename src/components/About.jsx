@@ -43,7 +43,7 @@ const About = () => {
 
         try {
             // Log the CV download event to the API
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cv-downloads`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/cv-downloads`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

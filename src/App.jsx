@@ -14,6 +14,7 @@ import ToolsShowcasePage from "./pages/ToolsShowcasePage";
 import ServicesPage from "./pages/ServicesPage";
 import CVViewer from "./pages/CVViewer";
 import QRCodeGeneratorPage from "./pages/QRCodeGeneratorPage";
+import ImageCompressorPage from "./pages/ImageCompressorPage";
 
 const Header = React.lazy(() => import("./components/Header/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
@@ -64,6 +65,7 @@ const App = () => {
             <Route path="/free-tools" element={<ToolsPage />} />
             <Route path="/free-tools/meta-tag-checker" element={<MetaCheckerPage />} />
             <Route path="/free-tools/qr-code-generator" element={<QRCodeGeneratorPage />} />
+            <Route path="/free-tools/image-compressor" element={<ImageCompressorPage />} />
             <Route path="/cv-viewer" element={<CVViewer />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

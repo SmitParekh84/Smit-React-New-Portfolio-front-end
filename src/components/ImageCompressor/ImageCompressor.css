@@ -1,0 +1,260 @@
+.image-compressor__container {
+    display: grid;
+    gap: 2rem;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.image-compressor__upload-area {
+    border: 2px dashed var(--first-color);
+    border-radius: 1rem;
+    padding: 3rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.image-compressor__upload-area:hover {
+    background-color: var(--first-color-lighter);
+}
+
+.image-compressor__upload-icon {
+    font-size: 3rem;
+    color: var(--first-color);
+    margin-bottom: 1rem;
+}
+
+.image-compressor__upload-content p {
+    font-size: var(--normal-font-size);
+    margin-bottom: 0.5rem;
+    font-weight: var(--font-medium);
+}
+
+.image-compressor__upload-content span {
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+}
+
+.image-compressor__settings {
+    background-color: var(--container-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-compressor__settings-title {
+    font-size: var(--h3-font-size);
+    margin-bottom: 1rem;
+}
+
+.image-compressor__slider-container {
+    margin-bottom: 1.5rem;
+}
+
+.image-compressor__slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--first-color-lighter);
+    outline: none;
+    margin: 0.5rem 0;
+}
+
+.image-compressor__slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--first-color);
+    cursor: pointer;
+}
+
+.image-compressor__slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--smaller-font-size);
+    color: var(--text-color-light);
+    margin-top: 0.25rem;
+}
+
+.image-compressor__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.image-compressor__button {
+    flex: 1 1 auto;
+    min-width: 150px;
+}
+
+.image-compressor__spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 0.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.image-compressor__preview {
+    margin-top: 1rem;
+}
+
+.image-compressor__preview-title {
+    font-size: var(--h3-font-size);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-compressor__total-saved {
+    font-size: var(--small-font-size);
+    color: var(--first-color);
+    background-color: var(--first-color-lighter);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+}
+
+.image-compressor__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.image-compressor__item {
+    background-color: var(--container-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-compressor__item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: var(--first-color-lighter);
+}
+
+.image-compressor__item-name {
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.image-compressor__item-remove {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: var(--h3-font-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-compressor__item-preview {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.image-compressor__item-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.image-compressor__item-details {
+    padding: 0.75rem;
+}
+
+.image-compressor__item-size {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: var(--small-font-size);
+    margin-bottom: 0.5rem;
+}
+
+.image-compressor__item-saved {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--small-font-size);
+    color: var(--first-color);
+}
+
+.image-compressor__download-all {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.image-compressor__features {
+    margin-top: 3rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--container-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.image-compressor__features-title {
+    font-size: var(--h3-font-size);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.image-compressor__features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.image-compressor__feature {
+    text-align: center;
+}
+
+.image-compressor__feature-icon {
+    font-size: 2rem;
+    color: var(--first-color);
+    margin-bottom: 0.75rem;
+}
+
+.image-compressor__feature h4 {
+    margin-bottom: 0.5rem;
+    font-size: var(--h3-font-size);
+}
+
+.image-compressor__feature p {
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+}
+
+@media screen and (max-width: 768px) {
+    .image-compressor__upload-area {
+        padding: 2rem 1rem;
+    }
+    
+    .image-compressor__buttons {
+        flex-direction: column;
+    }
+    
+    .image-compressor__features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
