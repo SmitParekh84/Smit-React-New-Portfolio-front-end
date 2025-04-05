@@ -49,17 +49,17 @@ export const steps = [
     {
         title: "Choose a Tool",
         description: "Browse our collection of professional tools and select the one you need for your specific task.",
-        image: "https://www.smitparekh.studio/images/step1.webp"
+        image: "/images/Steps/step1.gif" // Corrected the folder name from 'Stepts' to 'Steps'
     },
     {
         title: "Input Your Data",
         description: "Follow the simple instructions to upload your file or input text depending on the selected tool.",
-        image: "https://www.smitparekh.studio/images/step2.webp"
+        image: "/images/Steps/step2.gif" // Corrected the folder name from 'Stepts' to 'Steps'
     },
     {
         title: "Get Instant Results",
         description: "Our AI-powered tools will process your request and deliver professional results in seconds.",
-        image: "https://www.smitparekh.studio/images/step3.webp"
+        image: "/images/Steps/step3.gif" // Corrected the folder name from 'Stepts' to 'Steps'
     }
 ];
 

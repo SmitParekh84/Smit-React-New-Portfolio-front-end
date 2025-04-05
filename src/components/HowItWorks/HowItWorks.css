@@ -32,6 +32,27 @@
   gap: 2rem;
   position: relative;
   z-index: 1;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.workflow__step--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add staggered delay for sequential appearance */
+.workflow__step:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.workflow__step:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.workflow__step:nth-child(3) {
+  transition-delay: 0.5s;
 }
 
 .workflow__step-number {
@@ -47,6 +68,10 @@
   font-weight: var(--font-semi-bold);
   flex-shrink: 0;
   box-shadow: 0 0 0 5px rgba(var(--first-color-alt), 0.2);
+}
+
+.workflow__step--visible .workflow__step-number {
+  animation: pulse 2s infinite;
 }
 
 .workflow__step-content {
@@ -98,5 +123,18 @@
   
   .workflow__step-content {
     padding: 1.5rem;
+  }
+}
+
+/* Add animation keyframes for additional effects if needed */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--first-color-rgb), 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(var(--first-color-rgb), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--first-color-rgb), 0);
   }
 }
