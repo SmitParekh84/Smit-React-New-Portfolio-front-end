@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import Loader from './components/Loader';
 import Home from './components/Home';
 import About from './components/About';
@@ -64,17 +65,30 @@ const Landing = () => {
                 title="Smit Parekh | Digital Marketing Manager & Full-stack Developer"
                 description="Smit Parekh is a Digital Marketing Manager & Full-stack Developer helping businesses grow online with SEO optimization, web development, and strategic digital marketing services."
                 keywords="Smit Parekh, Digital Marketing Manager, Full-stack Developer, SEO optimization, web development services, digital marketing expert, professional portfolio"
-                canonicalUrl="https://www.smitparekh.studio/"
+                canonicalUrl="https://www.smitparekh.studio/portfolio"
                 ogImage="https://www.smitparekh.studio/images/Smit-Parekh-About.webp"
                 twitterImage="https://www.smitparekh.studio/images/Smit-Parekh-About.webp"
                 structuredData={mainSchema}
             >
-                {/* Additional meta tags for homepage */}
+                {/* Additional meta tags for portfolio page */}
                 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
                 <meta name="google-site-verification" content="your-verification-code" />
                 <meta name="msvalidate.01" content="your-bing-verification-code" />
-                <link rel="alternate" hrefLang="en" href="https://www.smitparekh.studio/" />
+                <link rel="alternate" hrefLang="en" href="https://www.smitparekh.studio/portfolio" />
             </SEO>
+
+            {/* Navigation links at top of portfolio */}
+            <div className="portfolio-nav container" style={{marginTop: "5rem", textAlign: "center", marginBottom: "2rem"}}>
+                <h1 className="section__title">My Portfolio</h1>
+                <div style={{display: "flex", justifyContent: "center", gap: "1rem", marginTop: "1rem"}}>
+                    <Link to="/portfolio" className="button button--flex button--small" style={{backgroundColor: window.location.pathname === "/portfolio" ? "var(--first-color)" : "var(--first-color-alt)"}}>
+                        <i className="uil uil-presentation-play button__icon"></i> Full Portfolio
+                    </Link>
+                    <Link to="/project" className="button button--flex button--small" style={{backgroundColor: window.location.pathname === "/project" ? "var(--first-color)" : "var(--first-color-alt)"}}>
+                        <i className="uil uil-image button__icon"></i> Projects Gallery
+                    </Link>
+                </div>
+            </div>
 
             <main className="main">
                 <Home />

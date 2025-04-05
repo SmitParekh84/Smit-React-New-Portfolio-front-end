@@ -1,0 +1,125 @@
+.tools {
+  padding: 5rem 1rem;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.tools__container {
+  gap: 2rem;
+}
+
+.tools__title {
+  font-size: var(--h1-font-size);
+  margin-bottom: 0.75rem;
+  text-align: center;
+  color: var(--title-color);
+}
+
+.tools__subtitle {
+  display: block;
+  text-align: center;
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  margin-bottom: var(--mb-3);
+}
+
+.tools__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  padding: 2rem;
+  background: var(--container-color);
+}
+
+.tools__content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.tools__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.tools__icon-container {
+  background: rgba(var(--first-color-lighter), 0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.tools__icon {
+  font-size: 2rem;
+  color: var(--first-color);
+}
+
+.tools__title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+.tools__description {
+  margin-bottom: var(--mb-2);
+  color: var(--text-color);
+}
+
+.tools__button {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: var(--font-medium);
+}
+
+.tools__content-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.tools__bg-circle-large {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(var(--first-color-alt), 0.1) 0%, rgba(var(--first-color-alt), 0.05) 100%);
+  bottom: -100px;
+  right: -100px;
+  z-index: 1;
+}
+
+.tools__bg-circle-small {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(var(--first-color-alt), 0.08) 0%, rgba(var(--first-color-alt), 0.03) 100%);
+  top: 50px;
+  left: -80px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .tools {
+    padding: 4rem 1rem;
+  }
+  
+  .tools__container {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .tools__content {
+    padding: 1.5rem;
+  }
+}

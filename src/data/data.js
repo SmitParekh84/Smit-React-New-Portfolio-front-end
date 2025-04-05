@@ -8,9 +8,17 @@ export const headerData = {
     { id: "/", label: "Home", icon: "uil-estate" },
     { id: "/about", label: "About", icon: "uil-user" },
     { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
-    { id: "/portfolio", label: "Portfolio", icon: "uil-scenery" },
+    { 
+      id: "/project", 
+      label: "Portfolio", 
+      icon: "uil-scenery",
+      subLinks: [
+        { id: "/project", label: "Projects Gallery", icon: "uil-image" },
+        { id: "/portfolio", label: "Full Portfolio", icon: "uil-presentation-play" }
+      ] 
+    },
     {
-      id: "free-tools",
+      id: "/free-tools",
       label: "Free Tools",
       icon: "uil-tools",
       subLinks: [
@@ -24,14 +32,10 @@ export const headerData = {
   mobileNavLinks: [
     { id: "/", label: "Home", icon: "uil-estate" },
     { id: "/about", label: "About", icon: "uil-user" },
-    // { id: "/skills", label: "Skills", icon: "uil-file-alt" },
-    // { id: "/qualification", label: "Experience", icon: "uil-graduation-cap" },
     { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
-    { id: "/portfolio", label: "Portfolio", icon: "uil-scenery" },
-
-    { id: "/free-tools", label: "Free Tools", icon: "uil uil-wrench" },
-    // { id: "/background-remover", label: "Bg-Remover", icon: "uil-trash" },
-    // { id: "/viral-linkedin-post-generator", label: "Linkedln Post", icon: "uil-linkedin" },
+    { id: "/project", label: "Projects", icon: "uil-image" },
+    { id: "/portfolio", label: "Portfolio", icon: "uil-presentation-play" },
+    { id: "/free-tools", label: "Free Tools", icon: "uil-wrench" },
     { id: "/contact", label: "Contact Me", icon: "uil-message" },
   ],
 }
@@ -446,12 +450,12 @@ export const footerData = {
   links: [
     { href: "/services", label: "Services" },
     { href: "/about", label: "About", icon: "uil-user" },
-    { href: "/portfolio", label: "Portfolio" },
+    { href: "/project", label: "Projects", icon: "uil-image" },
+    { href: "/portfolio", label: "Portfolio", icon: "uil-presentation-play" },
     { href: "/qualification", label: "Experience" },
     { href: "/contact", label: "Contact Me" },
-    { href: "/background-remover", label: "Bg-Remover", icon: "uil-trash" },
-    { href: "/viral-linkedin-post-generator", label: "Linkedln Post Generator ", icon: "uil-linkedin" },
-
+    { href: "/free-tools/background-remover", label: "Bg-Remover", icon: "uil-trash" },
+    { href: "/free-tools/viral-linkedin-post-generator", label: "LinkedIn Post Generator", icon: "uil-linkedin" },
   ],
   socialLinks: [
     {

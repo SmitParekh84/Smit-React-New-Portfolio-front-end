@@ -1,0 +1,217 @@
+/*==================== FOOTER ====================*/
+.footer {
+    position: relative;
+    margin-top: 4rem;
+  }
+  
+  .footer__wave {
+    display: block;
+    width: 100%;
+    height: 100px;
+    margin-bottom: -5px; /* Remove gap between wave and footer */
+    filter: drop-shadow(0 -4px 3px rgba(0, 0, 0, 0.1));
+  }
+  
+  .footer__bg {
+    background: linear-gradient(135deg, #1c68c5 0%, #0f4c8b 100%);
+    color: #fff;
+  }
+  
+  .footer__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .footer__main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    padding: 4rem 0;
+  }
+  
+  .footer__info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  
+  .footer__subtitle {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  
+  .footer__socials {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+  }
+  
+  .footer__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .footer__social:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .footer__social i {
+    font-size: 1.25rem;
+    color: #fff;
+  }
+  
+  .footer__heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    color: #fff;
+    padding-bottom: 0.75rem;
+  }
+  
+  .footer__heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .footer__links-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .footer__link {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .footer__link:last-child {
+    border-bottom: none;
+  }
+  
+  .footer__link:hover {
+    color: #fff;
+    padding-left: 8px;
+  }
+  
+  .footer__contact {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer__contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    width: fit-content;
+  }
+  
+  .footer__contact-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  .footer__text {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0;
+  }
+  
+  .footer__bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .footer__copy {
+    font-size: 0.85rem;
+    opacity: 0.75;
+  }
+  
+  .footer__made-with {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .footer__heart {
+    color: #ff6b6b;
+    font-size: 1rem;
+    animation: heartbeat 1.5s infinite;
+  }
+  
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  
+  /* Footer responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .footer__main {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .footer__bottom-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .footer__links-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .footer__links-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

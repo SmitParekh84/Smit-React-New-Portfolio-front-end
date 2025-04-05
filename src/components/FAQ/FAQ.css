@@ -1,38 +1,80 @@
+.faq {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--first-color-lighter) 0.5, var(--body-color) 100%);
+}
 
-
-/* Container for FAQ items */
 .faq__container {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr; /* Default single column for mobile */
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .faq__item {
-    background-color: var(--container-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+  background-color: var(--container-color);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-.faq__question {
+.faq__item:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq__header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq__title {
+  font-size: 1.1rem;
+  font-weight: var(--font-medium);
+  color: var(--title-color);
+  flex: 1;
+}
+
+.faq__icon {
+  color: var(--first-color);
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.faq__active .faq__icon {
+  transform: rotate(180deg);
+}
+
+.faq__content {
+  max-height: 0;
+  padding: 0 2rem;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq__active .faq__content {
+  max-height: 1000px;
+  padding: 0 2rem 1.5rem;
+}
+
+.faq__description {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+  .faq__header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .faq__active .faq__content {
+    padding: 0 1.5rem 1rem;
+  }
+  
+  .faq__title {
     font-size: 1rem;
-    margin-bottom: 10px;
-    color: var(--text-color-light);
-
-}
-
-.faq__answer {
-    font-size: 1rem;
-    color: var(--text-color);
-}
-
-/* For desktop, two columns */
-@media (min-width: 768px) {
-    .faq__container {
-        grid-template-columns: 1fr ; /* Two columns on desktop */
-    }
-    .faq__question {
-        font-size: 1.2rem;
-        
-    }
+  }
 }

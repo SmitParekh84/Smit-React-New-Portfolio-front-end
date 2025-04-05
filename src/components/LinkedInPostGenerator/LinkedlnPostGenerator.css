@@ -1,272 +1,535 @@
-/* LinkedInCard.css */
+/* LinkedIn Post Generator CSS */
 
-/*==================== Linekdln post  ====================*/
+/*==================== LinkedIn post  ====================*/
 
 .linkedin-post-generator {
     padding: 30px;
-    max-width: 600px;
+    max-width: 700px;
     margin: 30px auto;
-    background-color: var(--container-color) ;
+    background-color: var(--container-color);
     border: 1px solid #e0e0e0;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     font-family: var(--body-font);
-  }
-  .generated-post-container {
+}
+
+.linkedin-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 20px;
+}
+
+.linkedin-header h2 {
+    font-size: 2rem;
+    color: var(--first-color);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-icon {
+    color: var(--first-color);
+    margin-right: 10px;
+    font-size: 1.8rem;
+}
+
+.linkedin-subtitle {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-top: 0;
+}
+
+.form-grid {
+    display: grid;
+    gap: 25px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.label-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--title-color);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.input-icon {
+    margin-right: 8px;
+    color: var(--first-color);
+}
+
+.highlight-value {
+    color: var(--first-color);
+    font-weight: 600;
+    background-color: rgba(0, 123, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.input-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--input-color);
+    transition: all 0.3s ease;
+    min-height: 100px;
+    resize: none;
+}
+
+.input-textarea:focus {
+    border-color: var(--first-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.input-textarea::placeholder {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.input-textarea:focus {
+    min-height: 120px;
+}
+
+.input-number {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 5px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--input-color);
+    transition: border-color 0.3s;
+}
+
+.input-number:focus {
+    border-color: var(--first-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Range slider styling */
+.range-container {
+    position: relative;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.range-slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 8px;
+    background: #e2e8f0;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: 15px;
+}
+
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--first-color);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.range-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--first-color);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.range-marks {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    padding: 0 5px;
+}
+
+.range-marks span {
+    font-size: 0.8rem;
+    color: var(--text-color-light);
+}
+
+/* Hook select styling */
+.hook-select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: var(--input-color);
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    transition: all 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.hook-select:focus {
+    border-color: var(--first-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.hook-select option {
+    padding: 10px;
+    font-size: var(--normal-font-size);
+}
+
+/* Advanced options section */
+.advanced-options-container {
+    background-color: rgba(0, 123, 255, 0.05);
+    border: 1px solid rgba(0, 123, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 5px;
+}
+
+.advanced-options-title {
+    font-size: 1.1rem;
+    color: var(--first-color);
+    margin-bottom: 20px;
+    border-bottom: 1px dashed rgba(0, 123, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.advanced-options-grid {
+    display: grid;
+    gap: 20px;
+}
+
+/* Checkbox styling - improved */
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    user-select: none;
+    color: var(--title-color);
+    font-weight: 500;
+}
+
+.checkbox-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: var(--input-color);
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.checkbox-label:hover .checkbox-input ~ .checkmark {
+    background-color: #f3f4f6;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.checkbox-label .checkbox-input:checked ~ .checkmark {
+    background-color: var(--first-color);
+    border-color: var(--first-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-label .checkbox-input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-label .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Bullet type container styling - fixed */
+.bullet-type-container {
+    margin-top: 5px;
+}
+
+/* Bullet Type Select styling */
+.bullet-select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: var(--input-color);
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    transition: all 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
     position: relative;
 }
+
+.bullet-select:focus {
+    border-color: var(--first-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.custom-dropdown::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: var(--first-color);
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+.custom-dropdown.open::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Character length input styling */
+.char-length-container {
+    margin-bottom: 15px;
+}
+
+/* Toggle switch */
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle-label {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+.active-toggle-label {
+    color: var(--first-color);
+    font-weight: 500;
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 24px;
+    background-color: #e2e8f0;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-switch.active {
+    background-color: var(--first-color);
+}
+
+.toggle-thumb {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: left 0.3s ease, transform 0.1s ease;
+}
+
+.toggle-switch.active .toggle-thumb {
+    left: calc(100% - 21px);
+}
+
+.toggle-switch:hover .toggle-thumb {
+    transform: scale(1.1);
+}
+
+/* Generate button */
+.linkedin-button-class {
+    display: flex;
+    width: 100%;
+    padding: 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: var(--font-medium);
+    background-color: var(--first-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.linkedin-button-class:hover {
+    background-color: var(--first-color-alt);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.linkedin-button-class:active {
+    transform: translateY(0);
+}
+
+.linkedin-button-class:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.animate-spin {
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Generated post styling */
+.generated-post-container {
+    position: relative;
+}
+
 .hashtag {
-  color: #3182ce; /* Tailwind blue-500 */
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
+    color: #0077b5; /* LinkedIn blue */
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .hashtag:hover {
-  color: #2b6cb0; /* Tailwind blue-600 */
-  text-decoration: underline;
+    color: #005e93;
+    text-decoration: underline;
 }
 
-/* Styling for "See More" button */
 .see-more-btn {
-    color: #3182ce; /* Tailwind blue-500 */
+    color: #0077b5;
     font-weight: 600;
     cursor: pointer;
     background: none;
     border: none;
-    position: absolute;
-    right: 0; /* Align to the right side of the container */
-    bottom: 0; /* Position at the bottom */
+    padding: 5px 10px;
+    margin-left: 5px;
     text-decoration: underline;
     transition: color 0.3s ease;
-}
-.generated-post span {
-  word-wrap: break-word; /* Ensure long words break correctly */
-}
-.see-more-btn:hover {
-    color: #2b6cb0; /* Tailwind blue-600 */
-}
-
-/* Hover effect for 'See More' */
-.see-more-btn:hover {
-    color: #2b6cb0; /* Tailwind blue-600 */
-}
-  .linkedin-post-generator h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    color: var(--title-color, #333);
-  }
-  
-  .linkedin-post-generator label {
-    display: block;
-    margin-bottom: 15px;
-    font-size: 1rem;
-    color: var(--title-color);
-  }
-  
-  
-  .linkedin-post-generator textarea,
-  .linkedin-post-generator input[type="range"],
-  .linkedin-post-generator input[type="number"],
-.linkedin-post-generator input[type="checkbox"] {
-    width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    color: var(--text-color);
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
-    background-color: var(--input-color);
-      transition: border-color 0.3s;
-  }
-  
-  
-  .linkedin-post-generator textarea:focus,
-  .linkedin-post-generator input[type="range"]:focus,
-  .linkedin-post-generator input[type="number"]:focus,
-.linkedin-post-generator input[type="checkbox"]:focus {
-    border-color: var(--first-color, #007bff);
-    outline: none;
-  }
-  .linkedin-post-generator textarea {
-    overflow-y: auto; /* Show scrollbar when needed */
-    min-height: 80px;
-    height: auto; /* Automatically adjust height */
-    resize: none; /* Prevent resizing from the corner */
-    border-color: var(--first-color, #007bff);
-    outline: none;
-}
-.linkedin-post-generator textarea:focus {
-    min-height: 120px; /* Expand the height on focus */
-}
-/* Checkbox Styling */
-.linkedin-post-generator input[type="checkbox"] {
-    width: 50px;
-    height: 1rem;
     display: inline-block;
-    padding-right: 15px;
-}
-.checkbox-container {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;  /* Spacing between checkbox and dropdown */
-    margin-bottom: 20px;
 }
 
-
-
-/* Checkbox Styling */
-
-/* Select Element Styling for Bullet Type */
-.linkedin-post-generator select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: var(--input-color, #f9f9f9);
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-/* Select Element Focus State */
-.linkedin-post-generator select:focus {
-    border-color: var(--primary-color, #007bff);
-    outline: none;
-}
-
-
-.linkedin-post-generator .linkedin-button-class {
-  display: block;
-  width: 100%;
-  padding: 12px;
- 
-  font-size: 1rem;
-  font-weight: var(--font-medium);
-  background-color: var(--first-color);
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.linkedin-post-generator .linkedin-button-class:hover {
-  background-color: var(--primary-hover-color, #0056b3);
-  transform: translateY(-2px);
-}
-  
-  
- 
-  
-  /* Range Slider Styling */
-  .range-container {
-    position: relative;
-  }
-  
-  .range-container input[type="range"] {
-    width: 100%;
-  }
-  
-  .range-container .range-value {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.1rem;
-    color: var(--primary-color, #007bff);
-    font-weight: bold;
-  }
-  .copy-button {
-    margin-top: 10px;
-    padding: 8px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
+.see-more-btn:hover {
+    color: #005e93;
+    background-color: rgba(0, 119, 181, 0.05);
     border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .copy-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .copy-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
- 
-  /* Custom dropdown container */
-.custom-dropdown {
-    position: relative;
-    width: 100%;
 }
 
-/* Dropdown (Select) Styling */
-.linkedin-post-generator select {
-    width: 100%;
-    padding: 12px 24px 12px 12px; /* Extra padding on the right for the arrow */
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: var(--input-color);
-    color: var(--text-color);
-    font-size: var(--normal-font-size);
-    font-family: var(--body-font);
-    transition: border-color 0.3s;
-    height: auto; /* Make sure the height is not restricted */
-    max-height: 180px; /* Show only 5 options (adjust this value based on option size) */
-    overflow-y: auto; /* Enable vertical scrolling when there are more than 5 options */
-    -webkit-appearance: none;  /* Remove the default dropdown arrow in Webkit-based browsers */
-    -moz-appearance: none;     /* Remove the default dropdown arrow in Firefox */
-    appearance: none;          /* Remove the default dropdown arrow in modern browsers */
+.generated-post span {
+    word-wrap: break-word;
 }
 
-/* Option Styling */
-.linkedin-post-generator select option {
-    padding: 10px;
-    background-color: var(--container-color);
-    color: var(--text-color);
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
-}
-
-/* Remove the default dropdown arrow */
-.linkedin-post-generator select::-ms-expand {
-    display: none; /* Hides the default dropdown arrow in Internet Explorer */
-}
-
-/* Custom Dropdown Arrow Styling */
-.custom-dropdown::after {
-    content: " ▼"; /* Adds a custom dropdown arrow */
-    position: absolute;
-    top: 50%;
-    right: 12px; /* Position the arrow on the right side */
-    transform: translateY(-50%);
-    font-size: 1rem;
-    color: var(--primary-color, #007bff);
-    pointer-events: none; /* Makes sure the custom arrow doesn't interfere with the dropdown */
-}
-  .custom-dropdown.open::after {
-    content: " ▲"; /* Up arrow when dropdown is open */
-}
-  
+/* Card container styling */
 .card-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.304), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
 }
 
+.card-container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Profile section styling */
 .profile-section {
     display: flex;
     align-items: center;
     padding: 16px;
     justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-info-container {
+    display: flex;
+    align-items: center;
 }
 
 .profile-image {
@@ -274,16 +537,17 @@
     height: 50px;
     border-radius: 50%;
     margin-right: 16px;
+    border: 2px solid #f0f0f0;
 }
 
 .profile-info {
     color: black;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .profile-name {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .profile-description {
@@ -296,6 +560,7 @@
     color: #6b7280;
     display: flex;
     align-items: center;
+    margin-top: 2px;
 }
 
 .profile-icon {
@@ -304,328 +569,150 @@
     margin-left: 4px;
     color: #6b7280;
 }
+
 .linkedln-copybutton {
-    background-color: #0077b5; /* LinkedIn blue color */
+    background-color: #0077b5;
     color: white;
     padding: 8px 16px;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     border: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .linkedln-copybutton:hover {
-    background-color: #005582; /* Darker blue on hover */
+    background-color: #005582;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-.linkedln-copybutton .fa-copy {
-    margin-right: 8px; /* Space between the icon and text */
+.linkedln-copybutton .mr-1 {
+    margin-right: 8px;
 }
+
+/* Content section styling */
 .content-section {
     font-size: 14px;
     line-height: 1.6;
-    padding: 16px;
+    padding: 20px;
     color: black;
     margin-bottom: 16px;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
-/* Image Styles */
+/* LinkedIn image */
 .linkedIn-image {
-    width: 100%; /* Equivalent to `w-full` */
-    object-fit: contain; /* Equivalent to `object-contain` */
-    display: block; /* Ensures the image is displayed as a block-level element */
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 0 0 10px 10px;
+    border-top: 1px solid #f0f0f0;
 }
 
-/* Button styles */
-
-.button-container {
-  display: grid; /* Use grid instead of flex */
-  grid-template-columns: 2fr 1fr; /* 2fr for the first column, 1fr for the second */
-  gap: 15px;
-  justify-items: center; /* Center content horizontally in each grid cell */
-  justify-content: baseline ;
-  align-items: center; /* Center content vertically in each grid cell */
-}
-.toggle-container {
-  display: grid; /* Use grid instead of flex */
-  grid-template-columns: 2fr 1fr; /* 2fr for the first column, 1fr for the second */
-  gap: 15px;
-  justify-items: center; /* Center content horizontally in each grid cell */
-  justify-content: baseline ;
-  align-items: center; /* Center content vertically in each grid cell */
+/* Loading animation */
+.loading-post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
 }
 
-/* Wrapper for the toggle switch */
-.toggle-switch {
-  width: 50px;
-  height: 25px;
-  background-color: #ccc;
-  border-radius: 50px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Active state for toggle */
-.toggle-switch.active {
-  background-color: var(--first-color); /* Green when active */
+.loading-text {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    font-style: italic;
+    animation: pulse 1.5s infinite ease-in-out;
 }
 
-/* Toggle thumb (the circle) */
-.toggle-thumb {
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  transform: translate(0, -50%);
-  transition: left 0.3s ease;
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
 }
 
-/* Move the thumb when active */
-.toggle-switch.active .toggle-thumb {
-  left: calc(100% - 25px);
+/* Custom dropdown arrow styling */
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+    margin-top: 5px;
 }
-/* ---------------------------- */
 
-/* Mobile Responsive Font Sizes */
+.custom-dropdown::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: var(--first-color);
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+.custom-dropdown.open::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Keep existing animations */
+
+/* Mobile responsiveness */
 @media (max-width: 767px) {
+    .linkedin-post-generator {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    
+    .linkedin-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .button-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .toggle-container {
+        justify-content: center;
+    }
+    
     .profile-name {
-        font-size: 16px; /* Smaller font size for mobile */
+        font-size: 14px;
     }
     
     .profile-description,
     .profile-time {
-        font-size: 10px; /* Smaller font size for mobile */
+        font-size: 10px;
     }
-.profile-icon {
-        font-size: 12px; /* Smaller icon size for mobile */
+    
+    .profile-icon {
+        font-size: 12px;
     }
+    
     .content-section {
-        font-size: 12px; /* Smaller font size for mobile */
+        font-size: 12px;
+        padding: 15px;
     }
-    .button-container{
-      grid-template-columns: 1fr; /* Single column for mobile */
+    
+    .linkedln-copybutton {
+        padding: 6px 12px;
+        font-size: 12px;
     }
-}
-
-
-
-.loading-post{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/* From Uiverse.io by Nawsome */ 
-.pl {
-  width: 6em;
-  height: 6em;
-}
-
-.pl__ring {
-  animation: ringA 2s linear infinite;
-}
-
-.pl__ring--a {
-  stroke: #f42f25;
-}
-
-.pl__ring--b {
-  animation-name: ringB;
-  stroke: #f49725;
-}
-
-.pl__ring--c {
-  animation-name: ringC;
-  stroke: #255ff4;
-}
-
-.pl__ring--d {
-  animation-name: ringD;
-  stroke: #f42582;
-}
-
-/* Animations */
-@keyframes ringA {
-  from, 4% {
-    stroke-dasharray: 0 660;
-    stroke-width: 20;
-    stroke-dashoffset: -330;
-  }
-
-  12% {
-    stroke-dasharray: 60 600;
-    stroke-width: 30;
-    stroke-dashoffset: -335;
-  }
-
-  32% {
-    stroke-dasharray: 60 600;
-    stroke-width: 30;
-    stroke-dashoffset: -595;
-  }
-
-  40%, 54% {
-    stroke-dasharray: 0 660;
-    stroke-width: 20;
-    stroke-dashoffset: -660;
-  }
-
-  62% {
-    stroke-dasharray: 60 600;
-    stroke-width: 30;
-    stroke-dashoffset: -665;
-  }
-
-  82% {
-    stroke-dasharray: 60 600;
-    stroke-width: 30;
-    stroke-dashoffset: -925;
-  }
-
-  90%, to {
-    stroke-dasharray: 0 660;
-    stroke-width: 20;
-    stroke-dashoffset: -990;
-  }
-}
-
-@keyframes ringB {
-  from, 12% {
-    stroke-dasharray: 0 220;
-    stroke-width: 20;
-    stroke-dashoffset: -110;
-  }
-
-  20% {
-    stroke-dasharray: 20 200;
-    stroke-width: 30;
-    stroke-dashoffset: -115;
-  }
-
-  40% {
-    stroke-dasharray: 20 200;
-    stroke-width: 30;
-    stroke-dashoffset: -195;
-  }
-
-  48%, 62% {
-    stroke-dasharray: 0 220;
-    stroke-width: 20;
-    stroke-dashoffset: -220;
-  }
-
-  70% {
-    stroke-dasharray: 20 200;
-    stroke-width: 30;
-    stroke-dashoffset: -225;
-  }
-
-  90% {
-    stroke-dasharray: 20 200;
-    stroke-width: 30;
-    stroke-dashoffset: -305;
-  }
-
-  98%, to {
-    stroke-dasharray: 0 220;
-    stroke-width: 20;
-    stroke-dashoffset: -330;
-  }
-}
-
-@keyframes ringC {
-  from {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: 0;
-  }
-
-  8% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -5;
-  }
-
-  28% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -175;
-  }
-
-  36%, 58% {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: -220;
-  }
-
-  66% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -225;
-  }
-
-  86% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -395;
-  }
-
-  94%, to {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: -440;
-  }
-}
-
-@keyframes ringD {
-  from, 8% {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: 0;
-  }
-
-  16% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -5;
-  }
-
-  36% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -175;
-  }
-
-  44%, 50% {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: -220;
-  }
-
-  58% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -225;
-  }
-
-  78% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -395;
-  }
-
-  86%, to {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: -440;
-  }
+    
+    .checkbox-container {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 

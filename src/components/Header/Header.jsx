@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import LazyLoad from "react-lazyload";
 import { headerData } from "../../data/data.js";
-import { useLocation } from "react-router-dom"; // Import useLocation for route changes
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom"; // Import useLocation for route changes
 import Navbar from "./Navbar.jsx"; // Import the Navbar component
 
 const Header = () => {
@@ -13,6 +12,7 @@ const Header = () => {
 
   const headerRef = useRef(null);
   const location = useLocation(); // Use the location hook to track route changes
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -43,6 +43,13 @@ const Header = () => {
     }
   };
 
+  // Update active section based on current path
+  useEffect(() => {
+    const path = location.pathname.split('/')[1];
+    setActiveSection(path || "home");
+  }, [location]);
+
+  // Existing handlers for scrolling
   const handleActiveLink = () => {
     const sections = document.querySelectorAll("section");
     let scrollY = window.scrollY;
@@ -89,19 +96,17 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [activeSection]);
+  }, []);
+  
   // Scroll to top when route changes
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scroll to top on route change
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location]);
+  
   return (
     <header className="header" id="header" ref={headerRef}>
       <nav className="nav container">
-        <a
-          href="https://www.smitparekh.studio/"
-          alt="Smit Parekh"
-          className="nav__logo"
-        >
+        <Link to="/" className="nav__logo" onClick={() => setActiveSection("home")}>
           <LazyLoad height={200} offset={100}>
             <img
               src={headerData.logo}
@@ -110,7 +115,7 @@ const Header = () => {
             />
           </LazyLoad>
           {headerData.name}
-        </a>
+        </Link>
 
         {/* Navbar Component */}
         <Navbar isMenuOpen={isMenuOpen} closeMenu={closeMenu} activeSection={activeSection} />

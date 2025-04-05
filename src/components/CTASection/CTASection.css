@@ -1,0 +1,127 @@
+.cta {
+  padding: 5rem 0;
+}
+
+.cta__bg {
+  background-color: var(--first-color);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cta__bg:hover {
+  transform: translateY(-5px);
+}
+
+.cta__bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 70%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(-30deg);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.cta__container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta__data {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+}
+
+.cta__title {
+  font-size: var(--h2-font-size);
+  color: #fff; /* Fixed color for visibility in both light/dark modes */
+  font-weight: var(--font-semi-bold);
+}
+
+.cta__description {
+  font-size: var(--normal-font-size);
+  color: rgba(255, 255, 255, 0.9); /* High contrast for dark mode */
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta a.button--white {
+  background-color: #fff; /* Pure white for button */
+  color: var(--first-color);
+  align-self: flex-start;
+  margin-bottom: 0;
+  padding: 1rem 2rem;
+  font-weight: var(--font-medium);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta a.button--white:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--first-color-alt);
+}
+
+.cta__icon {
+  margin-left: 0.5rem;
+  color: var(--first-color); /* Ensure icon color matches button text */
+}
+
+@media screen and (min-width: 768px) {
+  .cta__bg {
+    padding: 3rem 2.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cta__bg {
+    padding: 2rem;
+  }
+  
+  .cta__title {
+    font-size: var(--h3-font-size);
+  }
+  
+  .cta a.button--white {
+    align-self: center;
+    font-size: var(--normal-font-size);
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .cta__data {
+    text-align: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+/* Dark mode specific overrides */
+body.dark-theme .cta__bg {
+  /* Add a subtle border in dark mode for better visibility */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .cta a.button--white {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  color: var(--first-color); /* Ensure contrast with background */
+}
+
+body.dark-theme .cta a.button--white:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
