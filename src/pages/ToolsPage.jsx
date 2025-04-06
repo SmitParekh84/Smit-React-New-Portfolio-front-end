@@ -79,6 +79,9 @@ const ToolsPage = () => {
     };
 
     const ogDescription = "Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity and enhance your marketing efforts with no cost.";
+    const pageUrl = "https://www.smitparekh.studio/tools";
+    const imageUrl = "https://www.smitparekh.studio/images/Tools-Page-Image.webp";
+    const lastUpdatedDate = "2023-10-15";
 
     return (
         <>
@@ -86,15 +89,16 @@ const ToolsPage = () => {
                 title="Free Online Tools for Productivity & Marketing | Smit Parekh Studio"
                 description="Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity and enhance your marketing efforts with no cost."
                 keywords="free online tools, productivity tools, marketing tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools, AI tools free, Smit Parekh tools"
-                canonicalUrl="https://www.smitparekh.studio/tools"
-                ogImage="https://www.smitparekh.studio/images/Tools-Page-Image.webp"
+                canonicalUrl={pageUrl}
+                ogImage={imageUrl}
                 ogTitle="Free Productivity & Marketing Tools | Smit Parekh Studio"
                 ogDescription={ogDescription}
-                twitterImage="https://www.smitparekh.studio/images/Tools-Page-Image.webp"
+                ogType="website"
+                twitterImage={imageUrl}
                 twitterTitle="Free Tools for Marketers & Creators | Smit Parekh"
                 twitterDescription={ogDescription}
                 structuredData={[toolsSchema, faqSchema, breadcrumbSchema]}
-                lastUpdated="2023-10-15"
+                lastUpdated={lastUpdatedDate}
                 language="en-US"
             >
                 {/* Additional meta tags */}

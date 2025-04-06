@@ -5,6 +5,7 @@ import App from './App.jsx';
 import './assets/css/styles.css';
 import './assets/css/swiper-bundle.min.css';
 
+// Create a dedicated context for helmet to prevent conflicts
 const helmetContext = {};
 
 createRoot(document.getElementById('root')).render(

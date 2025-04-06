@@ -107,6 +107,9 @@ const AboutPage = () => {
             }
         }
     };
+    
+    const pageUrl = "https://www.smitparekh.studio/about";
+    const imageUrl = "https://www.smitparekh.studio/images/Smit-Parekh-About.webp";
 
     return (
         <>
@@ -114,12 +117,16 @@ const AboutPage = () => {
                 title="About Smit Parekh | Marketing Manager & Full-stack Developer"
                 description="Learn about Smit Parekh, a Marketing Manager & Full-stack Developer with over 3 years of experience, expert in digital marketing, web development, and data-driven strategies."
                 keywords="Smit Parekh, About Smit Parekh, Marketing Manager, Full-stack Developer, digital marketing expert, web developer, portfolio, professional background"
-                canonicalUrl="https://www.smitparekh.studio/about"
+                canonicalUrl={pageUrl}
                 ogType="profile"
-                ogImage="https://www.smitparekh.studio/images/Smit-Parekh-About.webp"
-                twitterImage="https://www.smitparekh.studio/images/Smit-Parekh-About.webp"
+                ogImage={imageUrl}
+                ogTitle="About Smit Parekh | Marketing & Development Expert"
+                ogDescription="Learn about Smit Parekh's professional journey, skills, and expertise in marketing and development."
+                twitterImage={imageUrl}
+                twitterTitle="About Smit Parekh | Professional Profile"
+                twitterDescription="Discover Smit Parekh's background, expertise, and professional accomplishments in marketing and web development."
                 structuredData={[personSchema, breadcrumbSchema, websiteSchema]}
-                lastUpdated="2023-11-01"
+                lastUpdated="2023-11-01T12:00:00Z"
                 language="en-US"
             />
 

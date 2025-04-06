@@ -26,12 +26,17 @@ const SEO = ({
   const finalTwitterTitle = twitterTitle || finalOgTitle;
   // Use provided descriptions or fallback to main description
   const finalOgDescription = ogDescription || description;
-  const finalTwitterDescription = twitterDescription || description;
+  const finalTwitterDescription = twitterDescription || finalOgDescription;
 
   // Ensure structuredData is an array
   const structuredDataArray = Array.isArray(structuredData) 
     ? structuredData 
     : structuredData ? [structuredData] : [];
+
+  // Format date if provided but not in ISO string format
+  const formattedLastUpdated = lastUpdated && typeof lastUpdated === 'string' && !lastUpdated.includes('T') 
+    ? new Date(lastUpdated).toISOString()
+    : lastUpdated;
 
   return (
     <Helmet>
@@ -41,7 +46,7 @@ const SEO = ({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="author" content={author} />
-      {lastUpdated && <meta name="last-modified" content={lastUpdated} />}
+      {formattedLastUpdated && <meta name="last-modified" content={formattedLastUpdated} />}
       
       {/* Robots control */}
       <meta name="robots" content={indexPage ? "index, follow, max-image-preview:large" : "noindex, nofollow"} />
@@ -61,7 +66,7 @@ const SEO = ({
       {ogImage && <meta property="og:image:height" content="630" />}
       {ogImage && <meta property="og:image:alt" content={finalOgTitle} />}
       <meta property="og:site_name" content="Smit Parekh Studio" />
-      {lastUpdated && <meta property="og:updated_time" content={lastUpdated} />}
+      {formattedLastUpdated && <meta property="article:modified_time" content={formattedLastUpdated} />}
       <meta property="og:locale" content="en_US" />
       
       {/* Twitter */}
