@@ -5,8 +5,9 @@
 :root {
   --header-height: 3rem;
   
-  /* Add a new variable for mega menu RGB values */
+  /* Add RGB variants of colors for rgba usage */
   --first-color-rgb: 34, 102, 170;
+  --body-color-rgb: 250, 252, 255;
 
   /*========== Colors ==========*/
   /* Change favorite color */

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { headerData } from "../../data/data.js";
 import "./Navbar.css";
@@ -17,10 +17,8 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
 
   // Toggle mobile free tools submenu
   const toggleMobileFreeTools = (e) => {
-    if (window.innerWidth <= 767) {
-      e.preventDefault();
-      setMobileFreeToolsOpen(!mobileFreeToolsOpen);
-    }
+    e.preventDefault();
+    setMobileFreeToolsOpen(!mobileFreeToolsOpen);
   };
 
   return (
@@ -110,44 +108,54 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="mobile-nav">
+          <div className="mobile-nav__header">
+            <div className="mobile-nav__title">Menu</div>
+          </div>
           <ul className="mobile-nav__list">
             {headerData.mobileNavLinks.map((link) => (
               <li key={link.id} className="mobile-nav__item">
-                <Link
-                  to={link.id}
-                  className={`mobile-nav__link ${
-                    isLinkActive(link.id) ? "active-link" : ""
-                  }`}
-                  onClick={
-                    link.id === "/free-tools" 
-                      ? toggleMobileFreeTools 
-                      : closeMenu
-                  }
-                >
-                  <i className={`uil ${link.icon} mobile-nav__icon`}></i>
-                  {link.label}
-                  {link.id === "/free-tools" && (
-                    <i className={`uil ${mobileFreeToolsOpen ? 'uil-angle-up' : 'uil-angle-down'} mobile-nav__dropdown-icon`}></i>
-                  )}
-                </Link>
-
-                {link.id === "/free-tools" && mobileFreeToolsOpen && (
-                  <ul className="mobile-nav__submenu">
-                    {headerData.desktopNavLinks
-                      .find(item => item.id === "/free-tools")
-                      .subLinks.map((subLink) => (
-                        <li key={subLink.id} className="mobile-nav__submenu-item">
-                          <Link
-                            to={subLink.id}
-                            className="mobile-nav__submenu-link"
-                            onClick={closeMenu}
-                          >
-                            <i className={`uil ${subLink.icon} mobile-nav__submenu-icon`}></i>
-                            {subLink.label}
-                          </Link>
-                        </li>
-                      ))}
-                  </ul>
+                {link.id === "/free-tools" ? (
+                  <>
+                    <div 
+                      className={`mobile-nav__link ${isLinkActive(link.id) ? "active-link" : ""}`}
+                      onClick={toggleMobileFreeTools}
+                    >
+                      <div className="mobile-nav__link-content">
+                        <i className={`uil ${link.icon} mobile-nav__icon`}></i>
+                        {link.label}
+                      </div>
+                      <i className={`uil ${mobileFreeToolsOpen ? 'uil-angle-up' : 'uil-angle-down'} mobile-nav__dropdown-arrow ${mobileFreeToolsOpen ? 'open' : ''}`}></i>
+                    </div>
+                    
+                    {mobileFreeToolsOpen && (
+                      <div className="mobile-nav__submenu">
+                        {headerData.desktopNavLinks
+                          .find(item => item.id === "/free-tools")
+                          ?.subLinks.map((subLink) => (
+                            <Link
+                              key={subLink.id}
+                              to={subLink.id}
+                              className={`mobile-nav__submenu-link ${isLinkActive(subLink.id) ? "active-link" : ""}`}
+                              onClick={closeMenu}
+                            >
+                              <i className={`uil ${subLink.icon} mobile-nav__submenu-icon`}></i>
+                              {subLink.label}
+                            </Link>
+                          ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    to={link.id}
+                    className={`mobile-nav__link ${isLinkActive(link.id) ? "active-link" : ""}`}
+                    onClick={closeMenu}
+                  >
+                    <div className="mobile-nav__link-content">
+                      <i className={`uil ${link.icon} mobile-nav__icon`}></i>
+                      {link.label}
+                    </div>
+                  </Link>
                 )}
               </li>
             ))}

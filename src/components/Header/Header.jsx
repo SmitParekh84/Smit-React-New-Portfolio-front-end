@@ -3,7 +3,7 @@ import LazyLoad from "react-lazyload";
 import { headerData } from "../../data/data.js";
 import { useLocation, Link } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
-import "./Header.css"; // Import the new CSS file
+import "./Header.css";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +13,56 @@ const Header = () => {
 
   const headerRef = useRef(null);
   const location = useLocation();
+  
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const navMenu = document.getElementById("nav-menu");
+      const navToggle = document.getElementById("nav-toggle");
+      
+      if (
+        isMenuOpen &&
+        navMenu && 
+        !navMenu.contains(event.target) &&
+        navToggle && 
+        !navToggle.contains(event.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+  
+  // Close menu when escape is pressed
+  useEffect(() => {
+    const handleEscKey = (e) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+    
+    document.addEventListener('keydown', handleEscKey);
+    return () => {
+      document.removeEventListener('keydown', handleEscKey);
+    };
+  }, [isMenuOpen]);
+  
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen && window.innerWidth < 768) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
   
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -108,28 +158,41 @@ const Header = () => {
     <header className="header" id="header" ref={headerRef}>
       <nav className="nav container">
         <Link to="/" className="nav__logo" onClick={() => setActiveSection("home")}>
-          <LazyLoad height={200} offset={100}>
+          <LazyLoad height={45} offset={100}>
             <img
               src={headerData.logo}
               alt={`${headerData.name} Logo`}
               className="logo-image"
             />
           </LazyLoad>
-          {headerData.name}
+          <span>{headerData.name}</span>
         </Link>
 
         {/* Navbar Component */}
         <Navbar isMenuOpen={isMenuOpen} closeMenu={closeMenu} activeSection={activeSection} />
 
-        {/* Mobile Menu Button */}
+        {/* Theme and Mobile Menu Buttons */}
         <div className="nav__btns">
           <i
             className={`uil ${theme === "light" ? "uil-moon" : "uil-sun"} change-theme`}
             id="theme-button"
             onClick={toggleTheme}
+            aria-label="Toggle theme"
+            title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
           ></i>
-          <div className="nav__toggle" id="nav-toggle" onClick={toggleMenu}>
-            <i className="uil uil-apps"></i>
+          <div 
+            className="nav__toggle" 
+            id="nav-toggle" 
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            title="Menu"
+          >
+            <div className={`hamburger ${isMenuOpen ? 'open' : ''}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
       </nav>
