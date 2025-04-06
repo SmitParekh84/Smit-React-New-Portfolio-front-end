@@ -41,6 +41,16 @@ export const features = [
         icon: "uil-brain",
         title: "AI-Powered",
         description: "Leverage cutting-edge artificial intelligence for professional-grade results every time"
+    },
+    {
+        icon: "uil-users-alt",
+        title: "User Friendly",
+        description: "Simple and intuitive interfaces designed for users of all technical skill levels"
+    },
+    {
+        icon: "uil-sync",
+        title: "Regular Updates",
+        description: "Constantly improving with new features and optimizations based on user feedback"
     }
 ];
 
