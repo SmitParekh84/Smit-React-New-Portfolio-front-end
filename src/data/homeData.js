@@ -10,7 +10,7 @@ export const homeData = {
   socialLinks: [
     { href: "mailto:smitparekh02@gmail.com", iconClass: "uil uil-envelope" },
     {
-      href: "https://www.linkedin.com/in/smit-parekh-497b87231/",
+      href: "https://www.linkedin.com/in/smit-parekh-n/",
       iconClass: "uil uil-linkedin-alt",
     },
     {
