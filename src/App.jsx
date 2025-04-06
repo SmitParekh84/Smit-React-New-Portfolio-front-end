@@ -24,7 +24,7 @@ const Footer = React.lazy(() => import("./components/Footer"))
 const AboutPage = React.lazy(() => import("./pages/AboutPage"))
 const SkillsPage = React.lazy(() => import("./pages/SkillsPage"))
 const Qualification = React.lazy(() => import("./components/Qualification"))
-const Services = React.lazy(() => import("./components/Services"))
+const Services = React.lazy(() => import("./components/Services/Services"))
 const Project = React.lazy(() => import("./components/Project"))
 const Testimonials = React.lazy(() => import("./components/Testimonials"))
 

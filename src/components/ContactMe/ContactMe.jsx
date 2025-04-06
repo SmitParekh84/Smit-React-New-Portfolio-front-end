@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { contactData } from '../data/data'; // Adjust the import path as necessary
+import { contactData } from '../../data/data'; // Adjust the import path as necessary
 import { Helmet } from 'react-helmet-async';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './ContactMe.css'; // Import the new CSS file
 
 const ContactMe = () => {
     const [name, setName] = useState('');
@@ -64,34 +65,39 @@ const ContactMe = () => {
 
     return (
         <>
-
             <section className="contact section" id="contact">
                 <h2 className="section__title">Contact me</h2>
                 <span className="section__subtitle">Get in touch</span>
 
                 <div className="contact__container container grid">
-                    <div>
-                        <div className="contact__information">
-                            <i className="uil uil-phone-alt contact__icon"></i>
-                            <div>
-                                <h3 className="contact__title">Call me</h3>
-                                <span className="contact__subtitle">{contactData.phone}</span>
+                    <div className="contact__card-container">
+                        <div className="contact__card">
+                            <div className="contact__information">
+                                <i className="uil uil-phone-alt contact__icon"></i>
+                                <div>
+                                    <h3 className="contact__title">Call me</h3>
+                                    <span className="contact__subtitle">{contactData.phone}</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="contact__information">
-                            <i className="uil uil-envelope contact__icon"></i>
-                            <div>
-                                <h3 className="contact__title">E-mail</h3>
-                                <span className="contact__subtitle">{contactData.email}</span>
+                        <div className="contact__card">
+                            <div className="contact__information">
+                                <i className="uil uil-envelope contact__icon"></i>
+                                <div>
+                                    <h3 className="contact__title">E-mail</h3>
+                                    <span className="contact__subtitle">{contactData.email}</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="contact__information">
-                            <i className="uil uil-map-marker contact__icon"></i>
-                            <div>
-                                <h3 className="contact__title">Location</h3>
-                                <span className="contact__subtitle">{contactData.location}</span>
+                        <div className="contact__card">
+                            <div className="contact__information">
+                                <i className="uil uil-map-marker contact__icon"></i>
+                                <div>
+                                    <h3 className="contact__title">Location</h3>
+                                    <span className="contact__subtitle">{contactData.location}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -145,7 +151,7 @@ const ContactMe = () => {
                         </div>
 
                         <div>
-                            <button type="submit" className="button button--flex">
+                            <button type="submit" className="contact__submit-btn button--flex">
                                 {isLoading ? (
                                     <span className="loader"></span>
                                 ) : (

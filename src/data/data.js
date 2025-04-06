@@ -20,7 +20,8 @@ import {
   faqDataQRCode,
   faqDataImageCompressor,
   faqDataImageConverter,
-  faqDataSEOAnalyzer
+  faqDataSEOAnalyzer,
+  faqDataContact
 } from './faqData';
 
 // Add FAQ data for SEO Analyzer
@@ -47,5 +48,6 @@ export {
   faqDataQRCode,
   faqDataImageCompressor,
   faqDataImageConverter,
-  faqDataSEOAnalyzer
+  faqDataSEOAnalyzer,
+  faqDataContact
 };

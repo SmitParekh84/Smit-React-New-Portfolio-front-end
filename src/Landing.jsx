@@ -7,7 +7,7 @@ import Skills from './components/Skills';
 import SEO from './components/SEO/SEO';
 import { Qualification, Services, Project, Testimonials } from "./components/LandingComponents";
 import Portfolio from './components/Portfolio';
-import ContactMe from './components/ContactMe';
+import ContactMe from './components/ContactMe/ContactMe';
 
 // Lazy load only components that don't have immediate user interaction
 const ScrollToTop = lazy(() => import('./components/ScrollToTop'));

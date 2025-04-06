@@ -299,6 +299,7 @@ export const faqDataImageCompressor = [
         answer: "Yes, our image compressor is completely free to use with no hidden charges or premium tiers. We don't add watermarks to your images or require you to create an account."
     }
 ];
+
 export const faqDataImageConverter = [
   {
       question: "What image formats can I convert with this tool?",
@@ -354,5 +355,40 @@ export const faqDataSEOAnalyzer = [
   {
     question: "How often should I use the SEO Analyzer on my website?",
     answer: "We recommend running an SEO analysis at least once a month or after making significant changes to your website. Regular analysis helps you maintain good SEO practices and identify new opportunities for improvement."
+  }
+];
+
+export const faqDataContact = [
+  {
+    question: "What services do you offer?",
+    answer: "I offer a comprehensive range of services including web development, digital marketing, SEO optimization, content creation, and UI/UX design. Whether you need a complete website built from scratch, improvements to your existing site, or help with your digital marketing strategy, I have the expertise to assist you."
+  },
+  {
+    question: "How quickly do you respond to inquiries?",
+    answer: "I typically respond to all inquiries within 24-48 hours during business days. For urgent matters, please indicate so in your message and I'll prioritize your request. Client communication is very important to me, so I strive to maintain prompt and clear communication throughout our work together."
+  },
+  {
+    question: "What is your project process like?",
+    answer: "My project process typically includes: 1) Initial consultation to understand your needs and goals, 2) Proposal/quotation based on project requirements, 3) Planning and strategy development, 4) Implementation and development, 5) Review and revision phases, and 6) Final delivery with support and maintenance options. Each step is collaborative, and I ensure you're involved throughout the process."
+  },
+  {
+    question: "Do you work with international clients?",
+    answer: "Absolutely! I work with clients globally and can accommodate different time zones for meetings and project discussions. With digital communication tools, geographic location is never a barrier to delivering high-quality work and maintaining excellent communication."
+  },
+  {
+    question: "What are your payment terms?",
+    answer: "Payment terms typically include a deposit to begin work (usually 50%), with the remaining balance due upon project completion. For larger projects, I can arrange milestone payments. I accept payments through bank transfers, PayPal, and other secure payment methods. Detailed payment terms are always outlined in the project proposal."
+  },
+  {
+    question: "Can you help with website maintenance after completion?",
+    answer: "Yes, I offer ongoing website maintenance and support services to ensure your website remains secure, up-to-date, and functioning optimally. This includes regular updates, security monitoring, content updates, and technical support. I can customize a maintenance plan based on your specific needs."
+  },
+  {
+    question: "How long does it typically take to complete a project?",
+    answer: "Project timelines vary based on complexity and scope. A basic website might take 2-4 weeks, while more complex sites with custom functionality could take 2-3 months. During our initial consultation, I'll provide a realistic timeline based on your project requirements and keep you updated throughout the development process."
+  },
+  {
+    question: "Do you provide SEO services with website development?",
+    answer: "Yes, I integrate SEO best practices into all website development projects. This includes optimizing site structure, meta tags, content, and ensuring mobile responsiveness and fast loading speeds. I can also provide more comprehensive SEO services including keyword research, content optimization, and ongoing SEO strategy."
   }
 ];
