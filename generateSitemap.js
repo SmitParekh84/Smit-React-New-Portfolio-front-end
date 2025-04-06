@@ -2,23 +2,28 @@
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
 
-// Define your URLs based on the routes from App.jsx with complete metadata
+// Centralized URL definitions with comprehensive metadata
 const urls = [
-    { url: '/', changefreq: 'weekly', priority: 1.0, lastmod: new Date().toISOString() },
-    { url: '/about', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-01' },
-    { url: '/skills', changefreq: 'monthly', priority: 0.8, lastmod: '2023-09-25' },
-    { url: '/services', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-10' },
-    { url: '/project', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-20' },
-    { url: '/portfolio', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-20' },
-    { url: '/contact', changefreq: 'yearly', priority: 0.8, lastmod: '2023-10-05' },
-    { url: '/free-tools', changefreq: 'weekly', priority: 0.9, lastmod: '2023-10-15' },
+    { url: '/', changefreq: 'weekly', priority: 1.0, lastmod: new Date().toISOString(), title: "Smit Parekh - Digital Marketing & Full-stack Developer" },
+    { url: '/about', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-01', title: "About - Marketing Manager & Full-stack Developer | Smit Parekh" },
+    { url: '/skills', changefreq: 'monthly', priority: 0.8, lastmod: '2023-09-25', title: "Professional Skills & Expertise | Smit Parekh" },
+    { url: '/services', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-10', title: "Professional Services | Smit Parekh" },
+    { url: '/project', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-20', title: "Projects Gallery | Smit Parekh" },
+    { url: '/portfolio', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-20', title: "Portfolio | Smit Parekh" },
+    { url: '/contact', changefreq: 'yearly', priority: 0.8, lastmod: '2023-10-05', title: "Contact Smit Parekh" },
+    { url: '/qualification', changefreq: 'monthly', priority: 0.7, lastmod: '2023-08-15', title: "Qualifications & Experience | Smit Parekh" },
+    { url: '/testimonials', changefreq: 'monthly', priority: 0.7, lastmod: '2023-07-20', title: "Client Testimonials | Smit Parekh" },
     
-    // Tool pages with detailed metadata
+    // Tools pages
+    { url: '/free-tools', changefreq: 'weekly', priority: 0.9, lastmod: '2023-10-15', title: "Free Online Tools | Smit Parekh" },
+    
+    // Individual tool pages with detailed metadata
     { 
       url: '/free-tools/background-remover', 
       changefreq: 'monthly', 
       priority: 0.8, 
       lastmod: '2023-10-20',
+      title: "Free Background Remover Tool",
       img: [
         {
           url: 'https://www.smitparekh.studio/images/Background-Remover.png',
@@ -31,6 +36,7 @@ const urls = [
       changefreq: 'monthly', 
       priority: 0.8, 
       lastmod: '2023-11-15',
+      title: "Free AI LinkedIn Post Generator",
       img: [
         {
           url: 'https://www.smitparekh.studio/images/viral-linkedin-post-generator.webp',
@@ -43,6 +49,7 @@ const urls = [
       changefreq: 'monthly', 
       priority: 0.8, 
       lastmod: '2023-10-30',
+      title: "Free Meta Tag Checker Tool",
       img: [
         {
           url: 'https://www.smitparekh.studio/images/Meta-Checker-Image.webp',
@@ -54,31 +61,42 @@ const urls = [
       url: '/free-tools/qr-code-generator', 
       changefreq: 'monthly', 
       priority: 0.7, 
-      lastmod: '2023-10-10' 
+      lastmod: '2023-10-10',
+      title: "Free QR Code Generator Tool"
     },
     { 
       url: '/free-tools/image-compressor', 
       changefreq: 'monthly', 
       priority: 0.7, 
-      lastmod: '2023-09-15' 
+      lastmod: '2023-09-15',
+      title: "Free Image Compression Tool"
     },
     { 
       url: '/free-tools/image-converter', 
       changefreq: 'monthly', 
       priority: 0.7, 
-      lastmod: '2023-09-20' 
+      lastmod: '2023-09-20',
+      title: "Free Image Format Converter Tool" 
     },
     { 
       url: '/free-tools/seo-analyzer', 
       changefreq: 'monthly', 
       priority: 0.8, 
       lastmod: '2023-11-12',
+      title: "Free SEO Analyzer Tool",
       img: [
         {
           url: 'https://www.smitparekh.studio/images/SEO-Analyzer-Tool.webp',
           caption: 'SEO Analyzer Tool'
         }
       ]
+    },
+    { 
+      url: '/cv-viewer', 
+      changefreq: 'monthly', 
+      priority: 0.6, 
+      lastmod: '2023-08-05',
+      title: "Smit Parekh's CV" 
     }
 ];
 
@@ -338,6 +356,74 @@ Disallow: /private/
     }
 };
 
+// Function to generate URL list for crawlers
+const generateUrlList = () => {
+    try {
+        const baseUrl = 'https://www.smitparekh.studio';
+        let urlListContent = '';
+        
+        // Add each URL to the list
+        urls.forEach(url => {
+            urlListContent += `${baseUrl}${url.url}\n`;
+        });
+        
+        // Ensure the public directory exists
+        if (!fs.existsSync('./public')) {
+            fs.mkdirSync('./public', { recursive: true });
+        }
+        
+        fs.writeFileSync('./public/urllist.txt', urlListContent);
+        console.log('✅ URL list generated successfully at ./public/urllist.txt');
+    } catch (error) {
+        console.error('❌ Error generating URL list:', error);
+    }
+};
+
+// Function to update ROR XML with proper data
+const updateRorXml = () => {
+    try {
+        const baseUrl = 'https://www.smitparekh.studio';
+        const now = new Date().toUTCString();
+        
+        let rorXml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Smit Parekh - Digital Marketing & Full-stack Developer</title>
+    <link>${baseUrl}</link>
+    <description>Professional portfolio of Smit Parekh featuring web development, digital marketing expertise, SEO services, and free online tools.</description>\n`;
+
+        // Add each URL as an item
+        urls.forEach(url => {
+            const title = url.title || `Smit Parekh - ${url.url.replace(/[/-]/g, ' ').trim()}`;
+            const description = url.description || `${title} - Visit this page on Smit Parekh's website.`;
+            
+            rorXml += `
+    <item>
+      <title>${title}</title>
+      <link>${baseUrl}${url.url}</link>
+      <description>${description}</description>
+      <pubDate>${url.pubDate || now}</pubDate>
+    </item>\n`;
+        });
+
+        rorXml += `  </channel>
+</rss>`;
+        
+        // Ensure the public directory exists
+        if (!fs.existsSync('./public')) {
+            fs.mkdirSync('./public', { recursive: true });
+        }
+        
+        fs.writeFileSync('./public/ror.xml', rorXml);
+        console.log('✅ ROR XML updated successfully at ./public/ror.xml');
+    } catch (error) {
+        console.error('❌ Error updating ROR XML:', error);
+    }
+};
+
+// Export URLs for use in other files
+export const sitemapUrls = urls;
+
 // Run all generation functions
 const generateAllSitemaps = async () => {
     console.log('🔄 Starting sitemap generation process...');
@@ -346,7 +432,14 @@ const generateAllSitemaps = async () => {
         await generateSitemapXML();
         generateSitemapHTML();
         generateRobotsTxt();
-        console.log('✨ All sitemaps generated successfully!');
+        generateUrlList();
+        updateRorXml();
+        
+        // Create a JSON file with all URL data for use in React components
+        fs.writeFileSync('./public/sitemapUrls.json', JSON.stringify(urls, null, 2));
+        console.log('✅ URL data JSON created at ./public/sitemapUrls.json');
+        
+        console.log('✨ All sitemaps and related files generated successfully!');
     } catch (error) {
         console.error('❌ Error in sitemap generation process:', error);
         process.exit(1);

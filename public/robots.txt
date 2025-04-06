@@ -7,3 +7,4 @@ Sitemap: https://www.smitparekh.studio/sitemap.xml
 # Disallow sensitive directories
 Disallow: /admin/
 Disallow: /private/
+Disallow: /Smit-parekh.pdf
