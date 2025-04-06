@@ -21,6 +21,16 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
     setMobileFreeToolsOpen(!mobileFreeToolsOpen);
   };
 
+  // Handle mega menu link clicks - close menu and handle navigation
+  const handleMegaMenuLinkClick = (e) => {
+    closeMenu();
+    // Close any open mega menus by removing hover state
+    const megaMenus = document.querySelectorAll('.mega-menu');
+    megaMenus.forEach(menu => {
+      menu.classList.remove('active');
+    });
+  };
+
   return (
     <div className={`nav__menu ${isMenuOpen ? "show-menu" : ""}`} id="nav-menu">
       {/* Desktop Navigation */}
@@ -56,49 +66,51 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
 
             {/* Mega Menu */}
             {link.isMegaMenu && link.megaMenuColumns && (
-              <div className="mega-menu">
-                {link.megaMenuColumns.map((column, index) => (
-                  <div key={index} className="mega-menu__column">
-                    <h4 className="mega-menu__title">{column.title}</h4>
-                    <ul className="mega-menu__list">
-                      {column.links.map((tool) => (
-                        <li key={tool.id} className="mega-menu__item">
-                          <Link
-                            to={tool.id}
-                            className="mega-menu__link"
-                            onClick={closeMenu}
-                          >
-                            <i className={`uil ${tool.icon} mega-menu__icon`}></i>
-                            {tool.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-
-                {/* Featured section */}
-                {link.featured && (
-                  <div className="mega-menu__column">
-                    <div className="mega-menu__featured">
-                      <h5 className="mega-menu__featured-title">
-                        <i className={`uil ${link.featured.icon} mr-1`}></i>
-                        {link.featured.title}
-                      </h5>
-                      <p className="mega-menu__featured-desc">
-                        {link.featured.description}
-                      </p>
-                      <Link
-                        to={link.featured.link}
-                        className="button button--small button--flex"
-                        onClick={closeMenu}
-                      >
-                        {link.featured.linkText}
-                        <i className="uil uil-arrow-right button__icon"></i>
-                      </Link>
+              <div className="mega-menu" aria-hidden="true">
+                <div className="mega-menu__inner">
+                  {link.megaMenuColumns.map((column, index) => (
+                    <div key={index} className="mega-menu__column">
+                      <h4 className="mega-menu__title">{column.title}</h4>
+                      <ul className="mega-menu__list">
+                        {column.links.map((tool) => (
+                          <li key={tool.id} className="mega-menu__item">
+                            <Link
+                              to={tool.id}
+                              className="mega-menu__link"
+                              onClick={handleMegaMenuLinkClick}
+                            >
+                              <i className={`uil ${tool.icon} mega-menu__icon`}></i>
+                              {tool.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </div>
-                )}
+                  ))}
+
+                  {/* Featured section */}
+                  {link.featured && (
+                    <div className="mega-menu__column">
+                      <div className="mega-menu__featured">
+                        <h5 className="mega-menu__featured-title">
+                          <i className={`uil ${link.featured.icon} mr-1`}></i>
+                          {link.featured.title}
+                        </h5>
+                        <p className="mega-menu__featured-desc">
+                          {link.featured.description}
+                        </p>
+                        <Link
+                          to={link.featured.link}
+                          className="button button--small button--flex"
+                          onClick={handleMegaMenuLinkClick}
+                        >
+                          {link.featured.linkText}
+                          <i className="uil uil-arrow-right button__icon"></i>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </li>
