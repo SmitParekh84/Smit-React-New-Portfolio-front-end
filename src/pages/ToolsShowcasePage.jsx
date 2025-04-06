@@ -1,5 +1,4 @@
-import { toolsData } from "../data/data";
-import { testimonials, features, steps, faqs } from "../data/toolsShowcaseData";
+import { toolsData, toolTestimonials, features, steps, toolsFaqs } from "../data/toolsData";
 import SEO from "../components/SEO/SEO";
 import ToolsHero from "../components/ToolsHero/ToolsHero";
 import ToolsGrid from "../components/ToolsGrid/ToolsGrid";
@@ -64,7 +63,7 @@ const ToolsShowcasePage = () => {
                 <Testimonials 
                     title="What Users Say"
                     subtitle="Success Stories from Our Community"
-                    testimonials={testimonials}
+                    testimonials={toolTestimonials}
                 />
             )}
 
@@ -72,7 +71,7 @@ const ToolsShowcasePage = () => {
             <FAQ 
                 title="Frequently Asked Questions"
                 subtitle="Find Quick Answers to Common Questions"
-                faqData={faqs}
+                faqData={toolsFaqs}
             />
 
             {/* Newsletter Section
