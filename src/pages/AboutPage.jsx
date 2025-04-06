@@ -13,7 +13,7 @@ const AboutPage = () => {
         "name": "Smit Parekh",
         "url": "https://www.smitparekh.studio/about",
         "sameAs": [
-            "https://linkedin.com/in/smitparekh84/",
+            "https://linkedin.com/in/smit-parekh-n/",
             "https://github.com/SmitParekh84",
             "https://www.instagram.com/smit_8_4/",
             "https://www.facebook.com/SmitParekh84/"

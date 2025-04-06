@@ -23,7 +23,7 @@ const SkillsPage = () => {
             "height": "630"
         },
         "sameAs": [
-            "https://linkedin.com/in/smitparekh84/",
+            "https://linkedin.com/in/smit-parekh-n/",
             "https://github.com/SmitParekh84",
             "https://www.instagram.com/smit_8_4/"
         ],

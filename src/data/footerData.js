@@ -21,7 +21,7 @@ export const footerData = {
     },
     { href: "mailto:smitparekh02@gmail.com", iconClass: "uil uil-envelope" },
     {
-      href: "https://www.linkedin.com/in/smitparekh84/",
+      href: "https://www.linkedin.com/in/smit-parekh-n",
       iconClass: "uil uil-linkedin-alt",
     },
     {
