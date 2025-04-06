@@ -21,7 +21,8 @@ const AboutPage = () => {
         "jobTitle": "Marketing Manager & Full-stack Developer",
         "worksFor": {
             "@type": "Organization",
-            "name": "Smit Parekh Studio"
+            "name": "Smit Parekh Studio",
+            "url": "https://www.smitparekh.studio"
         },
         "description": "Smit Parekh is a Marketing Manager and Full-stack Developer with expertise in crafting data-driven marketing strategies and scalable web solutions.",
         "knowsAbout": [
@@ -32,6 +33,35 @@ const AboutPage = () => {
             "React.js", 
             "Node.js", 
             "Content Creation"
+        ],
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.smitparekh.studio/images/Smit-Parekh-About.webp",
+            "width": "1200",
+            "height": "630"
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Charotar University of Science and Technology",
+            "sameAs": "https://www.charusat.ac.in/"
+        },
+        "nationality": {
+            "@type": "Country",
+            "name": "India"
+        },
+        "hasOccupation": [
+            {
+                "@type": "Occupation",
+                "name": "Marketing Manager",
+                "occupationalCategory": "Marketing Professionals",
+                "skills": "Digital Marketing, Content Strategy, SEO, Social Media Management"
+            },
+            {
+                "@type": "Occupation",
+                "name": "Full-stack Developer",
+                "occupationalCategory": "Software Developers",
+                "skills": "JavaScript, React.js, Node.js, MongoDB, PHP, MySQL"
+            }
         ]
     };
 
@@ -54,6 +84,29 @@ const AboutPage = () => {
             }
         ]
     };
+    
+    // Website schema
+    const websiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Smit Parekh - Marketing Manager & Full-stack Developer",
+        "url": "https://www.smitparekh.studio",
+        "author": {
+            "@type": "Person",
+            "name": "Smit Parekh"
+        },
+        "description": "Professional website of Smit Parekh, featuring portfolio, skills, services and free tools",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Smit Parekh Studio",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.smitparekh.studio/images/logo.webp",
+                "width": "112",
+                "height": "112"
+            }
+        }
+    };
 
     return (
         <>
@@ -65,7 +118,9 @@ const AboutPage = () => {
                 ogType="profile"
                 ogImage="https://www.smitparekh.studio/images/Smit-Parekh-About.webp"
                 twitterImage="https://www.smitparekh.studio/images/Smit-Parekh-About.webp"
-                structuredData={[personSchema, breadcrumbSchema]}
+                structuredData={[personSchema, breadcrumbSchema, websiteSchema]}
+                lastUpdated="2023-11-01"
+                language="en-US"
             />
 
             <About />

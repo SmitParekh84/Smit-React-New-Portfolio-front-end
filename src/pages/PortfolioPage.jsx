@@ -11,6 +11,12 @@ export const PortfolioPage = () => {
   const portfolioSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
+    "name": "Smit Parekh's Portfolio",
+    "description": "A collection of web development and digital marketing projects by Smit Parekh",
+    "author": {
+      "@type": "Person",
+      "name": "Smit Parekh"
+    },
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": portfolioData.map((item, index) => ({
@@ -22,9 +28,30 @@ export const PortfolioPage = () => {
           "name": item.title,
           "description": item.description,
           "image": item.image,
-          "url": item.demoLink
+          "url": item.demoLink,
+          "creator": {
+            "@type": "Person",
+            "name": "Smit Parekh"
+          },
+          "dateCreated": item.dateCreated || "2023-01-01",
+          "keywords": item.keywords || "web development, portfolio project"
         }
       }))
+    },
+    "datePublished": "2023-01-15",
+    "dateModified": "2023-11-20"
+  };
+  
+  // Website schema
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Smit Parekh Portfolio",
+    "url": "https://www.smitparekh.studio",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.smitparekh.studio/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
   };
 
@@ -37,7 +64,9 @@ export const PortfolioPage = () => {
         canonicalUrl="https://www.smitparekh.studio/project"
         ogImage="https://www.smitparekh.studio/images/portfolio-preview.webp"
         twitterImage="https://www.smitparekh.studio/images/portfolio-preview.webp"
-        structuredData={portfolioSchema}
+        structuredData={[portfolioSchema, websiteSchema]}
+        lastUpdated="2023-11-20"
+        language="en-US"
       />
 
       {/* Improved navigation links at top of portfolio page */}

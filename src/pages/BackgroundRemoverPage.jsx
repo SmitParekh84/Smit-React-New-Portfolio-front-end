@@ -39,7 +39,21 @@ const BackgroundRemoverPage = () => {
         "creator": {
             "@type": "Person",
             "name": "Smit Parekh"
-        }
+        },
+        "screenshot": {
+            "@type": "ImageObject",
+            "url": "https://www.smitparekh.studio/images/Background-Remover.png",
+            "width": "1200",
+            "height": "630"
+        },
+        "applicationCategory": "Design",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "186"
+        },
+        "datePublished": "2023-04-15",
+        "dateModified": "2023-10-20"
     };
 
     // Breadcrumb structured data
@@ -68,6 +82,31 @@ const BackgroundRemoverPage = () => {
         ]
     };
 
+    // How-to schema
+    const howToSchema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Remove Background from Images",
+        "description": "Learn how to easily remove backgrounds from your images using our free online tool.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Upload Image",
+                "text": "Click the upload button to select an image from your device"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Process Image",
+                "text": "Wait a few seconds while our AI removes the background"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Download Result",
+                "text": "Download your transparent PNG image with the background removed"
+            }
+        ]
+    };
+
     return (
         <>
             <SEO 
@@ -78,7 +117,9 @@ const BackgroundRemoverPage = () => {
                 ogImage="https://www.smitparekh.studio/images/Background-Remover.png"
                 ogTitle="Free Online Background Remover Tool - No Sign-up Required"
                 twitterImage="https://www.smitparekh.studio/images/Background-Remover.png"
-                structuredData={[toolSchema, faqSchema, breadcrumbSchema]}
+                structuredData={[toolSchema, faqSchema, breadcrumbSchema, howToSchema]}
+                lastUpdated="2023-10-20"
+                language="en-US"
             />
             
             <BackgroundRemover

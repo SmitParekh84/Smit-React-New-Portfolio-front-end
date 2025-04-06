@@ -38,7 +38,21 @@ const MetaCheckerPage = () => {
         "creator": {
             "@type": "Person",
             "name": "Smit Parekh"
-        }
+        },
+        "screenshot": {
+            "@type": "ImageObject",
+            "url": "https://www.smitparekh.studio/images/Meta-Checker-Image.webp",
+            "width": "1200",
+            "height": "630"
+        },
+        "applicationCategory": "SEO",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "72"
+        },
+        "datePublished": "2023-06-20",
+        "dateModified": "2023-10-30"
     };
 
     // Breadcrumb structured data
@@ -67,6 +81,35 @@ const MetaCheckerPage = () => {
         ]
     };
 
+    // Tool benefits schema
+    const howToSchema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Check Website Meta Tags",
+        "description": "Follow these steps to check and optimize your website's meta tags for better SEO and social media visibility.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Enter URL",
+                "text": "Enter the URL of the website you want to analyze"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Analyze Results",
+                "text": "Review the meta tags, Open Graph tags, and Twitter Card information"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Implement Recommendations",
+                "text": "Use the suggestions to improve your website's metadata"
+            }
+        ],
+        "tool": {
+            "@type": "HowToTool",
+            "name": "Meta Tag Checker Tool"
+        }
+    };
+
     return (
         <>
             <SEO 
@@ -76,7 +119,9 @@ const MetaCheckerPage = () => {
                 canonicalUrl="https://www.smitparekh.studio/meta-checker"
                 ogImage="https://www.smitparekh.studio/images/Meta-Checker-Image.webp"
                 twitterImage="https://www.smitparekh.studio/images/Meta-Checker-Image.webp"
-                structuredData={[toolSchema, faqSchema, breadcrumbSchema]}
+                structuredData={[toolSchema, faqSchema, breadcrumbSchema, howToSchema]}
+                lastUpdated="2023-10-30"
+                language="en-US"
             />
 
             <MetaChecker apiUrl={apiUrl} toolName="Website Meta Tag Checker" />

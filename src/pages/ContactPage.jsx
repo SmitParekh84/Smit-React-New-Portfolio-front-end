@@ -17,12 +17,14 @@ const ContactPage = () => {
             "telephone": contactData.phone,
             "email": contactData.email,
             "url": "https://www.smitparekh.studio",
+            "image": "https://www.smitparekh.studio/images/profile.webp",
+            "jobTitle": "Marketing Manager & Full-Stack Developer",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": contactData.phone,
                 "contactType": "customer service",
                 "areaServed": "IN",
-                "availableLanguage": "English"
+                "availableLanguage": ["English", "Hindi", "Gujarati"]
             },
             "address": {
                 "@type": "PostalAddress",
@@ -30,8 +32,26 @@ const ContactPage = () => {
                 "addressRegion": "Gujarat",
                 "postalCode": "388001",
                 "addressCountry": "IN"
+            },
+            "sameAs": [
+                "https://linkedin.com/in/smitparekh84/",
+                "https://github.com/SmitParekh84",
+                "https://www.instagram.com/smit_8_4/"
+            ]
+        },
+        "availableChannel": [
+            {
+                "@type": "ServiceChannel",
+                "name": "Email",
+                "serviceUrl": "mailto:smitparekh1184@gmail.com",
+                "servicePhone": contactData.phone
+            },
+            {
+                "@type": "ServiceChannel",
+                "name": "Contact Form",
+                "serviceUrl": "https://www.smitparekh.studio/contact"
             }
-        }
+        ]
     };
 
     // Breadcrumb structured data
@@ -54,6 +74,27 @@ const ContactPage = () => {
         ]
     };
 
+    // Organization schema
+    const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Smit Parekh Studio",
+        "url": "https://www.smitparekh.studio",
+        "logo": "https://www.smitparekh.studio/images/logo.webp",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": contactData.phone,
+            "contactType": "customer service",
+            "areaServed": "IN",
+            "availableLanguage": ["English", "Hindi", "Gujarati"]
+        },
+        "sameAs": [
+            "https://linkedin.com/in/smitparekh84/",
+            "https://github.com/SmitParekh84",
+            "https://www.instagram.com/smit_8_4/"
+        ]
+    };
+
     return (
         <>
             <SEO 
@@ -61,7 +102,11 @@ const ContactPage = () => {
                 description="Get in touch with Smit Parekh for professional web development, digital marketing, and SEO services. Receive a personalized consultation for your business needs."
                 keywords="contact Smit Parekh, web development services, digital marketing inquiry, SEO consultation, hire web developer, professional marketing services, business website development"
                 canonicalUrl="https://www.smitparekh.studio/contact"
-                structuredData={[contactSchema, breadcrumbSchema]}
+                structuredData={[contactSchema, breadcrumbSchema, organizationSchema]}
+                lastUpdated="2023-10-05"
+                language="en-US"
+                ogImage="https://www.smitparekh.studio/images/contact-page.webp"
+                twitterImage="https://www.smitparekh.studio/images/contact-page.webp"
             />
 
             <ContactMe />

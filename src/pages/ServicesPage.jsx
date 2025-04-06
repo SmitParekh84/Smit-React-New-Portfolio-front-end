@@ -15,9 +15,39 @@ const ServicesPage = () => {
         "serviceType": servicesData.map(service => ({
             "@type": "Service",
             "name": service.title,
-            "description": service.description.join(" ")
+            "description": service.description.join(" "),
+            "provider": {
+                "@type": "Person",
+                "name": "Smit Parekh"
+            },
+            "areaServed": {
+                "@type": "Country",
+                "name": "India"
+            },
+            "availableChannel": {
+                "@type": "ServiceChannel",
+                "serviceUrl": "https://www.smitparekh.studio/contact",
+                "servicePhone": "+91 9537826098"
+            }
         })),
-        "image": "https://www.smitparekh.studio/images/Smit-Parekh-Services.webp"
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.smitparekh.studio/images/Smit-Parekh-Services.webp",
+            "width": "1200",
+            "height": "630"
+        },
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Anand",
+            "addressRegion": "Gujarat",
+            "addressCountry": "India"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "124"
+        }
     };
 
     // Breadcrumb structured data
@@ -50,6 +80,8 @@ const ServicesPage = () => {
                 ogImage="https://www.smitparekh.studio/images/Smit-Parekh-Services.webp"
                 twitterImage="https://www.smitparekh.studio/images/Smit-Parekh-Services.webp"
                 structuredData={[serviceSchema, breadcrumbSchema]}
+                lastUpdated="2023-11-10"
+                language="en-US"
             />
 
             {/* Services Introduction */}

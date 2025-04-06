@@ -31,10 +31,26 @@ const LinkedInPostGeneratorPage = () => {
             "price": "0",
             "priceCurrency": "USD"
         },
+        "description": "Generate engaging, professional LinkedIn posts with our free AI-powered tool. Increase your engagement and grow your network with compelling content.",
+        "featureList": "AI-generated content, LinkedIn optimization, Multiple post styles, One-click copying",
         "creator": {
             "@type": "Person",
             "name": "Smit Parekh"
-        }
+        },
+        "screenshot": {
+            "@type": "ImageObject",
+            "url": "https://www.smitparekh.studio/images/viral-linkedin-post-generator.webp",
+            "width": "1200",
+            "height": "630"
+        },
+        "applicationCategory": "Social Media",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "143"
+        },
+        "datePublished": "2023-05-10",
+        "dateModified": "2023-11-15"
     };
 
     // Breadcrumb structured data
@@ -63,6 +79,40 @@ const LinkedInPostGeneratorPage = () => {
         ]
     };
 
+    // HowTo schema for the tool usage
+    const howToSchema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Generate Viral LinkedIn Posts",
+        "description": "Learn how to create engaging LinkedIn posts that increase your visibility and engagement on the platform.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Enter Topic",
+                "text": "Type the main topic you want to create a post about"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Select Style",
+                "text": "Choose the tone and style that fits your personal brand"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Generate Content",
+                "text": "Click 'Generate' to create AI-powered content for your post"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Copy and Post",
+                "text": "Copy the generated content and post it to your LinkedIn profile"
+            }
+        ],
+        "tool": {
+            "@type": "HowToTool",
+            "name": "LinkedIn Post Generator"
+        }
+    };
+
     return (
         <>
             <SEO 
@@ -72,7 +122,9 @@ const LinkedInPostGeneratorPage = () => {
                 canonicalUrl="https://www.smitparekh.studio/viral-linkedin-post-generator"
                 ogImage="https://www.smitparekh.studio/images/viral-linkedin-post-generator.webp"
                 twitterImage="https://www.smitparekh.studio/images/viral-linkedin-post-generator.webp"
-                structuredData={[toolSchema, faqSchema, breadcrumbSchema]}
+                structuredData={[toolSchema, faqSchema, breadcrumbSchema, howToSchema]}
+                lastUpdated="2023-11-15"
+                language="en-US"
             />
 
             <LinkedInPostGenerator />

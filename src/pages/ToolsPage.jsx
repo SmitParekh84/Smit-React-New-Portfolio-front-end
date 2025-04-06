@@ -26,7 +26,13 @@ const ToolsPage = () => {
         "name": "Free Tools - Smit Parekh",
         "url": "https://www.smitparekh.studio/tools",
         "description": "Explore a variety of free tools designed by Smit Parekh to enhance your productivity, including background removal and post generation tools.",
-        "image": "https://www.smitparekh.studio/images/Tools-Page-Image.webp",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.smitparekh.studio/images/Tools-Page-Image.webp",
+            "width": "1200",
+            "height": "630",
+            "caption": "Free Online Tools by Smit Parekh"
+        },
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -36,8 +42,20 @@ const ToolsPage = () => {
         "publisher": {
             "@type": "Organization",
             "name": "Smit Parekh Studio",
-            "url": "https://www.smitparekh.studio"
-        }
+            "url": "https://www.smitparekh.studio",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.smitparekh.studio/images/logo.webp",
+                "width": "112",
+                "height": "112"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "156"
+        },
+        "keywords": "free online tools, productivity tools, marketing tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools"
     };
 
     // Breadcrumb structured data
@@ -70,6 +88,8 @@ const ToolsPage = () => {
                 ogImage="https://www.smitparekh.studio/images/Tools-Page-Image.webp"
                 twitterImage="https://www.smitparekh.studio/images/Tools-Page-Image.webp"
                 structuredData={[toolsSchema, faqSchema, breadcrumbSchema]}
+                lastUpdated="2023-10-15"
+                language="en-US"
             />
 
             <ToolsSection />

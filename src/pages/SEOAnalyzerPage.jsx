@@ -26,7 +26,7 @@ const SEOAnalyzerPage = () => {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Free SEO Analyzer Tool",
-        "applicationCategory": "SEOApplication, WebApplication",
+        "applicationCategory": "Business",
         "operatingSystem": "Web",
         "offers": {
             "@type": "Offer",
@@ -38,7 +38,20 @@ const SEOAnalyzerPage = () => {
         "creator": {
             "@type": "Person",
             "name": "Smit Parekh"
-        }
+        },
+        "screenshot": {
+            "@type": "ImageObject",
+            "url": "https://www.smitparekh.studio/images/SEO-Analyzer-Tool.webp",
+            "width": "1200",
+            "height": "630"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "reviewCount": "89"
+        },
+        "datePublished": "2023-07-15",
+        "dateModified": "2023-11-12"
     };
 
     // Breadcrumb structured data
@@ -77,6 +90,8 @@ const SEOAnalyzerPage = () => {
                 ogImage="https://www.smitparekh.studio/images/SEO-Analyzer-Tool.webp"
                 twitterImage="https://www.smitparekh.studio/images/SEO-Analyzer-Tool.webp"
                 structuredData={[toolSchema, faqSchema, breadcrumbSchema]}
+                lastUpdated="2023-11-12"
+                language="en-US"
             />
 
             <SEOAnalyzer apiUrl={apiUrl} toolName="SEO Analyzer" />

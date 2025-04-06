@@ -2,202 +2,356 @@
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
 
-// Define your URLs based on the routes from App.jsx
+// Define your URLs based on the routes from App.jsx with complete metadata
 const urls = [
-    { url: '/', changefreq: 'daily', priority: 1.0, lastmod: new Date().toISOString() },
-    { url: '/about', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { url: '/skills', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { url: '/qualification', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { url: '/services', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { url: '/portfolio', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { url: '/project', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { url: '/testimonials', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { url: '/contact', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { url: '/background-remover', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
-    { url: '/viral-linkedin-post-generator', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
+    { url: '/', changefreq: 'weekly', priority: 1.0, lastmod: new Date().toISOString() },
+    { url: '/about', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-01' },
+    { url: '/skills', changefreq: 'monthly', priority: 0.8, lastmod: '2023-09-25' },
+    { url: '/services', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-10' },
+    { url: '/project', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-20' },
+    { url: '/portfolio', changefreq: 'monthly', priority: 0.9, lastmod: '2023-11-20' },
+    { url: '/contact', changefreq: 'yearly', priority: 0.8, lastmod: '2023-10-05' },
+    { url: '/free-tools', changefreq: 'weekly', priority: 0.9, lastmod: '2023-10-15' },
+    
+    // Tool pages with detailed metadata
+    { 
+      url: '/free-tools/background-remover', 
+      changefreq: 'monthly', 
+      priority: 0.8, 
+      lastmod: '2023-10-20',
+      img: [
+        {
+          url: 'https://www.smitparekh.studio/images/Background-Remover.png',
+          caption: 'Free Background Remover Tool'
+        }
+      ]
+    },
+    { 
+      url: '/free-tools/viral-linkedin-post-generator', 
+      changefreq: 'monthly', 
+      priority: 0.8, 
+      lastmod: '2023-11-15',
+      img: [
+        {
+          url: 'https://www.smitparekh.studio/images/viral-linkedin-post-generator.webp',
+          caption: 'LinkedIn Post Generator Tool'
+        }
+      ]
+    },
+    { 
+      url: '/free-tools/meta-tag-checker', 
+      changefreq: 'monthly', 
+      priority: 0.8, 
+      lastmod: '2023-10-30',
+      img: [
+        {
+          url: 'https://www.smitparekh.studio/images/Meta-Checker-Image.webp',
+          caption: 'Meta Tag Checker Tool'
+        }
+      ]
+    },
+    { 
+      url: '/free-tools/qr-code-generator', 
+      changefreq: 'monthly', 
+      priority: 0.7, 
+      lastmod: '2023-10-10' 
+    },
+    { 
+      url: '/free-tools/image-compressor', 
+      changefreq: 'monthly', 
+      priority: 0.7, 
+      lastmod: '2023-09-15' 
+    },
+    { 
+      url: '/free-tools/image-converter', 
+      changefreq: 'monthly', 
+      priority: 0.7, 
+      lastmod: '2023-09-20' 
+    },
+    { 
+      url: '/free-tools/seo-analyzer', 
+      changefreq: 'monthly', 
+      priority: 0.8, 
+      lastmod: '2023-11-12',
+      img: [
+        {
+          url: 'https://www.smitparekh.studio/images/SEO-Analyzer-Tool.webp',
+          caption: 'SEO Analyzer Tool'
+        }
+      ]
+    }
 ];
 
 // Function to generate XML sitemap
 const generateSitemapXML = async () => {
-    const sitemapStream = new SitemapStream({ hostname: 'https://www.smitparekh.studio' });
+    try {
+        const sitemapStream = new SitemapStream({ 
+            hostname: 'https://www.smitparekh.studio',
+            xmlns: {
+                image: true,
+                video: false,
+                news: false,
+                xhtml: true
+            }
+        });
 
-    // Add URLs to the sitemap
-    urls.forEach(url => sitemapStream.write(url));
-    sitemapStream.end();
+        // Add URLs to the sitemap
+        urls.forEach(url => sitemapStream.write(url));
+        sitemapStream.end();
 
-    // Write the XML to a file
-    const sitemapXML = await streamToPromise(sitemapStream).then(data => data.toString());
-    fs.writeFileSync('./public/sitemap.xml', sitemapXML);
-    console.log('Sitemap XML generated.');
+        // Write the XML to a file
+        const sitemapXML = await streamToPromise(sitemapStream).then(data => data.toString());
+        
+        // Ensure the public directory exists
+        if (!fs.existsSync('./public')) {
+            fs.mkdirSync('./public', { recursive: true });
+        }
+        
+        fs.writeFileSync('./public/sitemap.xml', sitemapXML);
+        console.log('✅ Sitemap XML generated successfully at ./public/sitemap.xml');
+    } catch (error) {
+        console.error('❌ Error generating sitemap XML:', error);
+    }
 };
 
 // Function to generate HTML sitemap
-// Function to generate HTML sitemap
 const generateSitemapHTML = () => {
-    const totalPages = urls.length; // Count total pages
-    const lastUpdated = new Date().toLocaleDateString(); // Get current date
+    try {
+        const totalPages = urls.length;
+        const lastUpdated = new Date().toLocaleDateString();
+        const baseUrl = 'https://www.smitparekh.studio';
 
-    let htmlContent = `<!DOCTYPE html>
+        // Group URLs by their sections
+        const groupedUrls = urls.reduce((acc, url) => {
+            const path = url.url.split('/').filter(Boolean);
+            const section = path.length > 0 ? path[0] : 'home';
+            
+            if (!acc[section]) {
+                acc[section] = [];
+            }
+            
+            acc[section].push(url);
+            return acc;
+        }, {});
+
+        let htmlContent = `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>www.smitparekh.studio Site Map - Generated by www.xml-sitemaps.com</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <title>Sitemap - Smit Parekh Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sitemap for Smit Parekh Studio website" />
     <style type="text/css">
       body {
         background-color: #fff;
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         margin: 0;
+        color: #333;
+        line-height: 1.6;
       }
       #top {
-        background-color: #b1d1e8;
-        font-size: 16px;
-        padding-bottom: 40px;
+        background-color: #6E57E0;
+        color: white;
+        padding: 20px 0 40px;
+        text-align: center;
       }
       nav {
         font-size: 24px;
         margin: 0px 30px 0px;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
-        background-color: #f3f3f3;
-        color: #666;
-        box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+        background-color: white;
+        color: #333;
+        box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42);
         padding: 10px 0;
         text-align: center;
-        z-index: 1;
       }
       h3 {
         margin: auto;
         padding: 10px;
         max-width: 600px;
-        color: #666;
+        color: #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
       h3 span {
-        float: right;
+        font-size: 14px;
+        text-align: right;
       }
       h3 a {
         font-weight: normal;
         display: block;
+        color: #6E57E0;
+        text-decoration: none;
       }
       #cont {
         position: relative;
         border-radius: 6px;
-        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-        background: #f3f3f3;
-        margin: -20px 30px 0px 30px;
+        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+        background: white;
+        margin: -20px 30px 30px;
         padding: 20px;
       }
-      a:link,
-      a:visited {
-        color: #0180af;
-        text-decoration: underline;
+      a:link, a:visited {
+        color: #6E57E0;
+        text-decoration: none;
       }
       a:hover {
-        color: #666;
+        text-decoration: underline;
       }
       #footer {
-        padding: 10px;
+        padding: 20px;
         text-align: center;
+        font-size: 14px;
+        color: #666;
       }
       ul {
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
         list-style: none;
       }
       li {
-        margin: 0px;
+        margin: 0;
       }
-      li ul {
-        margin-left: 20px;
-      }
-      .lhead {
-        background: #ddd;
-        padding: 10px;
-        margin: 10px 0px;
-      }
-      .lcount {
-        padding: 0px 10px;
+      .section-header {
+        background: #f5f5f5;
+        padding: 10px 15px;
+        margin: 20px 0 10px;
+        border-radius: 4px;
+        font-weight: bold;
+        text-transform: capitalize;
+        color: #333;
       }
       .lpage {
-        border-bottom: #ddd 1px solid;
-        padding: 5px;
+        border-bottom: 1px solid #eee;
+        padding: 10px 5px;
+        display: flex;
+        justify-content: space-between;
       }
       .last-page {
         border: none;
+      }
+      .priority {
+        font-size: 12px;
+        color: #666;
+        background: #f9f9f9;
+        padding: 2px 6px;
+        border-radius: 3px;
+      }
+      .last-updated {
+        font-size: 12px;
+        color: #666;
+      }
+      @media (max-width: 600px) {
+        .lpage {
+          flex-direction: column;
+        }
+        .priority, .last-updated {
+          margin-top: 5px;
+        }
       }
     </style>
   </head>
   <body>
     <div id="top">
-      <nav>www.smitparekh.studio HTML Site Map</nav>
+      <nav>Sitemap - Smit Parekh Studio</nav>
       <h3>
+        <a href="${baseUrl}">Back to Homepage</a>
         <span>Last updated: ${lastUpdated}<br />Total pages: ${totalPages}</span>
-        <a href="https://www.smitparekh.studio">www.smitparekh.studio Homepage</a>
       </h3>
     </div>
-    <div id="cont">
-      <ul class="level-0">
-        <li class="lhead">/ <span class="lcount">${totalPages} pages</span></li>
-  `;
+    <div id="cont">`;
 
-    urls.forEach((url) => {
+        // Generate HTML for each section
+        Object.keys(groupedUrls).forEach(section => {
+            const sectionUrls = groupedUrls[section];
+            const sectionName = section === 'home' ? 'Main Pages' : section.charAt(0).toUpperCase() + section.slice(1);
+            
+            htmlContent += `
+      <div class="section-header">${sectionName} <span class="lcount">(${sectionUrls.length} pages)</span></div>
+      <ul>`;
+            
+            sectionUrls.forEach((url, index) => {
+                const isLast = index === sectionUrls.length - 1;
+                const pageUrl = baseUrl + url.url;
+                const pageName = url.url === '/' ? 'Homepage' : url.url.split('/').filter(Boolean).pop() || url.url;
+                const displayName = pageName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                
+                htmlContent += `
+        <li class="lpage ${isLast ? 'last-page' : ''}">
+          <a href="${pageUrl}" title="${displayName}">${displayName}</a>
+          <span>
+            <span class="priority">Priority: ${url.priority}</span>
+            <span class="last-updated">Updated: ${url.lastmod.split('T')[0]}</span>
+          </span>
+        </li>`;
+            });
+            
+            htmlContent += `
+      </ul>`;
+        });
+
         htmlContent += `
-        <li class="lpage last-page">
-          <a href="https://www.smitparekh.studio${url.url}" title="${url.url}">${url.url}</a>
-        </li>
-      `;
-    });
-
-    htmlContent += `
-      </ul>
-      <!--
-Please note:
-You are not allowed to remove the copyright notice below.
-Thank you!
-www.xml-sitemaps.com
--->
     </div>
     <div id="footer">
-      Page created with <a target="_blank" href="https://www.xml-sitemaps.com">Google XML sitemap and html sitemaps generator</a> | Copyright &copy; 2005-2024 XML-Sitemaps.com
+      <p>© ${new Date().getFullYear()} Smit Parekh Studio. All rights reserved.</p>
     </div>
   </body>
-</html>
-  `;
+</html>`;
 
-    fs.writeFileSync('./public/sitemap.html', htmlContent);
-    console.log('Sitemap HTML generated.');
+        // Ensure the public directory exists
+        if (!fs.existsSync('./public')) {
+            fs.mkdirSync('./public', { recursive: true });
+        }
+        
+        fs.writeFileSync('./public/sitemap.html', htmlContent);
+        console.log('✅ HTML sitemap generated successfully at ./public/sitemap.html');
+    } catch (error) {
+        console.error('❌ Error generating HTML sitemap:', error);
+    }
 };
 
-// Function to generate ROR (RSS) XML
-const generateRORXML = async () => {
-    const rorXML = `
-    <?xml version="1.0" encoding="UTF-8"?>
-    <rss version="2.0">
-      <channel>
-        <title>Your Website Title</title>
-        <link>https://www.smitparekh.studio</link>
-        <description>Your website description</description>
-        ${urls.map(url => `
-          <item>
-            <title>${url.url}</title>
-            <link>https://www.smitparekh.studio${url.url}</link>
-            <description>${url.url} description.</description>
-            <pubDate>${new Date().toUTCString()}</pubDate>
-          </item>
-        `).join('')}
-      </channel>
-    </rss>
-  `;
+// Function to generate robots.txt file
+const generateRobotsTxt = () => {
+    try {
+        const robotsTxt = `User-agent: *
+Allow: /
 
-    fs.writeFileSync('./public/ror.xml', rorXML);
-    console.log('ROR XML generated.');
+# Sitemaps
+Sitemap: https://www.smitparekh.studio/sitemap.xml
+
+# Disallow sensitive directories
+Disallow: /admin/
+Disallow: /private/
+`;
+
+        // Ensure the public directory exists
+        if (!fs.existsSync('./public')) {
+            fs.mkdirSync('./public', { recursive: true });
+        }
+        
+        fs.writeFileSync('./public/robots.txt', robotsTxt);
+        console.log('✅ robots.txt generated successfully at ./public/robots.txt');
+    } catch (error) {
+        console.error('❌ Error generating robots.txt:', error);
+    }
 };
 
-// Run the functions
-const generateSitemaps = async () => {
-    await generateSitemapXML();
-    generateSitemapHTML();
-    await generateRORXML();
+// Run all generation functions
+const generateAllSitemaps = async () => {
+    console.log('🔄 Starting sitemap generation process...');
+    
+    try {
+        await generateSitemapXML();
+        generateSitemapHTML();
+        generateRobotsTxt();
+        console.log('✨ All sitemaps generated successfully!');
+    } catch (error) {
+        console.error('❌ Error in sitemap generation process:', error);
+        process.exit(1);
+    }
 };
 
-generateSitemaps().catch(console.error);
+// Execute the generator
+generateAllSitemaps();

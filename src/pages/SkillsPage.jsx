@@ -15,7 +15,36 @@ const SkillsPage = () => {
             "Social Media Management", "Brand Promotion", "Video Content Creation", 
             "Strategic Planning", "Graphic Design", "Video Editing", "SEO Optimization"
         ],
-        "description": "Smit Parekh is a Marketing Manager and Full-stack Developer with expertise in Web Development, Digital Marketing, and Creative Design."
+        "description": "Smit Parekh is a Marketing Manager and Full-stack Developer with expertise in Web Development, Digital Marketing, and Creative Design.",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.smitparekh.studio/images/Smit-Parekh-Skills.webp",
+            "width": "1200",
+            "height": "630"
+        },
+        "sameAs": [
+            "https://linkedin.com/in/smitparekh84/",
+            "https://github.com/SmitParekh84",
+            "https://www.instagram.com/smit_8_4/"
+        ],
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Marketing Manager",
+            "occupationCategory": "Marketing & Advertising Professionals",
+            "skills": "Digital Marketing, Social Media Management, SEO, Content Creation"
+        },
+        "hasCredential": [
+            {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Analytics Certification",
+                "credentialCategory": "Digital Marketing"
+            },
+            {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Meta Blueprint Certification",
+                "credentialCategory": "Social Media Marketing"
+            }
+        ]
     };
 
     // Breadcrumb structured data
@@ -48,6 +77,8 @@ const SkillsPage = () => {
                 ogImage="https://www.smitparekh.studio/images/Smit-Parekh-Skills.webp"
                 twitterImage="https://www.smitparekh.studio/images/Smit-Parekh-Skills.webp"
                 structuredData={[personSchema, breadcrumbSchema]}
+                lastUpdated="2023-09-25"
+                language="en-US"
             />
 
             <Skills />
