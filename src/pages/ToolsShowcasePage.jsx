@@ -20,6 +20,25 @@ const ToolsShowcasePage = () => {
         buttonText: "Try it now"
     }));
 
+    // Create structured data for tools collection page
+    const toolsPageStructuredData = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Free Online Tools for Productivity | Smit Parekh Studio",
+        "description": "Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity with no cost.",
+        "url": "https://www.smitparekh.studio/",
+        "author": {
+            "@type": "Person",
+            "name": "Smit Parekh"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        }
+    };
+
     return (
         <>
             <SEO 
@@ -27,8 +46,15 @@ const ToolsShowcasePage = () => {
                 description="Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity with no cost."
                 keywords="free online tools, productivity tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools, AI tools"
                 canonicalUrl="https://www.smitparekh.studio/"
+                ogType="website"
                 ogImage="https://www.smitparekh.studio/images/Tools-Page-Image.webp"
+                ogTitle="Free Professional Tools - Smit Parekh Studio"
                 twitterImage="https://www.smitparekh.studio/images/Tools-Page-Image.webp"
+                twitterTitle="Free Online Tools by Smit Parekh Studio"
+                structuredData={toolsPageStructuredData}
+                lastUpdated={new Date().toISOString()}
+                language="en-US"
+                author="Smit Parekh"
             />
 
             {/* Modern Hero Section */}
