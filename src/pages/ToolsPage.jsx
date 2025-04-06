@@ -78,6 +78,8 @@ const ToolsPage = () => {
         ]
     };
 
+    const ogDescription = "Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity and enhance your marketing efforts with no cost.";
+
     return (
         <>
             <SEO 
@@ -86,11 +88,20 @@ const ToolsPage = () => {
                 keywords="free online tools, productivity tools, marketing tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools, AI tools free, Smit Parekh tools"
                 canonicalUrl="https://www.smitparekh.studio/tools"
                 ogImage="https://www.smitparekh.studio/images/Tools-Page-Image.webp"
+                ogTitle="Free Productivity & Marketing Tools | Smit Parekh Studio"
+                ogDescription={ogDescription}
                 twitterImage="https://www.smitparekh.studio/images/Tools-Page-Image.webp"
+                twitterTitle="Free Tools for Marketers & Creators | Smit Parekh"
+                twitterDescription={ogDescription}
                 structuredData={[toolsSchema, faqSchema, breadcrumbSchema]}
                 lastUpdated="2023-10-15"
                 language="en-US"
-            />
+            >
+                {/* Additional meta tags */}
+                <meta property="article:author" content="https://www.smitparekh.studio/about" />
+                <meta property="article:published_time" content="2023-08-01T08:00:00+00:00" />
+                <meta property="article:modified_time" content="2023-10-15T10:15:00+00:00" />
+            </SEO>
 
             <ToolsSection />
             <FAQ faqData={faqDataTools} toolName="Viral LinkedIn Post Generator" />
