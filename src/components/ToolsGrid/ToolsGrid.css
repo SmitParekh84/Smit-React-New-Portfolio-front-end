@@ -8,6 +8,11 @@
 
 .tools__container {
   gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .tools__title {
@@ -106,6 +111,19 @@
   top: 50px;
   left: -80px;
   z-index: 1;
+}
+
+/* Media queries for responsive grid layout */
+@media screen and (min-width: 1024px) {
+  .tools__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .tools__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 768px) {
