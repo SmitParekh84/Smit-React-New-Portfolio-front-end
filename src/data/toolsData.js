@@ -57,22 +57,22 @@ export const toolsData = [
     category: "Developer Tools",
     description: ["Generate custom QR codes for any link", "Customizable colors and styles", "Download in high resolution"]
   },
-  {
-    title: "HTML Minifier",
-    icon: "uil-html5",
-    shortDescription: "Compress HTML code to improve load times.",
-    path: "/free-tools/html-minifier",
-    category: "Developer Tools",
-    description: ["Compress HTML code to improve load times", "Remove comments and whitespace", "Optimize web performance"]
-  },
-  {
-    title: "CSS Beautifier",
-    icon: "uil-css3-simple",
-    shortDescription: "Format and beautify your CSS code.",
-    path: "/free-tools/css-beautifier",
-    category: "Developer Tools",
-    description: ["Format and beautify your CSS code", "Improve code readability", "Fix indentation and spacing"]
-  },
+  // {
+  //   title: "HTML Minifier",
+  //   icon: "uil-html5",
+  //   shortDescription: "Compress HTML code to improve load times.",
+  //   path: "/free-tools/html-minifier",
+  //   category: "Developer Tools",
+  //   description: ["Compress HTML code to improve load times", "Remove comments and whitespace", "Optimize web performance"]
+  // },
+  // {
+  //   title: "CSS Beautifier",
+  //   icon: "uil-css3-simple",
+  //   shortDescription: "Format and beautify your CSS code.",
+  //   path: "/free-tools/css-beautifier",
+  //   category: "Developer Tools",
+  //   description: ["Format and beautify your CSS code", "Improve code readability", "Fix indentation and spacing"]
+  // },
 ];
 
 // Import from toolsShowcaseData.js to maintain consistency

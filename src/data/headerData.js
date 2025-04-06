@@ -42,8 +42,8 @@ export const headerData = {
           title: "Developer Tools",
           links: [
             { id: "/free-tools/qr-code-generator", label: "QR Code Generator", icon: "uil-qrcode-scan", description: "Generate custom QR codes for any link" },
-            { id: "/free-tools/html-minifier", label: "HTML Minifier", icon: "uil-html5", description: "Compress HTML code to improve load times" },
-            { id: "/free-tools/css-beautifier", label: "CSS Beautifier", icon: "uil-css3-simple", description: "Format and beautify your CSS code" },
+            { id: "/free-tools", label: "Coming soon...", icon: "uil-html5", description: "Compress HTML code to improve load times" },
+            { id: "/free-tools", label: "Coming soon...", icon: "uil-css3-simple", description: "Format and beautify your CSS code" },
           ]
         },
       ],
