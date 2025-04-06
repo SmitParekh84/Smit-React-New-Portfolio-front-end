@@ -21,6 +21,11 @@ const SEO = ({
   // Use provided Twitter title or fallback to OG title
   const finalTwitterTitle = twitterTitle || finalOgTitle;
 
+  // Ensure structuredData is an array
+  const structuredDataArray = Array.isArray(structuredData) 
+    ? structuredData 
+    : structuredData ? [structuredData] : [];
+
   return (
     <Helmet>
       {/* Basic Metadata */}
@@ -58,7 +63,7 @@ const SEO = ({
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       
       {/* Structured Data */}
-      {structuredData && structuredData.map((data, index) => (
+      {structuredDataArray.map((data, index) => (
         <script key={index} type="application/ld+json">
           {JSON.stringify(data)}
         </script>
