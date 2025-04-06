@@ -1,11 +1,11 @@
-/*    /index.html   200
+/*    /index.html    200
 https://www.smitparekh.studio/viral-linkedin-post-generator https://www.smitparekh.studio/free-tools/viral-linkedin-post-generator 301!
 
 
 # Redirect HTTP to HTTPS
 
-http://smitparekh.studio/_ https://www.smitparekh.studio/:splat 301!
-http://www.smitparekh.studio/_ https://www.smitparekh.studio/:splat 301!
+http://smitparekh.studio/* https://www.smitparekh.studio/:splat 301!
+http://www.smitparekh.studio/* https://www.smitparekh.studio/:splat 301!
 
 # Redirect non-www to www for HTTPS
 

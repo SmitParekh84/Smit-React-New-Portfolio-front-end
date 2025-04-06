@@ -1,0 +1,104 @@
+/*=============== ERROR PAGE ===============*/
+.error-page__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.error-page__image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.error-page__code {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--first-color);
+  line-height: 1;
+  margin-top: 1rem;
+}
+
+.error-page__description {
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.error-page__actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button--light {
+  background-color: var(--container-color);
+  color: var(--first-color);
+  border: 1px solid var(--first-color);
+}
+
+.button--light:hover {
+  background-color: var(--first-color-lighter);
+}
+
+.error-page__help {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.error-page__help h3 {
+  font-size: var(--h3-font-size);
+  margin-bottom: 1rem;
+  color: var(--title-color);
+}
+
+.error-page__links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  list-style: none;
+}
+
+.error-page__links li {
+  display: flex;
+  align-items: center;
+}
+
+.error-page__links i {
+  color: var(--first-color);
+  margin-right: 0.5rem;
+}
+
+.error-page__links a {
+  color: var(--title-color);
+  transition: color 0.3s;
+}
+
+.error-page__links a:hover {
+  color: var(--first-color);
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  .error-page__code {
+    font-size: 4rem;
+  }
+  
+  .error-page__links {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 350px) {
+  .error-page__actions {
+    flex-direction: column;
+  }
+}
