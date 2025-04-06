@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   position: fixed;
-  bottom: 0;
+  top: 0; /* Changed from bottom: 0 to top: 0 */
   left: 0;
   z-index: var(--z-fixed);
   background-color: var(--body-color);
@@ -124,7 +124,7 @@
 .nav__btns {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  
 }
 
 .change-theme {
@@ -174,7 +174,7 @@
 
 @media screen and (min-width: 768px) {
   .header {
-    top: 0;
+    top: 0; /* Already at top, keeping for consistency */
     bottom: initial;
     padding: 0.5rem 0;
     background-color: var(--body-color);
@@ -184,7 +184,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background-color: rgba(var(--body-color-rgb), 0.95);
+    background-color: rgba(var(--body-color), 0.95);
   }
   
   .nav {
@@ -233,6 +233,7 @@
 /* Make sure content doesn't hide under fixed header on mobile */
 @media screen and (max-width: 767px) {
   body {
-    margin-bottom: var(--header-height);
+    margin-top: var(--header-height); /* Changed from margin-bottom to margin-top */
+    margin-bottom: 0;
   }
 }

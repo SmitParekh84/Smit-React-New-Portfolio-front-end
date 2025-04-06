@@ -2,13 +2,13 @@
 @media screen and (max-width: 767px) {
   .nav__menu {
     position: fixed;
-    bottom: -100%;
+    top: -100%; /* Changed from bottom: -100% to top: -100% */
     left: 0;
     width: 100%;
     background-color: var(--body-color);
     padding: 2rem 1.5rem 4rem;
-    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 1.5rem 1.5rem 0 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15); /* Changed shadow direction */
+    border-radius: 0 0 1.5rem 1.5rem; /* Changed border radius to bottom */
     transition: 0.3s;
     max-height: 80vh;
     overflow-y: auto;
@@ -22,16 +22,16 @@
   
   /* Show menu animation */
   .show-menu {
-    bottom: 0;
-    animation: slideUp 0.3s ease-in-out;
+    top: 0; /* Changed from bottom: 0 to top: 0 */
+    animation: slideDown 0.3s ease-in-out; /* Changed animation name */
   }
   
-  @keyframes slideUp {
+  @keyframes slideDown { /* Changed from slideUp to slideDown */
     from {
-      bottom: -100%;
+      top: -100%; /* Changed from bottom: -100% to top: -100% */
     }
     to {
-      bottom: 0;
+      top: 0; /* Changed from bottom: 0 to top: 0 */
     }
   }
 }
@@ -149,7 +149,7 @@
 .nav__close {
   position: absolute;
   right: 1.3rem;
-  top: 1.3rem;
+  top: 1.3rem; /* Changed from bottom: 0.5rem to top: 1.3rem */
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--first-color);
@@ -230,7 +230,7 @@
 .nav__close {
   position: absolute;
   right: 1.3rem;
-  bottom: 0.5rem;
+  top: 1.3rem; /* Changed from bottom: 0.5rem to top: 1.3rem */
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--first-color);
@@ -242,7 +242,7 @@
 
 /* Show menu */
 .show-menu {
-  bottom: 0;
+  top: 0; /* Changed from bottom: 0 to top: 0 */
 }
 
 /* Active link */
