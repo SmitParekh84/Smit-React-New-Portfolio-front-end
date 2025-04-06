@@ -1,14 +1,17 @@
 # Smit React New Portfolio
+.
 
 This project is a personal portfolio website built using React. It showcases my skills, projects, and experience in web development.
 
 ## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Technologies](#technologies)
-- [Contributing](#contributing)
-- [License](#license)
+- [Smit React New Portfolio](#smit-react-new-portfolio)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Features](#features)
+  - [Technologies](#technologies)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Installation
 
