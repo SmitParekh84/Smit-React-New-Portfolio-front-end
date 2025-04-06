@@ -329,3 +329,30 @@ export const faqDataImageConverter = [
       answer: "No, this image converter is completely free to use without any registration or account creation. Simply upload your image, select your desired format, and convert."
   }
 ];
+
+export const faqDataSEOAnalyzer = [
+  {
+    question: "What is the SEO Analyzer tool?",
+    answer: "Our SEO Analyzer is a free tool that evaluates your website against essential SEO criteria. It analyzes on-page elements, performance metrics, and provides recommendations to improve your search engine rankings."
+  },
+  {
+    question: "How does the SEO Analyzer tool work?",
+    answer: "Simply enter your website URL and click the Analyze button. Our tool scans your webpage, checks various SEO parameters like meta tags, content structure, page speed, and mobile-friendliness, then provides a comprehensive report with recommendations."
+  },
+  {
+    question: "Is the SEO Analyzer tool free to use?",
+    answer: "Yes, the SEO Analyzer is completely free to use with no limitations. You can analyze any website and get actionable insights without paying anything."
+  },
+  {
+    question: "What SEO factors does the tool analyze?",
+    answer: "The tool analyzes key SEO factors including title tags, meta descriptions, headings structure, image optimization, content quality, mobile responsiveness, page loading speed, SSL security, and more."
+  },
+  {
+    question: "How accurate is the SEO score?",
+    answer: "The SEO score is calculated based on industry best practices and considers multiple factors affecting search rankings. While it provides a good indication of your site's SEO health, it's always recommended to combine this analysis with other SEO tools for a complete picture."
+  },
+  {
+    question: "How often should I use the SEO Analyzer on my website?",
+    answer: "We recommend running an SEO analysis at least once a month or after making significant changes to your website. Regular analysis helps you maintain good SEO practices and identify new opportunities for improvement."
+  }
+];

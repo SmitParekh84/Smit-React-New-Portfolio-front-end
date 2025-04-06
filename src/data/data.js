@@ -19,8 +19,12 @@ import {
   faqDataMetaChecker,
   faqDataQRCode,
   faqDataImageCompressor,
-  faqDataImageConverter
+  faqDataImageConverter,
+  faqDataSEOAnalyzer
 } from './faqData';
+
+// Add FAQ data for SEO Analyzer
+
 
 // Re-export everything for backward compatibility
 export {
@@ -42,5 +46,6 @@ export {
   faqDataMetaChecker,
   faqDataQRCode,
   faqDataImageCompressor,
-  faqDataImageConverter
+  faqDataImageConverter,
+  faqDataSEOAnalyzer
 };
