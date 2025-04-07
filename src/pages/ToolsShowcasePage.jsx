@@ -8,6 +8,11 @@ import Testimonials from "../components/Testimonials/Testimonials";
 import HowItWorks from "../components/HowItWorks/HowItWorks";
 import FAQ from "../components/FAQ/FAQ";
 import CTASection from "../components/CTASection/CTASection";
+import { 
+    prepareStructuredData, 
+    generateFAQSchema,
+    getFullUrl 
+} from "../utils/SocialMetaHelper";
 
 const ToolsShowcasePage = () => {
     // Create product showcase data from toolsData
@@ -26,36 +31,90 @@ const ToolsShowcasePage = () => {
         "@type": "CollectionPage",
         "name": "Free Online Tools for Productivity | Smit Parekh Studio",
         "description": "Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity with no cost.",
-        "url": "https://www.smitparekh.studio/",
+        "url": "/free-tools",
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": toolsData.map((tool, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "name": tool.title,
+                "description": tool.shortDescription,
+                "url": tool.path
+            }))
+        },
         "author": {
             "@type": "Person",
-            "name": "Smit Parekh"
+            "name": "Smit Parekh",
+            "url": "/portfolio"
         },
         "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock"
+        },
+        "potentialAction": {
+            "@type": "UseAction",
+            "target": "/free-tools"
         }
     };
+
+    // Generate FAQ schema
+    const faqSchema = generateFAQSchema(toolsFaqs);
+
+    // Generate breadcrumb schema
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": getFullUrl("/")
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Free Tools",
+                "item": getFullUrl("/free-tools")
+            }
+        ]
+    };
+
+    // Process all structured data to ensure proper URLs
+    const processedPageSchema = prepareStructuredData(toolsPageStructuredData);
+    const processedFaqSchema = prepareStructuredData(faqSchema);
+    const processedBreadcrumbSchema = prepareStructuredData(breadcrumbSchema);
 
     return (
         <>
             <SEO 
                 title="Free Online Tools for Productivity | Smit Parekh Studio"
                 description="Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity with no cost."
-                keywords="free online tools, productivity tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools, AI tools"
-                canonicalUrl="https://www.smitparekh.studio/"
+                keywords="free online tools, productivity tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools, AI tools, image compressor, QR code generator, SEO analyzer"
+                canonicalUrl={getFullUrl("/free-tools")}
                 ogType="website"
-                ogImage="https://www.smitparekh.studio/images/Tools-Page-Image.webp"
+                ogImage={getFullUrl("/images/Tools-Page-Image.webp")}
                 ogTitle="Free Professional Tools - Smit Parekh Studio"
-                twitterImage="https://www.smitparekh.studio/images/Tools-Page-Image.webp"
+                twitterImage={getFullUrl("/images/Tools-Page-Image.webp")}
                 twitterTitle="Free Online Tools by Smit Parekh Studio"
-                structuredData={toolsPageStructuredData}
+                structuredData={[processedPageSchema, processedFaqSchema, processedBreadcrumbSchema]}
                 lastUpdated={new Date().toISOString()}
                 language="en-US"
                 author="Smit Parekh"
-            />
+                alternateLanguages={[
+                    { lang: "en", url: getFullUrl("/free-tools") }
+                ]}
+            >
+                {/* Add extra SEO tags */}
+                <meta name="google-site-verification" content="your-verification-code" />
+                <meta property="og:video" content={getFullUrl("/videos/tools-demo.mp4")} />
+                <meta property="og:video:type" content="video/mp4" />
+                <meta property="og:video:width" content="1280" />
+                <meta property="og:video:height" content="720" />
+                <link rel="preload" href={getFullUrl("/images/Tools-Page-Image.webp")} as="image" />
+            </SEO>
 
             {/* Modern Hero Section */}
             <ToolsHero />
@@ -99,14 +158,6 @@ const ToolsShowcasePage = () => {
                 subtitle="Find Quick Answers to Common Questions"
                 faqData={toolsFaqs}
             />
-
-            {/* Newsletter Section
-            <Newsletter 
-                title="Stay Updated"
-                subtitle="Subscribe to our newsletter for updates on new tools and features"
-                placeholder="Enter your email address"
-                buttonText="Subscribe"
-            /> */}
 
             {/* CTA Section */}
             <CTASection 

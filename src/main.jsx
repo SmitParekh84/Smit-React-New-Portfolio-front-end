@@ -5,8 +5,10 @@ import App from './App.jsx';
 import './assets/css/styles.css';
 import './assets/css/swiper-bundle.min.css';
 
-// Create a dedicated context for helmet to prevent conflicts
-const helmetContext = {};
+// Create a dedicated context for helmet with SSR enabled
+const helmetContext = {
+  helmet: {} // This will hold helmet data for server-side rendering when needed
+};
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
