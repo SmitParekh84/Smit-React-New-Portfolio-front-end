@@ -18,6 +18,7 @@ import ImageCompressorPage from "./pages/ImageCompressorPage";
 import ImageConverterPage from "./pages/ImageConverterPage";
 import SEOAnalyzerPage from "./pages/SEOAnalyzerPage";
 import NotFoundPage from "./pages/NotFoundPage"; // Import the new 404 page
+import LinkedInMediaDownloaderPage from "./pages/LinkedInMediaDownloaderPage";
 
 const Header = React.lazy(() => import("./components/Header/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
@@ -71,6 +72,7 @@ const App = () => {
             <Route path="/free-tools/image-compressor" element={<ImageCompressorPage />} />
             <Route path="/free-tools/image-converter" element={<ImageConverterPage />} />
             <Route path="/free-tools/seo-analyzer" element={<SEOAnalyzerPage />} />
+            <Route path="/free-tools/linkedin-media-downloader" element={<LinkedInMediaDownloaderPage />} />
             <Route path="/cv-viewer" element={<CVViewer />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="*" element={<NotFoundPage />} />
