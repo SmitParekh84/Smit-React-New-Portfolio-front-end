@@ -34,6 +34,7 @@ export const headerData = {
           title: "Content Tools",
           links: [
             { id: "/free-tools/viral-linkedin-post-generator", label: "LinkedIn Post Generator", icon: "uil-linkedin", description: "Create engaging LinkedIn posts" },
+            { id: "/free-tools/linkedin-media-downloader", label: "LinkedIn Media Downloader", icon: "uil-download-alt", description: "Download videos and images from LinkedIn" },
             { id: "/free-tools/meta-tag-checker", label: "Meta Tag Checker", icon: "uil-search", description: "Analyze and optimize your website's meta tags" },
             { id: "/free-tools/seo-analyzer", label: "SEO Analyzer", icon: "uil-analytics", description: "Check and improve your website's SEO" },
           ]
@@ -55,8 +56,10 @@ export const headerData = {
         icon: "uil-bolt"
       },
       subLinks: [
+        
         { id: "/free-tools/background-remover", label: "Bg Remover", icon: "uil-trash" },
         { id: "/free-tools/viral-linkedin-post-generator", label: "LinkedIn Post Generator", icon: "uil-linkedin" },
+        { id: "/free-tools/linkedin-media-downloader", label: "LinkedIn Media Downloader", icon: "uil-download-alt" },
         { id: "/free-tools/meta-tag-checker", label: "Meta Tag Checker", icon: "uil-search" },
         { id: "/free-tools/qr-code-generator", label: "QR Code Generator", icon: "uil-qrcode-scan" },
       ],

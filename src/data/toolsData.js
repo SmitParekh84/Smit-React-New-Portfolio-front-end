@@ -34,6 +34,14 @@ export const toolsData = [
     description: ["Create engaging LinkedIn posts", "AI-powered content suggestions", "Optimize for engagement"]
   },
   {
+    title: "LinkedIn Media Downloader",
+    icon: "uil-download-alt",
+    shortDescription: "Download videos and images from LinkedIn posts.",
+    path: "/free-tools/linkedin-media-downloader",
+    category: "Content Tools",
+    description: ["Download videos and images from LinkedIn", "Simple paste-and-download interface", "Save media in high quality"]
+  },
+  {
     title: "Meta Tag Checker",
     icon: "uil-search",
     shortDescription: "Check the meta tags of any website.",

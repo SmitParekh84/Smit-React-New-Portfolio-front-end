@@ -127,6 +127,7 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
             {headerData.mobileNavLinks.map((link) => (
               <li key={link.id} className="mobile-nav__item">
                 {link.id === "/free-tools" ? (
+
                   <>
                     <div 
                       className={`mobile-nav__link ${isLinkActive(link.id) ? "active-link" : ""}`}
@@ -141,6 +142,15 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
                     
                     {mobileFreeToolsOpen && (
                       <div className="mobile-nav__submenu">
+                      <Link
+                             to={"/free-tools"}
+                             className="mobile-nav__link "
+                             onClick={closeMenu}
+                           >
+                           <div className="mobile-nav__link-content">
+                             <i className={`uil uil-apps mobile-nav__icon`}></i>
+                             All Tools</div>
+                           </Link>
                         {headerData.desktopNavLinks
                           .find(item => item.id === "/free-tools")
                           ?.subLinks.map((subLink) => (
@@ -153,9 +163,13 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
                               <i className={`uil ${subLink.icon} mobile-nav__submenu-icon`}></i>
                               {subLink.label}
                             </Link>
+                            
                           ))}
+                         
                       </div>
+                      
                     )}
+                    
                   </>
                 ) : (
                   <Link

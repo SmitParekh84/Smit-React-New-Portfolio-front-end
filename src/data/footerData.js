@@ -12,6 +12,7 @@ export const footerData = {
     { href: "/contact", label: "Contact Me" },
     { href: "/free-tools/background-remover", label: "Bg-Remover", icon: "uil-trash" },
     { href: "/free-tools/viral-linkedin-post-generator", label: "LinkedIn Post Generator", icon: "uil-linkedin" },
+    { href: "/free-tools/linkedin-media-downloader", label: "LinkedIn Media Downloader", icon: "uil-download-alt" },
     { href: "/free-tools/qr-code-generator", label: "QR Code Generator", icon: "uil-qrcode-scan" },
   ],
   socialLinks: [

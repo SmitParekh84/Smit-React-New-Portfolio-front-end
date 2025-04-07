@@ -92,12 +92,18 @@ const BackgroundRemover = ({ toolName, apiUrl }) => {
         onDrop: (acceptedFiles) => {
             const file = acceptedFiles[0];
             if (file) {
-                if (validFileTypes.includes(file.type)) {
-                    setSelectedFile(file);
-                    toast.success("File selected successfully.");
-                } else {
+                if (!validFileTypes.includes(file.type)) {
                     toast.error("Invalid file type. Please upload PNG, JPEG, JPG, or WEBP.");
+                    return;
                 }
+                
+                if (file.size > MAX_FILE_SIZE) {
+                    toast.error("File is too large. Maximum size is 10MB.");
+                    return;
+                }
+                
+                setSelectedFile(file);
+                toast.success("File selected successfully.");
             } else {
                 toast.error("No file selected. Please try again.");
             }
@@ -108,6 +114,7 @@ const BackgroundRemover = ({ toolName, apiUrl }) => {
             'image/webp': ['.webp']
         },
         multiple: false,
+        maxSize: MAX_FILE_SIZE, // Add native dropzone size validation
     });
 
     return (
