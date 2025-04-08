@@ -3,13 +3,22 @@ import "./SEOAnalyzer.css";
 
 const SEOAnalyzer = ({ apiUrl, toolName }) => {
     const [url, setUrl] = useState("");
+    const [email, setEmail] = useState("");
+    const [generatePdf, setGeneratePdf] = useState(false);
     const [seoData, setSeoData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [activeTab, setActiveTab] = useState("overview");
+    const [pdfStatus, setPdfStatus] = useState(null);
 
     // Handle URL input change
     const handleUrlChange = (e) => setUrl(e.target.value);
+    
+    // Handle email input change
+    const handleEmailChange = (e) => setEmail(e.target.value);
+    
+    // Handle PDF generation checkbox
+    const handleGeneratePdfChange = (e) => setGeneratePdf(e.target.checked);
 
     // Validate and format the URL
     const formatUrl = (inputUrl) => {
@@ -24,6 +33,7 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
         setError(null);
         setSeoData(null);
         setLoading(true);
+        setPdfStatus(null);
         
         if (!url.trim()) {
             setError("Please enter a URL to analyze.");
@@ -31,8 +41,20 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
             return;
         }
         
+        // Validate email if PDF generation is requested
+        if (generatePdf && (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))) {
+            setError("Please enter a valid email address to receive the PDF report.");
+            setLoading(false);
+            return;
+        }
+        
         const formattedUrl = formatUrl(url);
-        const apiEndpoint = `${apiUrl}/seo-analyze?url=${encodeURIComponent(formattedUrl)}`;
+        let apiEndpoint = `${apiUrl}/seo-analyze?url=${encodeURIComponent(formattedUrl)}`;
+        
+        // Add email and generatePdf parameters if needed
+        if (generatePdf && email) {
+            apiEndpoint += `&email=${encodeURIComponent(email)}&generatePdf=true`;
+        }
 
         try {
             const response = await fetch(apiEndpoint);
@@ -47,6 +69,14 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
                 setError(data.error);
             } else {
                 setSeoData(data);
+                
+                // Set PDF status if applicable
+                if (generatePdf && email) {
+                    setPdfStatus(data.pdfStatus || { 
+                        success: true, 
+                        message: "PDF report has been generated and sent to your email." 
+                    });
+                }
             }
         } catch (err) {
             setError(`Failed to analyze the URL: ${err.message || "Unknown error"}. Please try again.`);
@@ -62,30 +92,85 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
         }
     };
 
-    // Calculate overall SEO score
+    // Calculate overall SEO score - now use provided score directly
     const calculateScore = (data) => {
         if (!data) return 0;
         
-        // Count total checks and passed checks
-        const totalChecks = Object.keys(data.checks || {}).length;
-        const passedChecks = Object.values(data.checks || {}).filter(check => check.status === "pass").length;
-        
-        return Math.round((passedChecks / totalChecks) * 100) || 0;
+        // Use the seoScore from the API if available
+        return data.seoScore !== undefined ? data.seoScore : Math.round((passedChecks / totalChecks) * 100) || 0;
     };
 
     // Render SEO score gauge
     const renderScoreGauge = (score) => {
-        const scoreColor = score >= 80 ? "green" : score >= 60 ? "orange" : "red";
+        // Determine color gradient based on scoreColor from API or fallback to calculation
+        let scoreGradient, scoreClass;
+        
+        if (seoData && seoData.scoreColor) {
+            // Use the scoreColor from the API
+            scoreClass = `score-${seoData.scoreColor}`;
+            
+            // Set gradient based on the scoreColor
+            if (seoData.scoreColor === 'green') {
+                scoreGradient = 'linear-gradient(to right, #34D399, #10B981)';
+            } else if (seoData.scoreColor === 'orange' || seoData.scoreColor === 'yellow') {
+                scoreGradient = 'linear-gradient(to right, #FBBF24, #F59E0B)';
+            } else {
+                scoreGradient = 'linear-gradient(to right, #F87171, #DC2626)';
+            }
+        } else {
+            // Fallback to score-based calculation
+            if (score >= 80) {
+                scoreGradient = 'linear-gradient(to right, #34D399, #10B981)';
+                scoreClass = 'score-green';
+            } else if (score >= 60) {
+                scoreGradient = 'linear-gradient(to right, #FBBF24, #F59E0B)';
+                scoreClass = 'score-orange';
+            } else {
+                scoreGradient = 'linear-gradient(to right, #F87171, #DC2626)';
+                scoreClass = 'score-red';
+            }
+        }
+        
+        // Calculate dash array for circle animation
+        const circumference = 2 * Math.PI * 45; // 45 is the radius of the circle
+        const dashoffset = circumference - (score / 100) * circumference;
         
         return (
             <div className="score-gauge">
-                <div className="score-circle" style={{ 
-                    background: `conic-gradient(${scoreColor} ${score}%, #eee ${score}% 100%)` 
-                }}>
-                    <div className="score-value">{score}%</div>
+                <div className="score-circle">
+                    <svg width="180" height="180" viewBox="0 0 120 120">
+                        <circle 
+                            cx="60" cy="60" r="45" 
+                            fill="none" 
+                            stroke="#e6e6e6" 
+                            strokeWidth="10"
+                            className="score-bg-circle"
+                        />
+                        <circle 
+                            cx="60" cy="60" r="45" 
+                            fill="none" 
+                            stroke="url(#scoreGradient)" 
+                            strokeWidth="10" 
+                            strokeDasharray={circumference} 
+                            strokeDashoffset={dashoffset}
+                            strokeLinecap="round" 
+                            className="score-progress-circle"
+                            transform="rotate(-90 60 60)"
+                        />
+                        <defs>
+                            <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor={scoreClass === 'score-green' ? '#34D399' : 
+                                                            scoreClass === 'score-orange' || scoreClass === 'score-yellow' ? '#FBBF24' : '#F87171'} />
+                                <stop offset="100%" stopColor={scoreClass === 'score-green' ? '#10B981' : 
+                                                             scoreClass === 'score-orange' || scoreClass === 'score-yellow' ? '#F59E0B' : '#DC2626'} />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div className={`score-value ${scoreClass}`}>{score}<span className="score-percent">%</span></div>
                 </div>
-                <div className={`score-label score-${scoreColor}`}>
-                    {score >= 80 ? "Good" : score >= 60 ? "Average" : "Poor"}
+                <div className={`score-label ${scoreClass}`}>
+                    {seoData && seoData.scoreDescription ? seoData.scoreDescription : 
+                     (score >= 80 ? "Excellent" : score >= 60 ? "Average" : "Needs Improvement")}
                 </div>
             </div>
         );
@@ -110,6 +195,35 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
                         className="seo-analyzer__input"
                         aria-label="Website URL"
                     />
+                    
+                    <div className="seo-analyzer__options">
+                        <div className="seo-analyzer__email-option">
+                            <label htmlFor="seo-email">Email (for PDF report):</label>
+                            <input
+                                id="seo-email"
+                                type="email"
+                                value={email}
+                                onChange={handleEmailChange}
+                                placeholder="your@email.com"
+                                className="seo-analyzer__email-input"
+                                aria-label="Your email address"
+                                disabled={!generatePdf}
+                            />
+                        </div>
+                        <div className="seo-analyzer__pdf-option">
+                            <input
+                                id="generate-pdf"
+                                type="checkbox"
+                                checked={generatePdf}
+                                onChange={handleGeneratePdfChange}
+                                className="seo-analyzer__checkbox"
+                            />
+                            <label htmlFor="generate-pdf">
+                                Generate PDF Report & Send to Email
+                            </label>
+                        </div>
+                    </div>
+                    
                     <button 
                         className="seo-analyzer__button" 
                         disabled={loading} 
@@ -132,6 +246,13 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
                     )}
                     
                     {error && <div className="error-message">{error}</div>}
+                    
+                    {pdfStatus && (
+                        <div className={`pdf-status ${pdfStatus.success ? 'success' : 'error'}`}>
+                            <i className={`uil ${pdfStatus.success ? 'uil-check-circle' : 'uil-times-circle'}`}></i>
+                            <p>{pdfStatus.message}</p>
+                        </div>
+                    )}
 
                     {seoData && (
                         <div className="seo-analysis-results">
@@ -151,6 +272,12 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
                                         <div className="seo-overview-item">
                                             <span className="overview-label">Loading Speed:</span>
                                             <span className="overview-value">{seoData.loadingSpeed || "Not available"}</span>
+                                        </div>
+                                        <div className="seo-overview-item">
+                                            <span className="overview-label">Analysis Date:</span>
+                                            <span className="overview-value">
+                                                {seoData.analysisDate ? new Date(seoData.analysisDate).toLocaleString() : "Not available"}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -194,6 +321,8 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
                                                         <div className="check-status">
                                                             {check.status === "pass" ? (
                                                                 <i className="uil uil-check-circle"></i>
+                                                            ) : check.status === "neutral" ? (
+                                                                <i className="uil uil-minus-circle"></i>
                                                             ) : (
                                                                 <i className="uil uil-times-circle"></i>
                                                             )}
@@ -201,6 +330,7 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
                                                         <div className="check-details">
                                                             <h5>{check.name}</h5>
                                                             <p>{check.description}</p>
+                                                            {check.value && <p className="check-value"><strong>Value:</strong> {check.value}</p>}
                                                         </div>
                                                     </div>
                                                 ))}
@@ -222,7 +352,13 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
                                                         <ul>
                                                             {Object.entries(value).map(([subKey, subValue]) => (
                                                                 <li key={subKey}>
-                                                                    <strong>{subKey}:</strong> {subValue.toString()}
+                                                                    <strong>{subKey.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}:</strong> {
+                                                                        Array.isArray(subValue) && subValue.length === 0 
+                                                                        ? "None found" 
+                                                                        : Array.isArray(subValue) 
+                                                                        ? subValue.join(', ') 
+                                                                        : subValue.toString()
+                                                                    }
                                                                 </li>
                                                             ))}
                                                         </ul>
@@ -276,6 +412,16 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
                                                             </div>
                                                             <h5>{recommendation.title}</h5>
                                                             <p>{recommendation.description}</p>
+                                                            {recommendation.steps && recommendation.steps.length > 0 && (
+                                                                <div className="recommendation-steps">
+                                                                    <strong>Steps to implement:</strong>
+                                                                    <ul>
+                                                                        {recommendation.steps.map((step, stepIndex) => (
+                                                                            <li key={stepIndex}>{step}</li>
+                                                                        ))}
+                                                                    </ul>
+                                                                </div>
+                                                            )}
                                                         </li>
                                                     ))}
                                                 </ul>

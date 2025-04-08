@@ -119,63 +119,79 @@
 }
 
 .score-circle {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  background: #eee;
 }
 
 .score-value {
-  font-size: 2rem;
+  position: absolute;
+  font-size: 2.5rem;
   font-weight: bold;
-  color: var(--title-color);
+  background-image: linear-gradient(to bottom, var(--first-color), var(--first-color-alt));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.score-value.score-green {
+  background-image: linear-gradient(to bottom, #34D399, #10B981);
+}
+
+.score-value.score-orange {
+  background-image: linear-gradient(to bottom, #FBBF24, #F59E0B);
+}
+
+.score-value.score-red {
+  background-image: linear-gradient(to bottom, #F87171, #DC2626);
+}
+
+.score-percent {
+  font-size: 1.25rem;
+  opacity: 0.8;
+  margin-left: 2px;
 }
 
 .score-label {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   font-weight: var(--font-medium);
-  font-size: var(--small-font-size);
+  font-size: var(--normal-font-size);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
 }
 
 .score-green {
-  color: #28a745;
+  color: #10B981;
 }
 
 .score-orange {
-  color: #fd7e14;
+  color: #F59E0B;
 }
 
 .score-red {
-  color: #dc3545;
+  color: #DC2626;
 }
 
-.seo-overview {
-  flex: 1;
-  min-width: 300px;
+.score-bg-circle {
+  opacity: 0.2;
 }
 
-.seo-overview-item {
-  margin-bottom: 0.8rem;
-  display: flex;
-  flex-direction: column;
+.score-progress-circle {
+  transition: stroke-dashoffset 1.5s ease;
+  transform-origin: center;
+  animation: circleAnimation 1.5s ease-out forwards;
 }
 
-.overview-label {
-  color: var(--text-color-light);
-  font-size: var(--small-font-size);
-}
-
-.overview-value {
-  color: var(--text-color);
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
-  overflow-wrap: break-word;
+@keyframes circleAnimation {
+  0% {
+    stroke-dashoffset: 283; /* This is approximately the circumference of the circle */
+  }
 }
 
 /* Tabs */
@@ -553,4 +569,94 @@ body.dark-theme .recommendation-item {
 body.dark-theme .seo-analysis-results {
   background-color: var(--body-color);
   border-color: var(--border-color);
+}
+
+/* Add these styles to your existing SEOAnalyzer.css file */
+
+.seo-analyzer__options {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 15px 0;
+    gap: 10px;
+}
+
+.seo-analyzer__email-option {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.seo-analyzer__email-option label {
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.seo-analyzer__email-input {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+.seo-analyzer__email-input:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.seo-analyzer__pdf-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.seo-analyzer__checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.pdf-status {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    gap: 10px;
+}
+
+.pdf-status.success {
+    background-color: rgba(52, 211, 153, 0.1);
+    color: #10B981;
+    border-left: 4px solid #10B981;
+}
+
+.pdf-status.error {
+    background-color: rgba(248, 113, 113, 0.1);
+    color: #DC2626;
+    border-left: 4px solid #DC2626;
+}
+
+.pdf-status i {
+    font-size: 1.5rem;
+}
+
+/* Media queries for responsive design */
+@media (min-width: 768px) {
+    .seo-analyzer__options {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .seo-analyzer__email-option {
+        flex: 1;
+    }
+    
+    .seo-analyzer__pdf-option {
+        margin-top: 0;
+    }
 }
