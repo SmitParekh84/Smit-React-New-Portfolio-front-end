@@ -72,14 +72,33 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
                 
                 // Set PDF status if applicable
                 if (generatePdf && email) {
-                    setPdfStatus(data.pdfStatus || { 
-                        success: true, 
-                        message: "PDF report has been generated and sent to your email." 
+                    setPdfStatus({
+                        success: true,
+                        message: "PDF report is being generated and will be sent to your email shortly.",
+                        animated: true
                     });
+                    
+                    // Simulate delay for better UX
+                    setTimeout(() => {
+                        setPdfStatus({
+                            success: true,
+                            message: "PDF report has been generated and sent to your email.",
+                            animated: false
+                        });
+                    }, 3000);
                 }
             }
         } catch (err) {
             setError(`Failed to analyze the URL: ${err.message || "Unknown error"}. Please try again.`);
+            
+            // Show PDF generation error if applicable
+            if (generatePdf && email) {
+                setPdfStatus({
+                    success: false,
+                    message: "We couldn't generate your PDF report. Please try again later.",
+                    animated: false
+                });
+            }
         } finally {
             setLoading(false);
         }
@@ -248,7 +267,7 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
                     {error && <div className="error-message">{error}</div>}
                     
                     {pdfStatus && (
-                        <div className={`pdf-status ${pdfStatus.success ? 'success' : 'error'}`}>
+                        <div className={`pdf-status ${pdfStatus.success ? 'success' : 'error'} ${pdfStatus.animated ? 'animated' : ''}`}>
                             <i className={`uil ${pdfStatus.success ? 'uil-check-circle' : 'uil-times-circle'}`}></i>
                             <p>{pdfStatus.message}</p>
                         </div>

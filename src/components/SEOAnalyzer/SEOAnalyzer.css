@@ -97,6 +97,17 @@
   background-color: var(--body-color);
   border-radius: 10px;
   border: 1px solid var(--text-color-light);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  animation: slideUpIn 0.5s ease-out forwards;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+@keyframes slideUpIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Score Section */
@@ -125,17 +136,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .score-value {
   position: absolute;
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   font-weight: bold;
   background-image: linear-gradient(to bottom, var(--first-color), var(--first-color-alt));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeUpIn 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes fadeUpIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .score-value.score-green {
@@ -183,14 +205,22 @@
 }
 
 .score-progress-circle {
-  transition: stroke-dashoffset 1.5s ease;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   transform-origin: center;
-  animation: circleAnimation 1.5s ease-out forwards;
+  animation: circleAnimation 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  stroke-linecap: round;
 }
 
 @keyframes circleAnimation {
   0% {
-    stroke-dashoffset: 283; /* This is approximately the circumference of the circle */
+    stroke-dashoffset: 283;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -201,11 +231,13 @@
 
 .tab-buttons {
   display: flex;
-  border-bottom: 1px solid var(--text-color-light);
+  border-bottom: 2px solid rgba(var(--text-color-rgb), 0.1);
   margin-bottom: 1.5rem;
   overflow-x: auto;
   scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
+  padding-bottom: 2px;
+  gap: 8px;
 }
 
 .tab-button {
@@ -219,26 +251,29 @@
   transition: all 0.3s ease;
   position: relative;
   white-space: nowrap;
+  border-radius: 6px 6px 0 0;
 }
 
 .tab-button:hover {
   color: var(--first-color);
+  background-color: rgba(var(--first-color-rgb), 0.05);
 }
 
 .tab-button.active {
   color: var(--first-color);
   font-weight: var(--font-semi-bold);
+  background-color: rgba(var(--first-color-rgb), 0.08);
 }
 
 .tab-button.active::after {
   content: '';
   position: absolute;
-  bottom: -1px;
+  bottom: -2px;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background-color: var(--first-color);
-  border-radius: 1px;
+  border-radius: 3px 3px 0 0;
 }
 
 .tab-panel {
@@ -260,14 +295,21 @@
 .check-item {
   display: flex;
   gap: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 1.25rem;
+  border-radius: 10px;
   background-color: var(--container-color);
   border: 1px solid var(--text-color-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.check-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 .check-status {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   display: flex;
   align-items: center;
 }
@@ -370,10 +412,17 @@
 }
 
 .recommendation-item {
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 1.25rem;
+  border-radius: 10px;
   background-color: var(--container-color);
   border: 1px solid var(--text-color-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.recommendation-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 .recommendation-priority {
@@ -415,6 +464,21 @@
 .recommendation-item p {
   font-size: var(--small-font-size);
   color: var(--text-color);
+}
+
+.recommendation-steps {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background-color: rgba(var(--first-color-rgb), 0.05);
+  border-radius: 8px;
+}
+
+.recommendation-steps ul {
+  padding-left: 1rem;
+}
+
+.recommendation-steps li {
+  margin-bottom: 0.5rem;
 }
 
 /* SEO Tips List */
@@ -550,6 +614,23 @@
   .performance-metrics {
     flex-direction: column;
   }
+
+  .pdf-status {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .pdf-status i {
+    margin-bottom: 5px;
+  }
+  
+  .check-item {
+    flex-direction: column;
+  }
+  
+  .check-status {
+    margin-bottom: 5px;
+  }
 }
 
 /* Dark mode support */
@@ -621,27 +702,63 @@ body.dark-theme .seo-analysis-results {
 .pdf-status {
     display: flex;
     align-items: center;
-    padding: 12px 15px;
+    padding: 15px;
     margin: 15px 0;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 0.95rem;
-    gap: 10px;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
 }
 
 .pdf-status.success {
-    background-color: rgba(52, 211, 153, 0.1);
+    background-color: rgba(52, 211, 153, 0.15);
     color: #10B981;
     border-left: 4px solid #10B981;
 }
 
 .pdf-status.error {
-    background-color: rgba(248, 113, 113, 0.1);
+    background-color: rgba(248, 113, 113, 0.15);
     color: #DC2626;
     border-left: 4px solid #DC2626;
 }
 
 .pdf-status i {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+}
+
+.pdf-status p {
+    font-size: var(--normal-font-size);
+    line-height: 1.4;
+}
+
+/* Animated PDF Status */
+.pdf-status.animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.pdf-status.animated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: shimmer 2s infinite;
+    transform: translateX(-100%);
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 /* Media queries for responsive design */
