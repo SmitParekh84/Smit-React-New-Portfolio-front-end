@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./QRCodeGenerator.css";
@@ -8,10 +8,48 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
     const [qrSize, setQrSize] = useState(200);
     const [qrColor, setQrColor] = useState("#000000");
     const [bgColor, setBgColor] = useState("#ffffff");
+    const [isTransparent, setIsTransparent] = useState(false);
     const [qrType, setQrType] = useState("url");
     const [generatedQR, setGeneratedQR] = useState("");
     const [loading, setLoading] = useState(false);
     const [showOptions, setShowOptions] = useState(false);
+    
+    // Color presets
+    const colorPresets = [
+        { name: "Classic", qrColor: "#000000", bgColor: "#ffffff" },
+        { name: "Inverted", qrColor: "#ffffff", bgColor: "#000000" },
+        { name: "Blue", qrColor: "#1a73e8", bgColor: "#e8f0fe" },
+        { name: "Green", qrColor: "#0f9d58", bgColor: "#e6f4ea" },
+        { name: "Red", qrColor: "#ea4335", bgColor: "#fce8e6" },
+        { name: "Purple", qrColor: "#673ab7", bgColor: "#f3e8fd" }
+    ];
+
+    // Handle hex code manual input
+    const handleQrColorHexChange = (e) => {
+        const value = e.target.value;
+        if (/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value) || value.startsWith('#') && value.length <= 7) {
+            setQrColor(value);
+        }
+    };
+
+    const handleBgColorHexChange = (e) => {
+        const value = e.target.value;
+        if (/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value) || value.startsWith('#') && value.length <= 7) {
+            setBgColor(value);
+        }
+    };
+
+    // Apply color preset
+    const applyPreset = (preset) => {
+        setQrColor(preset.qrColor);
+        setBgColor(preset.bgColor);
+        setIsTransparent(false);
+    };
+
+    // Toggle transparency
+    const handleTransparencyToggle = (e) => {
+        setIsTransparent(e.target.checked);
+    };
 
     // URL validation
     const isValidUrl = (string) => {
@@ -48,7 +86,7 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                     content,
                     size: qrSize,
                     color: qrColor.replace("#", ""),
-                    backgroundColor: bgColor.replace("#", ""),
+                    backgroundColor: isTransparent ? "transparent" : bgColor.replace("#", ""),
                     type: qrType
                 }),
             });
@@ -104,7 +142,7 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                 content,
                 size: qrSize,
                 color: qrColor.replace("#", ""),
-                backgroundColor: bgColor.replace("#", ""),
+                backgroundColor: isTransparent ? "transparent" : bgColor.replace("#", ""),
                 type: qrType
             });
             
@@ -180,12 +218,31 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                                     <input
                                         type="range"
                                         min="100"
-                                        max="500"
+                                        max="1080"
                                         value={qrSize}
                                         onChange={(e) => setQrSize(parseInt(e.target.value))}
                                         className="qr-range"
                                     />
                                     <span className="range-value">{qrSize}px</span>
+                                </div>
+
+                                <div className="presets-section">
+                                    <label>Color Presets</label>
+                                    <div className="color-presets">
+                                        {colorPresets.map((preset, index) => (
+                                            <div 
+                                                key={index} 
+                                                className="color-preset" 
+                                                onClick={() => applyPreset(preset)}
+                                                style={{ 
+                                                    backgroundColor: preset.bgColor,
+                                                    border: `3px solid ${preset.qrColor}`,
+                                                }}
+                                            >
+                                                <span className="preset-name">{preset.name}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
 
                                 <div className="form-group color-group">
@@ -197,7 +254,13 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                                             onChange={(e) => setQrColor(e.target.value)}
                                             className="color-input"
                                         />
-                                        <span className="color-value">{qrColor}</span>
+                                        <input 
+                                            type="text" 
+                                            value={qrColor} 
+                                            onChange={handleQrColorHexChange}
+                                            className="hex-input" 
+                                            maxLength="7"
+                                        />
                                     </div>
                                 </div>
 
@@ -209,8 +272,25 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                                             value={bgColor}
                                             onChange={(e) => setBgColor(e.target.value)}
                                             className="color-input"
+                                            disabled={isTransparent}
                                         />
-                                        <span className="color-value">{bgColor}</span>
+                                        <input 
+                                            type="text" 
+                                            value={isTransparent ? "Transparent" : bgColor} 
+                                            onChange={handleBgColorHexChange}
+                                            className="hex-input" 
+                                            maxLength="7"
+                                            disabled={isTransparent}
+                                        />
+                                    </div>
+                                    <div className="transparent-option">
+                                        <input 
+                                            type="checkbox" 
+                                            id="transparent-bg" 
+                                            checked={isTransparent}
+                                            onChange={handleTransparencyToggle}
+                                        />
+                                        <label htmlFor="transparent-bg">Transparent Background</label>
                                     </div>
                                 </div>
                             </div>
@@ -229,7 +309,12 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                     </div>
 
                     <div className="qr-preview">
-                        <div className="qr-preview-container" style={{ backgroundColor: bgColor }}>
+                        <div className="qr-preview-container" 
+                            style={{ 
+                                backgroundColor: isTransparent ? 'transparent' : bgColor,
+                                backgroundImage: isTransparent ? 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC45bDN+TgAAAExJREFUOE9j+P//P0MwAwPDfwjGJQ9WA4LEgQw8AOW4A/F/KMYlD9bAAkAMQ6B6qIEw7ADEeAOGxKG2YmhMYnwwNB5MfEQaCAggGACL/7MwsUy5iAAAAABJRU5ErkJggg==")' : 'none',
+                            }}
+                        >
                             {generatedQR ? (
                                 <img
                                     src={generatedQR}

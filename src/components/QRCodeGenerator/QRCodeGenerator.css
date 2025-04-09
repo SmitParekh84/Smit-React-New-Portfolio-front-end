@@ -296,6 +296,74 @@
   margin-bottom: 0.5rem;
 }
 
+.hex-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  background-color: var(--input-color);
+  color: var(--text-color);
+}
+
+.transparent-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.transparent-option label {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.presets-section {
+  margin-bottom: 1.5rem;
+}
+
+.presets-section label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+.color-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.color-preset {
+  width: calc(33.33% - 0.5rem);
+  height: 50px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.color-preset:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.preset-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
 /* Responsive layout */
 @media (max-width: 768px) {
   .qr-container {
@@ -308,5 +376,9 @@
   
   .qr-download {
     flex-direction: column;
+  }
+
+  .color-preset {
+    width: calc(50% - 0.375rem);
   }
 }
