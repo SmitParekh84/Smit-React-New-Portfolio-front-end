@@ -39,7 +39,7 @@ const ToolsHero = () => {
             
             setMetrics({
                 percent: Math.min(Math.floor(progress * 100), 100),
-                tasks: Math.min(Math.floor(progress * 5000000), 5000000),
+                tasks: Math.min(Math.floor(progress * 50000), 50000),
                 rating: Math.min(4 + progress * 0.9, 4.9)
             });
             
@@ -48,7 +48,12 @@ const ToolsHero = () => {
     };
     
     const formatNumber = (num) => {
-        return num >= 1000000 ? (num / 1000000).toFixed(1) + 'M+' : num.toLocaleString();
+        if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M+';
+        } else if (num >= 1000) {
+            return Math.floor(num / 1000) + 'k+';
+        }
+        return num.toLocaleString();
     };
 
     return (
