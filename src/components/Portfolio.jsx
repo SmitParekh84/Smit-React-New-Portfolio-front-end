@@ -71,9 +71,8 @@ const Portfolio = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
-    arrows: false, // Disable default arrows
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    arrows: true, // Changed from false to true to show arrow buttons
+    
     pauseOnHover: true,
     responsive: [
       {
