@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from "react"
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./assets/css/styles.css"
 import "./assets/css/swiper-bundle.min.css"
 import "./assets/css/admin.css" // Import admin styles
@@ -85,7 +85,7 @@ const App = () => {
                 <main className="main">
                   <AddProjectPage />
                 </main>
-                <Footer />
+                
               </>
             } />
             <Route path="/admin/edit-project/:id" element={
@@ -94,7 +94,7 @@ const App = () => {
                 <main className="main">
                   <EditProjectPage />
                 </main>
-                <Footer />
+                
               </>
             } />
             <Route path="/404" element={<NotFoundPage />} />
