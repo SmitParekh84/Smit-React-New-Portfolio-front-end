@@ -1,9 +1,10 @@
 [build]
-  command = "npm run build"
+  command = "yarn install --ignore-engines && yarn build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18.20.8"
+  YARN_FLAGS = "--ignore-engines"
 
 [[redirects]]
   from = "/*"
