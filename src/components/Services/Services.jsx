@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { servicesData } from "../../data/data"; // Adjust the import path as necessary
+import { servicesData } from "../../data/data";
+import ServiceModal from "./ServiceModal";
 import "./Services.css";
 
 const Services = () => {
@@ -19,17 +20,18 @@ const Services = () => {
 
   const openModal = (index) => {
     setActiveModalIndex(index);
-    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
     setActiveModalIndex(null);
-    document.body.style.overflow = "";
   };
   
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
   };
+
+  // Get the currently selected service or null if none selected
+  const activeService = activeModalIndex !== null ? servicesData[activeModalIndex] : null;
 
   return (
     <section className="services section" id="services">
@@ -57,40 +59,18 @@ const Services = () => {
               View more
               <i className="uil uil-arrow-right button__icon"></i>
             </span>
-
-            {/* Modal */}
-            {activeModalIndex === index && (
-              <div className="services__modal active-modal" onClick={closeModal}>
-                <div className="services__modal-content" onClick={(e) => e.stopPropagation()}>
-                  <div className="services__modal-header">
-                    <i className={`${service.icon} services__modal-header-icon`}></i>
-                    <h4 className="services__modal-title">{service.title}</h4>
-                    <i
-                      className="uil uil-times services__modal-close"
-                      onClick={closeModal}
-                    ></i>
-                  </div>
-
-                  <ul className="services__modal-services grid">
-                    {service.description.map((desc, i) => (
-                      <li className="services__modal-service" key={i}>
-                        <i className="uil uil-check-circle services__modal-icon"></i>
-                        <p>{desc}</p>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <div className="services__modal-footer">
-                    <button className="button button--small button--flex" onClick={closeModal}>
-                      Close
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         ))}
       </div>
+
+      {/* Modal component moved outside the service cards loop */}
+      {activeService && (
+        <ServiceModal
+          isOpen={activeModalIndex !== null}
+          service={activeService}
+          onClose={closeModal}
+        />
+      )}
     </section>
   );
 };

@@ -154,75 +154,105 @@ const ServicesPage = () => {
                 </div>
             </section>
 
-            {/* Services Introduction */}
-            <section className="services-intro section">
-                <div className="container">
-                    <h2 className="section__title">Professional Services</h2>
-                    <span className="section__subtitle">Tailored Solutions for Your Business Needs</span>
-                    
-                    <div className="services-intro__content">
-                        <p className="services-intro__description">
-                            As a Marketing Manager and Full-stack Developer, I offer a comprehensive range of services 
-                            designed to elevate your brand's digital presence and drive measurable results. From creating 
-                            stunning websites to implementing data-driven marketing strategies, my goal is to provide solutions 
-                            that align perfectly with your business objectives.
-                        </p>
-                        
-                        <div className="services-intro__cta">
-                            <Link to="/contact" className="button button--flex">
-                                Request Custom Service
-                                <i className="uil uil-message button__icon"></i>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* Services List Section */}
             <Services />
             
-            {/* Service Process Section */}
-            <section className="service-process section">
+            {/* Modern Service Process Timeline Section */}
+            <section className="service-process section" id="process">
+                <div className="service-process__bg"></div>
                 <div className="container">
                     <h2 className="section__title">How I Work</h2>
                     <span className="section__subtitle">My Service Delivery Process</span>
                     
-                    <div className="service-process__steps grid">
-                        <div className="service-process__step">
-                            <div className="service-process__step-number">1</div>
-                            <h3 className="service-process__step-title">Discovery & Consultation</h3>
-                            <p className="service-process__step-description">
-                                We begin with an in-depth discovery session to understand your business goals, target audience, 
-                                and specific requirements to tailor the perfect solution.
-                            </p>
+                    <div className="service-process__timeline">
+                        <div className="service-process__line"></div>
+                        
+                        {/* Step 1 */}
+                        <div className="service-process__item">
+                            <div className="service-process__item-content">
+                                <div className="service-process__icon-box">
+                                    <i className="uil uil-search service-process__icon"></i>
+                                </div>
+                                <div className="service-process__step-number">01</div>
+                                <h3 className="service-process__step-title">Discovery & Consultation</h3>
+                                <p className="service-process__step-description">
+                                    We begin with an in-depth discovery session to understand your business goals, target audience, 
+                                    and specific requirements to tailor the perfect solution.
+                                </p>
+                                <ul className="service-process__features">
+                                    <li><i className="uil uil-check-circle"></i> Requirement analysis</li>
+                                    <li><i className="uil uil-check-circle"></i> Market research</li>
+                                    <li><i className="uil uil-check-circle"></i> Competitor analysis</li>
+                                </ul>
+                            </div>
                         </div>
                         
-                        <div className="service-process__step">
-                            <div className="service-process__step-number">2</div>
-                            <h3 className="service-process__step-title">Strategy Development</h3>
-                            <p className="service-process__step-description">
-                                Based on our findings, I create a comprehensive strategy outlining the approach, timeline, 
-                                deliverables, and expected outcomes for your project.
-                            </p>
+                        {/* Step 2 */}
+                        <div className="service-process__item">
+                            <div className="service-process__item-content">
+                                <div className="service-process__icon-box">
+                                    <i className="uil uil-apps service-process__icon"></i>
+                                </div>
+                                <div className="service-process__step-number">02</div>
+                                <h3 className="service-process__step-title">Strategy Development</h3>
+                                <p className="service-process__step-description">
+                                    Based on our findings, I create a comprehensive strategy outlining the approach, timeline, 
+                                    deliverables, and expected outcomes for your project.
+                                </p>
+                                <ul className="service-process__features">
+                                    <li><i className="uil uil-check-circle"></i> Solution architecture</li>
+                                    <li><i className="uil uil-check-circle"></i> Project roadmap</li>
+                                    <li><i className="uil uil-check-circle"></i> Resource planning</li>
+                                </ul>
+                            </div>
                         </div>
                         
-                        <div className="service-process__step">
-                            <div className="service-process__step-number">3</div>
-                            <h3 className="service-process__step-title">Implementation</h3>
-                            <p className="service-process__step-description">
-                                With your approval, I execute the strategy with precision, providing regular updates 
-                                and opportunities for feedback to ensure alignment with your vision.
-                            </p>
+                        {/* Step 3 */}
+                        <div className="service-process__item">
+                            <div className="service-process__item-content">
+                                <div className="service-process__icon-box">
+                                    <i className="uil uil-rocket service-process__icon"></i>
+                                </div>
+                                <div className="service-process__step-number">03</div>
+                                <h3 className="service-process__step-title">Implementation</h3>
+                                <p className="service-process__step-description">
+                                    With your approval, I execute the strategy with precision, providing regular updates 
+                                    and opportunities for feedback to ensure alignment with your vision.
+                                </p>
+                                <ul className="service-process__features">
+                                    <li><i className="uil uil-check-circle"></i> Agile methodology</li>
+                                    <li><i className="uil uil-check-circle"></i> Regular updates</li>
+                                    <li><i className="uil uil-check-circle"></i> Quality assurance</li>
+                                </ul>
+                            </div>
                         </div>
                         
-                        <div className="service-process__step">
-                            <div className="service-process__step-number">4</div>
-                            <h3 className="service-process__step-title">Review & Optimization</h3>
-                            <p className="service-process__step-description">
-                                After implementation, we thoroughly review the results, gather insights, and make 
-                                necessary optimizations to maximize performance and ROI.
-                            </p>
+                        {/* Step 4 */}
+                        <div className="service-process__item">
+                            <div className="service-process__item-content">
+                                <div className="service-process__icon-box">
+                                    <i className="uil uil-chart service-process__icon"></i>
+                                </div>
+                                <div className="service-process__step-number">04</div>
+                                <h3 className="service-process__step-title">Review & Optimization</h3>
+                                <p className="service-process__step-description">
+                                    After implementation, we thoroughly review the results, gather insights, and make 
+                                    necessary optimizations to maximize performance and ROI.
+                                </p>
+                                <ul className="service-process__features">
+                                    <li><i className="uil uil-check-circle"></i> Performance analysis</li>
+                                    <li><i className="uil uil-check-circle"></i> Data-driven improvements</li>
+                                    <li><i className="uil uil-check-circle"></i> Ongoing support</li>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
+                    
+                    <div className="service-process__cta">
+                        <Link to="/contact" className="button button--flex">
+                            Start Your Project
+                            <i className="uil uil-message button__icon"></i>
+                        </Link>
                     </div>
                 </div>
             </section>
