@@ -5,6 +5,8 @@ import PortfolioCard from "../components/PortfolioCard/PortfolioCard";
 import DeleteConfirmationModal from "../components/DeleteConfirmationModal/DeleteConfirmationModal";
 // Import the CSS file
 import "../assets/css/portfolio.css";
+// Import eye icons for password visibility toggle
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const PortfolioPage = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -19,6 +21,8 @@ export const PortfolioPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  // Add state for password visibility
+  const [showPassword, setShowPassword] = useState(false);
   
   // Add state for deletion modal
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -270,13 +274,34 @@ export const PortfolioPage = () => {
               </div>
               <div className="admin-modal__input-group">
                 <label htmlFor="admin-password">Password</label>
-                <input
-                  id="admin-password"
-                  type="password"
-                  value={adminPassword}
-                  onChange={(e) => setAdminPassword(e.target.value)}
-                  required
-                />
+                <div className="password-input-wrapper" style={{ position: 'relative' }}>
+                  <input
+                    id="admin-password"
+                    type={showPassword ? "text" : "password"}
+                    value={adminPassword}
+                    onChange={(e) => setAdminPassword(e.target.value)}
+                    required
+                    style={{ width: '100%' }}
+                  />
+                  <button 
+                    type="button" 
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{
+                      position: 'absolute',
+                      right: '10px',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: '0',
+                      fontSize: '16px'
+                    }}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </button>
+                </div>
               </div>
               <div className="admin-modal__actions">
                 <button type="button" onClick={() => setShowAdminModal(false)}>
