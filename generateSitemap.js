@@ -156,9 +156,9 @@ const generateSitemapHTML = () => {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Sitemap - Smit Parekh Studio</title>
+    <title>Sitemap - Smit Parekh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sitemap for Smit Parekh Studio website" />
+    <meta name="description" content="Sitemap for Smit Parekh website" />
     <style type="text/css">
       body {
         background-color: #fff;
@@ -273,7 +273,7 @@ const generateSitemapHTML = () => {
   </head>
   <body>
     <div id="top">
-      <nav>Sitemap - Smit Parekh Studio</nav>
+      <nav>Sitemap - Smit Parekh</nav>
       <h3>
         <a href="${baseUrl}">Back to Homepage</a>
         <span>Last updated: ${lastUpdated}<br />Total pages: ${totalPages}</span>

@@ -29,7 +29,7 @@ const ToolsShowcasePage = () => {
     const toolsPageStructuredData = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Free Online Tools for Productivity | Smit Parekh Studio",
+        "name": "Free Online Tools for Productivity | Smit Parekh",
         "description": "Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity with no cost.",
         "url": "/free-tools",
         "mainEntity": {
@@ -90,15 +90,15 @@ const ToolsShowcasePage = () => {
     return (
         <>
             <SEO 
-                title="Free Online Tools for Productivity | Smit Parekh Studio"
+                title="Free Online Tools for Productivity | Smit Parekh"
                 description="Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity with no cost."
                 keywords="free online tools, productivity tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools, AI tools, image compressor, QR code generator, SEO analyzer"
                 canonicalUrl={getFullUrl("/free-tools")}
                 ogType="website"
                 ogImage={getFullUrl("/images/Tools-Page-Image.webp")}
-                ogTitle="Free Professional Tools - Smit Parekh Studio"
+                ogTitle="Free Professional Tools - Smit Parekh"
                 twitterImage={getFullUrl("/images/Tools-Page-Image.webp")}
-                twitterTitle="Free Online Tools by Smit Parekh Studio"
+                twitterTitle="Free Online Tools by Smit Parekh"
                 structuredData={[processedPageSchema, processedFaqSchema, processedBreadcrumbSchema]}
                 lastUpdated={new Date().toISOString()}
                 language="en-US"

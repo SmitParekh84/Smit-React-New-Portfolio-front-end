@@ -30,7 +30,7 @@ const Landing = () => {
             "jobTitle": "Digital Marketing Manager & Full-stack Developer",
             "worksFor": {
                 "@type": "Organization",
-                "name": "Smit Parekh Studio"
+                "name": "Smit Parekh"
             },
             "address": {
                 "@type": "PostalAddress",

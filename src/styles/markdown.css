@@ -1,0 +1,277 @@
+/* Markdown Content Styling */
+.styled-markdown {
+  padding: 1.5rem;
+  font-family: var(--body-font);
+  line-height: 1.7;
+  color: var(--text-color);
+  background-color: var(--container-color);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings with enhanced styling */
+.markdown-heading {
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+  position: relative;
+}
+
+.markdown-h1 {
+  font-size: 2.2rem;
+  margin-top: 2.5rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 2px solid var(--first-color-lighter);
+  color: var(--first-color);
+}
+
+.markdown-h2 {
+  font-size: 1.9rem;
+  margin-top: 2.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--first-color-lighter);
+}
+
+.markdown-h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--first-color);
+  border-radius: 5px;
+}
+
+.markdown-h3 {
+  font-size: 1.6rem;
+  margin-top: 1.8rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--first-color);
+}
+
+.markdown-h4 {
+  font-size: 1.35rem;
+  margin-top: 1.5rem;
+  color: var(--first-color-alt);
+}
+
+/* Paragraphs with better spacing */
+.markdown-paragraph {
+  margin-bottom: 1.3rem;
+  font-size: 1rem;
+}
+
+/* Enhanced Lists */
+.markdown-list {
+  margin: 1.2rem 0;
+  padding-left: 2.2rem;
+}
+
+.markdown-ul {
+  list-style-type: none;
+}
+
+.markdown-ul .markdown-list-item::before {
+  content: "•";
+  color: var(--first-color);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.markdown-list-item {
+  margin-bottom: 0.7rem;
+  padding-left: 0.3rem;
+}
+
+/* Styled Links with animation */
+.markdown-link {
+  color: var(--first-color);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+.markdown-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--first-color);
+  transition: width 0.3s ease;
+}
+
+.markdown-link:hover {
+  color: var(--first-color-alt);
+}
+
+.markdown-link:hover::after {
+  width: 100%;
+}
+
+/* Enhanced Code Styling */
+.markdown-inline-code {
+  background: rgba(var(--first-color-rgb), 0.08);
+  color: var(--first-color-darker, #333);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(var(--first-color-rgb), 0.1);
+}
+
+.markdown-code-block {
+  background: rgba(var(--first-color-rgb), 0.04);
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.95em;
+  border: 1px solid rgba(var(--first-color-rgb), 0.1);
+  position: relative;
+}
+
+.markdown-code-block:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Beautiful Blockquotes */
+.markdown-blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--first-color);
+  background: rgba(var(--first-color-rgb), 0.05);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  position: relative;
+}
+
+.markdown-blockquote::before {
+  content: '"';
+  font-size: 2.5rem;
+  color: rgba(var(--first-color-rgb), 0.2);
+  position: absolute;
+  left: 10px;
+  top: -10px;
+}
+
+/* Enhanced Images */
+.markdown-image {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.markdown-image:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Bold and italics */
+.styled-markdown strong {
+  font-weight: var(--font-bold);
+  color: var(--title-color);
+  background-color: rgba(var(--first-color-rgb), 0.05);
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.styled-markdown em {
+  font-style: italic;
+  color: var(--title-color-dark);
+}
+
+/* Beautiful Tables */
+.styled-markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.styled-markdown th,
+.styled-markdown td {
+  border: 1px solid var(--first-color-lighter);
+  padding: 0.8rem;
+  text-align: left;
+}
+
+.styled-markdown th {
+  background-color: rgba(var(--first-color-rgb), 0.1);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+.styled-markdown tr:nth-child(even) {
+  background-color: rgba(var(--first-color-rgb), 0.02);
+}
+
+.styled-markdown tr:hover {
+  background-color: rgba(var(--first-color-rgb), 0.05);
+}
+
+/* Enhanced Horizontal rule */
+.styled-markdown hr {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--first-color), transparent);
+  margin: 2.5rem 0;
+}
+
+/* Tech stack specific styling */
+.styled-markdown h3 + ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  gap: 0.75rem;
+  margin-top: -0.5rem;
+}
+
+.styled-markdown h3 + ul li {
+  background: linear-gradient(135deg, rgba(var(--first-color-rgb), 0.1), rgba(var(--first-color-rgb), 0.2));
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  font-size: 0.92rem;
+  border: 1px solid rgba(var(--first-color-rgb), 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.styled-markdown h3 + ul li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(var(--first-color-rgb), 0.2), rgba(var(--first-color-rgb), 0.3));
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .markdown-h1 {
+    font-size: 1.8rem;
+  }
+  
+  .markdown-h2 {
+    font-size: 1.6rem;
+  }
+  
+  .markdown-h3 {
+    font-size: 1.4rem;
+  }
+  
+  .styled-markdown {
+    padding: 1rem;
+  }
+}

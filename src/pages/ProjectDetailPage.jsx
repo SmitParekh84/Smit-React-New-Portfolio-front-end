@@ -1,0 +1,435 @@
+import { useParams, Link, useNavigate } from "react-router-dom";
+import SEO from "../components/SEO/SEO";
+import { useEffect, useState, useRef } from "react";
+import ReactMarkdown from 'react-markdown';
+import DeleteConfirmationModal from "../components/DeleteConfirmationModal/DeleteConfirmationModal";
+import "../styles/markdown.css";
+import "../assets/css/project-detail.css";
+
+
+const ProjectDetailPage = () => {
+  // Get project title from URL params
+  const { id: projectTitle } = useParams();
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleteLoading, setDeleteLoading] = useState(false);
+  const [activeSection, setActiveSection] = useState("summary");
+  const [showCopyNotification, setShowCopyNotification] = useState(false);
+  
+  // Refs for scroll animations
+  const imageRef = useRef(null);
+  const contentRef = useRef(null);
+  
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+    // Check if authentication token exists
+    const projectAuthToken = localStorage.getItem('projectAuthToken');
+    setIsAuthenticated(!!projectAuthToken);
+    
+    const fetchProject = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/projects/title/${encodeURIComponent(projectTitle)}`);
+        
+        if (!response.ok) {
+          throw new Error('Project not found');
+        }
+        
+        const data = await response.json();
+        if (data.success && data.data) {
+          setProject(data.data);
+          
+          // Add slight delay to trigger animations after content loads
+          setTimeout(() => {
+            if (imageRef.current) imageRef.current.classList.add('animate-in');
+            if (contentRef.current) contentRef.current.classList.add('animate-in');
+          }, 100);
+        } else {
+          throw new Error('Invalid response format');
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchProject();
+  }, [projectTitle]);
+
+  // Handle project deletion
+  const handleDeleteProject = async () => {
+    if (!project || !isAuthenticated) return;
+    
+    try {
+      setDeleteLoading(true);
+      const projectAuthToken = localStorage.getItem('projectAuthToken');
+      
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/projects/${project._id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${projectAuthToken}`
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to delete project');
+      }
+      
+      // Redirect to projects page after successful deletion
+      navigate('/project');
+      
+    } catch (err) {
+      alert(`Error deleting project: ${err.message}`);
+    } finally {
+      setDeleteLoading(false);
+      setShowDeleteConfirm(false);
+    }
+  };
+
+  // Handle clipboard copy with better user feedback
+  const handleCopyToClipboard = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setShowCopyNotification(true);
+    setTimeout(() => {
+      setShowCopyNotification(false);
+    }, 3000);
+  };
+
+  // Define custom renderers for ReactMarkdown
+  const markdownRenderers = {
+    h1: ({node, ...props}) => <h1 className="markdown-heading markdown-h1" {...props} />,
+    h2: ({node, ...props}) => <h2 className="markdown-heading markdown-h2" {...props} />,
+    h3: ({node, ...props}) => <h3 className="markdown-heading markdown-h3" {...props} />,
+    h4: ({node, ...props}) => <h4 className="markdown-heading markdown-h4" {...props} />,
+    p: ({node, ...props}) => <p className="markdown-paragraph" {...props} />,
+    ul: ({node, ...props}) => <ul className="markdown-list markdown-ul" {...props} />,
+    ol: ({node, ...props}) => <ol className="markdown-list markdown-ol" {...props} />,
+    li: ({node, ...props}) => <li className="markdown-list-item" {...props} />,
+    a: ({node, href, ...props}) => <a className="markdown-link" href={href} target="_blank" rel="noopener noreferrer" {...props} />,
+    code: ({node, inline, ...props}) => 
+      inline ? <code className="markdown-inline-code" {...props} /> : <pre className="markdown-code-block"><code {...props} /></pre>,
+    blockquote: ({node, ...props}) => <blockquote className="markdown-blockquote" {...props} />,
+    img: ({node, src, alt, ...props}) => <img className="markdown-image" src={src} alt={alt || ''} loading="lazy" {...props} />
+  };
+
+  // Calculate project duration or publish date display
+  const getProjectTimeInfo = () => {
+    if (!project) return '';
+    
+    if (project.startDate && project.endDate) {
+      const start = new Date(project.startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+      const end = project.endDate === 'present' ? 'Present' : 
+                new Date(project.endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+      return `${start} - ${end}`;
+    }
+    
+    if (project.publishDate) {
+      return `Published: ${new Date(project.publishDate).toLocaleDateString('en-US', { 
+        year: 'numeric', month: 'long', day: 'numeric' 
+      })}`;
+    }
+    
+    return '';
+  };
+  
+  // Improved loading state with animation
+  if (loading) {
+    return (
+      <div className="project-detail__loading container">
+        <div className="loader-container">
+          <div className="loader-ring">
+            <div></div><div></div><div></div><div></div>
+          </div>
+          <h2>Loading project details...</h2>
+          <p>Just a moment while we prepare everything for you</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Enhanced error state with illustration
+  if (error || !project) {
+    return (
+      <div className="project-detail__error container">
+        <div className="error-container">
+          <div className="error-icon">
+            <i className="uil uil-exclamation-circle"></i>
+          </div>
+          <h2>Oops! {error || "Project not found"}</h2>
+          <p>We couldn't find the project you're looking for.</p>
+          <Link to="/project" className="button button--flex">
+            <i className="uil uil-arrow-left"></i> Browse All Projects
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // Schema for structured data
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": project.title,
+    "description": project.shortDescription,
+    "image": project.imageUrl,
+    "url": `https://www.smitparekh.studio/project/${encodeURIComponent(project.title)}`,
+    "creator": {
+      "@type": "Person",
+      "name": "Smit Parekh"
+    },
+    "datePublished": project.publishDate || "2023-01-01"
+  };
+
+  return (
+    <>
+      <SEO
+        title={`${project.title} | Smit Parekh Portfolio`}
+        description={project.shortDescription}
+        keywords={`${project.title}, project details, Smit Parekh, portfolio project`}
+        canonicalUrl={`https://www.smitparekh.studio/project/${encodeURIComponent(project.title)}`}
+        ogImage={project.imageUrl}
+        twitterImage={project.imageUrl}
+        structuredData={[projectSchema]}
+        language="en-US"
+      />
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteConfirm && (
+        <DeleteConfirmationModal 
+          title={project.title}
+          onCancel={() => setShowDeleteConfirm(false)}
+          onDelete={handleDeleteProject}
+          isLoading={deleteLoading}
+        />
+      )}
+
+      <section className="project-detail section">
+        <div className="project-detail__container container">
+          <div className="project-detail__nav">
+            <Link to="/project" className="project-detail__back">
+              <i className="uil uil-arrow-left"></i> Back to Projects
+            </Link>
+            
+            {isAuthenticated && project && (
+              <div className="project-detail__admin-controls">
+                <Link 
+                  to={`/admin/edit-project/${project._id}`} 
+                  className="button button--small button--edit"
+                >
+                  <i className="uil uil-edit"></i> Edit
+                </Link>
+                <button 
+                  onClick={() => setShowDeleteConfirm(true)}
+                  className="button button--small button--danger"
+                >
+                  <i className="uil uil-trash-alt"></i> Delete
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Header placed outside grid layout */}
+          <div className="project-detail__header">
+            <h1 className="project-detail__title">{project.title}</h1>
+            <div className="project-detail__meta">
+              <span className="project-detail__category">
+                <i className="uil uil-folder"></i> {getCategoryName(project.category)}
+              </span>
+              {getProjectTimeInfo() && (
+                <span className="project-detail__date">
+                  <i className="uil uil-calendar-alt"></i> {getProjectTimeInfo()}
+                </span>
+              )}
+            </div>
+          </div>
+          
+          {/* Change to vertical layout flow */}
+          <div className="project-detail__content">
+            {/* Image container at the top */}
+            <div className="project-detail__image-container" ref={imageRef}>
+              <img 
+                src={project.imageUrl} 
+                alt={project.title} 
+                className="project-detail__image" 
+              />
+              {project.imageCaption && (
+                <div className="project-detail__image-caption">
+                  {project.imageCaption}
+                </div>
+              )}
+            </div>
+            
+            {/* Info section below the image */}
+            <div className="project-detail__info" ref={contentRef}>
+              {/* Tab navigation for mobile */}
+              <div className="project-detail__tabs">
+                <button 
+                  className={`project-detail__tab ${activeSection === "summary" ? "active" : ""}`}
+                  onClick={() => setActiveSection("summary")}
+                >
+                  <i className="uil uil-clipboard-notes"></i> Summary
+                </button>
+                {project.detailMarkdown && (
+                  <button 
+                    className={`project-detail__tab ${activeSection === "details" ? "active" : ""}`}
+                    onClick={() => setActiveSection("details")}
+                  >
+                    <i className="uil uil-document-layout-center"></i> Details
+                  </button>
+                )}
+                {project.technologies && project.technologies.length > 0 && (
+                  <button 
+                    className={`project-detail__tab ${activeSection === "tech" ? "active" : ""}`}
+                    onClick={() => setActiveSection("tech")}
+                  >
+                    <i className="uil uil-brackets-curly"></i> Tech
+                  </button>
+                )}
+              </div>
+              
+              {/* Content sections in vertical order */}
+              <div className={`project-detail__summary ${activeSection === "summary" ? "active" : ""}`}>
+                <h3><i className="uil uil-clipboard-notes"></i> Project Summary</h3>
+                <p>{project.shortDescription}</p>
+                
+                {project.challenges && (
+                  <div className="project-detail__challenges">
+                    <h4><i className="uil uil-mountains"></i> Challenges & Solutions</h4>
+                    <p>{project.challenges}</p>
+                  </div>
+                )}
+                
+                {project.outcome && (
+                  <div className="project-detail__outcome">
+                    <h4><i className="uil uil-check-circle"></i> Outcome</h4>
+                    <p>{project.outcome}</p>
+                  </div>
+                )}
+              </div>
+              
+              {/* Project details below summary */}
+              {project.detailMarkdown && (
+                <div className={`project-detail__markdown ${activeSection === "details" ? "active" : ""}`}>
+                  <h3><i className="uil uil-document-layout-center"></i> Project Details</h3>
+                  <div className="markdown-content styled-markdown">
+                    <ReactMarkdown components={markdownRenderers}>
+                      {project.detailMarkdown}
+                    </ReactMarkdown>
+                  </div>
+                </div>
+              )}
+
+              {project.technologies && project.technologies.length > 0 && (
+                <div className={`project-detail__technologies ${activeSection === "tech" ? "active" : ""}`}>
+                  <h3><i className="uil uil-brackets-curly"></i> Technologies Used</h3>
+                  <ul>
+                    {project.technologies.map((tech, index) => (
+                      <li key={index}>
+                        <span className="tech-name">{tech}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Only render links section if there are links */}
+              {(project.demoLink || project.repoLink) && (
+                <div className="project-detail__links">
+                  {project.demoLink && (
+                    <a 
+                      href={project.demoLink} 
+                      className="button button--flex" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <i className="uil uil-globe"></i> {project.demoBtn || "View Live Demo"}
+                    </a>
+                  )}
+                  
+                  {project.repoLink && (
+                    <a 
+                      href={project.repoLink} 
+                      className="button button--outline button--flex" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <i className="uil uil-github"></i> View Code
+                    </a>
+                  )}
+                </div>
+              )}
+              
+              {/* Social sharing section with accessibility improvements */}
+              <div className="project-detail__share">
+                <h4><i className="uil uil-share-alt"></i> Share this project</h4>
+                <div className="project-detail__share-buttons">
+                  <a 
+                    href={`https://twitter.com/intent/tweet?text=Check out this awesome project: ${project.title}&url=${encodeURIComponent(window.location.href)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="share-button twitter"
+                    aria-label="Share on Twitter"
+                  >
+                    <i className="uil uil-twitter"></i>
+                  </a>
+                  <a 
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="share-button linkedin"
+                    aria-label="Share on LinkedIn"
+                  >
+                    <i className="uil uil-linkedin"></i>
+                  </a>
+                  <button
+                    onClick={handleCopyToClipboard}
+                    className="share-button copy"
+                    aria-label="Copy link to clipboard"
+                  >
+                    <i className="uil uil-link"></i>
+                  </button>
+                </div>
+
+                {/* Non-intrusive copy notification */}
+                <div className={`copy-notification ${showCopyNotification ? 'show' : ''}`}>
+                  <i className="uil uil-check"></i> Link copied to clipboard!
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="project-detail__related">
+            <h2>Explore More Projects</h2>
+            <Link to="/project" className="explore-all-link">
+              <span>View All Projects</span> <i className="uil uil-arrow-right"></i>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+// Helper function to get category name
+const getCategoryName = (categoryId) => {
+  switch(categoryId) {
+    case 'webdev': return 'Web Development';
+    case 'frontend': return 'Frontend Design';
+    case 'seo': return 'Search Engine Optimization';
+    case 'marketing': return 'Digital Marketing';
+    case 'video': return 'Video Production';
+    case 'mobile': return 'Mobile App Development';
+    case 'design': return 'UI/UX Design';
+    default: return 'Project';
+  }
+};
+
+export default ProjectDetailPage;

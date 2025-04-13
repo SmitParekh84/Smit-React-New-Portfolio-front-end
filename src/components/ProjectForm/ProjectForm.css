@@ -1,0 +1,317 @@
+.showcase-checkbox {
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--title-color);
+  border-radius: 4px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+  background-color: var(--first-color);
+  border-color: var(--first-color);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+  content: '';
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+.checkbox-text {
+  font-size: var(--normal-font-size);
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-text .form-icon {
+  margin-right: 0.5rem;
+  color: var(--first-color);
+}
+
+/* MDEditor Styling */
+.add-project__markdown {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: visible; /* Allow tooltips to show */
+}
+
+/* Remove markdown-editor-wrapper as it's no longer needed */
+.markdown-editor-wrapper {
+  position: relative;
+  border-radius: 8px;
+}
+
+/* Remove markdown-help-icon as it's no longer needed */
+.markdown-help-icon {
+  display: none;
+}
+
+.add-project__markdown .w-md-editor {
+  border: 1px solid var(--input-border-color, #ddd);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Fix font visibility */
+.add-project__markdown .w-md-editor-text,
+.add-project__markdown .w-md-editor-text-input,
+.add-project__markdown .w-md-editor-text-pre,
+.add-project__markdown textarea {
+  font-family: 'Courier New', monospace !important;
+  font-size: var(--normal-font-size) !important;
+  color: var(--title-color) !important; /* Stronger contrast */
+  line-height: 1.6 !important;
+}
+
+/* Fix text visibility - Important override to ensure text is visible */
+.add-project__markdown .w-md-editor-text-pre,
+.add-project__markdown .w-md-editor-text-input {
+  color: var(--title-color) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: var(--title-color) !important;
+}
+
+/* Force text to be visible */
+.add-project__markdown .w-md-editor-text-pre > code,
+.add-project__markdown .w-md-editor-text-input {
+  color: var(--title-color) !important;
+  caret-color: var(--first-color) !important;
+}
+
+/* Improve editor text visibility */
+.add-project__markdown .w-md-editor-text-pre > code,
+.add-project__markdown .w-md-editor-text-input {
+  color: var(--title-color) !important; /* Ensure text is always visible */
+}
+
+/* Fix text selection colors */
+.add-project__markdown .w-md-editor-text-input::selection,
+.add-project__markdown .w-md-editor-text-pre::selection,
+.add-project__markdown textarea::selection {
+  background-color: var(--first-color-alt) !important;
+  color: #ffffff !important; /* White text on selection for best visibility */
+  text-shadow: none !important;
+}
+
+/* Make selected text clearly visible */
+.add-project__markdown .w-md-editor-text-input::selection,
+.add-project__markdown .w-md-editor-text-pre::selection {
+  background-color: var(--first-color-alt) !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* Improve preview styling */
+.add-project__markdown .wmde-markdown {
+  font-family: var(--body-font) !important;
+  color: var(--text-color, #333) !important;
+  background-color: var(--container-color, #fff) !important;
+  padding: 1rem !important;
+}
+
+/* Toolbar styling */
+.add-project__markdown .w-md-editor-toolbar {
+  background-color: var(--container-color, #fff) !important;
+  border-bottom: 1px solid var(--input-border-color, #ddd);
+  padding: 0.5rem;
+}
+
+.add-project__markdown .w-md-editor-toolbar ul li button {
+  color: var(--title-color, #333) !important;
+}
+
+.add-project__markdown .w-md-editor-toolbar ul li button:hover {
+  color: var(--first-color) !important;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Toolbar button tooltips */
+#md-toolbar-tooltip {
+  background-color: var(--container-color);
+  color: var(--text-color);
+  border: 1px solid var(--input-border-color);
+  font-size: var(--smaller-font-size);
+  padding: 5px 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  opacity: 1;
+}
+
+.dark-theme #md-toolbar-tooltip {
+  background-color: var(--container-color-dark, #333);
+  color: var(--title-color-dark, #fff);
+  border-color: var(--border-color-dark, #444);
+}
+
+/* Dark mode compatibility */
+.add-project__markdown .w-md-editor.w-md-editor-show-preview {
+  background-color: var(--container-color, #fff);
+}
+
+/* Adjust height for better usability */
+.add-project__markdown .w-md-editor-content {
+  min-height: 300px;
+}
+
+/* React Tooltip styling */
+.markdown-help-icon {
+  display: none;
+}
+
+.markdown-tooltip {
+  display: none !important; /* Hide all old tooltip implementations */
+}
+
+/* Fix MDEditor text visibility and selection */
+.add-project__markdown .w-md-editor-text,
+.add-project__markdown .w-md-editor-text-input,
+.add-project__markdown .w-md-editor-text-pre {
+  font-family: 'Courier New', monospace !important;
+  font-size: var(--normal-font-size) !important;
+  color: var(--text-color, #333) !important;
+  line-height: 1.6 !important;
+}
+
+/* Make selected text more visible */
+.add-project__markdown .w-md-editor-text-input::selection,
+.add-project__markdown .w-md-editor-text-pre::selection,
+.add-project__markdown textarea::selection {
+  background-color: var(--first-color-alt) !important;
+  color: #ffffff !important; /* White text on selection for best visibility */
+  text-shadow: none !important;
+}
+
+.add-project__markdown .wmde-markdown ::selection {
+  background-color: var(--first-color-alt) !important;
+  color: #ffffff !important;
+}
+
+/* Improve editor colors in dark mode */
+.dark-theme .add-project__markdown .w-md-editor-text {
+  color: var(--container-color, #fff) !important;
+}
+
+.dark-theme .add-project__markdown .w-md-editor-text-input::selection,
+.dark-theme .add-project__markdown .w-md-editor-text-pre::selection,
+.dark-theme .add-project__markdown textarea::selection {
+  background-color: var(--first-color, #6b8afd) !important;
+  color: #ffffff !important;
+}
+
+/* Dark mode specific fixes */
+.dark-theme .add-project__markdown .w-md-editor-text-pre,
+.dark-theme .add-project__markdown .w-md-editor-text-input {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Tooltip styling */
+[data-tooltip-id="markdown-tooltip"] {
+  cursor: help !important;
+}
+
+/* Remove the old tooltip styles that are no longer needed */
+.tooltip, 
+.markdown-tooltip {
+  display: none !important; /* Hide all old tooltip implementations */
+}
+
+/* Fix text selection color in MDEditor */
+.add-project__markdown .w-md-editor-text-input::selection,
+.add-project__markdown .w-md-editor-text-pre::selection,
+.add-project__markdown textarea::selection {
+  background-color: var(--first-color-alt) !important;
+  color: #ffffff !important; /* White text on selection for best visibility */
+}
+
+.add-project__markdown .wmde-markdown ::selection {
+  background-color: var(--first-color-alt) !important;
+  color: #ffffff !important;
+}
+
+/* Improve editor colors in dark mode */
+.dark-theme .add-project__markdown .w-md-editor-text-input::selection,
+.dark-theme .add-project__markdown .w-md-editor-text-pre::selection,
+.dark-theme .add-project__markdown textarea::selection {
+  background-color: var(--first-color-darker, #526ccc) !important;
+  color: var(--container-color) !important;
+}
+
+/* Spinner animation for loading state */
+.uil-spinner-alt.fa-spin {
+  animation: spinner 1s infinite linear;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disabled button styles */
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  position: relative;
+}
+
+/* React Toastify custom styling */
+.Toastify__toast {
+  border-radius: 8px;
+  font-family: var(--body-font);
+}
+
+.Toastify__toast--success {
+  background-color: #4caf50;
+}
+
+.Toastify__toast--error {
+  background-color: #f44336;
+}
+
+.Toastify__toast-body {
+  font-size: var(--normal-font-size);
+  color: white;
+}
+
+/* Dark theme support for toasts */
+.dark-theme .Toastify__toast {
+  background-color: var(--container-color-dark);
+  color: var(--text-color-light);
+}
+
+.dark-theme .Toastify__toast--success {
+  background-color: #2e7d32;
+}
+
+.dark-theme .Toastify__toast--error {
+  background-color: #c62828;
+}

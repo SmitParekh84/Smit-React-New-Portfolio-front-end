@@ -21,7 +21,7 @@ const AboutPage = () => {
         "jobTitle": "Marketing Manager & Full-stack Developer",
         "worksFor": {
             "@type": "Organization",
-            "name": "Smit Parekh Studio",
+            "name": "Smit Parekh",
             "url": "https://www.smitparekh.studio"
         },
         "description": "Smit Parekh is a Marketing Manager and Full-stack Developer with expertise in crafting data-driven marketing strategies and scalable web solutions.",
@@ -98,7 +98,7 @@ const AboutPage = () => {
         "description": "Professional website of Smit Parekh, featuring portfolio, skills, services and free tools",
         "publisher": {
             "@type": "Organization",
-            "name": "Smit Parekh Studio",
+            "name": "Smit Parekh",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://www.smitparekh.studio/images/logo.webp",

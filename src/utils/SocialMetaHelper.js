@@ -102,7 +102,7 @@ export const generateArticleSchema = (article) => {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Smit Parekh Studio",
+      "name": "Smit Parekh",
       "logo": {
         "@type": "ImageObject",
         "url": getFullUrl("/images/smit-parekh-logo.webp")

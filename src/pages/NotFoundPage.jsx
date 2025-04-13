@@ -8,14 +8,14 @@ const NotFoundPage = () => {
     const notFoundSchema = {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "Page Not Found - 404 Error | Smit Parekh Studio",
+        "name": "Page Not Found - 404 Error | Smit Parekh",
         "description": "The page you're looking for couldn't be found. Navigate back to the homepage or explore our available tools and services."
     };
 
     return (
         <>
             <SEO 
-                title="Page Not Found - 404 Error | Smit Parekh Studio"
+                title="Page Not Found - 404 Error | Smit Parekh"
                 description="Sorry, the page you're looking for doesn't exist or has been moved. Explore our tools, services, or contact us for assistance."
                 canonicalUrl="https://www.smitparekh.studio/404"
                 structuredData={notFoundSchema}

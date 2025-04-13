@@ -2,6 +2,7 @@ import React, { Suspense, useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import "./assets/css/styles.css"
 import "./assets/css/swiper-bundle.min.css"
+import "./assets/css/admin.css" // Import admin styles
 import Loader from "./components/Loader"
 import { PortfolioPage } from "./pages/PortfolioPage"
 import Landing from "./Landing"
@@ -19,6 +20,9 @@ import ImageConverterPage from "./pages/ImageConverterPage";
 import SEOAnalyzerPage from "./pages/SEOAnalyzerPage";
 import NotFoundPage from "./pages/NotFoundPage"; // Import the new 404 page
 import LinkedInMediaDownloaderPage from "./pages/LinkedInMediaDownloaderPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
+import AddProjectPage from "./pages/AddProjectPage";
+import EditProjectPage from "./pages/EditProjectPage";
 
 const Header = React.lazy(() => import("./components/Header/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
@@ -62,6 +66,7 @@ const App = () => {
             <Route path="/qualification" element={<Qualification />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/project" element={<PortfolioPage />} />
+            <Route path="/project/:id" element={<ProjectDetailPage />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/free-tools/background-remover" element={<BackgroundRemoverPage />} />
@@ -74,6 +79,24 @@ const App = () => {
             <Route path="/free-tools/seo-analyzer" element={<SEOAnalyzerPage />} />
             <Route path="/free-tools/linkedin-media-downloader" element={<LinkedInMediaDownloaderPage />} />
             <Route path="/cv-viewer" element={<CVViewer />} />
+            <Route path="/admin/add-project" element={
+              <>
+                <Header />
+                <main className="main">
+                  <AddProjectPage />
+                </main>
+                <Footer />
+              </>
+            } />
+            <Route path="/admin/edit-project/:id" element={
+              <>
+                <Header />
+                <main className="main">
+                  <EditProjectPage />
+                </main>
+                <Footer />
+              </>
+            } />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

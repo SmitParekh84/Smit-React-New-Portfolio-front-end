@@ -62,7 +62,7 @@ const SEO = ({
             <meta property="og:title" content={metaOgTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={metaOgImage} />
-            <meta property="og:site_name" content="Smit Parekh Studio" />
+            <meta property="og:site_name" content="Smit Parekh" />
             <meta property="og:locale" content="en_US" />
             {articlePublishedTime && <meta property="article:published_time" content={articlePublishedTime} />}
             {articleModifiedTime && <meta property="article:modified_time" content={articleModifiedTime} />}

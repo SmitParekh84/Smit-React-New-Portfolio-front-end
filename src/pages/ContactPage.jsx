@@ -78,7 +78,7 @@ const ContactPage = () => {
     const organizationSchema = {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Smit Parekh Studio",
+        "name": "Smit Parekh",
         "url": "https://www.smitparekh.studio",
         "logo": "https://www.smitparekh.studio/images/logo.webp",
         "contactPoint": {

@@ -41,7 +41,7 @@ const ToolsPage = () => {
         },
         "publisher": {
             "@type": "Organization",
-            "name": "Smit Parekh Studio",
+            "name": "Smit Parekh",
             "url": "https://www.smitparekh.studio",
             "logo": {
                 "@type": "ImageObject",
@@ -86,12 +86,12 @@ const ToolsPage = () => {
     return (
         <>
             <SEO 
-                title="Free Online Tools for Productivity & Marketing | Smit Parekh Studio"
+                title="Free Online Tools for Productivity & Marketing | Smit Parekh"
                 description="Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity and enhance your marketing efforts with no cost."
                 keywords="free online tools, productivity tools, marketing tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools, AI tools free, Smit Parekh tools"
                 canonicalUrl={pageUrl}
                 ogImage={imageUrl}
-                ogTitle="Free Productivity & Marketing Tools | Smit Parekh Studio"
+                ogTitle="Free Productivity & Marketing Tools | Smit Parekh"
                 ogDescription={ogDescription}
                 ogType="website"
                 twitterImage={imageUrl}
