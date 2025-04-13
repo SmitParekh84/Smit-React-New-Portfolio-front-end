@@ -147,7 +147,11 @@ export const PortfolioPage = () => {
         const data = await response.json();
         // Extract the projects array from the data field in the response
         if (data.success && data.data) {
-          setProjects(data.data);
+          // Sort projects by updatedAt in descending order (newest first)
+          const sortedProjects = [...data.data].sort((a, b) => {
+            return new Date(b.updatedAt || b.createdAt) - new Date(a.updatedAt || a.createdAt);
+          });
+          setProjects(sortedProjects);
         } else {
           throw new Error('Invalid response format');
         }

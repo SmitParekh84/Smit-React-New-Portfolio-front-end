@@ -138,6 +138,51 @@
   position: relative;
 }
 
+/* Add portfolio card meta section for timestamp and category */
+.portfolio-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  gap: 10px;
+}
+
+/* Update category style to fit in meta section */
+.portfolio-card__category {
+  color: var(--first-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 30px;
+  background: var(--first-color-lightest);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* Add timestamp styling */
+.portfolio-card__timestamp {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-color-light);
+  font-size: var(--smaller-font-size);
+  font-style: italic;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.portfolio-card__timestamp i {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.portfolio-card:hover .portfolio-card__timestamp {
+  background-color: rgba(var(--first-color-rgb), 0.08);
+}
+
 .portfolio-card__title {
   font-size: var(--h3-font-size);
   margin-bottom: 0.7rem;
@@ -160,23 +205,6 @@
 
 .portfolio-card:hover .portfolio-card__title::after {
   width: 70px;
-}
-
-.portfolio-card__category {
-  color: var(--first-color);
-  font-size: var(--small-font-size);
-  font-weight: var(--font-medium);
-  margin-bottom: 1.2rem;
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 30px;
-  background: var(--first-color-lightest);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.portfolio-card:hover .portfolio-card__category {
-  transform: scale(1.05);
 }
 
 .portfolio-card__description {
