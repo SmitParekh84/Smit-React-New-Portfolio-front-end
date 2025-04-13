@@ -6,10 +6,22 @@ import DeleteConfirmationModal from "../components/DeleteConfirmationModal/Delet
 import "../styles/markdown.css";
 import "../assets/css/project-detail.css";
 
+// Utility function to format URL slugs - convert spaces to hyphens
+const formatUrlSlug = (text) => {
+  if (!text) return '';
+  return text.replace(/\s+/g, '-').toLowerCase();
+};
+
+// Utility function to convert slug back to title (hyphens to spaces)
+const slugToTitle = (slug) => {
+  if (!slug) return '';
+  return slug.replace(/-+/g, ' ');
+};
 
 const ProjectDetailPage = () => {
-  // Get project title from URL params
-  const { id: projectTitle } = useParams();
+  // Get project title from URL params and convert hyphens back to spaces for API
+  const { id: projectSlug } = useParams();
+  const projectTitle = slugToTitle(projectSlug);
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -96,7 +108,9 @@ const ProjectDetailPage = () => {
 
   // Handle clipboard copy with better user feedback
   const handleCopyToClipboard = () => {
-    navigator.clipboard.writeText(window.location.href);
+    // Use formatted slug URL directly rather than trying to replace %20 after the fact
+    const formattedUrl = `${window.location.origin}/project/${formatUrlSlug(project.title)}`;
+    navigator.clipboard.writeText(formattedUrl);
     setShowCopyNotification(true);
     setTimeout(() => {
       setShowCopyNotification(false);
@@ -173,19 +187,63 @@ const ProjectDetailPage = () => {
     );
   }
 
-  // Schema for structured data
+  // Schema for structured data - Enhanced with more properties
   const projectSchema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "name": project.title,
     "description": project.shortDescription,
     "image": project.imageUrl,
-    "url": `https://www.smitparekh.studio/project/${encodeURIComponent(project.title)}`,
+    "url": `https://www.smitparekh.studio/project/${formatUrlSlug(project.title)}`,
     "creator": {
       "@type": "Person",
-      "name": "Smit Parekh"
+      "name": "Smit Parekh",
+      "url": "https://www.smitparekh.studio"
     },
-    "datePublished": project.publishDate || "2023-01-01"
+    "datePublished": project.publishDate || project.startDate || "2023-01-01",
+    "keywords": project.technologies ? project.technologies.join(", ") : project.title,
+    "thumbnailUrl": project.imageUrl,
+    ...(project.repoLink && { "codeRepository": project.repoLink }),
+    ...(project.demoLink && { "workExample": project.demoLink })
+  };
+
+  // Add BreadcrumbList schema for better navigation structure
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.smitparekh.studio"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://www.smitparekh.studio/project"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": project.title,
+        "item": `https://www.smitparekh.studio/project/${formatUrlSlug(project.title)}`
+      }
+    ]
+  };
+
+  // Person schema for author information
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Smit Parekh",
+    "url": "https://www.smitparekh.studio",
+    "jobTitle": "Web Developer & Digital Marketer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Smit Parekh Studio"
+    }
   };
 
   return (
@@ -193,12 +251,19 @@ const ProjectDetailPage = () => {
       <SEO
         title={`${project.title} | Smit Parekh Portfolio`}
         description={project.shortDescription}
-        keywords={`${project.title}, project details, Smit Parekh, portfolio project`}
-        canonicalUrl={`https://www.smitparekh.studio/project/${encodeURIComponent(project.title)}`}
+        keywords={`${project.title}, ${project.technologies ? project.technologies.join(", ") : ""}, project details, Smit Parekh, portfolio project, ${getCategoryName(project.category)}`}
+        canonicalUrl={`https://www.smitparekh.studio/project/${formatUrlSlug(project.title)}`}
+        ogType="article"
         ogImage={project.imageUrl}
+        ogTitle={`${project.title} - Portfolio Project by Smit Parekh`}
         twitterImage={project.imageUrl}
-        structuredData={[projectSchema]}
+        twitterTitle={`${project.title} - See my work`}
+        structuredData={[projectSchema, breadcrumbSchema, personSchema]}
+        articlePublishedTime={project.publishDate || project.startDate}
+        articleModifiedTime={project.endDate !== "present" ? project.endDate : undefined}
+        lastUpdated={project.updatedAt}
         language="en-US"
+        author="Smit Parekh"
       />
 
       {/* Delete Confirmation Modal */}
@@ -372,7 +437,7 @@ const ProjectDetailPage = () => {
                 <h4><i className="uil uil-share-alt"></i> Share this project</h4>
                 <div className="project-detail__share-buttons">
                   <a 
-                    href={`https://twitter.com/intent/tweet?text=Check out this awesome project: ${project.title}&url=${encodeURIComponent(window.location.href)}`}
+                    href={`https://twitter.com/intent/tweet?text=Check out this awesome project: ${project.title}&url=${encodeURIComponent(`${window.location.origin}/project/${formatUrlSlug(project.title)}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="share-button twitter"
@@ -381,7 +446,7 @@ const ProjectDetailPage = () => {
                     <i className="uil uil-twitter"></i>
                   </a>
                   <a 
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${window.location.origin}/project/${formatUrlSlug(project.title)}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="share-button linkedin"

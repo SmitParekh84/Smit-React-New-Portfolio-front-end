@@ -33,6 +33,17 @@ const Services = React.lazy(() => import("./components/Services/Services"))
 const Project = React.lazy(() => import("./components/Project"))
 const Testimonials = React.lazy(() => import("./components/Testimonials"))
 
+// Export utility functions for URL formatting across the app
+export const formatUrlSlug = (text) => {
+  if (!text) return '';
+  return text.replace(/\s+/g, '-').toLowerCase();
+};
+
+export const slugToTitle = (slug) => {
+  if (!slug) return '';
+  return slug.replace(/-+/g, ' ');
+};
+
 const App = () => {
   const [showTestimonials, setShowTestimonials] = useState(false)
   const [showContactMe, setShowContactMe] = useState(false)

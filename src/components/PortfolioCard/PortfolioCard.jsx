@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LazyLoad from "react-lazyload";
 import PropTypes from 'prop-types';
 import './PortfolioCard.css';
+import { formatUrlSlug } from '../../App'; // Import the utility function
 
 const PortfolioCard = ({ project, isAuthenticated, onDeleteClick }) => {
   // Helper function to get category name
@@ -28,7 +29,7 @@ const PortfolioCard = ({ project, isAuthenticated, onDeleteClick }) => {
             loading="lazy"
           />
           <div className="portfolio-card__img-overlay">
-            <Link to={`/project/${encodeURIComponent(project.title)}`} className="portfolio-card__overlay-link">
+            <Link to={`/project/${formatUrlSlug(project.title)}`} className="portfolio-card__overlay-link">
               <i className="uil uil-eye"></i>
             </Link>
             
@@ -69,7 +70,7 @@ const PortfolioCard = ({ project, isAuthenticated, onDeleteClick }) => {
         <p className="portfolio-card__description">{project.shortDescription}</p>
         <div className="portfolio-card__actions">
           <Link
-            to={`/project/${encodeURIComponent(project.title)}`}
+            to={`/project/${formatUrlSlug(project.title)}`}
             className="button button--flex button--small portfolio-card__button"
           >
             View Details

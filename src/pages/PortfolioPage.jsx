@@ -7,6 +7,7 @@ import DeleteConfirmationModal from "../components/DeleteConfirmationModal/Delet
 import "../assets/css/portfolio.css";
 // Import eye icons for password visibility toggle
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { formatUrlSlug } from "../App"; // Import the utility function
 
 export const PortfolioPage = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -192,7 +193,7 @@ export const PortfolioPage = () => {
       "itemListElement": projects.map((item, index) => ({
         "@type": "ListItem",
         "position": index + 1,
-        "url": `https://www.smitparekh.studio/project/${encodeURIComponent(item.title)}`,
+        "url": `https://www.smitparekh.studio/project/${formatUrlSlug(item.title)}`,
         "item": {
           "@type": "CreativeWork",
           "name": item.title,
