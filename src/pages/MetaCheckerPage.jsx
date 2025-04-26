@@ -1,8 +1,8 @@
-import React from "react";
 import { faqDataMetaChecker } from "../data/data";
 import FAQ from "../components/FAQ/FAQ";
-import MetaChecker from "../components/MetaChecker/MetaChecker";
 import SEO from "../components/SEO/SEO";
+import "../components/MetaChecker/MetaChecker.css";
+import "../assets/css/meta-checker.css";
 import { 
     prepareStructuredData, 
     generateFAQSchema,
@@ -11,8 +11,24 @@ import {
     generateBreadcrumbSchema
 } from "../utils/SocialMetaHelper";
 
+// Import all MetaChecker components
+import MetaChecker, {
+    HeroSection,
+    ImportanceSection,
+    MetaTypesSection,
+    BestPracticesSection,
+    HowToSection,
+    CaseStudySection,
+    ComparisonSection,
+    ToolBenefitsSection,
+    ResourcesSection,
+    CTASection
+} from "../components/MetaChecker";
+
 const MetaCheckerPage = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
+    const currentDate = new Date();
+    const formattedDate = currentDate.toISOString().split('T')[0];
     
     // FAQ Schema using helper function
     const faqSchema = generateFAQSchema(faqDataMetaChecker);
@@ -24,7 +40,11 @@ const MetaCheckerPage = () => {
         features: [
             "Analyze website meta tags", 
             "Verify Open Graph and Twitter Cards", 
-            "Check SEO compliance"
+            "Check SEO compliance",
+            "Test social media previews",
+            "Identify missing meta tags",
+            "Get actionable SEO recommendations",
+            "Improve search engine visibility"
         ],
         screenshot: "/images/Meta-Checker-Image.webp"
     });
@@ -41,7 +61,7 @@ const MetaCheckerPage = () => {
         "reviewCount": "72"
     };
     toolSchema.datePublished = "2023-06-20";
-    toolSchema.dateModified = "2023-10-30";
+    toolSchema.dateModified = formattedDate;
 
     // Breadcrumb structured data using helper function
     const breadcrumbSchema = generateBreadcrumbSchema([
@@ -94,7 +114,7 @@ const MetaCheckerPage = () => {
             <SEO 
                 title="Free Meta Tag Checker Tool | Analyze & Optimize Your Website SEO"
                 description={pageDescription}
-                keywords="meta tag checker tool, SEO analyzer, Open Graph validation, Twitter Card checker, website metadata tool, free SEO tool, meta description analyzer, social media preview tester"
+                keywords="meta tag checker tool, SEO analyzer, Open Graph validation, Twitter Card checker, website metadata tool, free SEO tool, meta description analyzer, social media preview tester, meta tag analysis, seo meta tags, website optimization tool, social media metadata, og tag validator, seo metadata checker"
                 canonicalUrl={getFullUrl(pageUrl)}
                 ogImage={getFullUrl(imageUrl)}
                 ogTitle="Free Meta Tag Checker Tool | Analyze Your Website's SEO"
@@ -104,7 +124,7 @@ const MetaCheckerPage = () => {
                 twitterTitle="Meta Tag Checker: Optimize Your Website SEO"
                 twitterDescription={pageDescription}
                 structuredData={[processedToolSchema, processedFaqSchema, processedBreadcrumbSchema, processedHowToSchema]}
-                lastUpdated="2023-10-30T14:25:00Z"
+                lastUpdated={`${formattedDate}T14:25:00Z`}
                 language="en-US"
                 author="Smit Parekh"
                 alternateLanguages={[
@@ -117,8 +137,26 @@ const MetaCheckerPage = () => {
                 <link rel="preload" href={getFullUrl(imageUrl)} as="image" />
             </SEO>
 
-            <MetaChecker apiUrl={apiUrl} toolName="Website Meta Tag Checker" />
-            <FAQ faqData={faqDataMetaChecker} toolName="Website Meta Tag Checker" />
+            <HeroSection />
+
+            <div className="metachecker-container" id="meta-checker">
+                <MetaChecker apiUrl={apiUrl} toolName="Website Meta Tag Checker" />
+            </div>
+
+            <ImportanceSection />
+            <MetaTypesSection />
+            <BestPracticesSection />
+            <HowToSection />
+            <CaseStudySection />
+            <ComparisonSection />
+            <ToolBenefitsSection />
+
+            <div className="metachecker-container">
+                <FAQ faqData={faqDataMetaChecker} toolName="Website Meta Tag Checker" />
+            </div>
+
+            <ResourcesSection />
+            <CTASection />
         </>
     );
 };

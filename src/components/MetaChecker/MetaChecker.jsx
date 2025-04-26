@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./MetaChecker.css";
 
 const MetaChecker = ({ apiUrl, toolName }) => {
@@ -63,7 +63,7 @@ const MetaChecker = ({ apiUrl, toolName }) => {
 
     return (
         <section className="section">
-            <div className="index-metadata container">
+            <div className="index-metadata metachecker_container ">
                 <header>
                     <h3>{toolName || "Meta Tag Checker"}</h3>
                     <p>Analyze website metadata, Open Graph tags, and Twitter Cards to improve SEO and social sharing.</p>
