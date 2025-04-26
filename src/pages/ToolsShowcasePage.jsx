@@ -123,9 +123,7 @@ const ToolsShowcasePage = () => {
             {/* Tools Grid Section */}
             <ToolsGrid tools={toolsData} />
 
-            {/* Detailed Content Section - Added for AdSense compliance */}
-            <ToolsDetailedContent />
-
+           
             {/* Features Section */}
             <Features 
                 title="Why Use Our Tools?"
@@ -139,6 +137,8 @@ const ToolsShowcasePage = () => {
                 subtitle="Learn More About Each Tool"
                 products={productShowcaseData}
             />
+             {/* Detailed Content Section - Added for AdSense compliance */}
+            <ToolsDetailedContent />
 
             {/* How It Works Section */}
             <HowItWorks 
