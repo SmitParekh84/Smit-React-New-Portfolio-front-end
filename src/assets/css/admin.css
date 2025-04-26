@@ -402,3 +402,473 @@
     flex-direction: column;
   }
 }
+
+/* Admin Login Page Styles */
+.admin-login.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--body-color);
+  padding: 2rem 1rem;
+}
+
+.admin-container {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.admin-login__card {
+  background-color: var(--container-color);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.4s ease;
+}
+
+.admin-login__title {
+  text-align: center;
+  color: var(--first-color);
+  font-size: var(--h2-font-size);
+  margin-bottom: 0.75rem;
+}
+
+.admin-login__subtitle {
+  text-align: center;
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  margin-bottom: 2rem;
+}
+
+.admin-login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.admin-login__error {
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+  padding: 0.75rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid #e74c3c;
+}
+
+.admin-login__form-group {
+  margin-bottom: 0.5rem;
+}
+
+.admin-login__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--title-color);
+}
+
+.admin-login__input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: var(--normal-font-size);
+  background-color: var(--input-color);
+  transition: all 0.3s ease;
+  color: var(--text-color);
+  font-family: var(--body-font);
+}
+
+.admin-login__input:focus {
+  border-color: var(--first-color);
+  outline: none;
+  background-color: var(--container-color);
+  box-shadow: 0 0 0 3px rgba(var(--first-color-rgb), 0.15);
+}
+
+.admin-login__password-wrapper {
+  position: relative;
+}
+
+.admin-login__password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-color-light);
+  cursor: pointer;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.admin-login__password-toggle:hover {
+  color: var(--first-color);
+}
+
+.admin-login__button {
+  display: inline-block;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  background-color: var(--first-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(var(--first-color-rgb), 0.2);
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.admin-login__button:hover {
+  background-color: var(--first-color-alt);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(var(--first-color-rgb), 0.3);
+}
+
+.admin-login__button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Responsive adaptations for the login form */
+@media screen and (max-width: 576px) {
+  .admin-login__card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Admin Dashboard Styles */
+.admin-header.section {
+  padding: 2rem 1rem;
+  background-color: var(--container-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.admin-header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header__title {
+  color: var(--first-color);
+  font-size: var(--h2-font-size);
+  margin: 0;
+}
+
+.admin-header__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.admin-header__logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--body-color);
+  border: none;
+  border-radius: 8px;
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-header__logout:hover {
+  background-color: var(--container-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-header__logout i {
+  font-size: 1.2rem;
+}
+
+/* Projects Management Section */
+.admin-projects.section {
+  padding: 2rem 0;
+}
+
+.admin-projects__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.admin-projects__title {
+  color: var(--title-color);
+  font-size: var(--h3-font-size);
+  margin: 0;
+}
+
+.admin-projects__add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--first-color);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-projects__add-btn:hover {
+  background-color: var(--first-color-alt);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--first-color-rgb), 0.2);
+}
+
+.admin-projects__add-btn i {
+  font-size: 1.2rem;
+}
+
+/* Portfolio Filter Dropdown (Mobile) */
+.portfolio-filter-dropdown {
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: none;
+}
+
+.portfolio-filter-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background-color: var(--container-color);
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.portfolio-filter-button.active {
+  border-color: var(--first-color);
+}
+
+.portfolio-filter-button span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portfolio-filter-button i.uil-angle-down {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-filter-button.active i.uil-angle-down {
+  transform: rotate(180deg);
+}
+
+.portfolio-filter-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.portfolio-filter-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.portfolio-filter-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background-color: var(--container-color);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.portfolio-filter-menu.show {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.portfolio-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.portfolio-filter-item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.portfolio-filter-item.active {
+  color: var(--first-color);
+  background-color: rgba(var(--first-color-rgb), 0.08);
+  font-weight: var(--font-medium);
+}
+
+.portfolio-filter-item i {
+  font-size: 1.2rem;
+}
+
+/* Portfolio Navigation Tabs (Desktop) */
+.portfolio-nav__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-nav__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--container-color);
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.portfolio-nav__tab:hover {
+  background-color: #f9f9f9;
+  transform: translateY(-2px);
+}
+
+.portfolio-nav__tab--active {
+  background-color: var(--first-color);
+  color: #fff;
+  border-color: var(--first-color);
+  box-shadow: 0 4px 10px rgba(var(--first-color-rgb), 0.2);
+}
+
+.portfolio-nav__tab--active:hover {
+  background-color: var(--first-color-alt);
+}
+
+.portfolio-nav__icon {
+  font-size: 1.2rem;
+}
+
+/* Loading and Error States */
+.portfolio__loading,
+.portfolio__error,
+.portfolio__empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+  min-height: 300px;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid var(--first-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.portfolio__error {
+  color: #e74c3c;
+}
+
+.portfolio__empty {
+  color: var(--text-color-light);
+  font-style: italic;
+}
+
+/* Portfolio Grid */
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .portfolio-filter-dropdown {
+    display: block;
+  }
+  
+  .portfolio-nav__tabs {
+    display: none;
+  }
+  
+  .admin-header__title {
+    font-size: var(--h3-font-size);
+  }
+  
+  .admin-projects__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .admin-projects__add-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+}

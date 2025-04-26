@@ -23,6 +23,7 @@ import LinkedInMediaDownloaderPage from "./pages/LinkedInMediaDownloaderPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import AddProjectPage from "./pages/AddProjectPage";
 import EditProjectPage from "./pages/EditProjectPage";
+import AdminLoginPage from "./pages/AdminLoginPage"; // Import the new admin login page
 
 const Header = React.lazy(() => import("./components/Header/Header"))
 const Footer = React.lazy(() => import("./components/Footer"))
@@ -90,24 +91,9 @@ const App = () => {
             <Route path="/free-tools/seo-analyzer" element={<SEOAnalyzerPage />} />
             <Route path="/free-tools/linkedin-media-downloader" element={<LinkedInMediaDownloaderPage />} />
             <Route path="/cv-viewer" element={<CVViewer />} />
-            <Route path="/admin/add-project" element={
-              <>
-                <Header />
-                <main className="main">
-                  <AddProjectPage />
-                </main>
-                
-              </>
-            } />
-            <Route path="/admin/edit-project/:id" element={
-              <>
-                <Header />
-                <main className="main">
-                  <EditProjectPage />
-                </main>
-                
-              </>
-            } />
+            <Route path="/admin" element={<AdminLoginPage />} />
+            <Route path="/admin/add-project" element={<AddProjectPage />} />
+            <Route path="/admin/edit-project/:id" element={<EditProjectPage />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

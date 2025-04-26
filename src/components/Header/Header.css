@@ -151,6 +151,94 @@
   box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Admin Controls in Header */
+.admin-controls {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.admin-controls__button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--title-color);
+  font-size: var(--normal-font-size);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.admin-controls__button:hover,
+.admin-controls__button.active {
+  background-color: var(--first-color-lighter);
+  color: var(--first-color);
+}
+
+.admin-controls__button i {
+  font-size: 1.25rem;
+}
+
+.admin-controls__label {
+  font-weight: var(--font-medium);
+  display: none;
+}
+
+.admin-controls__dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background-color: var(--container-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 0;
+  z-index: 100;
+  margin-top: 0.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.admin-controls__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+  text-decoration: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.admin-controls__item:hover {
+  background-color: var(--first-color-lighter);
+  color: var(--first-color);
+}
+
+.admin-controls__logout {
+  color: #ff6b6b;
+}
+
+.admin-controls__logout:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+  color: #ff3e3e;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Media Queries */
 @media screen and (max-width: 480px) {
   .logo-image {
@@ -236,5 +324,12 @@
   body {
     margin-top: var(--header-height); /* Changed from margin-bottom to margin-top */
     margin-bottom: 0;
+  }
+}
+
+/* Media Queries for Admin Controls */
+@media screen and (min-width: 768px) {
+  .admin-controls__label {
+    display: inline-block;
   }
 }

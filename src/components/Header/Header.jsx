@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import LazyLoad from "react-lazyload";
 import { headerData } from "../../data/data.js";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
 import "./Header.css";
 
@@ -9,11 +9,45 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [theme, setTheme] = useState("light");
   const [activeSection, setActiveSection] = useState("home");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showAdminDropdown, setShowAdminDropdown] = useState(false);
   const darkTheme = "dark-theme";
 
   const headerRef = useRef(null);
+  const adminDropdownRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
   
+  // Check admin status on component mount
+  useEffect(() => {
+    const projectAuthToken = localStorage.getItem('projectAuthToken');
+    setIsAdmin(!!projectAuthToken);
+  }, [location]);
+
+  // Close admin dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        adminDropdownRef.current && 
+        !adminDropdownRef.current.contains(event.target)
+      ) {
+        setShowAdminDropdown(false);
+      }
+    };
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Handle logout
+  const handleLogout = () => {
+    localStorage.removeItem('projectAuthToken');
+    setIsAdmin(false);
+    navigate('/');
+  };
+
   // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -173,6 +207,36 @@ const Header = () => {
 
         {/* Theme and Mobile Menu Buttons */}
         <div className="nav__btns">
+          {/* Admin Controls - Only visible when logged in */}
+          {isAdmin && (
+            <div className="admin-controls" ref={adminDropdownRef}>
+              <div 
+                className={`admin-controls__button ${showAdminDropdown ? 'active' : ''}`}
+                onClick={() => setShowAdminDropdown(!showAdminDropdown)}
+              >
+                <i className="uil uil-user-circle"></i>
+                <span className="admin-controls__label">Admin</span>
+              </div>
+              
+              {showAdminDropdown && (
+                <div className="admin-controls__dropdown">
+                  <Link to="/admin/dashboard" className="admin-controls__item">
+                    <i className="uil uil-apps"></i>
+                    <span>Dashboard</span>
+                  </Link>
+                  <Link to="/admin/add-project" className="admin-controls__item">
+                    <i className="uil uil-plus-circle"></i>
+                    <span>Add Project</span>
+                  </Link>
+                  <button onClick={handleLogout} className="admin-controls__item admin-controls__logout">
+                    <i className="uil uil-sign-out-alt"></i>
+                    <span>Logout</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+          
           <i
             className={`uil ${theme === "light" ? "uil-moon" : "uil-sun"} change-theme`}
             id="theme-button"

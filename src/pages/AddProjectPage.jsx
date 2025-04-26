@@ -76,7 +76,7 @@ const AddProjectPage = () => {
             error={error}
             successMessage={successMessage}
             submitButtonText={loading ? 'Adding Project...' : 'Add Project'}
-            cancelHandler={() => navigate('/project')}
+            cancelHandler={() => navigate(-1)}
           />
         </div>
       </section>
