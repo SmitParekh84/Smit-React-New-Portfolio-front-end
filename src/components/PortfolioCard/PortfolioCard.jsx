@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LazyLoad from "react-lazyload";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import PropTypes from 'prop-types';
 import './PortfolioCard.css';
 import { formatUrlSlug } from '../../App'; // Import the utility function
@@ -57,52 +58,81 @@ const PortfolioCard = ({ project, isAuthenticated, onDeleteClick }) => {
     }
   };
 
+  // Function to get optimized image URL (if you have a CDN or image optimization service)
+  const getOptimizedImageUrl = (url, width = 400) => {
+    // If using an image CDN like Cloudinary, ImageKit, etc. you can modify URLs here
+    // Example with ImageKit: `${url}?tr=w-${width},q-70`
+    
+    // If not using a CDN, just return the original URL
+    return url;
+  };
+
+  // Create a smaller version for placeholder
+  const getPlaceholderUrl = (url) => {
+    // For CDN placeholder (e.g. ImageKit): `${url}?tr=w-20,h-20,bl-6`
+    // If not using CDN, just return the original
+    return url;
+  };
+
   return (
     <div className="portfolio-card" id={`portfolio-${project._id}`}>
-      <LazyLoad height={200} offset={100}>
-        <div className="portfolio-card__img-container">
-          <img
-            src={project.imageUrl}
-            alt={project.title}
-            className="portfolio-card__img"
-            loading="lazy"
-          />
-          <div className="portfolio-card__img-overlay">
-            <Link to={`/project/${formatUrlSlug(project.title)}`} className="portfolio-card__overlay-link">
-              <i className="uil uil-eye"></i>
-            </Link>
-            
-            {project.demoLink && (
-              <a href={project.demoLink} className="portfolio-card__overlay-link" target="_blank" rel="noopener noreferrer">
-                <i className="uil uil-external-link"></i>
-              </a>
-            )}
-            
-            {/* Admin Controls */}
-            {isAuthenticated && (
-              <div className="portfolio-card__admin-controls">
-                <Link
-                  to={`/admin/edit-project/${project._id}`}
-                  className="portfolio-card__admin-btn portfolio-card__admin-btn--edit"
-                  title="Edit Project"
-                >
-                  <i className="uil uil-edit"></i>
-                </Link>
-                <button 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onDeleteClick();
-                  }} 
-                  className="portfolio-card__admin-btn portfolio-card__admin-btn--delete"
-                  title="Delete Project"
-                >
-                  <i className="uil uil-trash-alt"></i>
-                </button>
-              </div>
-            )}
-          </div>
+      <div className="portfolio-card__img-container">
+        <LazyLoadImage
+          src={getOptimizedImageUrl(project.imageUrl)}
+          alt={`${project.title} - ${project.shortDescription}`}
+          className="portfolio-card__img"
+          effect="blur"
+          placeholderSrc={getPlaceholderUrl(project.imageUrl)}
+          threshold={300}
+          width="100%"
+          height="auto"
+          loading="lazy"
+          // Adding structured data attributes for SEO
+          wrapperClassName="portfolio-card__img-wrapper"
+          // Add extra attributes for better SEO
+          title={project.title}
+        />
+        <div className="portfolio-card__img-overlay">
+          <Link to={`/project/${formatUrlSlug(project.title)}`} className="portfolio-card__overlay-link" aria-label={`View details of ${project.title}`}>
+            <i className="uil uil-eye"></i>
+          </Link>
+          
+          {project.demoLink && (
+            <a href={project.demoLink} 
+               className="portfolio-card__overlay-link" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label={`Open live demo of ${project.title}`}>
+              <i className="uil uil-external-link"></i>
+            </a>
+          )}
+          
+          {/* Admin Controls */}
+          {isAuthenticated && (
+            <div className="portfolio-card__admin-controls">
+              <Link
+                to={`/admin/edit-project/${project._id}`}
+                className="portfolio-card__admin-btn portfolio-card__admin-btn--edit"
+                title="Edit Project"
+                aria-label={`Edit ${project.title} project`}
+              >
+                <i className="uil uil-edit"></i>
+              </Link>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  onDeleteClick();
+                }} 
+                className="portfolio-card__admin-btn portfolio-card__admin-btn--delete"
+                title="Delete Project"
+                aria-label={`Delete ${project.title} project`}
+              >
+                <i className="uil uil-trash-alt"></i>
+              </button>
+            </div>
+          )}
         </div>
-      </LazyLoad>
+      </div>
       <div className="portfolio-card__info">
         <h3 className="portfolio-card__title">{project.title}</h3>
         
@@ -123,6 +153,7 @@ const PortfolioCard = ({ project, isAuthenticated, onDeleteClick }) => {
           <Link
             to={`/project/${formatUrlSlug(project.title)}`}
             className="button button--flex button--small portfolio-card__button"
+            aria-label={`View details of ${project.title} project`}
           >
             View Details
             <i className="uil uil-arrow-right button__icon"></i>
