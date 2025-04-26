@@ -33,12 +33,6 @@ const ToolsPage = () => {
             "height": "630",
             "caption": "Free Online Tools by Smit Parekh"
         },
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-        },
         "publisher": {
             "@type": "Organization",
             "name": "Smit Parekh",
@@ -50,10 +44,23 @@ const ToolsPage = () => {
                 "height": "112"
             }
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "156"
+        "mainEntity": {
+            "@type": "SoftwareApplication",
+            "name": "Smit Parekh Free Tools Collection",
+            "description": "A collection of free online tools for productivity and marketing",
+            "applicationCategory": "WebApplication",
+            "operatingSystem": "Any",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "156"
+            }
         },
         "keywords": "free online tools, productivity tools, marketing tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools"
     };
