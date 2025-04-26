@@ -9,6 +9,8 @@ import HowItWorks from "../components/HowItWorks/HowItWorks";
 import FAQ from "../components/FAQ/FAQ";
 import CTASection from "../components/CTASection/CTASection";
 import ToolsDetailedContent from "../components/ToolsDetailedContent/ToolsDetailedContent";
+import TrustSignals from "../components/TrustSignals/TrustSignals";
+import ToolsContentDetails from "../components/ToolsContentDetails/ToolsContentDetails";
 import { 
     prepareStructuredData, 
     generateFAQSchema,
@@ -123,12 +125,22 @@ const ToolsShowcasePage = () => {
             {/* Tools Grid Section */}
             <ToolsGrid tools={toolsData} />
 
-           
+            {/* Tools Content Details - Added as separate section */}
+            <ToolsContentDetails title="Professional Tools For Everyone" />
+            
             {/* Features Section */}
             <Features 
                 title="Why Use Our Tools?"
                 subtitle="Designed for Professionals"
                 features={features}
+            />
+
+            {/* Trust Signals Section */}
+            <TrustSignals 
+                title="Trusted by Thousands"
+                subtitle="Join professionals worldwide who rely on our free tools for daily productivity"
+                companies={['Google', 'Microsoft', 'Amazon', 'Shopify', 'Adobe']}
+                animated={true}
             />
 
             {/* Product Showcase Section */}
