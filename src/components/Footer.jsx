@@ -1,5 +1,7 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { footerData } from "../data/data";
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -58,10 +60,24 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Footer bottom - copyright */}
+          {/* Footer bottom - copyright and legal links */}
           <div className="footer__bottom">
             <div className="footer__bottom-content">
               <p className="footer__copy" dangerouslySetInnerHTML={{ __html: footerData.copyright }}></p>
+              
+              {footerData.legalLinks && (
+                <div className="footer__legal-links">
+                  {footerData.legalLinks.map((link, index) => (
+                    <React.Fragment key={index}>
+                      {index > 0 && <span className="footer__divider">|</span>}
+                      <Link to={link.href} className="footer__legal-link">
+                        {link.label}
+                      </Link>
+                    </React.Fragment>
+                  ))}
+                </div>
+              )}
+              
               <p className="footer__made-with">Made with <span className="footer__heart">❤</span> by Smit Parekh</p>
             </div>
           </div>

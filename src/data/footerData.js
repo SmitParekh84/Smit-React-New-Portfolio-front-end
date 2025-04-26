@@ -31,4 +31,9 @@ export const footerData = {
     },
   ],
   copyright: "&#169; Smit Parekh. All rights reserved.",
+  // Adding legal links
+  legalLinks: [
+    { href: "/privacy-policy", label: "Privacy Policy" },
+    { href: "/terms", label: "Terms of Service" },
+  ]
 };

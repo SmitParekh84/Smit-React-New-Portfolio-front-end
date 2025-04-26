@@ -1,9 +1,10 @@
 import React from "react"
+import "./Loader.css"  // Import the new CSS file
 
 const Loader = () => {
   return (
-    <div className="loader-overlay-componet">
-      <div className="loader-componet"></div>
+    <div className="loader-overlay">
+      <div className="loader"></div>
     </div>
   )
 }

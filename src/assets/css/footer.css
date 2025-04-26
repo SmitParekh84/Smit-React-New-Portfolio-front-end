@@ -173,6 +173,29 @@
     opacity: 0.75;
   }
   
+  .footer__legal-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .footer__legal-link {
+    color: #ffffff;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .footer__legal-link:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  .footer__divider {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+  }
+  
   .footer__made-with {
     font-size: 0.85rem;
     opacity: 0.75;
@@ -202,10 +225,11 @@
     .footer__bottom-content {
       flex-direction: column;
       text-align: center;
+      gap: 0.75rem;
     }
     
-    .footer__links-grid {
-      grid-template-columns: 1fr;
+    .footer__legal-links {
+      justify-content: center;
     }
   }
   
@@ -214,4 +238,3 @@
       grid-template-columns: 1fr;
     }
   }
-  

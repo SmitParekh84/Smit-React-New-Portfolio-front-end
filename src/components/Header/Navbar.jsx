@@ -146,6 +146,7 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
                              to={"/free-tools"}
                              className="mobile-nav__link "
                              onClick={closeMenu}
+                             key="all-free-tools"
                            >
                            <div className="mobile-nav__link-content">
                              <i className={`uil uil-apps mobile-nav__icon`}></i>
@@ -155,7 +156,7 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
                           .find(item => item.id === "/free-tools")
                           ?.subLinks.map((subLink) => (
                             <Link
-                              key={subLink.id}
+                              key={`mobile-${subLink.id}`}
                               to={subLink.id}
                               className={`mobile-nav__submenu-link ${isLinkActive(subLink.id) ? "active-link" : ""}`}
                               onClick={closeMenu}

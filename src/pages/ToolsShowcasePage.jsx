@@ -8,6 +8,7 @@ import Testimonials from "../components/Testimonials/Testimonials";
 import HowItWorks from "../components/HowItWorks/HowItWorks";
 import FAQ from "../components/FAQ/FAQ";
 import CTASection from "../components/CTASection/CTASection";
+import ToolsDetailedContent from "../components/ToolsDetailedContent/ToolsDetailedContent";
 import { 
     prepareStructuredData, 
     generateFAQSchema,
@@ -121,6 +122,9 @@ const ToolsShowcasePage = () => {
 
             {/* Tools Grid Section */}
             <ToolsGrid tools={toolsData} />
+
+            {/* Detailed Content Section - Added for AdSense compliance */}
+            <ToolsDetailedContent />
 
             {/* Features Section */}
             <Features 

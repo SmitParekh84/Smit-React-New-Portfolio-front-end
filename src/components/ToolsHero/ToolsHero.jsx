@@ -74,7 +74,39 @@ const ToolsHero = () => {
                         Access professional-grade tools without spending a penny. No sign-ups, no credit cards, no limitations – just instant results that help you work smarter.
                     </p>
                     
-                    <div className="tools-hero__trust-signals animate-in-4">
+                    <div className="tools-hero__content-details animate-in-4">
+                        <h2 className="tools-hero__subtitle">Professional Tools For Everyone</h2>
+                        <p className="tools-hero__expanded-description">
+                            Our collection of free online tools is designed to help professionals, small business owners, 
+                            students, and creators enhance their workflow. Each tool is carefully crafted to solve 
+                            specific problems you encounter in your daily work.
+                        </p>
+                        <p className="tools-hero__expanded-description">
+                            Whether you need to remove backgrounds from images, generate engaging LinkedIn posts, 
+                            analyze your website's SEO performance, or create QR codes - we've got you covered with 
+                            enterprise-grade solutions that are completely free to use.
+                        </p>
+                        <div className="tools-hero__key-benefits">
+                            <div className="key-benefit">
+                                <i className="uil uil-check-circle"></i>
+                                <span>No registration required</span>
+                            </div>
+                            <div className="key-benefit">
+                                <i className="uil uil-check-circle"></i>
+                                <span>Unlimited usage with no hidden fees</span>
+                            </div>
+                            <div className="key-benefit">
+                                <i className="uil uil-check-circle"></i>
+                                <span>Professional-quality results every time</span>
+                            </div>
+                            <div className="key-benefit">
+                                <i className="uil uil-check-circle"></i>
+                                <span>Privacy-focused with no data storage</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="tools-hero__trust-signals animate-in-5">
                         <div className="trust-logos">
                             <span>Trusted by teams at</span>
                             <div className="logo-container">
@@ -85,7 +117,7 @@ const ToolsHero = () => {
                         </div>
                     </div>
                     
-                    <div className="tools-hero__buttons animate-in-5">
+                    <div className="tools-hero__buttons animate-in-6">
                         <a href="/free-tools" className="tools-hero__button-primary">
                             <span className="button-text">Get Started Now - It's Free</span>
                             <i className="uil uil-arrow-right button__icon"></i>
@@ -96,7 +128,7 @@ const ToolsHero = () => {
                         </Link>
                     </div>
 
-                    <div className="tools-hero__metrics animate-in-6">
+                    <div className="tools-hero__metrics animate-in-7">
                         <div className="tools-hero__metric">
                             <h3 className="tools-hero__metric-number">{metrics.percent}%</h3>
                             <p className="tools-hero__metric-label">Free Forever</p>
