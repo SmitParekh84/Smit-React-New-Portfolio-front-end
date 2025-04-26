@@ -21,6 +21,10 @@ const ProjectForm = ({
   const [detailMarkdown, setDetailMarkdown] = useState(initialData.detailMarkdown || '');
   const [imageUrl, setImageUrl] = useState(initialData.imageUrl || '');
   const [isShowcased, setIsShowcased] = useState(initialData.isShowcased || false);
+  // Add states for repo link, demo link and demo button text
+  const [repoLink, setRepoLink] = useState(initialData.repoLink || '');
+  const [demoLink, setDemoLink] = useState(initialData.demoLink || '');
+  const [demoBtn, setDemoBtn] = useState(initialData.demoBtn || 'View Live Demo');
   const [imageUploading, setImageUploading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -92,7 +96,11 @@ const ProjectForm = ({
       shortDescription,
       detailMarkdown,
       imageUrl,
-      isShowcased
+      isShowcased,
+      // Add the new fields to project data
+      repoLink,
+      demoLink,
+      demoBtn
     };
     
     try {
@@ -258,6 +266,52 @@ const ProjectForm = ({
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Add repository and demo link fields */}
+        <div className="add-project__form-grid">
+          <div className="add-project__form-group">
+            <label htmlFor="repoLink">
+              <i className="uil uil-github form-icon"></i>
+              Repository Link
+            </label>
+            <input
+              type="text"
+              id="repoLink"
+              value={repoLink}
+              onChange={(e) => setRepoLink(e.target.value)}
+              placeholder="GitHub repository URL (optional)"
+            />
+          </div>
+          
+          <div className="add-project__form-group">
+            <label htmlFor="demoLink">
+              <i className="uil uil-globe form-icon"></i>
+              Demo Link
+            </label>
+            <input
+              type="text"
+              id="demoLink"
+              value={demoLink}
+              onChange={(e) => setDemoLink(e.target.value)}
+              placeholder="Live demo URL (optional)"
+            />
+          </div>
+        </div>
+
+        <div className="add-project__form-group">
+          <label htmlFor="demoBtn">
+            <i className="uil uil-text form-icon"></i>
+            Demo Button Text
+          </label>
+          <input
+            type="text"
+            id="demoBtn"
+            value={demoBtn}
+            onChange={(e) => setDemoBtn(e.target.value)}
+            placeholder="Custom text for demo button"
+          />
+          <div className="form-helper">Customize the text that appears on the demo button (default: "View Live Demo")</div>
         </div>
         
         <div className="add-project__form-group showcase-checkbox">

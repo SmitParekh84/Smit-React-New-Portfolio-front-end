@@ -315,3 +315,33 @@
 .dark-theme .Toastify__toast--error {
   background-color: #c62828;
 }
+
+/* Repository and Demo Link Fields */
+.add-project__form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .add-project__form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.add-project__form-group input[type="text"]#repoLink,
+.add-project__form-group input[type="text"]#demoLink {
+  padding-left: 2.5rem;
+  background-position: 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+}
+
+.add-project__form-group label i.uil-github,
+.add-project__form-group label i.uil-globe,
+.add-project__form-group label i.uil-text {
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
