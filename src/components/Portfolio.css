@@ -2,7 +2,7 @@
 
 /* Section spacing and layout */
 .portfolio.section {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background-color: var(--container-color-alt);
   position: relative;
   overflow: hidden;
@@ -350,7 +350,7 @@
 
 @media screen and (max-width: 768px) {
   .portfolio.section {
-    padding: 4rem 0;
+    padding: 0;
   }
   
   .slick-slider {

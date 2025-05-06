@@ -103,7 +103,7 @@ const PortfolioCard = ({ project, isAuthenticated, onDeleteClick }) => {
                target="_blank" 
                rel="noopener noreferrer" 
                aria-label={`Open live demo of ${project.title}`}>
-              <i className="uil uil-external-link"></i>
+              <i className="uil uil-external-link-alt"></i>
             </a>
           )}
           

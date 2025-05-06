@@ -754,12 +754,12 @@
 }
 
 /* Portfolio Navigation Tabs (Desktop) */
-.portfolio-nav__tabs {
+/* .portfolio-nav__tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-bottom: 2rem;
-}
+} */
 
 .portfolio-nav__tab {
   display: inline-flex;
@@ -849,9 +849,9 @@
     display: block;
   }
   
-  .portfolio-nav__tabs {
+  /* .portfolio-nav__tabs {
     display: none;
-  }
+  } */
   
   .admin-header__title {
     font-size: var(--h3-font-size);

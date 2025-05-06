@@ -3,7 +3,6 @@ import SEO from "../components/SEO/SEO";
 import { useEffect, useState, useRef } from "react";
 import ReactMarkdown from 'react-markdown';
 import DeleteConfirmationModal from "../components/DeleteConfirmationModal/DeleteConfirmationModal";
-import { SidebarAdLayout, HorizontalBannerAd } from "../components/AdSense";
 import "../styles/markdown.css";
 import "../assets/css/project-detail.css";
 
@@ -154,35 +153,71 @@ const ProjectDetailPage = () => {
     
     return '';
   };
-  
+  // Navigation controls are outside the loading conditional
+  const renderNavigationControls = () => (
+    <div className="project-detail__nav">
+      <Link to="/project" className="project-detail__back">
+        <i className="uil uil-arrow-left"></i> Back to Projects
+      </Link>
+      
+      {isAuthenticated && project && (
+        <div className="project-detail__admin-controls">
+          <Link 
+            to={`/admin/edit-project/${project._id}`} 
+            className="button button--small button--edit"
+          >
+            <i className="uil uil-edit"></i> Edit
+          </Link>
+          <button 
+            onClick={() => setShowDeleteConfirm(true)}
+            className="button button--small button--danger"
+          >
+            <i className="uil uil-trash-alt"></i> Delete
+          </button>
+        </div>
+      )}
+    </div>
+  );
   // Improved loading state with animation
   if (loading) {
     return (
-      <div className="project-detail__loading container">
-        <div className="loader-container">
-          <div className="loader-ring">
-            <div></div><div></div><div></div><div></div>
+      <div className="project-detail section">
+      <div className="project-detail__container container">
+        {renderNavigationControls()}
+        
+        <div className="project-detail__loading">
+          <div className="loader-container">
+            <div className="loader-ring">
+              <div></div><div></div><div></div><div></div>
+            </div>
+            <h2>Loading project details...</h2>
+            <p>Just a moment while we prepare everything for you</p>
           </div>
-          <h2>Loading project details...</h2>
-          <p>Just a moment while we prepare everything for you</p>
         </div>
       </div>
+    </div>
     );
   }
 
   // Enhanced error state with illustration
   if (error || !project) {
     return (
-      <div className="project-detail__error container">
-        <div className="error-container">
-          <div className="error-icon">
-            <i className="uil uil-exclamation-circle"></i>
+      <div className="project-detail section">
+        <div className="project-detail__container container">
+          {renderNavigationControls()}
+          
+          <div className="project-detail__error">
+            <div className="error-container">
+              <div className="error-icon">
+                <i className="uil uil-exclamation-circle"></i>
+              </div>
+              <h2>Oops! {error || "Project not found"}</h2>
+              <p>We couldn't find the project you're looking for.</p>
+              <Link to="/project" className="button button--flex">
+                <i className="uil uil-arrow-left"></i> Browse All Projects
+              </Link>
+            </div>
           </div>
-          <h2>Oops! {error || "Project not found"}</h2>
-          <p>We couldn't find the project you're looking for.</p>
-          <Link to="/project" className="button button--flex">
-            <i className="uil uil-arrow-left"></i> Browse All Projects
-          </Link>
         </div>
       </div>
     );
@@ -279,28 +314,7 @@ const ProjectDetailPage = () => {
 
       <section className="project-detail section">
         <div className="project-detail__container container">
-          <div className="project-detail__nav">
-            <Link to="/project" className="project-detail__back">
-              <i className="uil uil-arrow-left"></i> Back to Projects
-            </Link>
-            
-            {isAuthenticated && project && (
-              <div className="project-detail__admin-controls">
-                <Link 
-                  to={`/admin/edit-project/${project._id}`} 
-                  className="button button--small button--edit"
-                >
-                  <i className="uil uil-edit"></i> Edit
-                </Link>
-                <button 
-                  onClick={() => setShowDeleteConfirm(true)}
-                  className="button button--small button--danger"
-                >
-                  <i className="uil uil-trash-alt"></i> Delete
-                </button>
-              </div>
-            )}
-          </div>
+        {renderNavigationControls()}
 
           {/* Header placed outside grid layout */}
           <div className="project-detail__header">

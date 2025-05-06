@@ -38,7 +38,19 @@
   max-width: 1200px; /* Increased max width to accommodate 6 columns */
   position: relative;
   width: 100%;
+  
 }
+.portfolio-nav__tabs--centered {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+}
+/* Add this to center the 5 tabs within the 1200px container */
+
 
 .portfolio-nav__tab {
   display: flex;
@@ -462,7 +474,11 @@
     margin: 0 auto;
     padding: 0 1rem;
   }
-  
+  .portfolio-nav__tabs--centered {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .portfolio-nav__tabs {
     grid-template-columns: repeat(6, 1fr); /* Ensure 6 columns on desktop */
   }
