@@ -10,7 +10,7 @@ import Swiper from "swiper/bundle";
 import "../assets/css/portfolio.css";
 // Import eye icons for password visibility toggle
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { formatUrlSlug } from "../App"; // Import the utility function
+import { formatUrlSlug } from "../utils/urlUtils"; // Import the enhanced utility function from utils
 
 export const PortfolioPage = () => {
   const [activeTab, setActiveTab] = useState("all");

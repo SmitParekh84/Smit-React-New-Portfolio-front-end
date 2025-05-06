@@ -5,19 +5,9 @@ import ReactMarkdown from 'react-markdown';
 import DeleteConfirmationModal from "../components/DeleteConfirmationModal/DeleteConfirmationModal";
 import "../styles/markdown.css";
 import "../assets/css/project-detail.css";
+import { formatUrlSlug, slugToTitle } from "../utils/urlUtils"; // Import the enhanced utility functions
 
-// Utility function to format URL slugs - convert spaces to hyphens
-const formatUrlSlug = (text) => {
-  if (!text) return '';
-  return text.replace(/\s+/g, '-').toLowerCase();
-};
-
-// Utility function to convert slug back to title (hyphens to spaces)
-const slugToTitle = (slug) => {
-  if (!slug) return '';
-  return slug.replace(/-+/g, ' ');
-};
-
+// ProjectDetailPage component definition starts here
 const ProjectDetailPage = () => {
   // Get project title from URL params and convert hyphens back to spaces for API
   const { id: projectSlug } = useParams();
