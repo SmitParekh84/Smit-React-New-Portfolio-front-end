@@ -128,12 +128,17 @@ const LinkedInPostGeneratorPage = () => {
                 language="en-US"
             />
             
-            {/* Top ad placement - horizontal banner */}
+            {/* Top ad placement - horizontal banner - COMMENTED OUT UNTIL VERIFIED */}
+            {/* 
             <div className="ad-container after-header-ad">
                 <HorizontalBannerAd adSlot="8901234567" />
             </div>
+            */}
 
-            {/* Wrap the main content in a sidebar layout */}
+            {/* Regular content without sidebar layout until verified */}
+            <LinkedInPostGenerator />
+            
+            {/* Original SidebarAdLayout commented out until verified 
             <SidebarAdLayout 
                 adSlot="9012345678"
                 adPosition="right"
@@ -142,18 +147,23 @@ const LinkedInPostGeneratorPage = () => {
             >
                 <LinkedInPostGenerator />
             </SidebarAdLayout>
+            */}
             
-            {/* Middle ad placement - in-article ad */}
+            {/* Middle ad placement - in-article ad - COMMENTED OUT UNTIL VERIFIED */}
+            {/* 
             <div className="ad-container content-ad">
                 <InArticleAd adSlot="0123456789" />
             </div>
+            */}
 
             <FAQ faqData={faqDataLinkedin} toolName="Viral LinkedIn Post Generator" />
             
-            {/* Bottom ad placement - horizontal banner */}
+            {/* Bottom ad placement - horizontal banner - COMMENTED OUT UNTIL VERIFIED */}
+            {/* 
             <div className="ad-container before-footer-ad">
                 <HorizontalBannerAd adSlot="1234567890" />
             </div>
+            */}
         </>
     );
 };

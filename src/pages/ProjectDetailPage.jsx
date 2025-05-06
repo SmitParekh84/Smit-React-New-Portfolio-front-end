@@ -317,168 +317,173 @@ const ProjectDetailPage = () => {
             </div>
           </div>
           
-          {/* Horizontal ad before content */}
+          {/* Horizontal ad before content - COMMENTED OUT UNTIL VERIFIED */}
+          {/*
           <div className="ad-container after-header-ad">
             <HorizontalBannerAd adSlot="5678901234" />
           </div>
+          */}
           
-          {/* Using SidebarAdLayout to display content with a sidebar ad */}
-          <SidebarAdLayout adSlot="6789012345" adPosition="right" className="project-detail-layout">
-            {/* Content sections in vertical order */}
-            <div className="project-detail__content">
-              {/* Image container at the top */}
-              <div className="project-detail__image-container" ref={imageRef}>
-                <img 
-                  src={project.imageUrl} 
-                  alt={project.title} 
-                  className="project-detail__image" 
-                />
-                {project.imageCaption && (
-                  <div className="project-detail__image-caption">
-                    {project.imageCaption}
+          {/* Using regular content layout instead of SidebarAdLayout until verified */}
+          <div className="project-detail__content">
+            {/* Image container at the top */}
+            <div className="project-detail__image-container" ref={imageRef}>
+              <img 
+                src={project.imageUrl} 
+                alt={project.title} 
+                className="project-detail__image" 
+              />
+              {project.imageCaption && (
+                <div className="project-detail__image-caption">
+                  {project.imageCaption}
+                </div>
+              )}
+            </div>
+            
+            {/* Info section below the image */}
+            <div className="project-detail__info" ref={contentRef}>
+              {/* Tab navigation for mobile */}
+              <div className="project-detail__tabs">
+                <button 
+                  className={`project-detail__tab ${activeSection === "summary" ? "active" : ""}`}
+                  onClick={() => setActiveSection("summary")}
+                >
+                  <i className="uil uil-clipboard-notes"></i> Summary
+                </button>
+                {project.detailMarkdown && (
+                  <button 
+                    className={`project-detail__tab ${activeSection === "details" ? "active" : ""}`}
+                    onClick={() => setActiveSection("details")}
+                  >
+                    <i className="uil uil-document-layout-center"></i> Details
+                  </button>
+                )}
+                {project.technologies && project.technologies.length > 0 && (
+                  <button 
+                    className={`project-detail__tab ${activeSection === "tech" ? "active" : ""}`}
+                    onClick={() => setActiveSection("tech")}
+                  >
+                    <i className="uil uil-brackets-curly"></i> Tech
+                  </button>
+                )}
+              </div>
+              
+              {/* Content sections in vertical order */}
+              <div className={`project-detail__summary ${activeSection === "summary" ? "active" : ""}`}>
+                <h3><i className="uil uil-clipboard-notes"></i> Project Summary</h3>
+                <p>{project.shortDescription}</p>
+                
+                {project.challenges && (
+                  <div className="project-detail__challenges">
+                    <h4><i className="uil uil-mountains"></i> Challenges & Solutions</h4>
+                    <p>{project.challenges}</p>
+                  </div>
+                )}
+                
+                {project.outcome && (
+                  <div className="project-detail__outcome">
+                    <h4><i className="uil uil-check-circle"></i> Outcome</h4>
+                    <p>{project.outcome}</p>
                   </div>
                 )}
               </div>
               
-              {/* Info section below the image */}
-              <div className="project-detail__info" ref={contentRef}>
-                {/* Tab navigation for mobile */}
-                <div className="project-detail__tabs">
-                  <button 
-                    className={`project-detail__tab ${activeSection === "summary" ? "active" : ""}`}
-                    onClick={() => setActiveSection("summary")}
+              {/* Project details below summary */}
+              {project.detailMarkdown && (
+                <div className={`project-detail__markdown ${activeSection === "details" ? "active" : ""}`}>
+                  <h3><i className="uil uil-document-layout-center"></i> Project Details</h3>
+                  <div className="markdown-content styled-markdown">
+                    <ReactMarkdown components={markdownRenderers}>
+                      {project.detailMarkdown}
+                    </ReactMarkdown>
+                  </div>
+                </div>
+              )}
+
+              {project.technologies && project.technologies.length > 0 && (
+                <div className={`project-detail__technologies ${activeSection === "tech" ? "active" : ""}`}>
+                  <h3><i className="uil uil-brackets-curly"></i> Technologies Used</h3>
+                  <ul>
+                    {project.technologies.map((tech, index) => (
+                      <li key={index}>
+                        <span className="tech-name">{tech}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Only render links section if there are links */}
+              {(project.demoLink || project.repoLink) && (
+                <div className="project-detail__links">
+                  {project.demoLink && (
+                    <a 
+                      href={project.demoLink} 
+                      className="button button--flex" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <i className="uil uil-globe"></i> {project.demoBtn || "View Live Demo"}
+                    </a>
+                  )}
+                  
+                  {project.repoLink && (
+                    <a 
+                      href={project.repoLink} 
+                      className="button button--outline button--flex" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <i className="uil uil-github"></i> View Code
+                    </a>
+                  )}
+                </div>
+              )}
+              
+              {/* Social sharing section with accessibility improvements */}
+              <div className="project-detail__share">
+                <h4><i className="uil uil-share-alt"></i> Share this project</h4>
+                <div className="project-detail__share-buttons">
+                  <a 
+                    href={`https://twitter.com/intent/tweet?text=Check out this awesome project: ${project.title}&url=${encodeURIComponent(`${window.location.origin}/project/${formatUrlSlug(project.title)}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="share-button twitter"
+                    aria-label="Share on Twitter"
                   >
-                    <i className="uil uil-clipboard-notes"></i> Summary
+                    <i className="uil uil-twitter"></i>
+                  </a>
+                  <a 
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${window.location.origin}/project/${formatUrlSlug(project.title)}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="share-button linkedin"
+                    aria-label="Share on LinkedIn"
+                  >
+                    <i className="uil uil-linkedin"></i>
+                  </a>
+                  <button
+                    onClick={handleCopyToClipboard}
+                    className="share-button copy"
+                    aria-label="Copy link to clipboard"
+                  >
+                    <i className="uil uil-link"></i>
                   </button>
-                  {project.detailMarkdown && (
-                    <button 
-                      className={`project-detail__tab ${activeSection === "details" ? "active" : ""}`}
-                      onClick={() => setActiveSection("details")}
-                    >
-                      <i className="uil uil-document-layout-center"></i> Details
-                    </button>
-                  )}
-                  {project.technologies && project.technologies.length > 0 && (
-                    <button 
-                      className={`project-detail__tab ${activeSection === "tech" ? "active" : ""}`}
-                      onClick={() => setActiveSection("tech")}
-                    >
-                      <i className="uil uil-brackets-curly"></i> Tech
-                    </button>
-                  )}
                 </div>
-                
-                {/* Content sections in vertical order */}
-                <div className={`project-detail__summary ${activeSection === "summary" ? "active" : ""}`}>
-                  <h3><i className="uil uil-clipboard-notes"></i> Project Summary</h3>
-                  <p>{project.shortDescription}</p>
-                  
-                  {project.challenges && (
-                    <div className="project-detail__challenges">
-                      <h4><i className="uil uil-mountains"></i> Challenges & Solutions</h4>
-                      <p>{project.challenges}</p>
-                    </div>
-                  )}
-                  
-                  {project.outcome && (
-                    <div className="project-detail__outcome">
-                      <h4><i className="uil uil-check-circle"></i> Outcome</h4>
-                      <p>{project.outcome}</p>
-                    </div>
-                  )}
-                </div>
-                
-                {/* Project details below summary */}
-                {project.detailMarkdown && (
-                  <div className={`project-detail__markdown ${activeSection === "details" ? "active" : ""}`}>
-                    <h3><i className="uil uil-document-layout-center"></i> Project Details</h3>
-                    <div className="markdown-content styled-markdown">
-                      <ReactMarkdown components={markdownRenderers}>
-                        {project.detailMarkdown}
-                      </ReactMarkdown>
-                    </div>
-                  </div>
-                )}
 
-                {project.technologies && project.technologies.length > 0 && (
-                  <div className={`project-detail__technologies ${activeSection === "tech" ? "active" : ""}`}>
-                    <h3><i className="uil uil-brackets-curly"></i> Technologies Used</h3>
-                    <ul>
-                      {project.technologies.map((tech, index) => (
-                        <li key={index}>
-                          <span className="tech-name">{tech}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Only render links section if there are links */}
-                {(project.demoLink || project.repoLink) && (
-                  <div className="project-detail__links">
-                    {project.demoLink && (
-                      <a 
-                        href={project.demoLink} 
-                        className="button button--flex" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        <i className="uil uil-globe"></i> {project.demoBtn || "View Live Demo"}
-                      </a>
-                    )}
-                    
-                    {project.repoLink && (
-                      <a 
-                        href={project.repoLink} 
-                        className="button button--outline button--flex" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        <i className="uil uil-github"></i> View Code
-                      </a>
-                    )}
-                  </div>
-                )}
-                
-                {/* Social sharing section with accessibility improvements */}
-                <div className="project-detail__share">
-                  <h4><i className="uil uil-share-alt"></i> Share this project</h4>
-                  <div className="project-detail__share-buttons">
-                    <a 
-                      href={`https://twitter.com/intent/tweet?text=Check out this awesome project: ${project.title}&url=${encodeURIComponent(`${window.location.origin}/project/${formatUrlSlug(project.title)}`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="share-button twitter"
-                      aria-label="Share on Twitter"
-                    >
-                      <i className="uil uil-twitter"></i>
-                    </a>
-                    <a 
-                      href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${window.location.origin}/project/${formatUrlSlug(project.title)}`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="share-button linkedin"
-                      aria-label="Share on LinkedIn"
-                    >
-                      <i className="uil uil-linkedin"></i>
-                    </a>
-                    <button
-                      onClick={handleCopyToClipboard}
-                      className="share-button copy"
-                      aria-label="Copy link to clipboard"
-                    >
-                      <i className="uil uil-link"></i>
-                    </button>
-                  </div>
-
-                  {/* Non-intrusive copy notification */}
-                  <div className={`copy-notification ${showCopyNotification ? 'show' : ''}`}>
-                    <i className="uil uil-check"></i> Link copied to clipboard!
-                  </div>
+                {/* Non-intrusive copy notification */}
+                <div className={`copy-notification ${showCopyNotification ? 'show' : ''}`}>
+                  <i className="uil uil-check"></i> Link copied to clipboard!
                 </div>
               </div>
             </div>
+          </div>
+          
+          {/* Original SidebarAdLayout code commented out until verified 
+          <SidebarAdLayout adSlot="6789012345" adPosition="right" className="project-detail-layout">
+            // ...existing content code...
           </SidebarAdLayout>
+          */}
           
           <div className="project-detail__related">
             <h2>Explore More Projects</h2>
@@ -487,10 +492,12 @@ const ProjectDetailPage = () => {
             </Link>
           </div>
 
-          {/* Horizontal ad at the bottom */}
+          {/* Horizontal ad at the bottom - COMMENTED OUT UNTIL VERIFIED */}
+          {/*
           <div className="ad-container before-footer-ad">
             <HorizontalBannerAd adSlot="7890123456" />
           </div>
+          */}
         </div>
       </section>
     </>
