@@ -1,0 +1,115 @@
+/* ProjectFormSkeleton.css - Skeleton loading for project forms */
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(200, 200, 200, 0.3);
+  }
+  50% {
+    background-color: rgba(200, 200, 200, 0.5);
+  }
+  100% {
+    background-color: rgba(200, 200, 200, 0.3);
+  }
+}
+
+.project-form-skeleton {
+  padding: 1rem 0;
+}
+
+.project-form-skeleton > div {
+  margin-bottom: 1.5rem;
+}
+
+.skeleton-header {
+  margin-bottom: 2rem;
+}
+
+.skeleton-title {
+  height: 2rem;
+  width: 60%;
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-subtitle {
+  height: 1.2rem;
+  width: 80%;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.skeleton-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .skeleton-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skeleton-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.skeleton-label {
+  height: 1rem;
+  width: 40%;
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-input {
+  height: 2.5rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.1s;
+}
+
+.skeleton-textarea {
+  height: 6rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.15s;
+}
+
+.skeleton-image-upload {
+  height: 8rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.skeleton-md-editor {
+  height: 15rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.25s;
+}
+
+.skeleton-form-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.skeleton-button {
+  height: 2.5rem;
+  width: 10rem;
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.3s;
+}

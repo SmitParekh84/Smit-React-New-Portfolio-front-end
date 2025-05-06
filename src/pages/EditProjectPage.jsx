@@ -88,14 +88,88 @@ const EditProjectPage = () => {
     }
   };
 
+  // Skeleton loading component for the form
+  const ProjectFormSkeleton = () => (
+    <div className="project-form-skeleton">
+      <div className="skeleton-header">
+        <div className="skeleton-title"></div>
+        <div className="skeleton-subtitle"></div>
+      </div>
+      
+      <div className="skeleton-form-grid">
+        <div className="skeleton-form-group">
+          <div className="skeleton-label"></div>
+          <div className="skeleton-input"></div>
+        </div>
+        <div className="skeleton-form-group">
+          <div className="skeleton-label"></div>
+          <div className="skeleton-input"></div>
+        </div>
+      </div>
+      
+      <div className="skeleton-form-group">
+        <div className="skeleton-label"></div>
+        <div className="skeleton-textarea"></div>
+      </div>
+      
+      <div className="skeleton-form-group">
+        <div className="skeleton-label"></div>
+        <div className="skeleton-image-upload"></div>
+      </div>
+      
+      <div className="skeleton-form-group">
+        <div className="skeleton-label"></div>
+        <div className="skeleton-md-editor"></div>
+      </div>
+      
+      <div className="skeleton-form-actions">
+        <div className="skeleton-button"></div>
+        <div className="skeleton-button"></div>
+      </div>
+    </div>
+  );
+
   if (fetchLoading) {
     return (
       <section className="edit-project section">
         <div className="container">
-          <div className="loader-container" style={{ padding: "3rem 0" }}>
-            <div className="loader"></div>
-            <h2>Loading Project Data...</h2>
-          </div>
+          <div className="project-form-skeleton">
+      <div className="skeleton-header">
+        <div className="skeleton-title"></div>
+        <div className="skeleton-subtitle"></div>
+      </div>
+      
+      <div className="skeleton-form-grid">
+        <div className="skeleton-form-group">
+          <div className="skeleton-label"></div>
+          <div className="skeleton-input"></div>
+        </div>
+        <div className="skeleton-form-group">
+          <div className="skeleton-label"></div>
+          <div className="skeleton-input"></div>
+        </div>
+      </div>
+      
+      <div className="skeleton-form-group">
+        <div className="skeleton-label"></div>
+        <div className="skeleton-textarea"></div>
+      </div>
+      
+      <div className="skeleton-form-group">
+        <div className="skeleton-label"></div>
+        <div className="skeleton-image-upload"></div>
+      </div>
+      
+      <div className="skeleton-form-group">
+        <div className="skeleton-label"></div>
+        <div className="skeleton-md-editor"></div>
+      </div>
+      
+      <div className="skeleton-form-actions">
+        <div className="skeleton-button"></div>
+        <div className="skeleton-button"></div>
+      </div>
+    </div>
         </div>
       </section>
     );
@@ -113,26 +187,32 @@ const EditProjectPage = () => {
         <div className="container">
           <div className="edit-project__header">
             <h2 className="section__title">Edit Project</h2>
-            <p className="edit-project__subtitle">Update details for "{project?.title}"</p>
+            <p className="edit-project__subtitle">
+              {fetchLoading ? "Loading project details..." : `Update details for "${project?.title}"`}
+            </p>
           </div>
           
-          <ProjectForm
-            initialData={project}
-            onSubmit={handleSubmit}
-            loading={loading}
-            error={error}
-            successMessage={successMessage}
-            submitButtonText={loading ? 'Saving Changes...' : 'Update Project'}
-            cancelHandler={() => navigate(-1)}
-            extraActions={
-              <Link 
-                to={`/project/${encodeURIComponent(project?.title)}`}
-                className="button button--outline index-metadata__button"
-              >
-                <i className="uil uil-eye"></i> View Project
-              </Link>
-            }
-          />
+          {fetchLoading ? (
+            <ProjectFormSkeleton />
+          ) : (
+            <ProjectForm
+              initialData={project}
+              onSubmit={handleSubmit}
+              loading={loading}
+              error={error}
+              successMessage={successMessage}
+              submitButtonText={loading ? 'Saving Changes...' : 'Update Project'}
+              cancelHandler={() => navigate(-1)}
+              extraActions={
+                <Link 
+                  to={`/project/${encodeURIComponent(project?.title)}`}
+                  className="button button--outline index-metadata__button"
+                >
+                  <i className="uil uil-eye"></i> View Project
+                </Link>
+              }
+            />
+          )}
         </div>
       </section>
     </>
