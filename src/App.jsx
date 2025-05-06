@@ -10,6 +10,7 @@ import "./assets/css/admin.css"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer"
 import Loader from "./components/Loader"
+import { AdSenseProvider } from "./components/AdSense"
 
 // Pages - All components with direct imports (no lazy loading)
 import { PortfolioPage } from "./pages/PortfolioPage"
@@ -66,46 +67,48 @@ const App = () => {
 
   return (
     <Router>
-      <Header />
-      <main className="main">
-        <Routes>
-          {/* Main Routes */}
-          <Route path="/" element={<ToolsShowcasePage />} />
-          <Route path="/portfolio" element={<Landing />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/qualification" element={<Qualification />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/project" element={<PortfolioPage />} />
-          <Route path="/project/:id" element={<ProjectDetailPage />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/cv-viewer" element={<CVViewer />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
-          
-          {/* Tools Routes */}
-          <Route path="/free-tools" element={<ToolsPage />} />
-          <Route path="/free-tools/background-remover" element={<BackgroundRemoverPage />} />
-          <Route path="/free-tools/viral-linkedin-post-generator" element={<LinkedInPostGeneratorPage />} />
-          <Route path="/free-tools/meta-tag-checker" element={<MetaCheckerPage />} />
-          <Route path="/free-tools/qr-code-generator" element={<QRCodeGeneratorPage />} />
-          <Route path="/free-tools/image-compressor" element={<ImageCompressorPage />} />
-          <Route path="/free-tools/image-converter" element={<ImageConverterPage />} />
-          <Route path="/free-tools/seo-analyzer" element={<SEOAnalyzerPage />} />
-          <Route path="/free-tools/linkedin-media-downloader" element={<LinkedInMediaDownloaderPage />} />
-          
-          {/* Admin Routes */}
-          <Route path="/admin" element={<AdminLoginPage />} />
-          <Route path="/admin/add-project" element={<AddProjectPage />} />
-          <Route path="/admin/edit-project/:id" element={<EditProjectPage />} />
-          
-          {/* Error Routes */}
-          <Route path="/404" element={<NotFoundPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </main>
-      <Footer />
+      <AdSenseProvider>
+        <Header />
+        <main className="main">
+          <Routes>
+            {/* Main Routes */}
+            <Route path="/" element={<ToolsShowcasePage />} />
+            <Route path="/portfolio" element={<Landing />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/qualification" element={<Qualification />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/project" element={<PortfolioPage />} />
+            <Route path="/project/:id" element={<ProjectDetailPage />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/cv-viewer" element={<CVViewer />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            
+            {/* Tools Routes */}
+            <Route path="/free-tools" element={<ToolsPage />} />
+            <Route path="/free-tools/background-remover" element={<BackgroundRemoverPage />} />
+            <Route path="/free-tools/viral-linkedin-post-generator" element={<LinkedInPostGeneratorPage />} />
+            <Route path="/free-tools/meta-tag-checker" element={<MetaCheckerPage />} />
+            <Route path="/free-tools/qr-code-generator" element={<QRCodeGeneratorPage />} />
+            <Route path="/free-tools/image-compressor" element={<ImageCompressorPage />} />
+            <Route path="/free-tools/image-converter" element={<ImageConverterPage />} />
+            <Route path="/free-tools/seo-analyzer" element={<SEOAnalyzerPage />} />
+            <Route path="/free-tools/linkedin-media-downloader" element={<LinkedInMediaDownloaderPage />} />
+            
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminLoginPage />} />
+            <Route path="/admin/add-project" element={<AddProjectPage />} />
+            <Route path="/admin/edit-project/:id" element={<EditProjectPage />} />
+            
+            {/* Error Routes */}
+            <Route path="/404" element={<NotFoundPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </AdSenseProvider>
     </Router>
   )
 }

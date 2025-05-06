@@ -16,6 +16,7 @@ import {
     generateFAQSchema,
     getFullUrl 
 } from "../utils/SocialMetaHelper";
+import { HorizontalBannerAd, InArticleAd } from "../components/AdSense";
 
 const ToolsShowcasePage = () => {
     // Create product showcase data from toolsData
@@ -121,12 +122,22 @@ const ToolsShowcasePage = () => {
 
             {/* Modern Hero Section */}
             <ToolsHero />
+            
+            {/* Horizontal Banner Ad after Hero Section */}
+            <div className="ad-container">
+                <HorizontalBannerAd adSlot="1234567890" />
+            </div>
 
             {/* Tools Grid Section */}
             <ToolsGrid tools={toolsData} />
 
             {/* Tools Content Details - Added as separate section */}
             <ToolsContentDetails title="Professional Tools For Everyone" />
+            
+            {/* In-article Ad between sections */}
+            <div className="ad-container content-ad">
+                <InArticleAd adSlot="2345678901" />
+            </div>
             
             {/* Features Section */}
             <Features 
@@ -149,7 +160,13 @@ const ToolsShowcasePage = () => {
                 subtitle="Learn More About Each Tool"
                 products={productShowcaseData}
             />
-             {/* Detailed Content Section - Added for AdSense compliance */}
+            
+            {/* Horizontal Banner Ad before Detailed Content */}
+            <div className="ad-container">
+                <HorizontalBannerAd adSlot="3456789012" />
+            </div>
+            
+            {/* Detailed Content Section - Added for AdSense compliance */}
             <ToolsDetailedContent />
 
             {/* How It Works Section */}
@@ -167,6 +184,11 @@ const ToolsShowcasePage = () => {
                     testimonials={toolTestimonials}
                 />
             )}
+
+            {/* In-article Ad before FAQ section */}
+            <div className="ad-container content-ad">
+                <InArticleAd adSlot="4567890123" />
+            </div>
 
             {/* FAQ Section */}
             <FAQ 

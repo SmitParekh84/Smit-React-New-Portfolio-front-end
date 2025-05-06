@@ -3,6 +3,7 @@ import LinkedInPostGenerator from "../components/LinkedInPostGenerator/LinkedInP
 import FAQ from "../components/FAQ/FAQ";
 import { faqDataLinkedin } from "../data/data";
 import SEO from "../components/SEO/SEO";
+import { HorizontalBannerAd, InArticleAd, SidebarAdLayout } from "../components/AdSense";
 
 const LinkedInPostGeneratorPage = () => {
     // FAQ Schema
@@ -126,9 +127,33 @@ const LinkedInPostGeneratorPage = () => {
                 lastUpdated="2023-11-15"
                 language="en-US"
             />
+            
+            {/* Top ad placement - horizontal banner */}
+            <div className="ad-container after-header-ad">
+                <HorizontalBannerAd adSlot="8901234567" />
+            </div>
 
-            <LinkedInPostGenerator />
+            {/* Wrap the main content in a sidebar layout */}
+            <SidebarAdLayout 
+                adSlot="9012345678"
+                adPosition="right"
+                className="linkedin-generator-layout"
+                contentClassName="linkedin-generator-content"
+            >
+                <LinkedInPostGenerator />
+            </SidebarAdLayout>
+            
+            {/* Middle ad placement - in-article ad */}
+            <div className="ad-container content-ad">
+                <InArticleAd adSlot="0123456789" />
+            </div>
+
             <FAQ faqData={faqDataLinkedin} toolName="Viral LinkedIn Post Generator" />
+            
+            {/* Bottom ad placement - horizontal banner */}
+            <div className="ad-container before-footer-ad">
+                <HorizontalBannerAd adSlot="1234567890" />
+            </div>
         </>
     );
 };

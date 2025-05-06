@@ -1,0 +1,125 @@
+/* AdSense Component Styles */
+.adsense-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem auto;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clear: both;
+}
+
+.ad-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 2rem auto;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+.horizontal-banner-ad {
+  min-height: 90px;
+  width: 100%;
+}
+
+.sidebar-ad {
+  min-height: 250px;
+  max-height: 600px;
+}
+
+.in-article-ad {
+  min-height: 250px;
+}
+
+.content-ad {
+  margin: 3rem auto;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .ad-container {
+    margin: 1.5rem auto;
+  }
+  
+  .horizontal-banner-ad {
+    min-height: 60px;
+  }
+  
+  .sidebar-ad {
+    min-height: 200px;
+  }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 480px) {
+  .ad-container {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Ad container styling for specific page areas */
+.after-header-ad {
+  margin-top: 0;
+}
+
+.before-footer-ad {
+  margin-bottom: 0;
+}
+
+/* Add a subtle background to distinguish ads from content */
+.adsense-container::before {
+  content: "Advertisement";
+  display: block;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #757575;
+  margin-bottom: 0.25rem;
+}
+
+/* Sidebar Ad Layout Styles */
+.sidebar-ad-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.sidebar-ad-container {
+  width: 100%;
+  min-height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-container {
+  width: 100%;
+}
+
+/* Desktop styles - show sidebar */
+@media screen and (min-width: 992px) {
+  .sidebar-ad-layout {
+    grid-template-columns: minmax(0, 3fr) minmax(250px, 1fr);
+  }
+  
+  .sidebar-ad-layout.ad-left {
+    grid-template-columns: minmax(250px, 1fr) minmax(0, 3fr);
+  }
+  
+  .sidebar-ad-container {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+}
+
+/* Make sidebar ads stick as you scroll */
+.sidebar-ad-container .adsense-container {
+  position: sticky;
+  top: 100px;
+}

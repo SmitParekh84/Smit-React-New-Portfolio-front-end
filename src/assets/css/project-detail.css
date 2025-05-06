@@ -802,3 +802,39 @@
   box-sizing: border-box;
   overflow-wrap: break-word;
 }
+
+/* Project detail page specific styles for ads */
+.project-detail-layout {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.project-detail .ad-container {
+  background-color: var(--container-color);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.project-detail .after-header-ad {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+.project-detail .before-footer-ad {
+  margin-bottom: 1.5rem;
+}
+
+/* Make sidebar sticky for the project page */
+.project-detail .sidebar-ad-container {
+  max-height: 70vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb-color) var(--scroll-bar-color);
+}
+
+@media screen and (max-width: 768px) {
+  .project-detail .ad-container {
+    margin: 1rem 0;
+  }
+}
