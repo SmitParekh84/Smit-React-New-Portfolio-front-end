@@ -1,0 +1,113 @@
+/* PortfolioCardSkeleton Styles */
+
+@keyframes skeleton-pulse {
+  0% {
+    background-color: rgba(200, 200, 200, 0.3);
+  }
+  50% {
+    background-color: rgba(200, 200, 200, 0.5);
+  }
+  100% {
+    background-color: rgba(200, 200, 200, 0.3);
+  }
+}
+
+.portfolio-card-skeleton {
+  background-color: var(--container-color);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.portfolio-card-skeleton__img-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+}
+
+.portfolio-card-skeleton__img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: rgba(200, 200, 200, 0.3);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.portfolio-card-skeleton__info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.portfolio-card-skeleton__title {
+  height: 1.8rem;
+  width: 80%;
+  border-radius: 4px;
+  background-color: rgba(200, 200, 200, 0.3);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+.portfolio-card-skeleton__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  gap: 10px;
+}
+
+.portfolio-card-skeleton__category {
+  height: 1.2rem;
+  width: 30%;
+  border-radius: 30px;
+  background-color: rgba(200, 200, 200, 0.3);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.1s;
+}
+
+.portfolio-card-skeleton__timestamp {
+  height: 1rem;
+  width: 40%;
+  border-radius: 30px;
+  background-color: rgba(200, 200, 200, 0.3);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.portfolio-card-skeleton__description {
+  height: 4rem;
+  width: 100%;
+  border-radius: 4px;
+  background-color: rgba(200, 200, 200, 0.3);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.3s;
+  margin-bottom: 1.8rem;
+}
+
+.portfolio-card-skeleton__actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: auto;
+}
+
+.portfolio-card-skeleton__button {
+  height: 2.5rem;
+  width: 10rem;
+  border-radius: 10px;
+  background-color: rgba(200, 200, 200, 0.3);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 480px) {
+  .portfolio-card-skeleton__info {
+    padding: 1.5rem;
+  }
+}

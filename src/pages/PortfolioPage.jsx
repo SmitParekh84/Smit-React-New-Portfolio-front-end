@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SEO from "../components/SEO/SEO";
 import { useState, useEffect, useRef } from "react";
 import PortfolioCard from "../components/PortfolioCard/PortfolioCard";
+import PortfolioSkeletonGrid from "../components/PortfolioCard/PortfolioSkeletonGrid"; // Import the skeleton grid component
 import DeleteConfirmationModal from "../components/DeleteConfirmationModal/DeleteConfirmationModal";
 // Import Swiper
 import Swiper from "swiper/bundle";
@@ -485,12 +486,7 @@ export const PortfolioPage = () => {
       <section className="portfolio section">
         <div className="portfolio__container">
           {loading ? (
-            <div className="portfolio__loading">
-              <div className="loader-container">
-                <div className="loader"></div>
-                <p>Loading amazing projects...</p>
-              </div>
-            </div>
+            <PortfolioSkeletonGrid /> // Use the skeleton grid component here
           ) : error ? (
             <div className="portfolio__error">
               <h3>Error: {error}</h3>
