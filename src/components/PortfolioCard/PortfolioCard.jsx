@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -46,15 +46,24 @@ const getRelativeTime = (dateString) => {
 };
 
 const PortfolioCard = ({ project, isAuthenticated, onDeleteClick }) => {
+  const [showAllCategories, setShowAllCategories] = useState(false);
+
   // Helper function to get category name
   const getCategoryName = (categoryId) => {
     switch(categoryId) {
       case 'webdev': return 'Web Development';
       case 'frontend': return 'Frontend Design';
+      case 'backend': return 'Backend Development';
+      case 'fullstack': return 'Full-Stack Development';
+      case 'api': return 'API Development';
+      case 'ecommerce': return 'E-Commerce';
+      case 'analytics': return 'Analytics';
+      case 'ui-ux': return 'UI/UX Design';
       case 'seo': return 'SEO';
+      case 'performance': return 'Performance';
       case 'marketing': return 'Marketing';
       case 'video': return 'Video Editing';
-      default: return 'Project';
+      default: return categoryId || 'Project';
     }
   };
 
@@ -72,6 +81,48 @@ const PortfolioCard = ({ project, isAuthenticated, onDeleteClick }) => {
     // For CDN placeholder (e.g. ImageKit): `${url}?tr=w-20,h-20,bl-6`
     // If not using CDN, just return the original
     return url;
+  };
+
+  // Handle category display with tooltip functionality
+  const renderCategories = () => {
+    // Handle single category case (old data format)
+    if (project.category && !project.categories) {
+      return (
+        <span className="portfolio-card__category">{getCategoryName(project.category)}</span>
+      );
+    }
+
+    // Handle multiple categories case (new data format)
+    if (project.categories && project.categories.length > 0) {
+      return (
+        <div className="portfolio-card__category-container">
+          <span className="portfolio-card__category">
+            {getCategoryName(project.categories[0])}
+          </span>
+          
+          {project.categories.length > 1 && (
+            <div className="portfolio-card__category-more">
+              <span 
+                className="category-expand-button"
+                aria-label={`${project.categories.length - 1} more categories`}
+              >
+                +{project.categories.length - 1}
+              </span>
+              <div className="portfolio-card__category-expanded">
+                {project.categories.slice(1).map((categoryId, index) => (
+                  <span key={index} className="portfolio-card__category">
+                    {getCategoryName(categoryId)}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // Fallback for no categories
+    return null;
   };
 
   return (
@@ -137,7 +188,8 @@ const PortfolioCard = ({ project, isAuthenticated, onDeleteClick }) => {
         <h3 className="portfolio-card__title">{project.title}</h3>
         
         <div className="portfolio-card__meta">
-          <span className="portfolio-card__category">{getCategoryName(project.category)}</span>
+          {/* Updated categories rendering */}
+          {renderCategories()}
           
           {/* Add timestamp display */}
           {project.updatedAt && (
@@ -168,7 +220,8 @@ PortfolioCard.propTypes = {
   project: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
+    category: PropTypes.string,
+    categories: PropTypes.array, // Support for multiple categories
     imageUrl: PropTypes.string.isRequired,
     shortDescription: PropTypes.string.isRequired,
     demoLink: PropTypes.string,
