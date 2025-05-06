@@ -320,15 +320,48 @@ const ProjectDetailPage = () => {
           <div className="project-detail__header">
             <h1 className="project-detail__title">{project.title}</h1>
             <div className="project-detail__meta">
-              <span className="project-detail__category">
-                <i className="uil uil-folder"></i> {getCategoryName(project.category)}
-              </span>
-              {getProjectTimeInfo() && (
-                <span className="project-detail__date">
-                  <i className="uil uil-calendar-alt"></i> {getProjectTimeInfo()}
+  <div className="project-detail__category">
+    <i className="uil uil-folder"></i> 
+    {project.categories && project.categories.length > 0 ? (
+      <>
+        <span className="project-detail__category-tag">
+          {getCategoryName(project.categories[0])}
+        </span>
+        
+        {project.categories.length > 1 && (
+          <div className="project-detail__category-more">
+            <button 
+              className="category-expand-button" 
+              onClick={(e) => {
+                e.currentTarget.classList.toggle('active');
+                e.currentTarget.nextElementSibling.classList.toggle('expanded');
+              }}
+              aria-label="Show more categories"
+            >
+              +{project.categories.length - 1}
+            </button>
+            <div className="project-detail__category-expanded">
+              {project.categories.slice(1).map((categoryId) => (
+                <span key={categoryId} className="project-detail__category-tag">
+                  {getCategoryName(categoryId)}
                 </span>
-              )}
+              ))}
             </div>
+          </div>
+        )}
+      </>
+    ) : (
+      <span className="project-detail__category-tag">
+        {getCategoryName(project.category)}
+      </span>
+    )}
+  </div>
+  {getProjectTimeInfo() && (
+    <span className="project-detail__date">
+      <i className="uil uil-calendar-alt"></i> {getProjectTimeInfo()}
+    </span>
+  )}
+</div>
           </div>
           
           {/* Horizontal ad before content - COMMENTED OUT UNTIL VERIFIED */}
@@ -522,13 +555,18 @@ const ProjectDetailPage = () => {
 const getCategoryName = (categoryId) => {
   switch(categoryId) {
     case 'webdev': return 'Web Development';
-    case 'frontend': return 'Frontend Design';
-    case 'seo': return 'Search Engine Optimization';
+    case 'frontend': return 'Frontend Development';
+    case 'backend': return 'Backend Development';
+    case 'fullstack': return 'Full-Stack Development';
+    case 'api': return 'API Development';
+    case 'ecommerce': return 'E-Commerce Solutions';
+    case 'analytics': return 'Analytics Integration';
+    case 'ui-ux': return 'UI/UX Design';
+    case 'seo': return 'SEO Optimization';
+    case 'performance': return 'Performance Optimization';
     case 'marketing': return 'Digital Marketing';
     case 'video': return 'Video Production';
-    case 'mobile': return 'Mobile App Development';
-    case 'design': return 'UI/UX Design';
-    default: return 'Project';
+    default: return categoryId || 'Project';
   }
 };
 

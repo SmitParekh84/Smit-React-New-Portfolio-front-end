@@ -129,7 +129,7 @@
   transform: translateY(30px);
   opacity: 0;
   transition: transform 0.8s ease, opacity 0.8s ease, box-shadow 0.3s ease;
-  z-index: 1;
+  z-index: -1;
   order: 1; /* First item in the flex container */
 }
 
@@ -838,3 +838,80 @@
     margin: 1rem 0;
   }
 }
+
+/* Category display with expandability */
+.project-detail__category {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-detail__category i {
+  color: var(--first-color);
+  margin-right: 0.25rem;
+}
+
+.project-detail__category-more {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.category-expand-button {
+  background-color: rgba(var(--first-color-rgb), 0.1);
+  color: var(--first-color);
+  border: none;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--smaller-font-size);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-expand-button:hover {
+  background-color: rgba(var(--first-color-rgb), 0.2);
+  transform: translateY(-2px);
+}
+
+.category-expand-button.active {
+  background-color: var(--first-color);
+  color: #fff;
+}
+
+.project-detail__category-expanded {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background-color: var(--container-color);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-width: 200px;
+  border: 1px solid rgba(var(--first-color-rgb), 0.1);
+}
+
+.project-detail__category-expanded.expanded {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Dark mode compatibility */
+.dark-theme .project-detail__category-expanded {
+  background-color: var(--container-color-dark, #333);
+  border-color: var(--border-color-dark, #444);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Existing category tag styles remain the same */

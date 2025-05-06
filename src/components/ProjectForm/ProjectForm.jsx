@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import MDEditor from '@uiw/react-md-editor';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
@@ -16,19 +16,39 @@ const ProjectForm = ({
   extraActions
 }) => {
   const [title, setTitle] = useState(initialData.title || '');
-  const [category, setCategory] = useState(initialData.category || 'webdev');
+  // Change from single category to multiple categories
+  const [selectedCategories, setSelectedCategories] = useState(
+    initialData.categories ? 
+    (Array.isArray(initialData.categories) ? initialData.categories : [initialData.category || 'webdev']) : 
+    [initialData.category || 'webdev']
+  );
   const [shortDescription, setShortDescription] = useState(initialData.shortDescription || '');
   const [detailMarkdown, setDetailMarkdown] = useState(initialData.detailMarkdown || '');
   const [imageUrl, setImageUrl] = useState(initialData.imageUrl || '');
   const [isShowcased, setIsShowcased] = useState(initialData.isShowcased || false);
-  // Add states for repo link, demo link and demo button text
   const [repoLink, setRepoLink] = useState(initialData.repoLink || '');
   const [demoLink, setDemoLink] = useState(initialData.demoLink || '');
   const [demoBtn, setDemoBtn] = useState(initialData.demoBtn || 'View Live Demo');
   const [imageUploading, setImageUploading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
 
   const editorRef = useRef(null);
+  const categoryDropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (categoryDropdownRef.current && !categoryDropdownRef.current.contains(event.target)) {
+        setShowCategoryDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // Show error and success toasts when they change
   useEffect(() => {
@@ -40,14 +60,34 @@ const ProjectForm = ({
     }
   }, [error, successMessage]);
 
-  // Categories for the dropdown
-  const categories = [
-    { id: "webdev", name: "Web Development" },
-    { id: "frontend", name: "Frontend Design" },
-    { id: "seo", name: "SEO" },
-    { id: "marketing", name: "Marketing" },
-    { id: "video", name: "Video Editing" },
-  ];
+    // Professional categories for the dropdown
+    const categories = [
+      { id: "webdev", name: "Web Development" },
+      { id: "frontend", name: "Frontend Development" },
+      { id: "backend", name: "Backend Development" },
+      { id: "fullstack", name: "Full-Stack Development" },
+      { id: "api", name: "API Development" },
+      { id: "ecommerce", name: "E-Commerce Solutions" },
+      { id: "analytics", name: "Analytics Integration" },
+      { id: "ui-ux", name: "UI/UX Design" },
+      { id: "seo", name: "SEO Optimization" },
+      { id: "performance", name: "Performance Optimization" },
+      { id: "marketing", name: "Digital Marketing" },
+      { id: "video", name: "Video Production" },
+    ];
+
+  // Handle category selection/deselection
+  const toggleCategory = (categoryId) => {
+    setSelectedCategories(prevSelected => {
+      if (prevSelected.includes(categoryId)) {
+        // Remove category if already selected
+        return prevSelected.filter(id => id !== categoryId);
+      } else {
+        // Add category if not selected
+        return [...prevSelected, categoryId];
+      }
+    });
+  };
 
   // Image upload handler
   const handleImageUpload = async (e) => {
@@ -75,7 +115,7 @@ const ProjectForm = ({
       }
 
       const data = await response.json();
-      setImageUrl(data.url); // Updated to use data.url instead of data.imageUrl
+      setImageUrl(data.url); 
       toast.success("Image uploaded successfully!");
       
     } catch (err) {
@@ -88,16 +128,25 @@ const ProjectForm = ({
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate that at least one category is selected
+    if (selectedCategories.length === 0) {
+      toast.error("Please select at least one category");
+      return;
+    }
+    
     setIsSubmitting(true);
     
     const projectData = {
       title,
-      category,
+      // For backward compatibility, keep single category as primary
+      category: selectedCategories[0],
+      // Add the array of categories
+      categories: selectedCategories,
       shortDescription,
       detailMarkdown,
       imageUrl,
       isShowcased,
-      // Add the new fields to project data
       repoLink,
       demoLink,
       demoBtn
@@ -158,6 +207,19 @@ const ProjectForm = ({
     }
   }, [detailMarkdown]); // Re-run when content changes as toolbar might re-render
 
+  // Get selected categories names for display
+  const getSelectedCategoriesText = () => {
+    if (selectedCategories.length === 0) return "Select categories";
+    
+    const selectedNames = selectedCategories.map(id => {
+      const category = categories.find(cat => cat.id === id);
+      return category ? category.name : id;
+    });
+    
+    if (selectedNames.length <= 2) return selectedNames.join(", ");
+    return `${selectedNames.length} categories selected`;
+  };
+
   return (
     <>
       <ToastContainer 
@@ -191,25 +253,36 @@ const ProjectForm = ({
           </div>
           
           <div className="add-project__form-group">
-            <label htmlFor="category">
+            <label>
               <i className="uil uil-list-ul form-icon"></i>
-              Category
+              Categories
             </label>
-            <div className="select-wrapper">
-              <select
-                id="category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                required
+            <div className="custom-multi-select" ref={categoryDropdownRef}>
+              <div 
+                className="select-display"
+                onClick={() => setShowCategoryDropdown(!showCategoryDropdown)}
               >
-                {categories.map((cat) => (
-                  <option key={cat.id} value={cat.id}>
-                    {cat.name}
-                  </option>
-                ))}
-              </select>
-              <i className="uil uil-angle-down select-icon"></i>
+                <span>{getSelectedCategoriesText()}</span>
+                <i className={`uil ${showCategoryDropdown ? 'uil-angle-up' : 'uil-angle-down'} select-icon`}></i>
+              </div>
+              {showCategoryDropdown && (
+                <div className="select-dropdown">
+                  {categories.map((cat) => (
+                    <div 
+                      key={cat.id} 
+                      className={`select-option ${selectedCategories.includes(cat.id) ? 'selected' : ''}`}
+                      onClick={() => toggleCategory(cat.id)}
+                    >
+                      <span className="checkbox-custom">
+                        {selectedCategories.includes(cat.id) && <span className="check-mark">✓</span>}
+                      </span>
+                      {cat.name}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
+            <div className="form-helper">Select all categories that apply to this project</div>
           </div>
         </div>
         
@@ -268,7 +341,6 @@ const ProjectForm = ({
           </div>
         </div>
         
-        {/* Add repository and demo link fields */}
         <div className="add-project__form-grid">
           <div className="add-project__form-group">
             <label htmlFor="repoLink">
