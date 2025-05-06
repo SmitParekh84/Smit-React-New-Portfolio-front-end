@@ -91,11 +91,20 @@
   border-color: var(--first-color);
   box-shadow: 0 5px 15px rgba(var(--first-color-rgb), 0.4);
   transform: translateY(-3px);
+  z-index: 2; /* Ensure active tab appears above others */
 }
 
+.portfolio-nav__tab--active .portfolio-nav__icon,
+.portfolio-nav__tab--active .portfolio-nav__tab-text {
+  color:var(--first-color); /* Ensure text and icon are white in active tab */
+  
+}
+
+/* Ensure the active tab is more prominent */
 .portfolio-nav__tab--active:hover {
   color: #fff;
   transform: translateY(-3px);
+  background-color: var(--first-color-alt); /* Slightly darker on hover */
 }
 
 .portfolio-nav__tab--active::after {
@@ -106,7 +115,7 @@
   transform: translateX(-50%);
   width: 40%;
   height: 3px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: var(--first-color);
   border-radius: 3px 3px 0 0;
 }
 
@@ -541,4 +550,178 @@
   .portfolio-filter-dropdown {
     max-width: 100%;
   }
+}
+
+/* Portfolio Tabs with Swiper styles */
+.portfolio-tabs-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0;
+  padding: 0 50px; /* Increased space for navigation arrows */
+  overflow: visible; /* Don't clip shadow effects */
+}
+
+.portfolio-tabs-swiper {
+  width: 100%;
+  overflow: hidden;
+  padding: 0.5rem 0;
+}
+
+.portfolio-tabs-swiper .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-tabs-swiper .swiper-slide {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  height: auto; /* Let height be determined by content */
+  padding: 0 5px; /* Add padding between slides */
+  box-sizing: border-box;
+}
+
+/* Tab button styling */
+.portfolio-nav__tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem; /* Increased horizontal padding */
+  background-color: var(--container-color, #fff);
+  border: 1px solid rgba(var(--first-color-rgb), 0.1);
+  border-radius: 2rem;
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  white-space: nowrap; /* Keep text on one line */
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  min-width: 140px; /* Ensure minimum width for content */
+  width: fit-content; /* Adjust width based on content */
+  overflow: hidden; /* Hide overflow */
+  line-height: 1.3; /* Improve line spacing */
+}
+
+/* Style for the tab text with ellipsis */
+.portfolio-nav__tab-text {
+  max-width: 120px; /* Limit width of text */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  white-space: nowrap; /* Keep on one line */
+  display: inline-block; /* Needed for text-overflow to work */
+}
+
+.portfolio-tabs-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0;
+  padding: 0 50px; /* Increased space for navigation arrows */
+  overflow: visible; /* Don't clip shadow effects */
+}
+
+/* Navigation arrows */
+.tab-scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--first-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 3px 10px rgba(var(--first-color-rgb), 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.tab-scroll-button:hover {
+  background-color: var(--first-color-alt);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.tab-scroll-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.tab-scroll-button.tab-scroll-left {
+  left: 0;
+}
+
+.tab-scroll-button.tab-scroll-right {
+  right: 0;
+}
+
+.tab-scroll-button i {
+  font-size: 1.2rem;
+}
+
+/* Swiper and tab responsiveness */
+@media screen and (max-width: 768px) {
+  /* Hide the entire Swiper container on mobile */
+  .portfolio-tabs-container {
+    display: none; /* Hide the entire swiper navigation on mobile */
+  }
+  
+  .portfolio-filter-dropdown {
+    display: block; /* Ensure dropdown is visible */
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* Only show swiper on larger screens */
+  .portfolio-tabs-container {
+    display: flex;
+  }
+  
+  .portfolio-filter-dropdown {
+    display: none; /* Hide dropdown on larger screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio-tabs-container {
+    padding: 0 30px;
+    margin: 1rem 0;
+  }
+  
+  .portfolio-nav__tab {
+    padding: 0.5rem 0.8rem;
+  }
+  
+  .portfolio-nav__tab .portfolio-nav__icon {
+    font-size: 1rem;
+  }
+}
+
+/* Ensure dark mode compatibility */
+.dark-theme .portfolio-nav__tab {
+  background-color: var(--container-color-dark, #333);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color-dark, #f7f7f7);
+}
+
+.dark-theme .portfolio-nav__tab:hover {
+  background-color: rgba(var(--first-color-rgb), 0.2);
+}
+
+.dark-theme .tab-scroll-button {
+  background-color: var(--first-color);
+  color: #fff;
+}
+
+.dark-theme .tab-scroll-button:hover {
+  background-color: var(--first-color-alt);
 }

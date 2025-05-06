@@ -3,6 +3,8 @@ import SEO from "../components/SEO/SEO";
 import { useState, useEffect, useRef } from "react";
 import PortfolioCard from "../components/PortfolioCard/PortfolioCard";
 import DeleteConfirmationModal from "../components/DeleteConfirmationModal/DeleteConfirmationModal";
+// Import Swiper
+import Swiper from "swiper/bundle";
 // Import the CSS file
 import "../assets/css/portfolio.css";
 // Import eye icons for password visibility toggle
@@ -29,13 +31,69 @@ export const PortfolioPage = () => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [projectToDelete, setProjectToDelete] = useState(null);
-
+  const swiperRef = useRef(null);
   const navigate = useNavigate();
 
   // Check authentication status
   useEffect(() => {
     const projectAuthToken = localStorage.getItem('projectAuthToken');
     setIsAuthenticated(!!projectAuthToken);
+  }, []);
+
+  // Initialize Swiper for category tabs
+  useEffect(() => {
+    // Make sure Swiper is available
+    if (typeof Swiper === 'undefined') {
+      console.error('Swiper not found. Make sure it is properly imported.');
+      return;
+    }
+
+    // Initialize Swiper for category tabs
+    const initializeSwiper = () => {
+      if (swiperRef.current) return;
+      
+      try {
+        swiperRef.current = new Swiper(".portfolio-tabs-swiper", {
+          slidesPerView: "auto",
+          spaceBetween: 10,
+          grabCursor: true,
+          loop: true, // Enable infinite scrolling
+          loopAdditionalSlides: 2, // Helps with smoother transitions
+          navigation: {
+            nextEl: ".tab-scroll-right",
+            prevEl: ".tab-scroll-left",
+          },
+          breakpoints: {
+            576: {
+              slidesPerView: 3,
+            },
+            768: {
+              slidesPerView: 4,
+            },
+            992: {
+              slidesPerView: 5,
+            },
+            1200: {
+              slidesPerView: 6,
+            },
+          },
+        });
+      } catch (error) {
+        console.error("Error initializing Swiper:", error);
+      }
+    };
+
+    // Initialize Swiper after a short delay to ensure DOM is ready
+    const timer = setTimeout(initializeSwiper, 300);
+
+    // Cleanup function
+    return () => {
+      clearTimeout(timer);
+      if (swiperRef.current && swiperRef.current.destroy) {
+        swiperRef.current.destroy();
+        swiperRef.current = null;
+      }
+    };
   }, []);
 
   // Handle project deletion
@@ -78,14 +136,21 @@ export const PortfolioPage = () => {
     setShowDeleteConfirm(true);
   };
 
-  // Get unique categories for tabs
+  // Get unique categories for tabs - SYNCED with ProjectForm.jsx
   const categories = [
     { id: "all", name: "All Projects" },
     { id: "webdev", name: "Web Development" },
-    { id: "frontend", name: "Frontend Design" },
-    { id: "seo", name: "SEO" },
-    { id: "marketing", name: "Marketing" },
-    { id: "video", name: "Video Editing" },
+    { id: "frontend", name: "Frontend Development" },
+    { id: "backend", name: "Backend Development" },
+    { id: "fullstack", name: "Full-Stack Development" },
+    { id: "api", name: "API Development" },
+    { id: "ecommerce", name: "E-Commerce Solutions" },
+    { id: "analytics", name: "Analytics Integration" },
+    { id: "ui-ux", name: "UI/UX Design" },
+    { id: "seo", name: "SEO Optimization" },
+    { id: "performance", name: "Performance Optimization" },
+    { id: "marketing", name: "Digital Marketing" },
+    { id: "video", name: "Video Production" },
   ];
 
   // Close dropdown when clicking outside
@@ -168,7 +233,14 @@ export const PortfolioPage = () => {
   // Filter projects based on active tab
   const filteredProjects = activeTab === "all" 
     ? projects 
-    : projects.filter(project => project.category === activeTab);
+    : projects.filter(project => {
+        // Check if project has categories array and includes the active tab
+        if (project.categories && Array.isArray(project.categories)) {
+          return project.categories.includes(activeTab);
+        }
+        // Fall back to single category field for backwards compatibility
+        return project.category === activeTab;
+      });
 
   // Handle category selection from dropdown
   const handleCategorySelect = (categoryId) => {
@@ -374,18 +446,38 @@ export const PortfolioPage = () => {
             </div>
           </div>
 
-          {/* Enhanced Category tabs (visible on desktop) */}
-          <div className="portfolio-nav__tabs">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                className={`portfolio-nav__tab ${activeTab === category.id ? 'portfolio-nav__tab--active' : ''}`}
-                onClick={() => setActiveTab(category.id)}
-              >
-                <i className={`uil uil-${getCategoryIcon(category.id)} portfolio-nav__icon`}></i>
-                {category.name}
-              </button>
-            ))}
+          {/* Enhanced Category tabs using Swiper */}
+          <div className="portfolio-tabs-container">
+            <button 
+              className="tab-scroll-button tab-scroll-left"
+              aria-label="Scroll categories left"
+            >
+              <i className="uil uil-angle-left"></i>
+            </button>
+            
+            <div className="portfolio-tabs-swiper swiper-container">
+              <div className="swiper-wrapper">
+                {categories.map((category) => (
+                  <div className="swiper-slide" key={category.id}>
+                    <button
+                      className={`portfolio-nav__tab ${activeTab === category.id ? 'portfolio-nav__tab--active' : ''}`}
+                      onClick={() => setActiveTab(category.id)}
+                      title={category.name}
+                    >
+                      <i className={`uil uil-${getCategoryIcon(category.id)} portfolio-nav__icon`}></i>
+                      <span className="portfolio-nav__tab-text">{category.name}</span>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <button 
+              className="tab-scroll-button tab-scroll-right"
+              aria-label="Scroll categories right"
+            >
+              <i className="uil uil-angle-right"></i>
+            </button>
           </div>
         </div>
       </section>
@@ -418,7 +510,7 @@ export const PortfolioPage = () => {
                     onDeleteClick={() => openDeleteModal(project)}
                   />
                 ))
-              )}
+          )}
             </div>
           )}
         </div>
@@ -442,7 +534,14 @@ const getCategoryIcon = (categoryId) => {
   switch(categoryId) {
     case 'webdev': return 'window-grid';
     case 'frontend': return 'desktop';
+    case 'backend': return 'server';
+    case 'fullstack': return 'code-branch';
+    case 'api': return 'cloud';
+    case 'ecommerce': return 'shopping-cart';
+    case 'analytics': return 'chart-pie';
+    case 'ui-ux': return 'paint-brush';
     case 'seo': return 'chart-growth';
+    case 'performance': return 'rocket';
     case 'marketing': return 'megaphone';
     case 'video': return 'video';
     default: return 'apps';
@@ -453,10 +552,17 @@ const getCategoryIcon = (categoryId) => {
 const getCategoryName = (categoryId) => {
   switch(categoryId) {
     case 'webdev': return 'Web Development';
-    case 'frontend': return 'Frontend Design';
-    case 'seo': return 'SEO';
-    case 'marketing': return 'Marketing';
-    case 'video': return 'Video Editing';
+    case 'frontend': return 'Frontend Development';
+    case 'backend': return 'Backend Development';
+    case 'fullstack': return 'Full-Stack Development';
+    case 'api': return 'API Development';
+    case 'ecommerce': return 'E-Commerce Solutions';
+    case 'analytics': return 'Analytics Integration';
+    case 'ui-ux': return 'UI/UX Design';
+    case 'seo': return 'SEO Optimization';
+    case 'performance': return 'Performance Optimization';
+    case 'marketing': return 'Digital Marketing';
+    case 'video': return 'Video Production';
     default: return 'Project';
   }
 };

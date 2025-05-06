@@ -6,6 +6,10 @@ import './assets/css/styles.css';
 import './assets/css/swiper-bundle.min.css';
 import './styles/markdown.css';
 import './assets/css/seo-analyzer.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 // Create a dedicated context for helmet with SSR enabled
 const helmetContext = {
