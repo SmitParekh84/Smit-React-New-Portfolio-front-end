@@ -25,7 +25,7 @@ const LinkedInPostGeneratorPage = () => {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Free AI-Powered LinkedIn Post Generator",
-        "applicationCategory": "BusinessApplication, UtilitiesApplication",
+        "applicationCategory": "BusinessApplication, UtilitiesApplication, Social Media",
         "operatingSystem": "Web",
         "offers": {
             "@type": "Offer",
@@ -44,7 +44,6 @@ const LinkedInPostGeneratorPage = () => {
             "width": "1200",
             "height": "630"
         },
-        "applicationCategory": "Social Media",
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
