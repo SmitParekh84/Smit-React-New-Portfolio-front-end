@@ -36,7 +36,7 @@ const Home = () => {
                         <h3 className="home__subtitle">{homeData.subtitle}</h3>
                         <p className="home__description">{homeData.description}</p>
                         <a href="/contact" className="button button--flex home__button">
-                            Contact Me<i className="uil uil-message button__icon"></i>
+                            Contact Us<i className="uil uil-message button__icon"></i>
                         </a>
                     </div>
                 </div>

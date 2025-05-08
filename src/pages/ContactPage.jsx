@@ -109,7 +109,7 @@ const ContactPage = () => {
                 twitterImage="https://www.smitparekh.studio/images/contact-page.webp"
             />
             
-            <div className="contact-page-header">
+            {/* <div className="contact-page-header">
                 <div className="container">
                     <h1 className="contact-page-title">Let's Start a Conversation</h1>
                     <p className="contact-page-description">
@@ -117,7 +117,7 @@ const ContactPage = () => {
                         Whether you need help with web development, digital marketing, or just want to say hello, I'm here to help.
                     </p>
                 </div>
-            </div>
+            </div> */}
 
             <ContactMe />
             

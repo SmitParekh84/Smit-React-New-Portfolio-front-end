@@ -1,0 +1,117 @@
+.about-tools__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 4rem;
+}
+
+.about-tools__img {
+    width: 350px;
+    border-radius: 1.5rem;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+}
+
+.about-tools__image {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+    transition: 0.3s;
+}
+
+.about-tools__image:hover {
+    transform: translateY(-0.5rem);
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.2));
+}
+
+.about-tools__description {
+    text-align: left;
+    margin-bottom: var(--mb-2-5);
+    line-height: 1.6;
+}
+
+.about-tools__info {
+    display: grid;
+    grid-template-columns: repeat(3, 140px);
+    gap: 0.5rem;
+    margin-bottom: var(--mb-2-5);
+}
+
+.about-tools__info-title {
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-semi-bold);
+    color: var(--title-color);
+    display: block;
+}
+
+.about-tools__info-name {
+    font-size: var(--smaller-font-size);
+}
+
+.about-tools__buttons {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* For medium devices */
+@media screen and (max-width: 992px) {
+    .about-tools__container {
+        grid-template-columns: 1fr;
+        row-gap: 2.5rem;
+    }
+    
+    .about-tools__img {
+        width: 220px;
+    }
+    
+    .about-tools__data {
+        text-align: center;
+    }
+    
+    .about-tools__info {
+        justify-content: center;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .about-tools__description {
+        text-align: center;
+        padding: 0 5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about-tools__buttons {
+        justify-content: center;
+    }
+}
+
+/* For small devices */
+@media screen and (max-width: 576px) {
+    .about-tools__info {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .about-tools__description {
+        padding: 0;
+    }
+    
+    .about-tools__info {
+        gap: 0.5rem;
+    }
+}
+
+/* For extra small devices */
+@media screen and (max-width: 350px) {
+    .about-tools__img {
+        width: 180px;
+    }
+    
+    .about-tools__info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .about-tools__info div:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+}

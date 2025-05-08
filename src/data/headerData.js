@@ -66,7 +66,7 @@ export const headerData = {
     },
     { id: "/services", label: "Services", icon: "uil-briefcase-alt" },
     { id: "/about", label: "About", icon: "uil-user" },
-    { id: "/contact", label: "Contact Me", icon: "uil-message" },
+    { id: "/contact", label: "Contact Us", icon: "uil-message" },
   ],
   mobileNavLinks: [
     { id: "/", label: "Home", icon: "uil-estate" },
@@ -75,6 +75,6 @@ export const headerData = {
     { id: "/project", label: "Projects", icon: "uil-image" },
     { id: "/portfolio", label: "Portfolio", icon: "uil-presentation-play" },
     { id: "/free-tools", label: "Free Tools", icon: "uil-wrench" },
-    { id: "/contact", label: "Contact Me", icon: "uil-message" },
+    { id: "/contact", label: "Contact US", icon: "uil-message" },
   ],
 };

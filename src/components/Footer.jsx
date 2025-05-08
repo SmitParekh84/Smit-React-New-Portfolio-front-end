@@ -53,7 +53,7 @@ const Footer = () => {
             <div className="footer__contact">
               <h3 className="footer__heading">Get In Touch</h3>
               <Link to="/contact" className="footer__contact-button">
-                Contact Me
+                Contact Us
                 <i className="uil uil-arrow-right"></i>
               </Link>
               <p className="footer__text">Let's work together to create something amazing.</p>

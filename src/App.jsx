@@ -9,7 +9,6 @@ import "./assets/css/admin.css"
 // Components - Direct imports (no lazy loading)
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer"
-import Loader from "./components/Loader"
 import ScrollToTop from "./components/ScrollToTop"
 import { AdSenseProvider } from "./components/AdSense"
 
@@ -22,6 +21,7 @@ import ContactPage from "./pages/ContactPage"
 import ToolsPage from "./pages/ToolsPage"
 import MetaCheckerPage from "./pages/MetaCheckerPage"
 import ToolsShowcasePage from "./pages/ToolsShowcasePage"
+import ToolsAboutPage from "./pages/ToolsAboutPage"
 import ServicesPage from "./pages/ServicesPage"
 import CVViewer from "./pages/CVViewer"
 import QRCodeGeneratorPage from "./pages/QRCodeGeneratorPage"
@@ -34,7 +34,7 @@ import ProjectDetailPage from "./pages/ProjectDetailPage"
 import AddProjectPage from "./pages/AddProjectPage"
 import EditProjectPage from "./pages/EditProjectPage"
 import AdminLoginPage from "./pages/AdminLoginPage"
-import AboutPage from "./pages/AboutPage"
+
 import SkillsPage from "./pages/SkillsPage"
 import Qualification from "./components/Qualification"
 import Testimonials from "./components/Testimonials"
@@ -75,7 +75,7 @@ const App = () => {
             {/* Main Routes */}
             <Route path="/" element={<ToolsShowcasePage />} />
             <Route path="/portfolio" element={<Landing />} />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/about" element={<ToolsAboutPage />} />
             <Route path="/skills" element={<SkillsPage />} />
             <Route path="/qualification" element={<Qualification />} />
             <Route path="/services" element={<ServicesPage />} />

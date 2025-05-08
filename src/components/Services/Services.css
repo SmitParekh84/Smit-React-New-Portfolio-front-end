@@ -547,7 +547,7 @@
 .service-process__icon {
   color: #fff;
   font-size: 1.75rem;
-  animation: pulse 2s infinite;
+  /* animation: pulse 2s infinite; */
 }
 
 .service-process__step-number {
@@ -886,6 +886,7 @@
 .cta-services__title {
   font-size: var(--h1-font-size);
   margin-bottom: 1rem;
+  color:white;  
 }
 
 .cta-services__description {

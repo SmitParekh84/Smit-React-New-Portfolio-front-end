@@ -415,7 +415,7 @@
 
 .comparison-table th {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--title-color);
   font-weight: 600;
 }
 

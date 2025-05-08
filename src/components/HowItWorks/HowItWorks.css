@@ -70,9 +70,11 @@
   box-shadow: 0 0 0 5px rgba(var(--first-color-alt), 0.2);
 }
 
-.workflow__step--visible .workflow__step-number {
+/* .workflow__step--visible .workflow__step-number {
   animation: pulse 2s infinite;
-}
+  background-color: var(--first-color);
+
+} */
 
 .workflow__step-content {
   background-color: var(--container-color);
