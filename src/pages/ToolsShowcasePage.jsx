@@ -123,25 +123,16 @@ const ToolsShowcasePage = () => {
             {/* Modern Hero Section */}
             <ToolsHero />
             
-            {/* Horizontal Banner Ad after Hero Section - COMMENTED OUT UNTIL VERIFIED */}
-            {/* 
-            <div className="ad-container">
-                <HorizontalBannerAd adSlot="1234567890" />
-            </div>
-            */}
-
             {/* Tools Grid Section */}
             <ToolsGrid tools={toolsData} />
 
             {/* Tools Content Details - Added as separate section */}
             <ToolsContentDetails title="Professional Tools For Everyone" />
             
-            {/* In-article Ad between sections - COMMENTED OUT UNTIL VERIFIED */}
-            {/* 
+            {/* In-article Ad between sections - Strategically placed after substantial content */}
             <div className="ad-container content-ad">
                 <InArticleAd adSlot="2345678901" />
             </div>
-            */}
             
             {/* Features Section */}
             <Features 
@@ -165,13 +156,6 @@ const ToolsShowcasePage = () => {
                 products={productShowcaseData}
             />
             
-            {/* Horizontal Banner Ad before Detailed Content - COMMENTED OUT UNTIL VERIFIED */}
-            {/* 
-            <div className="ad-container">
-                <HorizontalBannerAd adSlot="3456789012" />
-            </div>
-            */}
-            
             {/* Detailed Content Section - Added for AdSense compliance */}
             <ToolsDetailedContent />
 
@@ -191,12 +175,10 @@ const ToolsShowcasePage = () => {
                 />
             )}
 
-            {/* In-article Ad before FAQ section - COMMENTED OUT UNTIL VERIFIED */}
-            {/* 
+            {/* In-article Ad before FAQ section - Strategic placement with substantial content above and below */}
             <div className="ad-container content-ad">
                 <InArticleAd adSlot="4567890123" />
             </div>
-            */}
 
             {/* FAQ Section */}
             <FAQ 

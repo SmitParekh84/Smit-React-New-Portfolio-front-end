@@ -1,4 +1,4 @@
-/* AdSense Component Styles */
+/* AdSense Component Styles - Updated for better policy compliance */
 .adsense-container {
   width: 100%;
   max-width: 100%;
@@ -7,9 +7,26 @@
   text-align: center;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   clear: both;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+/* Ad label styling - explicit and clearly visible */
+.ad-label {
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #757575;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .ad-container {
@@ -70,16 +87,6 @@
   margin-bottom: 0;
 }
 
-/* Add a subtle background to distinguish ads from content */
-.adsense-container::before {
-  content: "Advertisement";
-  display: block;
-  text-align: center;
-  font-size: 0.75rem;
-  color: #757575;
-  margin-bottom: 0.25rem;
-}
-
 /* Sidebar Ad Layout Styles */
 .sidebar-ad-layout {
   display: grid;
@@ -122,4 +129,22 @@
 .sidebar-ad-container .adsense-container {
   position: sticky;
   top: 100px;
+}
+
+/* Clear separation between ads and content */
+.adsense-container + h2,
+.adsense-container + h3,
+.adsense-container + p {
+  margin-top: 2rem;
+}
+
+h2 + .adsense-container,
+h3 + .adsense-container,
+p + .adsense-container {
+  margin-top: 2rem;
+}
+
+/* Add space between multiple ads */
+.adsense-container + .adsense-container {
+  margin-top: 3rem;
 }

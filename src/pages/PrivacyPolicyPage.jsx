@@ -15,7 +15,7 @@ const PrivacyPolicyPage = () => {
             <section className="privacy-policy section">
                 <div className="privacy-policy__container container">
                     <h1 className="section__title">Privacy Policy</h1>
-                    <p className="section__subtitle">Last Updated: April 26, 2025</p>
+                    <p className="section__subtitle">Last Updated: May 7, 2025</p>
 
                     <div className="privacy-policy__content">
                         <div className="privacy-policy__section">
@@ -58,10 +58,27 @@ const PrivacyPolicyPage = () => {
                         <div className="privacy-policy__section">
                             <h2>4. Third-Party Services</h2>
                             <p>Our website may use third-party services that collect, monitor, and analyze user data to help us improve our services.</p>
+                            
                             <h3>4.1 Google Analytics</h3>
                             <p>We use Google Analytics to track and analyze website usage. Google Analytics may collect information such as your IP address, browser type, operating system, the referring web page, pages visited, location, your mobile carrier, device information, and search terms.</p>
+                            
                             <h3>4.2 Google AdSense</h3>
                             <p>We use Google AdSense to display advertising on our Site. Google AdSense uses cookies to serve ads based on a user's prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our Site and/or other websites on the Internet.</p>
+                            <p>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.</p>
+                            <p>For more information on the privacy practices of Google, please visit the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy & Terms</a> web page.</p>
+                            
+                            <h3>4.3 Cookie Policy</h3>
+                            <p>Cookies are small pieces of text sent by your web browser by a website you visit. A cookie file is stored in your web browser and allows the Service or a third-party to recognize you and make your next visit easier and the Service more useful to you.</p>
+                            
+                            <p>We use the following types of cookies:</p>
+                            <ul>
+                                <li><strong>Essential cookies:</strong> Necessary for the basic function of the website.</li>
+                                <li><strong>Analytics cookies:</strong> Help us understand how visitors interact with our website.</li>
+                                <li><strong>Advertising cookies:</strong> Used to deliver relevant ads and track ad campaign performance.</li>
+                                <li><strong>Preference cookies:</strong> Enable the website to remember information that changes the way the website behaves or looks.</li>
+                            </ul>
+                            
+                            <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p>
                         </div>
 
                         <div className="privacy-policy__section">

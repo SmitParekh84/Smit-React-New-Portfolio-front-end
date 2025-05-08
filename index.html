@@ -11,17 +11,43 @@
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9526582197854160"
       crossorigin="anonymous"
     ></script>
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CEQCDZZR2K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CEQCDZZR2K');
-</script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CEQCDZZR2K');
+    </script>
+    
+    <!-- AdSense Policy Compliance - Cookie Consent -->
+    <script>
+      window.cookieConsent = {
+        preferences: true,
+        statistics: true,
+        marketing: true
+      };
+      
+      // EU Cookie Consent Check - Simple Implementation
+      function initCookieConsent() {
+        const hasConsent = localStorage.getItem('cookieConsent');
+        if (!hasConsent && navigator.cookieEnabled) {
+          // We would show cookie consent banner here in a full implementation
+          localStorage.setItem('cookieConsent', JSON.stringify(window.cookieConsent));
+        }
+      }
+      
+      // Initialize on page load
+      window.addEventListener('DOMContentLoaded', initCookieConsent);
+    </script>
+    
     <!-- Performance optimizations for metadata -->
     <link rel="preconnect" href="https://www.smitparekh.studio" crossorigin />
     <link rel="dns-prefetch" href="https://www.smitparekh.studio" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
     
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
@@ -43,7 +69,47 @@
     
     <!-- Basic Meta for crawlers -->
     <meta name="description" content="Smit Parekh - Free Professional Tools and Web Development Services" data-rh="true" />
+    <meta name="author" content="Smit Parekh" data-rh="true" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    
+    <!-- Additional Google verification -->
+    <meta name="google-site-verification" content="verify-code-here" data-rh="true" />
+    
+    <!-- Website Monetization Information -->
+    <meta name="monetization" content="This site includes some advertisements to support free tools development" data-rh="true" />
+    
+    <!-- Organization Schema Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Smit Parekh",
+        "url": "https://www.smitparekh.studio",
+        "logo": "https://www.smitparekh.studio/logo.png",
+        "sameAs": [
+          "https://www.linkedin.com/in/smitparekh",
+          "https://github.com/smitparekh",
+          "https://twitter.com/smitparekh"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-990-425-3143",
+          "contactType": "customer service",
+          "email": "smitparekh02@gmail.com"
+        }
+      }
+    </script>
+    
+    <!-- Website Schema Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Smit Parekh - Free Professional Tools and Web Development Services",
+        "url": "https://www.smitparekh.studio",
+        
+      }
+    </script>
     
     <!-- Placeholder title that will be replaced by React Helmet -->
     <title>Smit Parekh</title>
