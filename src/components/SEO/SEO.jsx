@@ -23,6 +23,10 @@ const SEO = ({
     author = "Smit Parekh",
     alternateLanguages = [],
     noIndex = false,
+    imageWidth,
+    imageHeight,
+    imageAlt,
+    readTime,
 }) => {
     
     // Use default values if specific og/twitter values aren't provided
@@ -30,6 +34,7 @@ const SEO = ({
     const metaTwitterTitle = twitterTitle || title;
     const metaOgImage = ogImage || "https://www.smitparekh.studio/images/default-og-image.webp";
     const metaTwitterImage = twitterImage || metaOgImage;
+    const imageAltText = imageAlt || title;
 
     // Convert multiple structured data objects to string
     const structuredDataString = Array.isArray(structuredData) 
@@ -44,7 +49,8 @@ const SEO = ({
             <meta name="keywords" content={keywords} />
             <meta name="author" content={author} />
             <meta name="language" content={language} />
-            {lastUpdated && <meta name="last-updated" content={lastUpdated} />}
+            {lastUpdated && <meta name="last-updated" content={new Date(lastUpdated).toISOString()} />}
+            {readTime && <meta name="reading-time" content={`${readTime} min read`} />}
 
             {/* Robots meta tags */}
             {noIndex ? (
@@ -62,10 +68,13 @@ const SEO = ({
             <meta property="og:title" content={metaOgTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={metaOgImage} />
+            {imageWidth && <meta property="og:image:width" content={imageWidth} />}
+            {imageHeight && <meta property="og:image:height" content={imageHeight} />}
+            {imageAltText && <meta property="og:image:alt" content={imageAltText} />}
             <meta property="og:site_name" content="Smit Parekh" />
             <meta property="og:locale" content="en_US" />
-            {articlePublishedTime && <meta property="article:published_time" content={articlePublishedTime} />}
-            {articleModifiedTime && <meta property="article:modified_time" content={articleModifiedTime} />}
+            {articlePublishedTime && <meta property="article:published_time" content={new Date(articlePublishedTime).toISOString()} />}
+            {articleModifiedTime && <meta property="article:modified_time" content={new Date(articleModifiedTime).toISOString()} />}
 
             {/* Twitter */}
             <meta name="twitter:card" content={twitterCard} />
@@ -73,6 +82,7 @@ const SEO = ({
             <meta name="twitter:title" content={metaTwitterTitle} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={metaTwitterImage} />
+            {imageAltText && <meta name="twitter:image:alt" content={imageAltText} />}
             <meta name="twitter:creator" content={twitterCreator} />
             <meta name="twitter:site" content={twitterSite} />
 
@@ -85,6 +95,10 @@ const SEO = ({
                     href={alt.url} 
                 />
             ))}
+            
+            {/* Add default language self-reference for completeness */}
+            <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+            <link rel="alternate" hrefLang={language.split('-')[0]} href={canonicalUrl} />
 
             {/* Structured Data - handles multiple schema objects */}
             {structuredDataString.map((dataString, index) => (
@@ -97,10 +111,12 @@ const SEO = ({
             ))}
 
             {/* Mobile-specific metadata */}
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
             <meta name="mobile-web-app-capable" content="yes" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="apple-mobile-web-app-status-bar-style" content="black" />
             <meta name="format-detection" content="telephone=no" />
+            <meta name="theme-color" content="#4070F4" />
             
             {/* Additional meta tags */}
             {children}

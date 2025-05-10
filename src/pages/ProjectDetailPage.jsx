@@ -274,23 +274,26 @@ const ProjectDetailPage = () => {
 
   return (
     <>
-      <SEO
-        title={`${project.title} | Smit Parekh Portfolio`}
-        description={project.shortDescription}
-        keywords={`${project.title}, ${project.technologies ? project.technologies.join(", ") : ""}, project details, Smit Parekh, portfolio project, ${getCategoryName(project.category)}`}
-        canonicalUrl={`https://www.smitparekh.studio/project/${formatUrlSlug(project.title)}`}
-        ogType="article"
-        ogImage={project.imageUrl}
-        ogTitle={`${project.title} - Portfolio Project by Smit Parekh`}
-        twitterImage={project.imageUrl}
-        twitterTitle={`${project.title} - See my work`}
-        structuredData={[projectSchema, breadcrumbSchema, personSchema]}
-        articlePublishedTime={project.publishDate || project.startDate}
-        articleModifiedTime={project.endDate !== "present" ? project.endDate : undefined}
-        lastUpdated={project.updatedAt}
-        language="en-US"
-        author="Smit Parekh"
-      />
+      {/* Only render SEO component when project data is loaded */}
+      {project && (
+        <SEO
+          title={`${project.title} | Smit Parekh Portfolio`}
+          description={project.shortDescription}
+          keywords={`${project.title}, ${project.technologies ? project.technologies.join(", ") : ""}, project details, Smit Parekh, portfolio project, ${getCategoryName(project.category)}`}
+          canonicalUrl={`https://www.smitparekh.studio/project/${formatUrlSlug(project.title)}`}
+          ogType="article"
+          ogImage={project.imageUrl}
+          ogTitle={`${project.title} - Portfolio Project by Smit Parekh`}
+          twitterImage={project.imageUrl}
+          twitterTitle={`${project.title} - See my work`}
+          structuredData={[projectSchema, breadcrumbSchema, personSchema]}
+          articlePublishedTime={project.publishDate || project.startDate}
+          articleModifiedTime={project.endDate !== "present" ? project.endDate : undefined}
+          lastUpdated={project.updatedAt}
+          language="en-US"
+          author="Smit Parekh"
+        />
+      )}
 
       {/* Delete Confirmation Modal */}
       {showDeleteConfirm && (
