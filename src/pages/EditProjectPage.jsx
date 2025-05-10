@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import SEO from "../components/SEO/SEO";
 import ProjectForm from '../components/ProjectForm/ProjectForm';
 import '../components/ProjectForm/ProjectForm.css';
+import { formatUrlSlug } from '../utils/urlUtils'; // Import the formatUrlSlug utility function
 
 const EditProjectPage = () => {
   const { id } = useParams();
@@ -78,7 +79,7 @@ const EditProjectPage = () => {
       setTimeout(() => {
         setSuccessMessage('');
         // Navigate back to the project detail page
-        navigate(`/project/${encodeURIComponent(projectData.title)}`);
+        navigate(`/project/${formatUrlSlug(projectData.title)}`);
       }, 3000);
       
     } catch (err) {
@@ -205,7 +206,7 @@ const EditProjectPage = () => {
               cancelHandler={() => navigate(-1)}
               extraActions={
                 <Link 
-                  to={`/project/${encodeURIComponent(project?.title)}`}
+                  to={`/project/${formatUrlSlug(project?.title)}`}
                   className="button button--outline index-metadata__button"
                 >
                   <i className="uil uil-eye"></i> View Project
