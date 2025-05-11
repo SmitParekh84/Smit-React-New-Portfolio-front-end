@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./QRCodeGenerator.css";
@@ -13,6 +13,12 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
     const [generatedQR, setGeneratedQR] = useState("");
     const [loading, setLoading] = useState(false);
     const [showOptions, setShowOptions] = useState(false);
+    
+    // Carousel state
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [totalSlides, setTotalSlides] = useState(0);
+    const carouselRef = useRef(null);
+    const slideWidth = useRef(0);
     
     // Color presets
     const colorPresets = [
@@ -166,6 +172,20 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
         contact: "Name: John Doe\nPhone: +1234567890\nEmail: john@example.com"
     };
 
+    // Carousel handlers
+    const handlePrevSlide = () => {
+        setCurrentSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
+    };
+
+    const handleNextSlide = () => {
+        setCurrentSlide((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
+    };
+
+    // Update total slides on generated QR change
+    useEffect(() => {
+        setTotalSlides(Math.ceil(generatedQR.length / 10)); // Example logic for slide count
+    }, [generatedQR]);
+
     return (
         <section className="section container">
             <ToastContainer position="top-right" />
@@ -174,6 +194,75 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                 <div className="qr-header">
                     <h2>{toolName || "Free Lifetime QR Code Generator"}</h2>
                     <p>Create permanent, free QR codes that never expire for your website, business card, or marketing materials</p>
+                </div>
+
+                {/* QR Code Examples Carousel */}
+                <div className="qr-carousel">
+                    <div 
+                        className="qr-carousel-inner" 
+                        ref={carouselRef}
+                        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                    >
+                        {/* Example QR codes */}
+                        <div className="qr-carousel-item">
+                            <div className="example-qr">
+                                <h3>URL QR Code</h3>
+                                <div className="example-qr-content">
+                                    <div className="example-qr-image">
+                                        <img src={generatedQR || 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.smitparekh.studio'} alt="URL QR Code Example" />
+                                    </div>
+                                    <p>Link directly to your website or any online content</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="qr-carousel-item">
+                            <div className="example-qr">
+                                <h3>WiFi Network QR Code</h3>
+                                <div className="example-qr-content">
+                                    <div className="example-qr-image">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=WIFI:S:MyWifi;T:WPA;P:password123;;" alt="WiFi QR Code Example" />
+                                    </div>
+                                    <p>Help visitors connect to your WiFi network instantly</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="qr-carousel-item">
+                            <div className="example-qr">
+                                <h3>Contact QR Code</h3>
+                                <div className="example-qr-content">
+                                    <div className="example-qr-image">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BEGIN:VCARD%0AVERSION:3.0%0AN:Parekh;Smit%0ATEL:1234567890%0AEMAIL:businees.smitp@gmail.com%0AEND:VCARD" alt="Contact QR Code Example" />
+                                    </div>
+                                    <p>Share your contact info with a simple scan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="qr-carousel-controls">
+                        <div 
+                            className="carousel-arrow carousel-arrow-left" 
+                            onClick={handlePrevSlide}
+                        >
+                            <i className="uil uil-angle-left"></i>
+                        </div>
+                        <div 
+                            className="carousel-arrow carousel-arrow-right" 
+                            onClick={handleNextSlide}
+                        >
+                            <i className="uil uil-angle-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div className="carousel-dots">
+                        {[...Array(3)].map((_, index) => (
+                            <div 
+                                key={index}
+                                className={`carousel-dot ${currentSlide === index ? 'active' : ''}`}
+                                onClick={() => setCurrentSlide(index)}
+                            ></div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="qr-container">
