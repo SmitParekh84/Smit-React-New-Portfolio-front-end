@@ -38,5 +38,9 @@ export const formatUrlSlug = (text) => {
  */
 export const slugToTitle = (slug) => {
   if (!slug) return '';
-  return slug.replace(/-+/g, ' ');
+  
+  // First, replace all hyphens with spaces
+  let title = slug.replace(/-+/g, ' ');
+  
+  return title;
 };

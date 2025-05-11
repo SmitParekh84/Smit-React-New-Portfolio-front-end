@@ -9,7 +9,7 @@ import { formatUrlSlug, slugToTitle } from "../utils/urlUtils"; // Import the en
 
 // ProjectDetailPage component definition starts here
 const ProjectDetailPage = () => {
-  // Get project title from URL params and convert hyphens back to spaces for API
+  // Get project slug from URL params
   const { id: projectSlug } = useParams();
   const projectTitle = slugToTitle(projectSlug);
   const [project, setProject] = useState(null);
@@ -37,7 +37,14 @@ const ProjectDetailPage = () => {
     const fetchProject = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/projects/title/${encodeURIComponent(projectTitle)}`);
+        
+        // First try to fetch by slug directly, which is more reliable
+        let response = await fetch(`${import.meta.env.VITE_API_URL}/projects/slug/${encodeURIComponent(projectSlug)}`);
+        
+        // If that fails, fall back to the title-based approach
+        if (!response.ok) {
+          response = await fetch(`${import.meta.env.VITE_API_URL}/projects/title/${encodeURIComponent(projectTitle)}`);
+        }
         
         if (!response.ok) {
           throw new Error('Project not found');
@@ -56,6 +63,7 @@ const ProjectDetailPage = () => {
           throw new Error('Invalid response format');
         }
       } catch (err) {
+        console.error("Error fetching project:", err);
         setError(err.message);
       } finally {
         setLoading(false);
@@ -63,7 +71,7 @@ const ProjectDetailPage = () => {
     };
     
     fetchProject();
-  }, [projectTitle]);
+  }, [projectSlug, projectTitle]);
 
   // Handle project deletion
   const handleDeleteProject = async () => {
