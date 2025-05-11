@@ -4,6 +4,12 @@
 https://www.smitparekh.studio/viral-linkedin-post-generator https://www.smitparekh.studio/free-tools/viral-linkedin-post-generator 301!
 https://www.smitparekh.studio/project/custom-portfolio-sites-%E2%80%93-bde-&-content-creator https://www.smitparekh.studio/project/custom-portfolio-sites-bde-and-content-creator 301!
 https://www.smitparekh.studio/meta-checker https://www.smitparekh.studio/free-tools/meta-tag-checker 301!
+https://www.smitparekh.studio/tools https://www.smitparekh.studio/free-tools 301!
+https://www.smitparekh.studio/background-remover https://www.smitparekh.studio/free-tools/background-remover 301!
+https://www.smitparekh.studio/free-tools/html-minifier https://www.smitparekh.studio/free-tools 301!
+
+# Image redirects
+https://www.smitparekh.studio/images/* https://www.smitparekh.studio/public/images/:splat 301!
 
 # Force HTTPS and www - ensure these rules are processed first
 # Redirect HTTP non-www to HTTPS www

@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 // Styles
 import "./assets/css/styles.css"
@@ -89,14 +89,19 @@ const App = () => {
             
             {/* Tools Routes */}
             <Route path="/free-tools" element={<ToolsPage />} />
+            <Route path="/tools" element={<Navigate to="/free-tools" replace />} />
             <Route path="/free-tools/background-remover" element={<BackgroundRemoverPage />} />
+            <Route path="/background-remover" element={<Navigate to="/free-tools/background-remover" replace />} />
             <Route path="/free-tools/viral-linkedin-post-generator" element={<LinkedInPostGeneratorPage />} />
+            <Route path="/viral-linkedin-post-generator" element={<Navigate to="/free-tools/viral-linkedin-post-generator" replace />} />
             <Route path="/free-tools/meta-tag-checker" element={<MetaCheckerPage />} />
+            <Route path="/meta-checker" element={<Navigate to="/free-tools/meta-tag-checker" replace />} />
             <Route path="/free-tools/qr-code-generator" element={<QRCodeGeneratorPage />} />
             <Route path="/free-tools/image-compressor" element={<ImageCompressorPage />} />
             <Route path="/free-tools/image-converter" element={<ImageConverterPage />} />
             <Route path="/free-tools/seo-analyzer" element={<SEOAnalyzerPage />} />
             <Route path="/free-tools/linkedin-media-downloader" element={<LinkedInMediaDownloaderPage />} />
+            <Route path="/free-tools/html-minifier" element={<Navigate to="/free-tools" replace />} />
             
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLoginPage />} />
