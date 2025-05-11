@@ -1385,6 +1385,14 @@
     transform: translateY(-2px);
 }
 
+.carousel-arrow.disabled {
+    background-color: var(--text-color-light);
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
 .carousel-arrow-left {
     left: 10px;
 }

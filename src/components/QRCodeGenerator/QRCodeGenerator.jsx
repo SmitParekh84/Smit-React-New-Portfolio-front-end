@@ -16,7 +16,7 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
     
     // Carousel state
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [totalSlides, setTotalSlides] = useState(0);
+    const [totalSlides, setTotalSlides] = useState(3); // Set fixed total slides to 3
     const carouselRef = useRef(null);
     const slideWidth = useRef(0);
     
@@ -174,17 +174,21 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
 
     // Carousel handlers
     const handlePrevSlide = () => {
-        setCurrentSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
+        if (currentSlide > 0) {
+            setCurrentSlide(currentSlide - 1);
+        }
     };
 
     const handleNextSlide = () => {
-        setCurrentSlide((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
+        if (currentSlide < totalSlides - 1) {
+            setCurrentSlide(currentSlide + 1);
+        }
     };
 
-    // Update total slides on generated QR change
+    // Initialize totalSlides on component mount
     useEffect(() => {
-        setTotalSlides(Math.ceil(generatedQR.length / 10)); // Example logic for slide count
-    }, [generatedQR]);
+        setTotalSlides(3); // We have 3 fixed slides
+    }, []);
 
     return (
         <section className="section container">
@@ -241,13 +245,13 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                     
                     <div className="qr-carousel-controls">
                         <div 
-                            className="carousel-arrow carousel-arrow-left" 
+                            className={`carousel-arrow carousel-arrow-left ${currentSlide === 0 ? 'disabled' : ''}`} 
                             onClick={handlePrevSlide}
                         >
                             <i className="uil uil-angle-left"></i>
                         </div>
                         <div 
-                            className="carousel-arrow carousel-arrow-right" 
+                            className={`carousel-arrow carousel-arrow-right ${currentSlide === totalSlides - 1 ? 'disabled' : ''}`} 
                             onClick={handleNextSlide}
                         >
                             <i className="uil uil-angle-right"></i>
@@ -255,7 +259,7 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                     </div>
                     
                     <div className="carousel-dots">
-                        {[...Array(3)].map((_, index) => (
+                        {[...Array(totalSlides)].map((_, index) => (
                             <div 
                                 key={index}
                                 className={`carousel-dot ${currentSlide === index ? 'active' : ''}`}
@@ -457,7 +461,7 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
                         <li>Download your free QR code that never expires</li>
                     </ol>
                     <div className="qr-benefits">
-                        <h4>Benefits of our Free QR Code Generator:</h4>
+                        <h3>Benefits of our Free QR Code Generator:</h3>
                         <ul>
                             <li><strong>100% Free Forever</strong> - No hidden fees or subscriptions</li>
                             <li><strong>Lifetime QR Codes</strong> - Your QR codes never expire</li>
