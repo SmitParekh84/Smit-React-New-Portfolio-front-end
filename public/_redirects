@@ -1,15 +1,20 @@
 /*    /index.html    200
+
+# Tool-specific redirects
 https://www.smitparekh.studio/viral-linkedin-post-generator https://www.smitparekh.studio/free-tools/viral-linkedin-post-generator 301!
 https://www.smitparekh.studio/project/custom-portfolio-sites-%E2%80%93-bde-&-content-creator https://www.smitparekh.studio/project/custom-portfolio-sites-bde-and-content-creator 301!
 https://www.smitparekh.studio/meta-checker https://www.smitparekh.studio/free-tools/meta-tag-checker 301!
 
-
-# Redirect HTTP to HTTPS
-
+# Force HTTPS and www - ensure these rules are processed first
+# Redirect HTTP non-www to HTTPS www
 http://smitparekh.studio/* https://www.smitparekh.studio/:splat 301!
+# Redirect HTTP www to HTTPS www
 http://www.smitparekh.studio/* https://www.smitparekh.studio/:splat 301!
-
-# Redirect non-www to www for HTTPS
-
+# Redirect HTTPS non-www to HTTPS www
 https://smitparekh.studio/* https://www.smitparekh.studio/:splat 301!
+
+# Prevent redirect loops by ensuring these additional patterns are covered
+http://smitparekh.studio https://www.smitparekh.studio 301!
+http://www.smitparekh.studio https://www.smitparekh.studio 301!
+https://smitparekh.studio https://www.smitparekh.studio 301!
 

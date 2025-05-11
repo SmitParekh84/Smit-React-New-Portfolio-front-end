@@ -1,12 +1,28 @@
 # Smit Parekh Robots.txt
-# Version 1.0
+# Version 1.1
 User-agent: *
 Allow: /
 
-# Sitemaps
+# Define the canonical sitemap
 Sitemap: https://www.smitparekh.studio/sitemap.xml
 
-# Page-specific rules
-Disallow: /cv-viewer?private=true
-Disallow: /admin/
+# Specify host to indicate preferred domain
+Host: www.smitparekh.studio
+
+# Prevent crawling of duplicate content or internal tools
 Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /*?source=*
+Disallow: /*?ref=*
+
+# Allow Google to index everything important
+User-agent: Googlebot
+Allow: /
+Allow: /free-tools/
+Allow: /project/
+Allow: /blog/
+
+# Set crawl delay for aggressive bots
+User-agent: *
+Crawl-delay: 1
