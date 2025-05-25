@@ -29,6 +29,7 @@ import ImageCompressorPage from "./pages/ImageCompressorPage"
 import ImageConverterPage from "./pages/ImageConverterPage"
 import SEOAnalyzerPage from "./pages/SEOAnalyzerPage"
 import NotFoundPage from "./pages/NotFoundPage"
+import ServerErrorPage from "./pages/ServerErrorPage"
 import LinkedInMediaDownloaderPage from "./pages/LinkedInMediaDownloaderPage"
 import ProjectDetailPage from "./pages/ProjectDetailPage"
 import AddProjectPage from "./pages/AddProjectPage"
@@ -107,9 +108,9 @@ const App = () => {
             <Route path="/admin" element={<AdminLoginPage />} />
             <Route path="/admin/add-project" element={<AddProjectPage />} />
             <Route path="/admin/edit-project/:id" element={<EditProjectPage />} />
-            
-            {/* Error Routes */}
+              {/* Error Routes */}
             <Route path="/404" element={<NotFoundPage />} />
+            <Route path="/500" element={<ServerErrorPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
