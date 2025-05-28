@@ -379,7 +379,7 @@
 
 @media screen and (max-width: 576px) {
     .chat-bot {
-        bottom: 70px; /* Adjust for smaller screens */
+        bottom: 20px; /* Adjust for smaller screens */
         right: 15px;
     }
     
