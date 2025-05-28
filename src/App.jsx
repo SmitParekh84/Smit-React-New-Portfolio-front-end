@@ -10,6 +10,7 @@ import "./assets/css/admin.css"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer"
 import ScrollToTop from "./components/ScrollToTop"
+import HelpMessage from "./components/HelpMessage"
 import { AdSenseProvider } from "./components/AdSense"
 
 // Pages - All components with direct imports (no lazy loading)
@@ -70,8 +71,7 @@ const App = () => {
   return (
     <Router>
       <AdSenseProvider>
-        <Header />
-        <main className="main">
+        <Header />        <main className="main">
           <Routes>
             {/* Main Routes */}
             <Route path="/" element={<ToolsShowcasePage />} />
@@ -112,8 +112,8 @@ const App = () => {
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="/500" element={<ServerErrorPage />} />
             <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </main>
+          </Routes>        </main>
+        <HelpMessage />
         <ScrollToTop />
         <Footer />
       </AdSenseProvider>
