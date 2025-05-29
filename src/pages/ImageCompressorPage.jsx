@@ -62,7 +62,7 @@ const ImageCompressorPage = () => {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Image Compressor",
-                "item": "https://www.smitparekh.studio/image-compressor"
+                "item": "https://www.smitparekh.studio/free-tools/image-compressor"
             }
         ]
     };
@@ -73,7 +73,7 @@ const ImageCompressorPage = () => {
                 title="Free Image Compressor | Reduce Image Size Without Losing Quality"
                 description="Compress images online for free without losing quality. Reduce file sizes for websites, email, and social media while maintaining visual clarity. No signup required."
                 keywords="free image compressor, compress images online, reduce image size, image compression tool, optimize images for web, photo size reducer, bulk image compressor"
-                canonicalUrl="https://www.smitparekh.studio/image-compressor"
+                canonicalUrl="https://www.smitparekh.studio/free-tools/image-compressor"
                 ogTitle="Free Image Compression Tool - Optimize Images Without Quality Loss"
                 ogDescription="Compress your images for web and social media without losing quality. Free, fast, and easy to use."
                 ogImage="https://www.smitparekh.studio/images/Image-Compressor-Tool.webp"
