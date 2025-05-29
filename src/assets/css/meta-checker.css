@@ -196,7 +196,7 @@
 }
 
 .meta-types-table th {
-  background-color: var(--primary-color);
+  background-color: var(--first-color);
   color: white;
   font-weight: 600;
 }
@@ -285,7 +285,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: var(--primary-color);
+  background-color: var(--first-color);
   color: white;
   display: flex;
   align-items: center;
