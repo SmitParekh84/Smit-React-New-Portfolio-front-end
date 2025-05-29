@@ -6,7 +6,7 @@ const CTASection = () => {
       <div className="cta-content">
         <h2>Ready to Improve Your SEO Performance?</h2>
         <p>Start by analyzing your website's meta tags with our free tool and implement our optimization recommendations.</p>
-        <a href="#meta-checker" className="cta-button">Check Your Meta Tags Now</a>
+        <a href="#meta-checker" className="button">Check Your Meta Tags Now</a>
       </div>
     </section>
   );

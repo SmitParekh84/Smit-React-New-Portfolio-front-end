@@ -196,7 +196,7 @@ const SEOAnalyzer = ({ apiUrl, toolName }) => {
     };
 
     return (
-        <section className="section">
+        <section className="">
             <div className="seo-analyzer container">
                 <header>
                     <h3>{toolName || "SEO Analyzer"}</h3>

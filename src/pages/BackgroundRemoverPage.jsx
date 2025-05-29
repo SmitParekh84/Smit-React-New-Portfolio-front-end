@@ -1,13 +1,18 @@
 import React from "react";
 import "react-toastify/dist/ReactToastify.css";
-import BackgroundRemover from "../components/BackgroundRemover/BackgroundRemover";
+import BackgroundRemover, {
+    HeroSection,
+    HowItWorksSection,
+    ToolBenefitsSection,
+    UseCasesSection,
+    CTASection
+} from "../components/BackgroundRemover";
 import FAQ from "../components/FAQ/FAQ";
 import { faqDataBackgroundRemover } from "../data/data";
 import SEO from "../components/SEO/SEO";
 
 const BackgroundRemoverPage = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
-    
     // FAQ Schema
     const faqSchema = {
         "@context": "https://schema.org",
@@ -20,9 +25,7 @@ const BackgroundRemoverPage = () => {
                 "text": item.answer
             }
         }))
-    };
-
-    // SoftwareApplication schema for the tool
+    };    // SoftwareApplication schema for the tool
     const toolSchema = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
@@ -46,7 +49,6 @@ const BackgroundRemoverPage = () => {
             "width": "1200",
             "height": "630"
         },
-        "applicationCategory": "Design",
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.8",
@@ -105,9 +107,7 @@ const BackgroundRemoverPage = () => {
                 "text": "Download your transparent PNG image with the background removed"
             }
         ]
-    };
-
-    return (
+    };    return (
         <>
             <SEO 
                 title="Free Background Remover Tool | Remove Image Backgrounds Instantly"
@@ -122,11 +122,20 @@ const BackgroundRemoverPage = () => {
                 language="en-US"
             />
             
-            <BackgroundRemover
-                toolName="Background Remover"
-                apiUrl={apiUrl}
-            />
+            <HeroSection />
+            
+            <div id="bg-remover-tool" className="container">
+                <BackgroundRemover
+                    toolName="Background Remover"
+                    apiUrl={apiUrl}
+                />
+            </div>
+            
+            <HowItWorksSection />
+            <UseCasesSection />
+            <ToolBenefitsSection />
             <FAQ faqData={faqDataBackgroundRemover} toolName="Background Remover" />
+            <CTASection />
         </>
     );
 };

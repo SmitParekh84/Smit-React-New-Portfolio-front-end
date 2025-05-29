@@ -21,7 +21,7 @@ const ToolBenefitsSection = () => {
           
           <div className="benefit-card">
             <div className="benefit-icon">
-              <i className="uil uil-infinity"></i>
+              <i className="uil uil-sync"></i>
             </div>
             <h3>Permanent QR Codes</h3>
             <p>Once generated, our QR codes last forever. They won't expire or stop working, even years after creation, making them ideal for long-term marketing materials.</p>
