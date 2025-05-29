@@ -1,0 +1,50 @@
+/* SEO Benefits Section Styles */
+.benefits__container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.benefit__card {
+    background-color: var(--container-color);
+    border-radius: 1rem;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.benefit__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.benefit__icon {
+    display: block;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.benefit__title {
+    font-size: var(--h3-font-size);
+    color: var(--title-color);
+    margin-bottom: 1rem;
+}
+
+.benefit__description {
+    font-size: var(--small-font-size);
+    line-height: 1.7;
+}
+
+/* Medium devices (tablets) */
+@media screen and (min-width: 568px) {
+    .benefits__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large devices (laptops/desktops) */
+@media screen and (min-width: 968px) {
+    .benefits__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

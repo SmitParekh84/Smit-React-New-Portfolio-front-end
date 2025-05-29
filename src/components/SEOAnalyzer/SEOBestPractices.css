@@ -1,0 +1,68 @@
+/* SEO Best Practices Section Styles */
+.best-practices__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.practice-card {
+    background-color: var(--container-color);
+    border-radius: 1rem;
+    padding: 1.75rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.practice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.practice-card h3 {
+    display: flex;
+    align-items: center;
+    font-size: var(--h3-font-size);
+    color: var(--title-color);
+    margin-bottom: 1rem;
+}
+
+.practice-card h3 i {
+    color: var(--primary-color);
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.practice-card p {
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.practice-tip {
+    background-color: rgba(var(--primary-color-rgb), 0.08);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--primary-color);
+    font-size: var(--small-font-size);
+}
+
+.practice-tip strong {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+/* Medium devices (tablets) */
+@media screen and (min-width: 768px) {
+    .best-practices__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large devices (laptops/desktops) */
+@media screen and (min-width: 1024px) {
+    .best-practices__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

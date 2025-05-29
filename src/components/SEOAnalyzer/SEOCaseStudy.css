@@ -1,0 +1,113 @@
+/* SEO Case Study Section Styles */
+.case-study__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.case-study__text {
+    font-size: var(--normal-font-size);
+}
+
+.case-study__text h3 {
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    margin-bottom: 1rem;
+}
+
+.case-study__text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.case-study__list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.case-study__list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.case-study__list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.case-study__list li strong {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+.case-study__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.stat {
+    background-color: var(--container-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: var(--font-semi-bold);
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+}
+
+/* Medium devices (tablets) */
+@media screen and (min-width: 768px) {
+    .case-study__content {
+        grid-template-columns: 3fr 2fr;
+        align-items: center;
+    }
+    
+    .case-study__stats {
+        flex-direction: column;
+    }
+    
+    .stat {
+        width: 100%;
+    }
+}
+
+/* Large devices (laptops/desktops) */
+@media screen and (min-width: 1024px) {
+    .stat-number {
+        font-size: 3rem;
+    }
+
+    .stat-label {
+        font-size: var(--normal-font-size);
+    }
+}

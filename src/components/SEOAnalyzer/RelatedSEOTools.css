@@ -1,0 +1,76 @@
+/* Related SEO Tools Section Styles */
+.related-tools__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.related-tool__card {
+    background-color: var(--container-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.related-tool__card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.related-tool__icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.related-tool__title {
+    font-size: var(--h3-font-size);
+    color: var(--title-color);
+    margin-bottom: 1rem;
+}
+
+.related-tool__description {
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.related-tool__link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: var(--font-medium);
+    font-size: var(--normal-font-size);
+    transition: all 0.3s ease;
+}
+
+.related-tool__link i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.related-tool__link:hover {
+    color: var(--primary-color-darker);
+}
+
+.related-tool__link:hover i {
+    transform: translateX(4px);
+}
+
+/* Medium devices (tablets) */
+@media screen and (min-width: 768px) {
+    .related-tools__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large devices (laptops/desktops) */
+@media screen and (min-width: 1024px) {
+    .related-tools__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
