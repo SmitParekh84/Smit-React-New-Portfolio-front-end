@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useState, useEffect, useRef } from 'react';
 import './HelpMessage.css';
+import botResponses, { initialMessage } from './botResponses';
 
 /**
  * HelpMessage Component - Chatbot style
@@ -30,103 +31,7 @@ const HelpMessage = () => {
     // Ref for chat container to auto-scroll
     const chatContainerRef = useRef(null);
     // Ref for input field to auto-focus
-    const inputRef = useRef(null);
-
-    // Initial greeting message
-    const initialMessage = {
-        id: 'init-1',
-        type: 'bot',
-        text: "👋 Hi there! I'm Smit's assistant. How can I help you today?",
-        options: [
-            { id: 'tools', text: 'Tell me about the tools', value: 'tools' },
-            { id: 'contact', text: 'I need help with something', value: 'help' },
-            { id: 'about', text: 'Who is Smit?', value: 'about' }
-        ]
-    };
-
-    // Bot response data
-    const botResponses = {
-        tools: {
-            text: "I can help with our free tools! Here are some popular ones:",
-            options: [
-                { id: 'bg-remover', text: 'Background Remover', value: 'bg-remover' },
-                { id: 'linkedin', text: 'LinkedIn Post Generator', value: 'linkedin' },
-                { id: 'seo', text: 'SEO Analyzer', value: 'seo' },
-                { id: 'more-tools', text: 'Show all tools', value: 'more-tools' }
-            ]
-        },
-        'bg-remover': {
-            text: "Our Background Remover uses AI to remove backgrounds from images in seconds!",
-            action: { type: 'link', url: '/free-tools/background-remover', text: 'Try Background Remover' }
-        },
-        linkedin: {
-            text: "Create viral LinkedIn posts with our AI-powered LinkedIn Post Generator.",
-            action: { type: 'link', url: '/free-tools/viral-linkedin-post-generator', text: 'Try LinkedIn Post Generator' }
-        },
-        seo: {
-            text: "Analyze your website's SEO performance and get actionable recommendations.",
-            action: { type: 'link', url: '/free-tools/seo-analyzer', text: 'Try SEO Analyzer' }
-        },
-        'more-tools': {
-            text: "We have many more free tools available for you to use.",
-            action: { type: 'link', url: '/free-tools', text: 'Explore All Tools' }
-        },
-        help: {
-            text: "I'd be happy to help! Please let me know what you need assistance with.",
-            options: [
-                { id: 'tool-help', text: 'Help with a tool', value: 'tool-help' },
-                { id: 'contact-us', text: 'Contact Support', value: 'contact-us' },
-                { id: 'bug', text: 'Report a bug', value: 'bug' }
-            ]
-        },
-        'tool-help': {
-            text: "What tool do you need help with?",
-            options: [
-                { id: 'bg-help', text: 'Background Remover', value: 'bg-help' },
-                { id: 'linkedin-help', text: 'LinkedIn Post Generator', value: 'linkedin-help' },
-                { id: 'other-help', text: 'Other tools', value: 'other-help' }
-            ]
-        },
-        'bg-help': {
-            text: "For Background Remover, upload your image, click 'Remove Background', and download the result. For more help:",
-            action: { type: 'link', url: '/contact', text: 'Contact Support' }
-        },
-        'linkedin-help': {
-            text: "For LinkedIn Post Generator, enter your topic, select a tone, and generate. For more specific help:",
-            action: { type: 'link', url: '/contact', text: 'Contact Support' }
-        },
-        'other-help': {
-            text: "For help with other tools, please contact our support team:",
-            action: { type: 'link', url: '/contact', text: 'Contact Support' }
-        },
-        'contact-us': {
-            text: "You can reach our support team via the contact form.",
-            action: { type: 'link', url: '/contact', text: 'Contact Support' }
-        },
-        bug: {
-            text: "Found a bug? Please report it through our contact form with details about what happened.",
-            action: { type: 'link', url: '/contact', text: 'Report Bug' }
-        },
-        about: {
-            text: "Smit is a full-stack developer specializing in web development and creating useful online tools. Want to know more?",
-            options: [
-                { id: 'portfolio', text: 'See Portfolio', value: 'portfolio' },
-                { id: 'services', text: 'Services Offered', value: 'services' }
-            ]
-        },
-        portfolio: {
-            text: "Check out Smit's portfolio to see previous work and projects.",
-            action: { type: 'link', url: '/portfolio', text: 'View Portfolio' }
-        },
-        services: {
-            text: "Smit offers web development, SEO optimization, and custom tool development services.",
-            action: { type: 'link', url: '/services', text: 'View Services' }
-        },
-        default: {
-            text: "I'm not sure how to help with that. Would you like to contact support?",
-            action: { type: 'link', url: '/contact', text: 'Contact Support' }
-        }
-    };    // Function to handle sending messages
+    const inputRef = useRef(null);    // Function to handle sending messages
     const handleSendMessage = (text, isOptionSelected = false) => {
         if (!text.trim() && !isOptionSelected) return;
 
@@ -151,18 +56,38 @@ const HelpMessage = () => {
             // Find appropriate response based on input text
             const inputKey = text.toLowerCase();
             let response;
+            let responseKey = inputKey;
             
             // Check if we have an exact match for this input
             if (botResponses[inputKey]) {
-                response = botResponses[inputKey];
+                // Check if this is a redirect
+                if (botResponses[inputKey].redirect) {
+                    responseKey = botResponses[inputKey].redirect;
+                    response = botResponses[responseKey];
+                } else {
+                    response = botResponses[inputKey];
+                }
             } else {
                 // No exact match, try to find keywords in the input
                 const keywords = Object.keys(botResponses);
                 const matchedKey = keywords.find(key => 
-                    inputKey.includes(key.toLowerCase())
+                    inputKey.includes(key.toLowerCase()) && 
+                    key.length > 2 // Avoid matching on very short keywords
                 );
                 
-                response = matchedKey ? botResponses[matchedKey] : botResponses.default;
+                if (matchedKey && botResponses[matchedKey]) {
+                    // Check if this is a redirect entry
+                    if (botResponses[matchedKey].redirect) {
+                        responseKey = botResponses[matchedKey].redirect;
+                        response = botResponses[responseKey];
+                    } else {
+                        responseKey = matchedKey;
+                        response = botResponses[matchedKey];
+                    }
+                } else {
+                    responseKey = 'default';
+                    response = botResponses.default;
+                }
             }
             
             // Create bot message
@@ -179,8 +104,7 @@ const HelpMessage = () => {
             setIsTyping(false);
         }, 600);
     };
-      // We don't need the processResponse function anymore as it's handled in the other functions
-      // Handle user clicking a response option
+      // We don't need the processResponse function anymore as it's handled in the other functions    // Handle user clicking a response option
     const handleOptionClick = (option) => {
         // Add user option selection as a message
         const userMessage = {
@@ -196,7 +120,16 @@ const HelpMessage = () => {
         // Simulate bot typing delay then process response
         setTimeout(() => {
             // Get the appropriate response
-            const response = botResponses[option.value.toLowerCase()] || botResponses.default;
+            let responseKey = option.value.toLowerCase();
+            let response;
+            
+            // Check if this is a redirect
+            if (botResponses[responseKey] && botResponses[responseKey].redirect) {
+                responseKey = botResponses[responseKey].redirect;
+                response = botResponses[responseKey];
+            } else {
+                response = botResponses[responseKey] || botResponses.default;
+            }
             
             // Create bot message
             const botMessage = {
@@ -265,8 +198,7 @@ const HelpMessage = () => {
     const closeChat = () => {
         setIsExpanded(false);
     };
-    
-    // Clear chat history
+      // Clear chat history
     const clearChat = () => {
         setMessages([]);
         localStorage.removeItem('chatBotMessages');
