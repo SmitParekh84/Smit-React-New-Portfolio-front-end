@@ -221,9 +221,60 @@ const LinkedInMediaDownloader = () => {
                     </ol>
                 </div>
 
+                <div className="instructions">
+                    <h3>Why Download LinkedIn Media?</h3>
+                    <p>LinkedIn has become a powerful platform for professional content sharing, with millions of videos and images posted daily. Our LinkedIn media downloader helps you save valuable content for:</p>
+                    <ul>
+                        <li><strong>Personal Archives:</strong> Keep important educational or inspirational content for offline viewing</li>
+                        <li><strong>Content Research:</strong> Study successful LinkedIn posts and media strategies</li>
+                        <li><strong>Educational Purpose:</strong> Save tutorials, webinars, and educational videos shared by industry experts</li>
+                        <li><strong>Backup Content:</strong> Preserve your own LinkedIn posts before they get lost in the timeline</li>
+                        <li><strong>Offline Viewing:</strong> Watch LinkedIn videos without internet connection during travel</li>
+                    </ul>
+                </div>
+
+                <div className="instructions">
+                    <h3>Features of Our LinkedIn Downloader:</h3>
+                    <ul>
+                        <li><strong>High-Quality Downloads:</strong> Get videos in original resolution and photos in full quality</li>
+                        <li><strong>No Registration Required:</strong> Start downloading immediately without creating accounts</li>
+                        <li><strong>Multiple Formats Support:</strong> Download LinkedIn videos in MP4 format and photos in JPG/PNG</li>
+                        <li><strong>Fast Processing:</strong> Quick extraction and download of LinkedIn media content</li>
+                        <li><strong>Mobile Friendly:</strong> Works perfectly on smartphones, tablets, and desktop computers</li>
+                        <li><strong>Safe & Secure:</strong> No malware, no ads, just a clean downloading experience</li>
+                        <li><strong>Free Forever:</strong> Completely free tool with no hidden costs or premium features</li>
+                    </ul>
+                </div>
+
+                <div className="instructions">
+                    <h3>Supported LinkedIn Content Types:</h3>
+                    <p>Our downloader works with various types of LinkedIn media content:</p>
+                    <ul>
+                        <li><strong>LinkedIn Videos:</strong> Native videos uploaded directly to LinkedIn posts</li>
+                        <li><strong>LinkedIn Photos:</strong> Images shared in LinkedIn posts and articles</li>
+                        <li><strong>Carousel Images:</strong> Multiple photos from LinkedIn carousel posts</li>
+                        <li><strong>Profile Pictures:</strong> Download LinkedIn profile photos in high resolution</li>
+                        <li><strong>Company Page Media:</strong> Images and videos from LinkedIn company pages</li>
+                        <li><strong>LinkedIn Stories:</strong> Save content from LinkedIn story posts</li>
+                    </ul>
+                </div>
+
+                <div className="instructions">
+                    <h3>Tips for Best Results:</h3>
+                    <ul>
+                        <li><strong>Use Complete URLs:</strong> Copy the full LinkedIn post URL including all parameters</li>
+                        <li><strong>Check Post Visibility:</strong> Ensure the LinkedIn post is publicly accessible</li>
+                        <li><strong>Try Different Formats:</strong> Some content may be available in multiple resolutions</li>
+                        <li><strong>Clear Browser Cache:</strong> If download fails, clear cache and try again</li>
+                        <li><strong>Stable Internet:</strong> Use a stable internet connection for faster processing</li>
+                        <li><strong>Update Browser:</strong> Use the latest browser version for best compatibility</li>
+                    </ul>
+                </div>
+
                 <div className="notes">
                     <p><strong>Note:</strong> This tool only works with public LinkedIn posts. Private posts cannot be accessed.</p>
-                    <p>Please use downloaded media in accordance with LinkedIn's terms of service and respect copyright ownership.</p>
+                    <p>Please use downloaded media in accordance with LinkedIn&rsquo;s terms of service and respect copyright ownership.</p>
+                    <p><strong>Privacy &amp; Security:</strong> We don&rsquo;t store any of your data or downloaded content. All processing happens in real-time, and no personal information is collected or saved on our servers.</p>
                 </div>
             </div>
         </section>
