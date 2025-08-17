@@ -1,0 +1,895 @@
+/* LinkedIn Downloader Components Styles */
+
+/* Benefits Section */
+.linkedin-benefits-section {
+    padding: 4rem 0;
+    background-color: var(--body-color);
+}
+
+.linkedin-benefits-section .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.linkedin-benefits-section .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.linkedin-benefits-section .section-header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.benefit-card {
+    background: var(--container-color);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(110, 87, 224, 0.1);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(110, 87, 224, 0.15);
+}
+
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.benefit-icon i,
+.benefit-icon svg {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.benefit-card h3 {
+    font-size: 1.25rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.benefit-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* How It Works Section */
+.how-it-works-section {
+    padding: 4rem 0;
+    background-color: var(--container-color);
+}
+
+.how-it-works-section .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.how-it-works-section .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.how-it-works-section .section-header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.steps-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 29px;
+    top: 60px;
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--first-color), rgba(110, 87, 224, 0.3));
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: var(--font-semi-bold);
+    margin-right: 2rem;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    margin-bottom: 0.5rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.step-content p {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* Use Cases Section */
+.use-cases-section {
+    padding: 4rem 0;
+    background-color: var(--body-color);
+}
+
+.use-cases-section .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.use-cases-section .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.use-cases-section .section-header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.use-case-card {
+    background: var(--container-color);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(110, 87, 224, 0.1);
+}
+
+.use-case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(110, 87, 224, 0.15);
+}
+
+.use-case-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.use-case-icon i,
+.use-case-icon svg {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.use-case-card h3 {
+    font-size: 1.25rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.use-case-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Features Section */
+.features-section {
+    padding: 4rem 0;
+    background-color: var(--container-color);
+}
+
+.features-section .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.features-section .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.features-section .section-header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.comparison-table {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--body-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    color: white;
+    font-weight: var(--font-semi-bold);
+    font-size: 1.1rem;
+}
+
+.table-header > div {
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+.feature-column {
+    text-align: left !important;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid rgba(110, 87, 224, 0.1);
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row > div {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-name {
+    justify-content: flex-start !important;
+    font-weight: var(--font-medium);
+    color: var(--title-color);
+}
+
+.our-feature i,
+.our-feature svg {
+    color: #28a745;
+    font-size: 1.2rem;
+}
+
+.other-feature i,
+.other-feature svg {
+    color: #dc3545;
+    font-size: 1.2rem;
+}
+
+.our-feature {
+    color: #28a745;
+    font-weight: var(--font-semi-bold);
+}
+
+.other-feature {
+    color: #6c757d;
+}
+
+/* Tips Section */
+.tips-section {
+    padding: 4rem 0;
+    background-color: var(--body-color);
+}
+
+.tips-section .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tips-section .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.tips-section .section-header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.tip-card {
+    background: var(--container-color);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(110, 87, 224, 0.1);
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(110, 87, 224, 0.15);
+}
+
+.tip-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ffc107, #ff8c00);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.tip-icon i,
+.tip-icon svg {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.tip-card h3 {
+    font-size: 1.25rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.tip-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.linkedin-cta-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    color: white;
+}
+
+.cta-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.cta-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.cta-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.cta-features {
+    margin-bottom: 2rem;
+}
+
+.cta-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.cta-feature i,
+.cta-feature svg {
+    color: white;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: var(--first-color);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: var(--font-semi-bold);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+.cta-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-badge i,
+.cta-badge svg {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: white;
+}
+
+.cta-badge span {
+    font-weight: var(--font-semi-bold);
+    font-size: 1.1rem;
+}
+
+/* Technical Section */
+.technical-section {
+    padding: 4rem 0;
+    background-color: var(--container-color);
+}
+
+.technical-section .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.technical-section .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.technical-section .section-header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.technical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.technical-card {
+    background: var(--body-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(110, 87, 224, 0.1);
+}
+
+.technical-card h3 {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.technical-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.technical-card li {
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.technical-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--first-color);
+    font-weight: bold;
+}
+
+.technical-card strong {
+    color: var(--title-color);
+}
+
+/* Related Tools Section */
+.related-tools-section {
+    padding: 4rem 0;
+    background-color: var(--body-color);
+}
+
+.related-tools-section .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.related-tools-section .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.related-tools-section .section-header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.tool-card {
+    background: var(--container-color);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(110, 87, 224, 0.1);
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(110, 87, 224, 0.15);
+}
+
+.tool-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.tool-icon i,
+.tool-icon svg {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.tool-card h3 {
+    font-size: 1.25rem;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.tool-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.tool-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--first-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: var(--font-medium);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tool-link:hover {
+    background: var(--first-color-alt);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .linkedin-benefits-section .section-header h2,
+    .how-it-works-section .section-header h2,
+    .use-cases-section .section-header h2,
+    .features-section .section-header h2,
+    .tips-section .section-header h2,
+    .technical-section .section-header h2,
+    .related-tools-section .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .linkedin-benefits-section .section-header p,
+    .how-it-works-section .section-header p,
+    .use-cases-section .section-header p,
+    .features-section .section-header p,
+    .tips-section .section-header p,
+    .technical-section .section-header p,
+    .related-tools-section .section-header p {
+        font-size: 1rem;
+    }
+
+    .benefits-grid,
+    .use-cases-grid,
+    .tips-grid,
+    .technical-grid,
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .step-number {
+        margin: 0 0 1rem 0;
+    }
+
+    .step:not(:last-child)::after {
+        display: none;
+    }
+
+    .cta-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .cta-text h2 {
+        font-size: 2rem;
+    }
+
+    .comparison-table {
+        font-size: 0.9rem;
+    }
+
+    .table-header > div,
+    .table-row > div {
+        padding: 1rem 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .linkedin-benefits-section,
+    .how-it-works-section,
+    .use-cases-section,
+    .features-section,
+    .tips-section,
+    .linkedin-cta-section,
+    .technical-section,
+    .related-tools-section {
+        padding: 2rem 0;
+    }
+
+    .benefit-card,
+    .use-case-card,
+    .tip-card,
+    .technical-card,
+    .tool-card {
+        padding: 1.5rem;
+    }
+
+    .cta-text h2 {
+        font-size: 1.75rem;
+    }
+
+    .cta-text p {
+        font-size: 1rem;
+    }
+}
+
+/* Dark mode support */
+body.dark-theme .linkedin-benefits-section,
+body.dark-theme .use-cases-section,
+body.dark-theme .tips-section,
+body.dark-theme .related-tools-section {
+    background-color: var(--body-color);
+}
+
+body.dark-theme .how-it-works-section,
+body.dark-theme .features-section,
+body.dark-theme .technical-section {
+    background-color: var(--container-color);
+}
+
+body.dark-theme .benefit-card,
+body.dark-theme .use-case-card,
+body.dark-theme .tip-card,
+body.dark-theme .tool-card {
+    background-color: var(--container-color);
+    border-color: var(--text-color-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .benefit-card:hover,
+body.dark-theme .use-case-card:hover,
+body.dark-theme .tip-card:hover,
+body.dark-theme .tool-card:hover {
+    box-shadow: 0 8px 24px rgba(110, 87, 224, 0.4);
+}
+
+body.dark-theme .technical-card {
+    background-color: var(--body-color);
+    border-color: var(--text-color-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .comparison-table {
+    background-color: var(--body-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .table-row {
+    border-bottom-color: var(--text-color-light);
+}
+
+body.dark-theme .linkedin-benefits-section .section-header h2,
+body.dark-theme .how-it-works-section .section-header h2,
+body.dark-theme .use-cases-section .section-header h2,
+body.dark-theme .features-section .section-header h2,
+body.dark-theme .tips-section .section-header h2,
+body.dark-theme .technical-section .section-header h2,
+body.dark-theme .related-tools-section .section-header h2,
+body.dark-theme .benefit-card h3,
+body.dark-theme .use-case-card h3,
+body.dark-theme .tip-card h3,
+body.dark-theme .tool-card h3,
+body.dark-theme .technical-card h3,
+body.dark-theme .step-content h3,
+body.dark-theme .feature-name {
+    color: var(--title-color);
+}
+
+body.dark-theme .linkedin-benefits-section .section-header p,
+body.dark-theme .how-it-works-section .section-header p,
+body.dark-theme .use-cases-section .section-header p,
+body.dark-theme .features-section .section-header p,
+body.dark-theme .tips-section .section-header p,
+body.dark-theme .technical-section .section-header p,
+body.dark-theme .related-tools-section .section-header p,
+body.dark-theme .benefit-card p,
+body.dark-theme .use-case-card p,
+body.dark-theme .tip-card p,
+body.dark-theme .tool-card p,
+body.dark-theme .step-content p,
+body.dark-theme .technical-card li {
+    color: var(--text-color);
+}
+
+body.dark-theme .cta-button {
+    background-color: white;
+    color: var(--first-color);
+}
+
+body.dark-theme .cta-button:hover {
+    background-color: #f8f9fa;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme .tool-link {
+    background-color: var(--first-color);
+    color: white;
+}
+
+body.dark-theme .tool-link:hover {
+    background-color: var(--first-color-alt);
+}
+
+body.dark-theme .technical-card strong {
+    color: var(--title-color);
+}
+
+body.dark-theme .technical-card li::before {
+    color: var(--first-color-lighter);
+}
+
+/* Enhance contrast for dark mode icons */
+body.dark-theme .benefit-icon,
+body.dark-theme .use-case-icon,
+body.dark-theme .tool-icon {
+    background: linear-gradient(135deg, var(--first-color-lighter), var(--first-color-alt));
+    box-shadow: 0 4px 15px rgba(110, 87, 224, 0.3);
+}
+
+body.dark-theme .tip-icon {
+    background: linear-gradient(135deg, #ffc107, #ff8c00);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+body.dark-theme .step-number {
+    background: linear-gradient(135deg, var(--first-color-lighter), var(--first-color-alt));
+    box-shadow: 0 4px 15px rgba(110, 87, 224, 0.3);
+}
+
+body.dark-theme .table-header {
+    background: linear-gradient(135deg, var(--first-color-lighter), var(--first-color-alt));
+}
+
+body.dark-theme .linkedin-cta-section {
+    background: linear-gradient(135deg, var(--first-color-lighter), var(--first-color-alt));
+}
