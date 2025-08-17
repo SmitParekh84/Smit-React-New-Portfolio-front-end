@@ -214,20 +214,9 @@
     padding-left: 20px;
 }
 
-.instructions ul {
-    padding-left: 20px;
-}
-
 .instructions li {
     margin-bottom: 10px;
     color: var(--text-color);
-    line-height: 1.6;
-}
-
-.instructions p {
-    margin-bottom: 12px;
-    color: var(--text-color);
-    line-height: 1.6;
 }
 
 .notes {
