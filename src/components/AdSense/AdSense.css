@@ -148,3 +148,33 @@ p + .adsense-container {
 .adsense-container + .adsense-container {
   margin-top: 3rem;
 }
+
+/* Fluid Ad Unit Specific Styles */
+.fluid-ad-unit {
+  background: transparent;
+  border: none;
+  padding: 15px 0;
+}
+
+.fluid-ad-unit .adsbygoogle {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 150px;
+}
+
+.fluid-ad-unit .ad-label {
+  font-size: 0.7rem;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+/* Responsive fluid ad adjustments */
+@media screen and (max-width: 768px) {
+  .fluid-ad-unit {
+    padding: 10px 5px;
+  }
+  
+  .fluid-ad-unit .adsbygoogle {
+    min-height: 120px;
+  }
+}

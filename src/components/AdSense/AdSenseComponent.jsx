@@ -26,7 +26,7 @@ const AdSenseComponent = ({
     
     try {
       // Only inject ads if we're not in a development environment
-      if (process.env.NODE_ENV === 'production') {
+      if (import.meta.env.MODE === 'production') {
         // Wait for AdSense to be ready
         if (window.adsbygoogle) {
           // Create the ad container with proper attributes

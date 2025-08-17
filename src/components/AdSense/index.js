@@ -2,6 +2,7 @@ import AdSenseComponent from './AdSenseComponent';
 import AdSenseProvider from './AdSenseProvider';
 import { InArticleAd, HorizontalBannerAd, SidebarAd } from './AdFormats';
 import SidebarAdLayout from './SidebarAdLayout';
+import FluidAdUnit from './FluidAdUnit';
 
 export {
   AdSenseComponent,
@@ -9,7 +10,8 @@ export {
   InArticleAd,
   HorizontalBannerAd,
   SidebarAd,
-  SidebarAdLayout
+  SidebarAdLayout,
+  FluidAdUnit
 };
 
 export default AdSenseComponent;
