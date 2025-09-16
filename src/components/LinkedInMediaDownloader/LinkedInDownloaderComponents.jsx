@@ -189,73 +189,77 @@ export const FeaturesSection = () => {
                     <p>Compare our features with other LinkedIn downloading solutions</p>
                 </div>
                 
-                <div className="comparison-table">
-                    <div className="table-header">
-                        <div className="feature-column">Features</div>
-                        <div className="our-tool-column">Our Tool</div>
-                        <div className="others-column">Other Tools</div>
-                    </div>
-                    
-                    <div className="table-row">
-                        <div className="feature-name">Free to Use</div>
-                        <div className="our-feature">
-                            <FontAwesomeIcon icon={faCheck} />
+                {/* 👇 Scroll wrapper */}
+                <div className="table-scroll-wrapper">
+                    <div className="comparison-table">
+                        <div className="table-header">
+                            <div className="feature-column">Features</div>
+                            <div className="our-tool-column">Our Tool</div>
+                            <div className="others-column">Other Tools</div>
                         </div>
-                        <div className="other-feature">
-                            <FontAwesomeIcon icon={faTimes} />
+                        
+                        <div className="table-row">
+                            <div className="feature-name">Free to Use</div>
+                            <div className="our-feature">
+                                <FontAwesomeIcon icon={faCheck} />
+                            </div>
+                            <div className="other-feature">
+                                <FontAwesomeIcon icon={faTimes} />
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div className="table-row">
-                        <div className="feature-name">No Registration Required</div>
-                        <div className="our-feature">
-                            <FontAwesomeIcon icon={faCheck} />
+
+                        <div className="table-row">
+                            <div className="feature-name">No Registration Required</div>
+                            <div className="our-feature">
+                                <FontAwesomeIcon icon={faCheck} />
+                            </div>
+                            <div className="other-feature">
+                                <FontAwesomeIcon icon={faTimes} />
+                            </div>
                         </div>
-                        <div className="other-feature">
-                            <FontAwesomeIcon icon={faTimes} />
+
+                        <div className="table-row">
+                            <div className="feature-name">High Quality Downloads</div>
+                            <div className="our-feature">
+                                <FontAwesomeIcon icon={faCheck} />
+                            </div>
+                            <div className="other-feature">
+                                <FontAwesomeIcon icon={faCheck} />
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div className="table-row">
-                        <div className="feature-name">High Quality Downloads</div>
-                        <div className="our-feature">
-                            <FontAwesomeIcon icon={faCheck} />
+
+                        <div className="table-row">
+                            <div className="feature-name">No Watermarks</div>
+                            <div className="our-feature">
+                                <FontAwesomeIcon icon={faCheck} />
+                            </div>
+                            <div className="other-feature">
+                                <FontAwesomeIcon icon={faTimes} />
+                            </div>
                         </div>
-                        <div className="other-feature">
-                            <FontAwesomeIcon icon={faCheck} />
+
+                        <div className="table-row">
+                            <div className="feature-name">Mobile Responsive</div>
+                            <div className="our-feature">
+                                <FontAwesomeIcon icon={faCheck} />
+                            </div>
+                            <div className="other-feature">
+                                <FontAwesomeIcon icon={faCheck} />
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div className="table-row">
-                        <div className="feature-name">No Watermarks</div>
-                        <div className="our-feature">
-                            <FontAwesomeIcon icon={faCheck} />
+
+                        <div className="table-row">
+                            <div className="feature-name">Download Speed</div>
+                            <div className="our-feature">Ultra Fast</div>
+                            <div className="other-feature">Slow</div>
                         </div>
-                        <div className="other-feature">
-                            <FontAwesomeIcon icon={faTimes} />
-                        </div>
-                    </div>
-                    
-                    <div className="table-row">
-                        <div className="feature-name">Mobile Responsive</div>
-                        <div className="our-feature">
-                            <FontAwesomeIcon icon={faCheck} />
-                        </div>
-                        <div className="other-feature">
-                            <FontAwesomeIcon icon={faCheck} />
-                        </div>
-                    </div>
-                    
-                    <div className="table-row">
-                        <div className="feature-name">Download Speed</div>
-                        <div className="our-feature">Ultra Fast</div>
-                        <div className="other-feature">Slow</div>
                     </div>
                 </div>
             </div>
         </section>
     );
 };
+
 
 // Tips and Best Practices Section
 export const TipsSection = () => {
