@@ -18,14 +18,14 @@ const AboutPage = () => {
       "https://www.instagram.com/smit_8_4/",
       "https://www.facebook.com/SmitParekh84/",
     ],
-    jobTitle: "Marketing Manager & Full-stack Developer",
+    jobTitle: "Software Developer & SEO Specialist",
     worksFor: {
       "@type": "Organization",
       name: "Smit Parekh",
       url: "https://www.smitparekh.co.in",
     },
     description:
-      "Smit Parekh is a Marketing Manager and Full-stack Developer with expertise in crafting data-driven marketing strategies and scalable web solutions.",
+      "Smit Parekh is a Software Developer and SEO Specialist with expertise in crafting data-driven marketing strategies and scalable web solutions.",
     knowsAbout: [
       "Digital Marketing",
       "Web Development",
@@ -91,7 +91,7 @@ const AboutPage = () => {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Smit Parekh - Marketing Manager & Full-stack Developer",
+    name: "Smit Parekh - Software Developer & SEO Specialist",
     url: "https://www.smitparekh.co.in",
     author: {
       "@type": "Person",
@@ -117,8 +117,8 @@ const AboutPage = () => {
   return (
     <>
       <SEO
-        title="About Smit Parekh | Marketing Manager & Full-stack Developer"
-        description="Learn about Smit Parekh, a Marketing Manager & Full-stack Developer with over 3 years of experience, expert in digital marketing, web development, and data-driven strategies."
+        title="About Smit Parekh | Software Developer & SEO Specialist"
+        description="Learn about Smit Parekh, a Software Developer & SEO Specialist with over 3 years of experience, expert in digital marketing, web development, and data-driven strategies."
         keywords="Smit Parekh, About Smit Parekh, Marketing Manager, Full-stack Developer, digital marketing expert, web developer, portfolio, professional background"
         canonicalUrl={pageUrl}
         ogType="profile"

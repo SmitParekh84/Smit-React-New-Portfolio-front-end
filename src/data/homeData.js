@@ -4,9 +4,9 @@ import HomeImage from "/images/Smit-Parekh-Home.png"
 
 export const homeData = {
   title: "Hi, I'm Smit Parekh",
-  subtitle: "Marketing Manager/Full-stack Developer",
+  subtitle: "Software Developer & SEO Specialist",
   description:
-    "We create smart marketing strategies and reliable backend systems that help brands grow and thrive.",
+    "We develop scalable backend architectures while driving performance-focused SEO and marketing strategies to accelerate brand growth.",
   socialLinks: [
     { href: "mailto:smitparekh02@gmail.com", iconClass: "uil uil-envelope" },
     {
@@ -19,4 +19,4 @@ export const homeData = {
     },
   ],
   imageSrc: HomeImage,
-};
+}

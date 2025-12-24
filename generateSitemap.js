@@ -16,7 +16,7 @@ const urls = [
     changefreq: "monthly",
     priority: 0.9,
     lastmod: "2023-11-01",
-    title: "About - Marketing Manager & Full-stack Developer | Smit Parekh",
+    title: "About - Software Developer & SEO Specialist | Smit Parekh",
   },
   {
     url: "/skills",

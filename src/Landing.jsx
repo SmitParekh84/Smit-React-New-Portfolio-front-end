@@ -33,7 +33,7 @@ const Landing = () => {
         "https://www.instagram.com/smit_8_4/",
         "https://www.facebook.com/SmitParekh84/",
       ],
-      jobTitle: "Digital Marketing Manager & Full-stack Developer",
+      jobTitle: "Digital Software Developer & SEO Specialist",
       worksFor: {
         "@type": "Organization",
         name: "Smit Parekh",
@@ -63,15 +63,15 @@ const Landing = () => {
         "Node.js",
       ],
       description:
-        "Smit Parekh is a Digital Marketing Manager and Full-stack Developer with expertise in SEO, web development, and creating engaging online content.",
+        "Smit Parekh is a Digital Software Developer and SEO Specialist with expertise in SEO, web development, and creating engaging online content.",
     },
   }
 
   return (
     <>
       <SEO
-        title="Smit Parekh | Digital Marketing Manager & Full-stack Developer"
-        description="Smit Parekh is a Digital Marketing Manager & Full-stack Developer helping businesses grow online with SEO optimization, web development, and strategic digital marketing services."
+        title="Smit Parekh | Digital Software Developer & SEO Specialist"
+        description="Smit Parekh is a Digital Software Developer & SEO Specialist helping businesses grow online with SEO optimization, web development, and strategic digital marketing services."
         keywords="Smit Parekh, Digital Marketing Manager, Full-stack Developer, SEO optimization, web development services, digital marketing expert, professional portfolio"
         canonicalUrl="https://www.smitparekh.co.in/portfolio"
         ogImage="https://www.smitparekh.co.in/images/Smit-Parekh-About.webp"

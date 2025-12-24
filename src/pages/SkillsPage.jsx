@@ -9,7 +9,7 @@ const SkillsPage = () => {
     "@type": "Person",
     name: "Smit Parekh",
     url: "https://www.smitparekh.co.in/skills",
-    jobTitle: "Marketing Manager & Full-stack Developer",
+    jobTitle: "Software Developer & SEO Specialist",
     skills: [
       "JavaScript",
       "React.js",
@@ -27,7 +27,7 @@ const SkillsPage = () => {
       "SEO Optimization",
     ],
     description:
-      "Smit Parekh is a Marketing Manager and Full-stack Developer with expertise in Web Development, Digital Marketing, and Creative Design.",
+      "Smit Parekh is a Software Developer and SEO Specialist with expertise in Web Development, Digital Marketing, and Creative Design.",
     image: {
       "@type": "ImageObject",
       url: "https://www.smitparekh.co.in/images/Smit-Parekh-Skills.webp",

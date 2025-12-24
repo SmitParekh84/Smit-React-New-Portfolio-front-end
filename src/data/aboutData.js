@@ -3,11 +3,11 @@
 import AboutImage from "/images/Smit-Parekh-About.webp"
 
 export const aboutData = {
-  title: "Marketing Manager & Full-stack Developer",
+  title: "Software Developer & SEO Specialist",
   subtitle: "Meet, Smit Parekh",
   image: AboutImage,
   description:
-    "As a Marketing Manager and Back-end Developer, I blend strategy, creativity, and technical expertise to drive impactful results. I specialize in crafting data-driven marketing strategies and developing scalable backend solutions. My passion for innovation and continuous learning fuels my commitment to creating value through collaboration and results-oriented projects.",
+    "As a Senior Software Developer (Full-Stack) and SEO Specialist, I combine strategic thinking with strong engineering expertise to deliver measurable business impact. I specialize in building scalable backend systems and implementing data-driven SEO and growth strategies that improve performance, reliability, and visibility. Driven by continuous learning and innovation, I focus on creating long-term value through collaboration and results-oriented execution.",
   experience: {
     years: "03+",
     certifications: "10+",

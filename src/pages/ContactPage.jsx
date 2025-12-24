@@ -19,7 +19,7 @@ const ContactPage = () => {
       email: contactData.email,
       url: "https://www.smitparekh.co.in",
       image: "https://www.smitparekh.co.in/images/profile.webp",
-      jobTitle: "Marketing Manager & Full-Stack Developer",
+      jobTitle: "Software Developer & SEO Specialist",
       contactPoint: {
         "@type": "ContactPoint",
         telephone: contactData.phone,

@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { qualificationsData, servicesData, testimonialsData } from "../data/data";
-import Swiper from "swiper/bundle";
+import React, { useState, useEffect } from "react"
+import {
+  qualificationsData,
+  servicesData,
+  testimonialsData,
+} from "../data/data"
+import Swiper from "swiper/bundle"
 
 // Qualification Component
 export const Qualification = () => {
-  const [activeTab, setActiveTab] = useState("work");
+  const [activeTab, setActiveTab] = useState("work")
 
   const handleTabChange = (tab) => {
-    setActiveTab(tab);
-  };
+    setActiveTab(tab)
+  }
 
   return (
     <section className="qualification__section" id="qualification">
@@ -120,20 +124,28 @@ export const Qualification = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 // Services Component
 export const Services = () => {
-  const [activeModalIndex, setActiveModalIndex] = useState(null);
+  const [activeModalIndex, setActiveModalIndex] = useState(null)
 
   const openModal = (index) => {
-    setActiveModalIndex(index);
-  };
+    setActiveModalIndex(index)
+    document.body.style.overflow = "hidden" // Prevent background scrolling
+  }
 
   const closeModal = () => {
-    setActiveModalIndex(null);
-  };
+    setActiveModalIndex(null)
+    document.body.style.overflow = "unset" // Restore scrolling
+  }
+
+  const handleBackdropClick = (e) => {
+    if (e.target.classList.contains("services__modal")) {
+      closeModal()
+    }
+  }
 
   return (
     <section className="services section" id="services">
@@ -156,34 +168,48 @@ export const Services = () => {
               View more
               <i className="uil uil-arrow-right button__icon"></i>
             </span>
-
-            {/* Modal */}
-            {activeModalIndex === index && (
-              <div className="services__modal active-modal">
-                <div className="services__modal-content">
-                  <h4 className="services__modal-title">{service.title}</h4>
-                  <i
-                    className="uil uil-times services__modal-close"
-                    onClick={closeModal}
-                  ></i>
-
-                  <ul className="services__modal-services grid">
-                    {service.description.map((desc, i) => (
-                      <li className="services__modal-service" key={i}>
-                        <i className="uil uil-check-circle services__modal-icon"></i>
-                        <p>{desc}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
           </div>
         ))}
       </div>
+
+      {/* Modal - Rendered outside the map for better structure */}
+      {activeModalIndex !== null && (
+        <div
+          className="services__modal active-modal"
+          onClick={handleBackdropClick}
+        >
+          <div className="services__modal-content">
+            <button
+              className="services__modal-close"
+              onClick={closeModal}
+              aria-label="Close modal"
+            >
+              <i className="uil uil-times"></i>
+            </button>
+
+            <div className="services__modal-header">
+              <i
+                className={`${servicesData[activeModalIndex].icon} services__modal-icon-header`}
+              ></i>
+              <h4 className="services__modal-title">
+                {servicesData[activeModalIndex].title}
+              </h4>
+            </div>
+
+            <ul className="services__modal-services">
+              {servicesData[activeModalIndex].description.map((desc, i) => (
+                <li className="services__modal-service" key={i}>
+                  <i className="uil uil-check-circle services__modal-icon"></i>
+                  <p>{desc}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </section>
-  );
-};
+  )
+}
 
 // Project Component
 export const Project = () => {
@@ -204,8 +230,8 @@ export const Project = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 // Testimonials Component
 export const Testimonials = () => {
@@ -242,12 +268,12 @@ export const Testimonials = () => {
       },
       mousewheel: true,
       keyboard: true,
-    });
+    })
 
     return () => {
-      if (swiperTestimonial) swiperTestimonial.destroy();
-    };
-  }, []);
+      if (swiperTestimonial) swiperTestimonial.destroy()
+    }
+  }, [])
 
   return (
     <section className="testimonial section">
@@ -293,5 +319,5 @@ export const Testimonials = () => {
         <div className="swiper-pagination swiper-pagination-testimonial"></div>
       </div>
     </section>
-  );
-};
+  )
+}

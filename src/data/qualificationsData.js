@@ -1,4 +1,4 @@
-// Qualifications data
+// Qualifications data (Updated from Resume)
 
 export const qualificationsData = {
   education: [
@@ -17,24 +17,19 @@ export const qualificationsData = {
   ],
   work: [
     {
-      title: "Marketing Manager and Full-stack Developer",
-      subtitle: "Cilans System",
+      title: "Software Developer (Full-Stack) & SEO Specialist",
+      subtitle: "Cilans Systems",
       date: "Aug 2024 - Present",
     },
     {
       title: "Web Developer Intern",
-      subtitle: "InternPe",
+      subtitle: "InternPe (Remote)",
       date: "Four-week Training Program",
     },
     {
-      title: "Video Editor/ Socia-Media Manager",
-      subtitle: "Content Beta",
+      title: "Video Editor & Digital Marketing Executive",
+      subtitle: "Content Beta (Remote)",
       date: "Jun 2023 - Jan 2024",
-    },
-    {
-      title: "Freelance Video Editor",
-      subtitle: "Freelancer",
-      date: "Apr 2020 - Jun 2023",
     },
   ],
 };
