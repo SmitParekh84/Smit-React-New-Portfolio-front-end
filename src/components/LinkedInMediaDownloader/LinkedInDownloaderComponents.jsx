@@ -331,11 +331,11 @@ export const CTASection = () => {
                             <div className="cta-feature">
                                 <FontAwesomeIcon icon={faBullseye} />
                                 <span>Engagement Optimization</span>
-                            </div>
+                            </div>www.smitparekh.co.in
                         </div>
                         
                         <a 
-                            href="https://www.smitparekh.studio/free-tools/viral-linkedin-post-generator" 
+                            href="https://www.smitparekh.co.in/free-tools/viral-linkedin-post-generator" 
                             className="cta-button"
                             target="_blank" 
                             rel="noopener noreferrer"
@@ -417,11 +417,11 @@ export const RelatedToolsSection = () => {
                     <div className="tool-card">
                         <div className="tool-icon">
                             <FontAwesomeIcon icon={faRocket} />
-                        </div>
+                        </div>www.smitparekh.co.in
                         <h3>Viral LinkedIn Post Generator</h3>
                         <p>Create engaging LinkedIn posts that get maximum reach and engagement with AI-powered content generation.</p>
                         <a 
-                            href="https://www.smitparekh.studio/free-tools/viral-linkedin-post-generator" 
+                            href="https://www.smitparekh.co.in/free-tools/viral-linkedin-post-generator" 
                             className="tool-link"
                             target="_blank" 
                             rel="noopener noreferrer"
@@ -433,11 +433,11 @@ export const RelatedToolsSection = () => {
                     <div className="tool-card">
                         <div className="tool-icon">
                             <FontAwesomeIcon icon={faSearch} />
-                        </div>
+                        </div>www.smitparekh.co.in
                         <h3>SEO Meta Tag Checker</h3>
                         <p>Analyze and optimize your website&apos;s meta tags for better search engine visibility and social media sharing.</p>
                         <a 
-                            href="https://www.smitparekh.studio/meta-checker" 
+                            href="https://www.smitparekh.co.in/meta-checker" 
                             className="tool-link"
                             target="_blank" 
                             rel="noopener noreferrer"
@@ -449,11 +449,11 @@ export const RelatedToolsSection = () => {
                     <div className="tool-card">
                         <div className="tool-icon">
                             <FontAwesomeIcon icon={faCompress} />
-                        </div>
+                        </div>www.smitparekh.co.in
                         <h3>Image Compressor</h3>
                         <p>Compress your LinkedIn images without losing quality. Perfect for faster loading times and better engagement.</p>
                         <a 
-                            href="https://www.smitparekh.studio/free-tools/image-compressor" 
+                            href="https://www.smitparekh.co.in/free-tools/image-compressor" 
                             className="tool-link"
                             target="_blank" 
                             rel="noopener noreferrer"

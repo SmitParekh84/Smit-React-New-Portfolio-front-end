@@ -26,7 +26,7 @@ const Landing = () => {
     mainEntity: {
       "@type": "Person",
       name: "Smit Parekh",
-      url: "https://www.smitparekh.studio",
+      url: "https://www.smitparekh.co.in",
       sameAs: [
         "https://linkedin.com/in/smit-parekh-n/",
         "https://github.com/SmitParekh84",
@@ -73,9 +73,9 @@ const Landing = () => {
         title="Smit Parekh | Digital Marketing Manager & Full-stack Developer"
         description="Smit Parekh is a Digital Marketing Manager & Full-stack Developer helping businesses grow online with SEO optimization, web development, and strategic digital marketing services."
         keywords="Smit Parekh, Digital Marketing Manager, Full-stack Developer, SEO optimization, web development services, digital marketing expert, professional portfolio"
-        canonicalUrl="https://www.smitparekh.studio/portfolio"
-        ogImage="https://www.smitparekh.studio/images/Smit-Parekh-About.webp"
-        twitterImage="https://www.smitparekh.studio/images/Smit-Parekh-About.webp"
+        canonicalUrl="https://www.smitparekh.co.in/portfolio"
+        ogImage="https://www.smitparekh.co.in/images/Smit-Parekh-About.webp"
+        twitterImage="https://www.smitparekh.co.in/images/Smit-Parekh-About.webp"
         structuredData={mainSchema}
       >
         {/* Additional meta tags for portfolio page */}
@@ -91,7 +91,7 @@ const Landing = () => {
         <link
           rel="alternate"
           hrefLang="en"
-          href="https://www.smitparekh.studio/portfolio"
+          href="https://www.smitparekh.co.in/portfolio"
         />
       </SEO>
 
@@ -99,14 +99,14 @@ const Landing = () => {
         <Home />
         {/* Load About outside of Suspense to avoid modal issues */}
         <About />
-        
+
         {/* First ad placement after About section */}
-        <FluidAdUnit 
-            adSlot="6960955517"
-            className="section-ad"
-            style={{ margin: '3rem auto' }}
+        <FluidAdUnit
+          adSlot="6960955517"
+          className="section-ad"
+          style={{ margin: "3rem auto" }}
         />
-        
+
         <Suspense
           fallback={
             <div className="loader-overlay-componet">
@@ -117,14 +117,14 @@ const Landing = () => {
           <Skills />
           <Qualification />
           <Services />
-          
+
           {/* Second ad placement in the middle of content */}
-          <FluidAdUnit 
-              adSlot="6960955517"
-              className="mid-section-ad"
-              style={{ margin: '2.5rem auto' }}
+          <FluidAdUnit
+            adSlot="6960955517"
+            className="mid-section-ad"
+            style={{ margin: "2.5rem auto" }}
           />
-          
+
           <Portfolio />
           <Project />
           <Testimonials />

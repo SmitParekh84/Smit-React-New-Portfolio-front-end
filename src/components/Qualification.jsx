@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { qualificationsData } from "../data/data" // Adjust the path as necessary
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async"
 
 const Qualification = () => {
   const [activeTab, setActiveTab] = useState("work")
@@ -12,9 +12,11 @@ const Qualification = () => {
 
   return (
     <>
-
       <Helmet>
-        <title>Smit Parekh - Qualifications in Marketing, Development, and IT Education</title>
+        <title>
+          Smit Parekh - Qualifications in Marketing, Development, and IT
+          Education
+        </title>
         <meta
           name="description"
           content="Discover Smit Parekh's qualifications, including a Master’s and Bachelor’s in Information Technology from Charusat University, and experience as a Marketing Manager, Node.js Developer, and Video Editor."
@@ -24,29 +26,44 @@ const Qualification = () => {
           content="Smit Parekh, qualifications, Master of Science in IT, Bachelor of Science in IT, Charusat University, Marketing Manager, Node.js Developer, Cilans System, Video Editor, Content Beta"
         />
         <meta name="author" content="Smit Parekh" />
-        <link rel="canonical" href="https://www.smitparekh.studio/qualifications" />
+        <link
+          rel="canonical"
+          href="https://www.smitparekh.co.in/qualifications"
+        />
 
         {/* Open Graph Tags */}
-        <meta property="og:title" content="Smit Parekh - Qualifications in Marketing, Development, and IT Education" />
+        <meta
+          property="og:title"
+          content="Smit Parekh - Qualifications in Marketing, Development, and IT Education"
+        />
         <meta
           property="og:description"
           content="Smit Parekh holds a Master’s in IT and a Bachelor’s in IT from Charusat University. With roles in marketing, development, and video editing, he brings a diverse skill set and professional experience."
         />
         <meta
           property="og:image"
-          content="https://www.smitparekh.studio/images/Smit-Parekh-Qualifications.webp"
+          content="https://www.smitparekh.co.in/images/Smit-Parekh-Qualifications.webp"
         />
-        <meta property="og:url" content="https://www.smitparekh.studio/qualifications" />
+        <meta
+          property="og:url"
+          content="https://www.smitparekh.co.in/qualifications"
+        />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Smit Parekh - Qualifications in Marketing, Development, and IT Education" />
+        <meta
+          name="twitter:title"
+          content="Smit Parekh - Qualifications in Marketing, Development, and IT Education"
+        />
         <meta
           name="twitter:description"
           content="Smit Parekh's qualifications include a Master's in IT, and professional experience in marketing, web development, and video editing."
         />
-        <meta name="twitter:image" content="https://www.smitparekh.studio/images/Smit-Parekh-Qualifications.webp" />
+        <meta
+          name="twitter:image"
+          content="https://www.smitparekh.co.in/images/Smit-Parekh-Qualifications.webp"
+        />
 
         {/* Structured Data - JSON-LD */}
         <script type="application/ld+json">
@@ -55,7 +72,7 @@ const Qualification = () => {
                 "@context": "https://schema.org",
                 "@type": "Person",
                 "name": "Smit Parekh",
-                "url": "https://www.smitparekh.studio/qualifications",
+                "url": "https://www.smitparekh.co.in/qualifications",
                 "jobTitle": "Marketing Manager & Node.js Developer",
                 "alumniOf": "Charusat University",
                 "degree": [
@@ -100,7 +117,6 @@ const Qualification = () => {
         </script>
       </Helmet>
 
-
       <section className="qualification__section" id="qualification">
         <h2 className="section__title">Qualification</h2>
         <span className="section__subtitle">My Journey to Expertise</span>
@@ -108,8 +124,9 @@ const Qualification = () => {
         <div className="qualification__container container">
           <div className="qualification__tabs">
             <div
-              className={`qualification__button button--flex ${activeTab === "education" ? "qualification__active" : ""
-                }`}
+              className={`qualification__button button--flex ${
+                activeTab === "education" ? "qualification__active" : ""
+              }`}
               onClick={() => handleTabChange("education")}
             >
               <i className="uil uil-graduation-cap qualification__icon"></i>
@@ -117,8 +134,9 @@ const Qualification = () => {
             </div>
 
             <div
-              className={`qualification__button button--flex ${activeTab === "work" ? "qualification__active" : ""
-                }`}
+              className={`qualification__button button--flex ${
+                activeTab === "work" ? "qualification__active" : ""
+              }`}
               onClick={() => handleTabChange("work")}
             >
               <i className="uil uil-briefcase-alt qualification__icon"></i>
@@ -129,8 +147,9 @@ const Qualification = () => {
           <div className="qualification__sections">
             {/* Education Tab Content */}
             <div
-              className={`qualification__content ${activeTab === "education" ? "qualification__active" : ""
-                }`}
+              className={`qualification__content ${
+                activeTab === "education" ? "qualification__active" : ""
+              }`}
               data-content
               id="education"
             >
@@ -168,8 +187,9 @@ const Qualification = () => {
 
             {/* Work Tab Content */}
             <div
-              className={`qualification__content ${activeTab === "work" ? "qualification__active" : ""
-                }`}
+              className={`qualification__content ${
+                activeTab === "work" ? "qualification__active" : ""
+              }`}
               data-content
               id="work"
             >

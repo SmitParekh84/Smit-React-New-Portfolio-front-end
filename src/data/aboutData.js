@@ -13,5 +13,5 @@ export const aboutData = {
     certifications: "10+",
     companies: "02+",
   },
-  cvLink: "https://www.smitparekh.studio/Smit-parekh.pdf",
-};
+  cvLink: "https://www.smitparekh.co.in/Smit-parekh.pdf",
+}

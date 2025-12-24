@@ -8,14 +8,14 @@ import directorPortfolioImage from "/images/project-3.webp"
 import ytYoutubeImage from "/images/yt-youtube.webp"
 import ytShortsImage from "/images/yt-shorts.webp"
 import demoVideoImage from "/images/yt3.webp"
-import insightifiImage from '/images/insightifi.png';
-import cilansImage from '/images/cilans.png';
-import socialMediaCampaignImage from '/images/socialMediaCampaignImage.png';
-import wordpressProjectImage from '/images/wordpressProjectImage.png';
-import contentStrategyImage from '/images/contentStrategyImage.png';
-import seoAuditImage from '/images/seoAuditImage.png';
+import insightifiImage from "/images/insightifi.png"
+import cilansImage from "/images/cilans.png"
+import socialMediaCampaignImage from "/images/socialMediaCampaignImage.png"
+import wordpressProjectImage from "/images/wordpressProjectImage.png"
+import contentStrategyImage from "/images/contentStrategyImage.png"
+import seoAuditImage from "/images/seoAuditImage.png"
 
-export const marketixpertImage = '/images/marketixpertImage.jpg';
+export const marketixpertImage = "/images/marketixpertImage.jpg"
 
 export const portfolioData = [
   {
@@ -25,8 +25,8 @@ export const portfolioData = [
       "Performed on-page and off-page SEO for a client, including keyword research, page ranking analysis, and optimization strategies to enhance search visibility.",
     image: insightifiImage,
     category: "seo",
-    demoLink: "https://www.smitparekh.studio/contact",
-    markdown: '',
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
   },
   {
     id: 14,
@@ -35,8 +35,8 @@ export const portfolioData = [
       "Developed comprehensive digital marketing strategies for a client, focusing on SEO optimization, social media engagement, and lead generation to enhance online presence.",
     image: marketixpertImage,
     category: "marketing",
-    demoLink: "https://www.smitparekh.studio/contact",
-    markdown: '',
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
   },
   {
     id: 15,
@@ -45,8 +45,8 @@ export const portfolioData = [
       "Executed SEO optimization for a client using WordPress, enhancing site visibility through on-page and off-page strategies, keyword research, and content optimization.",
     image: cilansImage,
     category: "seo",
-    demoLink: "https://www.smitparekh.studio/contact",
-    markdown: '',
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
   },
   {
     id: 16,
@@ -55,8 +55,8 @@ export const portfolioData = [
       "Designed and developed a responsive WordPress website for a client, implementing custom themes and plugins to enhance functionality and user experience.",
     image: wordpressProjectImage,
     category: "webdev",
-    demoLink: "https://www.smitparekh.studio/contact",
-    markdown: '',
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
   },
   {
     id: 17,
@@ -65,8 +65,8 @@ export const portfolioData = [
       "Created a comprehensive content strategy for a client, focusing on audience engagement, SEO integration, and content calendar planning to drive traffic and conversions.",
     image: contentStrategyImage,
     category: "marketing",
-    demoLink: "https://www.smitparekh.studio/contact",
-    markdown: '',
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
   },
   {
     id: 18,
@@ -75,8 +75,8 @@ export const portfolioData = [
       "Conducted a detailed SEO audit for a client, identifying areas for improvement and implementing strategies to enhance site performance and search engine rankings.",
     image: seoAuditImage,
     category: "seo",
-    demoLink: "https://www.smitparekh.studio/contact",
-    markdown: '',
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
   },
   {
     id: 19,
@@ -85,8 +85,8 @@ export const portfolioData = [
       "Developed and executed a targeted social media marketing campaign for a client, focusing on brand awareness, engagement, and lead generation through effective content strategies.",
     image: socialMediaCampaignImage,
     category: "marketing",
-    demoLink: "https://www.smitparekh.studio/contact",
-    markdown: '',
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
   },
   {
     id: 1,
@@ -96,7 +96,7 @@ export const portfolioData = [
     image: uniCart,
     category: "frontend",
     demoLink: "https://unicart-05bt.onrender.com/",
-    markdown: '',
+    markdown: "",
   },
   {
     id: 2,
@@ -106,7 +106,7 @@ export const portfolioData = [
     image: cardPortfolio,
     category: "frontend",
     demoLink: "https://smit-card-portfolio.onrender.com/",
-    markdown: '',
+    markdown: "",
   },
   {
     id: 3,
@@ -117,7 +117,7 @@ export const portfolioData = [
     category: "video",
     demoLink:
       "https://player.vimeo.com/video/950508563?badge=0&autopause=0&player_id=0&app_id=58479",
-    markdown: '',
+    markdown: "",
   },
   {
     id: 6,
@@ -127,17 +127,18 @@ export const portfolioData = [
     image: coffeShop,
     category: "webdev",
     demoLink: "https://github.com/SmitParekh84/Coffee-shop-php",
-    markdown: '',
+    markdown: "",
   },
   {
     id: 7,
     title: "Blog WebApp Prototype",
     description:
       "A prototype of a blog application built with Node.js and Express, allowing users to create, edit, and manage blog posts. This sample showcases the core functionalities and design.",
-    image: "https://github.com/SmitParekh84/Images/blob/main/blog%20app/showcase.png?raw=true",
+    image:
+      "https://github.com/SmitParekh84/Images/blob/main/blog%20app/showcase.png?raw=true",
     category: "webdev",
     demoLink: "https://nodejs-expressjs-ejs-blog-app.onrender.com/",
-    markdown: '',
+    markdown: "",
   },
   {
     id: 8,
@@ -147,7 +148,7 @@ export const portfolioData = [
     image: directorPortfolioImage,
     category: "frontend",
     demoLink: "https://directorportfolio.my.canva.site/",
-    markdown: '',
+    markdown: "",
   },
   {
     id: 10,
@@ -158,7 +159,7 @@ export const portfolioData = [
     category: "video",
     demoLink:
       "https://www.youtube.com/playlist?list=PLLlMxB89AwL449pZeTMNQFe_h7Hn43HcL",
-    markdown: '',
+    markdown: "",
   },
   {
     id: 11,
@@ -169,7 +170,7 @@ export const portfolioData = [
     category: "video",
     demoLink:
       "https://www.youtube.com/playlist?list=PLJB1nJ8VTILlq2aZnHUYyVLJ-QnpOKb8f",
-    markdown: '',
+    markdown: "",
   },
   {
     id: 5,
@@ -179,6 +180,6 @@ export const portfolioData = [
     image: FourGame,
     category: "webdev",
     demoLink: "https://smitparekh84.github.io/Connect-Four-Game/",
-    markdown: '',
+    markdown: "",
   },
-];
+]

@@ -4,10 +4,10 @@ User-agent: *
 Allow: /
 
 # Define the canonical sitemap
-Sitemap: https://www.smitparekh.studio/sitemap.xml
+Sitemap: https://www.smitparekh.co.in/sitemap.xml
 
 # Specify host to indicate preferred domain
-Host: www.smitparekh.studio
+Host: www.smitparekh.co.in
 
 # Prevent crawling of duplicate content or internal tools
 Disallow: /api/

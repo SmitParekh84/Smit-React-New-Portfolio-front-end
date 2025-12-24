@@ -67,17 +67,22 @@ const Testimonials = () => {
                             "@context": "https://schema.org",
                             "@type": "WebPage",
                             "name": "Client Testimonials - Smit Parekh",
-                            "url": "https://www.smitparekh.studio/testimonials",
+                            "url": "https://www.smitparekh.co.in/testimonials",
                             "description": "Read what clients say about Smit Parekh's web development and digital marketing services.",
                             "mainEntity": [
-                                ${testimonialsData.map(testimonial => `
+                                ${testimonialsData
+                                  .map(
+                                    (testimonial) => `
                                 {
                                     "@type": "Review",
                                     "author": {
                                         "@type": "Person",
                                         "name": "${testimonial.name}"
                                     },
-                                    "reviewBody": "${testimonial.description.replace(/"/g, '\\"')}",
+                                    "reviewBody": "${testimonial.description.replace(
+                                      /"/g,
+                                      '\\"'
+                                    )}",
                                     "reviewRating": {
                                         "@type": "Rating",
                                         "ratingValue": "${testimonial.rating}",
@@ -87,7 +92,9 @@ const Testimonials = () => {
                                         "@type": "Organization",
                                         "name": "${testimonial.client}"
                                     }
-                                }`).join(",")}
+                                }`
+                                  )
+                                  .join(",")}
                             ]
                         }
                     `}
@@ -122,8 +129,9 @@ const Testimonials = () => {
                     {[...Array(5)].map((_, starIndex) => (
                       <i
                         key={starIndex}
-                        className={`fas fa-star testimonial__icon-star ${starIndex < testimonial.rating ? "active" : ""
-                          }`}
+                        className={`fas fa-star testimonial__icon-star ${
+                          starIndex < testimonial.rating ? "active" : ""
+                        }`}
                       ></i>
                     ))}
                   </div>
@@ -139,7 +147,6 @@ const Testimonials = () => {
           <div className="swiper-pagination swiper-pagination-testimonial"></div>
         </div>
       </section>
-
     </>
   )
 }
