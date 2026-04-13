@@ -109,11 +109,6 @@ const ToolsShowcasePage = () => {
             >
                 {/* Add extra SEO tags */}
                 <meta name="google-site-verification" content="your-verification-code" />
-                <meta property="og:video" content={getFullUrl("/videos/tools-demo.mp4")} />
-                <meta property="og:video:type" content="video/mp4" />
-                <meta property="og:video:width" content="1280" />
-                <meta property="og:video:height" content="720" />
-                <link rel="preload" href={getFullUrl("/images/Tools-Page-Image.webp")} as="image" />
             </SEO>
 
             {/* Modern Hero Section */}

@@ -19,49 +19,44 @@ const AdSenseComponent = ({
   const location = useLocation();
   
   useEffect(() => {
-    // Clean up any existing ad
-    if (adRef.current) {
-      adRef.current.innerHTML = '';
-    }
-    
-    try {
-      // Only inject ads if we're not in a development environment
-      if (import.meta.env.MODE === 'production') {
-        // Wait for AdSense to be ready
-        if (window.adsbygoogle) {
-          // Create the ad container with proper attributes
-          const adContainer = document.createElement('ins');
-          adContainer.className = 'adsbygoogle';
-          adContainer.style.display = adStyle.display || 'block';
-          adContainer.style.width = adStyle.width || '100%';
-          adContainer.style.height = adStyle.height || 'auto';
-          adContainer.setAttribute('data-ad-client', adClient);
-          adContainer.setAttribute('data-ad-slot', adSlot);
-          adContainer.setAttribute('data-ad-format', adFormat);
-          
-          // Add responsive attribute for better adaptation
-          adContainer.setAttribute('data-full-width-responsive', 'true');
-          
-          // Add the ad to the DOM
-          if (adRef.current) {
-            adRef.current.innerHTML = '';
-            // Create label if enabled
-            if (showLabel) {
-              const label = document.createElement('div');
-              label.className = 'ad-label';
-              label.textContent = 'Advertisement';
-              adRef.current.appendChild(label);
-            }
-            adRef.current.appendChild(adContainer);
-            
-            // Push the ad to AdSense
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
-          }
+    if (import.meta.env.MODE !== 'production') return;
+
+    // Wipe the slot so we start fresh on route changes
+    if (adRef.current) adRef.current.innerHTML = '';
+
+    const timer = setTimeout(() => {
+      try {
+        if (!adRef.current) return;
+
+        const adContainer = document.createElement('ins');
+        adContainer.className = 'adsbygoogle';
+        adContainer.style.display = adStyle.display || 'block';
+        adContainer.style.width = adStyle.width || '100%';
+        adContainer.style.height = adStyle.height || 'auto';
+        adContainer.setAttribute('data-ad-client', adClient);
+        adContainer.setAttribute('data-ad-slot', adSlot);
+        adContainer.setAttribute('data-ad-format', adFormat);
+        adContainer.setAttribute('data-full-width-responsive', 'true');
+
+        adRef.current.innerHTML = '';
+        if (showLabel) {
+          const label = document.createElement('div');
+          label.className = 'ad-label';
+          label.textContent = 'Advertisement';
+          adRef.current.appendChild(label);
         }
+        adRef.current.appendChild(adContainer);
+
+        // Guard against double-push: only push if the ins has no ad yet
+        if (!adContainer.getAttribute('data-adsbygoogle-status')) {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        }
+      } catch (error) {
+        console.error('AdSense error:', error);
       }
-    } catch (error) {
-      console.error('AdSense error:', error);
-    }
+    }, 150);
+
+    return () => clearTimeout(timer);
   }, [adClient, adSlot, adFormat, adStyle, location.pathname, showLabel]);
 
   return <div ref={adRef} className={`adsense-container ${className}`}></div>;

@@ -12,17 +12,18 @@
   align-items: center;
   clear: both;
   padding: 10px;
-  background-color: #f9f9f9;
+  /* Dark-mode aware — uses CSS custom properties from styles.css */
+  background-color: var(--container-color);
   border-radius: 4px;
-  border: 1px solid #eee;
+  border: 1px solid var(--scroll-bar-color);
 }
 
-/* Ad label styling - explicit and clearly visible */
+/* Ad label styling */
 .ad-label {
   width: 100%;
   text-align: center;
   font-size: 0.75rem;
-  color: #757575;
+  color: var(--text-color-light);
   margin-bottom: 0.5rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -147,6 +148,19 @@ p + .adsense-container {
 /* Add space between multiple ads */
 .adsense-container + .adsense-container {
   margin-top: 3rem;
+}
+
+/* Dev-mode placeholder — dark-mode aware */
+.fluid-ad-placeholder {
+  min-height: 180px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 2px dashed var(--scroll-bar-color);
+  color: var(--text-color-light);
+  font-size: 0.85rem;
 }
 
 /* Fluid Ad Unit Specific Styles */

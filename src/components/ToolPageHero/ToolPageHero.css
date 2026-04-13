@@ -1,0 +1,183 @@
+/* ToolPageHero — shared hero for all tool pages
+   Dark-mode aware via CSS custom properties                */
+
+.tool-hero {
+  padding: 5rem 0 3rem;
+  background: linear-gradient(
+    160deg,
+    rgba(var(--first-color-rgb), 0.08) 0%,
+    rgba(var(--first-color-rgb), 0.03) 100%
+  );
+  border-bottom: 1px solid var(--scroll-bar-color);
+  text-align: center;
+}
+
+.tool-hero__container {
+  max-width: 820px;
+}
+
+/* ── Breadcrumb ─────────────────────────────────────────── */
+.tool-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.tool-hero__breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.tool-hero__breadcrumb a {
+  color: var(--first-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.tool-hero__breadcrumb a:hover {
+  color: var(--first-color-alt);
+  text-decoration: underline;
+}
+
+.tool-hero__breadcrumb [aria-current="page"] {
+  color: var(--text-color);
+  font-weight: var(--font-medium);
+}
+
+.tool-hero__breadcrumb .uil-angle-right {
+  font-size: 1rem;
+  color: var(--text-color-light);
+}
+
+/* ── Icon ───────────────────────────────────────────────── */
+.tool-hero__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 1rem;
+  background-color: var(--first-color);
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 20px rgba(var(--first-color-rgb), 0.3);
+}
+
+/* ── Title ──────────────────────────────────────────────── */
+.tool-hero__title {
+  font-size: var(--big-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+/* ── Description ────────────────────────────────────────── */
+.tool-hero__description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  line-height: 1.75;
+  max-width: 680px;
+  margin: 0 auto 1.5rem;
+}
+
+/* ── Badges ─────────────────────────────────────────────── */
+.tool-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+
+.tool-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 2rem;
+  background-color: var(--container-color);
+  border: 1px solid var(--scroll-bar-color);
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  transition: border-color 0.2s;
+}
+
+.tool-hero__badge .uil-check-circle {
+  color: var(--first-color);
+  font-size: 1rem;
+}
+
+/* ── Actions ────────────────────────────────────────────── */
+.tool-hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tool-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  border-radius: 0.5rem;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi-bold);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.tool-hero__btn--primary {
+  background-color: var(--first-color);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(var(--first-color-rgb), 0.35);
+}
+
+.tool-hero__btn--primary:hover {
+  background-color: var(--first-color-alt);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(var(--first-color-rgb), 0.4);
+}
+
+.tool-hero__btn--outline {
+  border: 2px solid var(--first-color);
+  color: var(--first-color);
+  background: transparent;
+}
+
+.tool-hero__btn--outline:hover {
+  background-color: rgba(var(--first-color-rgb), 0.08);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media screen and (max-width: 768px) {
+  .tool-hero {
+    padding: 4rem 0 2.5rem;
+  }
+
+  .tool-hero__title {
+    font-size: calc(var(--big-font-size) * 0.8);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tool-hero {
+    padding: 3.5rem 0 2rem;
+  }
+
+  .tool-hero__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

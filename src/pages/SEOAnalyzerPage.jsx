@@ -6,13 +6,13 @@ import HowItWorks from "../components/HowItWorks/HowItWorks"
 import CTASection from "../components/CTASection/CTASection"
 import {
   SEOAnalyzer,
-  SEOHero,
   SEOBestPractices,
   SEOCaseStudy,
   SEOAnalyzerFeatures,
   RelatedSEOTools,
   SEOBenefits,
 } from "../components/SEOAnalyzer"
+import ToolPageHero from "../components/ToolPageHero/ToolPageHero"
 import "../styles/SEOAnalyzerPage.css"
 
 const SEOAnalyzerPage = () => {
@@ -247,8 +247,20 @@ const SEOAnalyzerPage = () => {
         lastUpdated="2025-05-29"
         language="en-US"
       />{" "}
-      {/* Hero Section with Main Tool */}
-      <SEOHero />
+      {/* Hero Section */}
+      <ToolPageHero
+        icon="uil-analytics"
+        title="Free SEO Analyzer — Website SEO Audit Tool"
+        description="Instantly audit 50+ SEO factors: technical setup, on-page elements, content quality, Core Web Vitals, and more. Get prioritized, actionable recommendations to boost your rankings."
+        badges={['100% Free', 'No Registration', '50+ SEO Checks', 'Instant Results']}
+        primaryCta={{ text: 'Analyze My Website', href: '#seo-analyzer-tool' }}
+        secondaryCta={{ text: 'How It Works', href: '#how-it-works' }}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Free Tools', path: '/free-tools' },
+          { name: 'SEO Analyzer', path: '/free-tools/seo-analyzer' },
+        ]}
+      />
       {/* Main SEO Analyzer Tool */}
       <SEOAnalyzer apiUrl={apiUrl} toolName="SEO Analyzer" />{" "}
       {/* Benefits Section */}

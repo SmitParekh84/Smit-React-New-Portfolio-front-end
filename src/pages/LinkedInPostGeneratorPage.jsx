@@ -3,11 +3,9 @@ import LinkedInPostGenerator from "../components/LinkedInPostGenerator/LinkedInP
 import FAQ from "../components/FAQ/FAQ"
 import { faqDataLinkedin } from "../data/data"
 import SEO from "../components/SEO/SEO"
-import {
-  HorizontalBannerAd,
-  InArticleAd,
-  SidebarAdLayout,
-} from "../components/AdSense"
+import HowItWorks from "../components/HowItWorks/HowItWorks"
+import CTASection from "../components/CTASection/CTASection"
+import ToolPageHero from "../components/ToolPageHero/ToolPageHero"
 
 const LinkedInPostGeneratorPage = () => {
   // FAQ Schema
@@ -75,13 +73,13 @@ const LinkedInPostGeneratorPage = () => {
         "@type": "ListItem",
         position: 2,
         name: "Free Tools",
-        item: "https://www.smitparekh.co.in/tools",
+        item: "https://www.smitparekh.co.in/free-tools",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "LinkedIn Post Generator",
-        item: "https://www.smitparekh.co.in/viral-linkedin-post-generator",
+        item: "https://www.smitparekh.co.in/free-tools/viral-linkedin-post-generator",
       },
     ],
   }
@@ -127,7 +125,7 @@ const LinkedInPostGeneratorPage = () => {
         title="Free AI LinkedIn Post Generator | Create Viral Content Instantly"
         description="Generate engaging, viral-worthy LinkedIn posts with our free AI tool. Save time, increase engagement, and grow your professional network with compelling content created in seconds."
         keywords="Free LinkedIn post generator, AI content creator, viral LinkedIn posts, professional content writing, LinkedIn engagement tool, free AI writing tool, social media content"
-        canonicalUrl="https://www.smitparekh.co.in/viral-linkedin-post-generator"
+        canonicalUrl="https://www.smitparekh.co.in/free-tools/viral-linkedin-post-generator"
         ogImage="https://www.smitparekh.co.in/images/viral-linkedin-post-generator.webp"
         twitterImage="https://www.smitparekh.co.in/images/viral-linkedin-post-generator.webp"
         structuredData={[toolSchema, faqSchema, breadcrumbSchema, howToSchema]}
@@ -135,42 +133,48 @@ const LinkedInPostGeneratorPage = () => {
         language="en-US"
       />
 
-      {/* Top ad placement - horizontal banner - COMMENTED OUT UNTIL VERIFIED */}
-      {/* 
-            <div className="ad-container after-header-ad">
-                <HorizontalBannerAd adSlot="8901234567" />
-            </div>
-            */}
+      <ToolPageHero
+        icon="uil-linkedin"
+        title="Free AI LinkedIn Post Generator"
+        description="Create high-engagement LinkedIn posts in seconds using AI. Choose your tone, enter a topic, and get a polished, professional post ready to publish. No sign-up, no cost."
+        badges={['100% Free', 'No Registration', 'AI-Powered', 'Copy in 1 Click']}
+        primaryCta={{ text: 'Generate My Post', href: '#linkedin-generator-tool' }}
+        secondaryCta={{ text: 'How It Works', href: '#how-it-works' }}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Free Tools', path: '/free-tools' },
+          { name: 'LinkedIn Post Generator', path: '/free-tools/viral-linkedin-post-generator' },
+        ]}
+      />
 
-      {/* Regular content without sidebar layout until verified */}
-      <LinkedInPostGenerator />
+      <div id="linkedin-generator-tool">
+        <LinkedInPostGenerator />
+      </div>
 
-      {/* Original SidebarAdLayout commented out until verified 
-            <SidebarAdLayout 
-                adSlot="9012345678"
-                adPosition="right"
-                className="linkedin-generator-layout"
-                contentClassName="linkedin-generator-content"
-            >
-                <LinkedInPostGenerator />
-            </SidebarAdLayout>
-            */}
+      <HowItWorks
+        title="How It Works"
+        subtitle="Create a viral LinkedIn post in 3 steps"
+        steps={[
+          { title: 'Enter Your Topic', description: 'Type the subject you want to write about — a professional achievement, industry insight, or personal story.' },
+          { title: 'Choose Tone & Style', description: 'Select the writing style that fits your personal brand: professional, inspirational, storytelling, or educational.' },
+          { title: 'Generate & Post', description: 'Click Generate to get an AI-crafted post. Copy it, tweak as needed, and publish directly to LinkedIn.' },
+        ]}
+      />
 
-      {/* Middle ad placement - in-article ad - COMMENTED OUT UNTIL VERIFIED */}
-      {/* 
-            <div className="ad-container content-ad">
-                <InArticleAd adSlot="0123456789" />
-            </div>
-            */}
+      <FAQ
+        title="Frequently Asked Questions"
+        subtitle="Everything about the LinkedIn Post Generator"
+        faqData={faqDataLinkedin}
+        toolName="Viral LinkedIn Post Generator"
+      />
 
-      <FAQ faqData={faqDataLinkedin} toolName="Viral LinkedIn Post Generator" />
-
-      {/* Bottom ad placement - horizontal banner - COMMENTED OUT UNTIL VERIFIED */}
-      {/* 
-            <div className="ad-container before-footer-ad">
-                <HorizontalBannerAd adSlot="1234567890" />
-            </div>
-            */}
+      <CTASection
+        title="More Free Tools for Professionals"
+        subtitle="Explore our background remover, SEO analyzer, meta tag checker, and more."
+        buttonText="View All Tools"
+        buttonLink="/free-tools"
+        buttonIcon="uil-apps"
+      />
     </>
   )
 }

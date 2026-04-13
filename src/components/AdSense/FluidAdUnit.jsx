@@ -60,8 +60,8 @@ const FluidAdUnit = ({
               // Add the ad to the DOM
               adRef.current.appendChild(adContainer);
               
-              // Push the ad to AdSense (only once per mount)
-              if (!adPushed.current) {
+              // Guard: only push if ins element has not been filled yet
+              if (!adContainer.getAttribute('data-adsbygoogle-status') && !adPushed.current) {
                 (window.adsbygoogle = window.adsbygoogle || []).push({});
                 adPushed.current = true;
               }
@@ -69,27 +69,12 @@ const FluidAdUnit = ({
           }, 100);
         }
       } else {
-        // Development mode - show placeholder
+        // Development mode - show placeholder (uses CSS class for dark mode support)
         if (adRef.current) {
           adRef.current.innerHTML = `
-            <div class="ad-label">Advertisement (Dev Mode)</div>
-            <div style="
-              background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
-                          linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
-                          linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
-                          linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
-              background-size: 20px 20px;
-              background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-              min-height: 200px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: #666;
-              font-size: 14px;
-              border-radius: 4px;
-              border: 2px dashed #ddd;
-            ">
-              Fluid Ad Unit (Slot: ${adSlot})
+            <div class="ad-label">Advertisement (Dev)</div>
+            <div class="fluid-ad-placeholder">
+              Ad Slot: ${adSlot}
             </div>
           `;
         }
