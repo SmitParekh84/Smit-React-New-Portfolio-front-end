@@ -1,6 +1,6 @@
-/* Portfolio Component - Carousel Specific Styles */
+/* Portfolio Component - Swiper Carousel Styles */
 
-/* Section spacing and layout */
+/* Section layout */
 .portfolio.section {
   padding: 3rem 0;
   background-color: var(--container-color-alt);
@@ -26,7 +26,7 @@
   padding: 2rem 1.5rem 3rem;
 }
 
-/* Enhance subtitle with contact link */
+/* Subtitle with contact link */
 .section__subtitle {
   display: block;
   text-align: center;
@@ -48,7 +48,74 @@
   color: var(--first-color-alt);
 }
 
-/* Carousel item styling */
+/* ─── Swiper container ─────────────────────────────────────── */
+.portfolio__swiper {
+  padding: 1.5rem 2.5rem 3rem !important;
+}
+
+/* ─── Navigation arrows ────────────────────────────────────── */
+.portfolio__swiper .swiper-button-prev,
+.portfolio__swiper .swiper-button-next {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--first-color);
+  border: 2px solid var(--first-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  top: 50%;
+}
+
+.portfolio__swiper .swiper-button-prev::after,
+.portfolio__swiper .swiper-button-next::after {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.portfolio__swiper .swiper-button-prev:hover,
+.portfolio__swiper .swiper-button-next:hover {
+  background-color: var(--first-color-alt);
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.portfolio__swiper .swiper-button-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.portfolio__swiper .swiper-button-prev {
+  left: 0;
+}
+
+.portfolio__swiper .swiper-button-next {
+  right: 0;
+}
+
+/* ─── Pagination dots ──────────────────────────────────────── */
+.portfolio__swiper .swiper-pagination {
+  bottom: 0;
+}
+
+.portfolio__swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: var(--text-color-light);
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.portfolio__swiper .swiper-pagination-bullet-active {
+  background: var(--first-color);
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+/* ─── Card styles (unchanged) ──────────────────────────────── */
 .portfolio__content {
   position: relative;
   background-color: var(--container-color);
@@ -57,8 +124,7 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   height: 100%;
   min-height: 400px;
-  margin: 0.5rem;
-  display: flex !important;
+  display: flex;
   flex-direction: column;
   border: 1px solid rgba(var(--first-color-rgb), 0.1);
   transition: all 0.4s ease;
@@ -69,7 +135,6 @@
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Image container styling */
 .portfolio__img {
   width: 100%;
   height: 220px;
@@ -83,13 +148,12 @@
   transform: scale(1.05);
 }
 
-/* Content area styling */
 .portfolio_ {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  text-align: left; /* Ensure text is left aligned */
+  text-align: left;
 }
 
 .portfolio__title {
@@ -98,7 +162,7 @@
   margin-bottom: 1rem;
   position: relative;
   padding-bottom: 0.75rem;
-  text-align: left; /* Ensure title is left aligned */
+  text-align: left;
 }
 
 .portfolio__title::after {
@@ -118,15 +182,14 @@
   line-height: 1.6;
   margin-bottom: 1.5rem;
   flex-grow: 1;
-  text-align: left; /* Ensure description is left aligned */
-  min-height: 60px; /* Added minimum height for description to maintain consistent card height */
+  text-align: left;
+  min-height: 60px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Link styling (replacing button styling) */
 .portfolio__link {
   margin-top: auto;
   align-self: flex-start;
@@ -152,99 +215,7 @@
   transform: translateX(5px);
 }
 
-/* Custom Slick carousel styling */
-.slick-slider {
-  margin: 0 -0.5rem;
-  padding: 0 2.5rem;
-}
-
-.slick-list {
-  padding: 1.5rem 0;
-  margin: 0 -0.5rem;
-}
-
-.slick-slide {
-  padding: 0.5rem;
-  height: auto; /* Important for equal height slides */
-}
-
-.slick-slide > div {
-  height: 100%;
-}
-
-/* Custom arrows */
-.slick-arrow {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background-color: var(--first-color); /* Changed to use theme color for better visibility */
-  border: 2px solid var(--first-color);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  color: #fff; /* White icons for better contrast */
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: all 0.3s ease;
-  opacity: 0.85; /* Slightly transparent by default */
-}
-
-.slick-arrow:hover,
-.slick-arrow:focus {
-  background-color: var(--first-color-alt);
-  color: #fff;
-  transform: scale(1.1);
-  opacity: 1;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-}
-
-.slick-arrow.slick-disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.slick-prev {
-  left: 10px;
-}
-
-.slick-next {
-  right: 10px;
-}
-
-.slick-arrow svg {
-  width: 18px; /* Slightly larger */
-  height: 18px;
-  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3)); /* Add shadow to icon */
-}
-
-/* Custom dots */
-.slick-dots {
-  bottom: -25px;
-}
-
-.slick-dots li {
-  margin: 0 4px;
-}
-
-.slick-dots li button {
-  width: 10px;
-  height: 10px;
-}
-
-.slick-dots li button:before {
-  opacity: 0.4;
-  color: var(--text-color-light);
-  font-size: 8px;
-  transition: all 0.3s ease;
-}
-
-.slick-dots li.slick-active button:before {
-  opacity: 1;
-  color: var(--first-color);
-  transform: scale(1.5);
-}
-
-/* Error and empty state styling */
+/* ─── States: error / empty / loading ─────────────────────── */
 .portfolio__error,
 .portfolio__empty,
 .portfolio__loading {
@@ -320,6 +291,7 @@
   transform: translateY(-3px);
 }
 
+/* ─── Loader spinner ───────────────────────────────────────── */
 .loader {
   width: 48px;
   height: 48px;
@@ -333,15 +305,11 @@
 }
 
 @keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* Responsive adjustments */
+/* ─── Responsive ───────────────────────────────────────────── */
 @media screen and (max-width: 992px) {
   .portfolio__content {
     min-height: 380px;
@@ -352,15 +320,15 @@
   .portfolio.section {
     padding: 0;
   }
-  
-  .slick-slider {
-    padding: 0 1.5rem;
+
+  .portfolio__swiper {
+    padding: 1.5rem 1.5rem 3rem !important;
   }
-  
+
   .portfolio__title {
     font-size: calc(var(--h3-font-size) - 0.1rem);
   }
-  
+
   .portfolio__content {
     min-height: 360px;
   }
@@ -370,49 +338,50 @@
   .portfolio__content {
     min-height: 340px;
   }
-  
+
   .portfolio__img {
     height: 180px;
   }
-  
-  .slick-arrow {
+
+  .portfolio__swiper .swiper-button-prev,
+  .portfolio__swiper .swiper-button-next {
     width: 38px;
     height: 38px;
   }
-  
+
   .portfolio_ {
     padding: 1.25rem;
   }
-  
+
   .portfolio__title {
     font-size: var(--normal-font-size);
     margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
   }
-  
+
   .portfolio__description {
     font-size: var(--smaller-font-size);
     margin-bottom: 1rem;
   }
-  
+
   .portfolio__link {
     font-size: var(--smaller-font-size);
   }
-  
+
   .portfolio__empty,
   .portfolio__error,
   .portfolio__loading {
     padding: 2rem 1rem;
   }
-  
+
   .portfolio__empty-icon {
     font-size: 3rem;
   }
-  
+
   .portfolio__empty h3 {
     font-size: var(--h3-font-size);
   }
-  
+
   .portfolio__contact-btn,
   .portfolio__retry-btn {
     padding: 0.6rem 1.2rem;

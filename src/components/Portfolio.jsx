@@ -1,18 +1,17 @@
 import { useState, useEffect } from 'react';
-import Slider from 'react-slick';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import './Portfolio.css';
 
 const Portfolio = () => {
-  // Add state variables for projects, loading, and error
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch projects data from API
   useEffect(() => {
     const fetchProjects = async () => {
       try {
@@ -24,18 +23,16 @@ const Portfolio = () => {
         }
 
         const data = await response.json();
-        
+
         if (data.success && data.data) {
-          // Filter to only include projects where isShowcased is explicitly true
           const showcasedProjects = data.data.filter(project => project.isShowcased === true);
-          console.log('Showcased projects:', showcasedProjects.length, 'out of', data.data.length);
           setProjects(showcasedProjects);
         } else {
           throw new Error('Invalid response format');
         }
       } catch (err) {
         setError(err.message);
-        console.error("Error fetching portfolio data:", err);
+        console.error('Error fetching portfolio data:', err);
       } finally {
         setLoading(false);
       }
@@ -44,63 +41,14 @@ const Portfolio = () => {
     fetchProjects();
   }, []);
 
-  // Enhanced arrow components for better styling
-  const PrevArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <button className="slick-arrow slick-prev" onClick={onClick}>
-        <FaArrowLeft />
-      </button>
-    );
-  };
-
-  const NextArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <button className="slick-arrow slick-next" onClick={onClick}>
-        <FaArrowRight />
-      </button>
-    );
-  };
-
-  const settings = {
-    dots: true,
-    infinite: projects.length > 3,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    arrows: true, // Changed from false to true to show arrow buttons
-    
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 768, 
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: true,
-        }
-      }
-    ]
-  };
-
   return (
     <section className="portfolio section" id="portfolio">
       <h2 className="section__title">Portfolio</h2>
       <span className="section__subtitle">
-        Showcasing My Best Work. Client images and information are confidential; 
+        Showcasing My Best Work. Client images and information are confidential;{' '}
         <Link to="/contact" className="button--link">
           contact me
-        </Link>
+        </Link>{' '}
         for project inquiries.
       </span>
 
@@ -113,8 +61,8 @@ const Portfolio = () => {
         ) : error ? (
           <div className="portfolio__error">
             <p>Error loading portfolio: {error}</p>
-            <button 
-              onClick={() => window.location.reload()} 
+            <button
+              onClick={() => window.location.reload()}
               className="portfolio__retry-btn"
             >
               <i className="uil uil-redo"></i> Try Again
@@ -129,8 +77,8 @@ const Portfolio = () => {
               <Link to="/contact" className="portfolio__contact-btn">
                 <i className="uil uil-envelope"></i> Contact Me
               </Link>
-              <button 
-                onClick={() => window.location.reload()} 
+              <button
+                onClick={() => window.location.reload()}
                 className="portfolio__retry-btn"
               >
                 <i className="uil uil-redo"></i> Refresh Page
@@ -138,32 +86,44 @@ const Portfolio = () => {
             </div>
           </div>
         ) : (
-          <>
-            <Slider {...settings}>
-              {projects.map((item) => (
-                <div className="portfolio__slide" key={item._id}>
-                  <div className="portfolio__content">
-                    <img 
-                      src={item.imageUrl} 
-                      alt={item.title} 
-                      className="portfolio__img" 
-                      loading="lazy" 
-                    />
-                    <div className="portfolio_">
-                      <h3 className="portfolio__title">{item.title}</h3>
-                      <p className="portfolio__description">{item.shortDescription}</p>
-                      <Link
-                        to={`/project/${encodeURIComponent(item.title)}`}
-                        className="portfolio__link"
-                      >
-                        View Details <i className="uil uil-arrow-right"></i>
-                      </Link>
-                    </div>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={16}
+            slidesPerView={3}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            loop={projects.length > 3}
+            breakpoints={{
+              0:    { slidesPerView: 1 },
+              768:  { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="portfolio__swiper"
+          >
+            {projects.map((item) => (
+              <SwiperSlide key={item._id} className="portfolio__slide">
+                <div className="portfolio__content">
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="portfolio__img"
+                    loading="lazy"
+                  />
+                  <div className="portfolio_">
+                    <h3 className="portfolio__title">{item.title}</h3>
+                    <p className="portfolio__description">{item.shortDescription}</p>
+                    <Link
+                      to={`/project/${encodeURIComponent(item.title)}`}
+                      className="portfolio__link"
+                    >
+                      View Details <i className="uil uil-arrow-right"></i>
+                    </Link>
                   </div>
                 </div>
-              ))}
-            </Slider>
-          </>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         )}
       </div>
     </section>

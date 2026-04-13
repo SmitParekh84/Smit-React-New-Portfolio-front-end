@@ -40,7 +40,7 @@ export default defineConfig({
           'vendor-markdown': ['marked', 'react-markdown', '@uiw/react-md-editor'],
 
           // Carousel / slider
-          'vendor-carousel': ['swiper', 'react-slick', 'slick-carousel'],
+          'vendor-carousel': ['swiper'],
         },
       },
     },
