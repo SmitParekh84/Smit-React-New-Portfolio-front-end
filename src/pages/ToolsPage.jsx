@@ -30,8 +30,8 @@ const ToolsPage = () => {
   const toolsSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Free Tools - Smit Parekh",
-    url: "https://www.smitparekh.co.in/tools",
+    name: "Free Online Tools | Smit Parekh",
+    url: "https://www.smitparekh.co.in/free-tools",
     description:
       "Explore a variety of free tools designed by Smit Parekh to enhance your productivity, including background removal and post generation tools.",
     image: {
@@ -90,7 +90,7 @@ const ToolsPage = () => {
         "@type": "ListItem",
         position: 2,
         name: "Free Tools",
-        item: "https://www.smitparekh.co.in/tools",
+        item: "https://www.smitparekh.co.in/free-tools",
       },
     ],
   }
@@ -161,7 +161,7 @@ const ToolsPage = () => {
 
   const ogDescription =
     "Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity and enhance your marketing efforts with no cost."
-  const pageUrl = "https://www.smitparekh.co.in/tools"
+  const pageUrl = "https://www.smitparekh.co.in/free-tools"
   const imageUrl = "https://www.smitparekh.co.in/images/Tools-Page-Image.webp"
   const lastUpdatedDate = new Date().toISOString().split("T")[0] // Use current date for freshness
 

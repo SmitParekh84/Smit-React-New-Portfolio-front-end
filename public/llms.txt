@@ -1,0 +1,45 @@
+# Smit Parekh — llms.txt
+# AI-readable site guide for LLM-based search engines (ChatGPT, Perplexity, Gemini, Claude)
+# Spec: https://llmstxt.org
+
+# ─── About ──────────────────────────────────────────────────────────────────
+> Smit Parekh is a Digital Software Developer and SEO Specialist based in Anand, Gujarat, India.
+> He builds free online productivity tools and offers professional web development and SEO services.
+
+# ─── Key Pages ──────────────────────────────────────────────────────────────
+
+## Free Tools (primary value proposition)
+
+- [Free Online Tools Hub](https://www.smitparekh.co.in/): Collection of 8+ free productivity tools.
+- [AI LinkedIn Post Generator](https://www.smitparekh.co.in/free-tools/viral-linkedin-post-generator): Create high-engagement LinkedIn posts using AI. Free, no sign-up required.
+- [Background Remover](https://www.smitparekh.co.in/free-tools/background-remover): Remove image backgrounds instantly. AI-powered, supports PNG/JPEG/WebP output.
+- [SEO Analyzer](https://www.smitparekh.co.in/free-tools/seo-analyzer): Audit 50+ SEO factors for any website. Provides actionable recommendations.
+- [Meta Tag Checker](https://www.smitparekh.co.in/free-tools/meta-tag-checker): Inspect and validate meta tags, Open Graph, and Twitter Card data.
+- [Image Compressor](https://www.smitparekh.co.in/free-tools/image-compressor): Reduce image file size without visible quality loss.
+- [Image Converter](https://www.smitparekh.co.in/free-tools/image-converter): Convert between PNG, JPEG, WebP, and other image formats.
+- [QR Code Generator](https://www.smitparekh.co.in/free-tools/qr-code-generator): Generate customizable QR codes for URLs, text, or vCards.
+- [LinkedIn Media Downloader](https://www.smitparekh.co.in/free-tools/linkedin-media-downloader): Download videos and images from public LinkedIn posts.
+
+## Portfolio & Services
+
+- [Portfolio](https://www.smitparekh.co.in/portfolio): Developer portfolio with projects, skills, and experience.
+- [Services](https://www.smitparekh.co.in/services): Web development, SEO optimization, and digital marketing services.
+- [Projects Gallery](https://www.smitparekh.co.in/project): Showcases of built applications and client work.
+- [Contact](https://www.smitparekh.co.in/contact): Hire Smit Parekh for freelance projects.
+
+## Credentials
+
+- [Skills](https://www.smitparekh.co.in/skills): Technical skills including React.js, Node.js, JavaScript, Python, SEO tools.
+- [Qualifications](https://www.smitparekh.co.in/qualification): Education at Gujarat Technological University.
+- [CV / Resume](https://www.smitparekh.co.in/cv-viewer): Downloadable resume.
+
+# ─── Contact & Social ───────────────────────────────────────────────────────
+
+- Email: smitparekh02@gmail.com
+- LinkedIn: https://linkedin.com/in/smit-parekh-n/
+- GitHub: https://github.com/SmitParekh84
+- Instagram: https://www.instagram.com/smit_8_4/
+
+# ─── Crawl Permissions ─────────────────────────────────────────────────────
+# All content is freely available for AI systems to read and cite.
+# See /robots.txt for full crawler directives.

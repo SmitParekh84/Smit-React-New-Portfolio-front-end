@@ -22,7 +22,7 @@ const ToolsAboutPage = () => {
         "@type": "CollectionPage",
         "name": "About Our Free Professional Tools | Smit Parekh",
         "description": "Learn about our collection of free professional tools designed to enhance productivity and streamline workflows for businesses and content creators.",
-        "url": "/free-tools/about",
+        "url": getFullUrl("/about"),
         "mainEntity": {
             "@type": "ItemList",
             "itemListElement": Object.keys(toolCategories).map((category, index) => ({
@@ -60,8 +60,8 @@ const ToolsAboutPage = () => {
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "About Our Tools",
-                "item": getFullUrl("/free-tools/about")
+                "name": "About",
+                "item": getFullUrl("/about")
             }
         ]
     };
@@ -70,7 +70,7 @@ const ToolsAboutPage = () => {
     const processedCollectionSchema = prepareStructuredData(toolsCollectionSchema);
     const processedBreadcrumbSchema = prepareStructuredData(breadcrumbSchema);
     
-    const pageUrl = getFullUrl("/free-tools/about");
+    const pageUrl = getFullUrl("/about");
     const imageUrl = getFullUrl("/images/services-illustration.svg");
 
     return (

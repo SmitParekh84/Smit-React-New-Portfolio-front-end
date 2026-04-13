@@ -75,54 +75,29 @@ const BackgroundRemoverPage = () => {
         "@type": "ListItem",
         position: 2,
         name: "Free Tools",
-        item: "https://www.smitparekh.co.in/tools",
+        item: "https://www.smitparekh.co.in/free-tools",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Background Remover",
-        item: "https://www.smitparekh.co.in/background-remover",
+        item: "https://www.smitparekh.co.in/free-tools/background-remover",
       },
     ],
   }
 
-  // How-to schema
-  const howToSchema = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Remove Background from Images",
-    description:
-      "Learn how to easily remove backgrounds from your images using our free online tool.",
-    step: [
-      {
-        "@type": "HowToStep",
-        name: "Upload Image",
-        text: "Click the upload button to select an image from your device",
-      },
-      {
-        "@type": "HowToStep",
-        name: "Process Image",
-        text: "Wait a few seconds while our AI removes the background",
-      },
-      {
-        "@type": "HowToStep",
-        name: "Download Result",
-        text: "Download your transparent PNG image with the background removed",
-      },
-    ],
-  }
   return (
     <>
       <SEO
-        title="Free Background Remover Tool | Remove Image Backgrounds Instantly"
-        description="Remove image backgrounds in seconds with our free online tool. Get transparent PNG files with perfect edge detection for product photos, portraits, and graphics without any cost."
-        keywords="free background remover, remove image background online, transparent PNG creator, background eraser tool, remove background from photo free, no-cost background removal"
-        canonicalUrl="https://www.smitparekh.co.in/background-remover"
+        title="Free Background Remover Tool — Remove Image Background Online"
+        description="Remove image backgrounds in seconds with our free AI-powered tool. Get transparent PNG files with perfect edge detection for product photos, portraits, and graphics — no sign-up required."
+        keywords="free background remover, remove image background online, transparent PNG creator, background eraser tool, remove background from photo free, AI background remover"
+        canonicalUrl="https://www.smitparekh.co.in/free-tools/background-remover"
         ogImage="https://www.smitparekh.co.in/images/Background-Remover.png"
-        ogTitle="Free Online Background Remover Tool - No Sign-up Required"
+        ogTitle="Free Background Remover — Remove Image Background in Seconds"
         twitterImage="https://www.smitparekh.co.in/images/Background-Remover.png"
-        structuredData={[toolSchema, faqSchema, breadcrumbSchema, howToSchema]}
-        lastUpdated="2023-10-20"
+        structuredData={[toolSchema, faqSchema, breadcrumbSchema]}
+        lastUpdated="2025-03-10"
         language="en-US"
       />
 

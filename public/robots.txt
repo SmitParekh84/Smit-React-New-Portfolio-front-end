@@ -1,28 +1,43 @@
-# Smit Parekh Robots.txt
-# Version 1.1
+# Smit Parekh — robots.txt v2.0
+# https://www.smitparekh.co.in
+
+# ─── Default: allow all crawlers ───────────────────────────────────────────
 User-agent: *
 Allow: /
-
-# Define the canonical sitemap
-Sitemap: https://www.smitparekh.co.in/sitemap.xml
-
-# Specify host to indicate preferred domain
-Host: www.smitparekh.co.in
-
-# Prevent crawling of duplicate content or internal tools
-Disallow: /api/
 Disallow: /admin/
+Disallow: /api/
 Disallow: /dashboard/
+Disallow: /private/
 Disallow: /*?source=*
 Disallow: /*?ref=*
+Crawl-delay: 1
 
-# Allow Google to index everything important
+# ─── Googlebot: explicit permissions ───────────────────────────────────────
 User-agent: Googlebot
 Allow: /
-Allow: /free-tools/
-Allow: /project/
-Allow: /blog/
+Disallow: /admin/
+Disallow: /api/
 
-# Set crawl delay for aggressive bots
-User-agent: *
-Crawl-delay: 1
+# ─── AI training crawlers: allowed (enables AI citations & brand visibility) ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Block ByteDance AI training crawler
+User-agent: Bytespider
+Disallow: /
+
+# Allow Google Gemini training (AI Overviews benefit)
+User-agent: Google-Extended
+Allow: /
+
+# ─── Sitemaps ───────────────────────────────────────────────────────────────
+Sitemap: https://www.smitparekh.co.in/sitemap.xml

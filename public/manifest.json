@@ -1,0 +1,59 @@
+{
+  "name": "Smit Parekh — Free Tools & Web Dev",
+  "short_name": "Smit Parekh",
+  "description": "Free online productivity tools: background remover, LinkedIn post generator, SEO analyzer, image compressor, and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4070F4",
+  "lang": "en-US",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "utilities", "business"],
+  "icons": [
+    {
+      "src": "/favicon_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon_180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/Tools-Page-Image.webp",
+      "sizes": "1200x630",
+      "type": "image/webp",
+      "label": "Free Online Tools by Smit Parekh"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Background Remover",
+      "short_name": "BG Remover",
+      "url": "/free-tools/background-remover",
+      "icons": [{ "src": "/favicon_192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "SEO Analyzer",
+      "short_name": "SEO Tool",
+      "url": "/free-tools/seo-analyzer",
+      "icons": [{ "src": "/favicon_192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "LinkedIn Post Generator",
+      "short_name": "LinkedIn Gen",
+      "url": "/free-tools/viral-linkedin-post-generator",
+      "icons": [{ "src": "/favicon_192.png", "sizes": "192x192" }]
+    }
+  ]
+}

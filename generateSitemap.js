@@ -9,154 +9,175 @@ const urls = [
     changefreq: "weekly",
     priority: 1.0,
     lastmod: new Date().toISOString(),
-    title: "Smit Parekh - Digital Marketing & Full-stack Developer",
-  },
-  {
-    url: "/about",
-    changefreq: "monthly",
-    priority: 0.9,
-    lastmod: "2023-11-01",
-    title: "About - Software Developer & SEO Specialist | Smit Parekh",
-  },
-  {
-    url: "/skills",
-    changefreq: "monthly",
-    priority: 0.8,
-    lastmod: "2023-09-25",
-    title: "Professional Skills & Expertise | Smit Parekh",
-  },
-  {
-    url: "/services",
-    changefreq: "monthly",
-    priority: 0.9,
-    lastmod: "2023-11-10",
-    title: "Professional Services | Smit Parekh",
-  },
-  {
-    url: "/project",
-    changefreq: "monthly",
-    priority: 0.9,
-    lastmod: "2023-11-20",
-    title: "Projects Gallery | Smit Parekh",
+    title: "Free Online Tools & Web Development Services | Smit Parekh",
   },
   {
     url: "/portfolio",
     changefreq: "monthly",
-    priority: 0.9,
-    lastmod: "2023-11-20",
-    title: "Portfolio | Smit Parekh",
+    priority: 0.95,
+    lastmod: "2025-03-15",
+    title: "Portfolio | Digital Software Developer & SEO Specialist | Smit Parekh",
+  },
+  {
+    url: "/about",
+    changefreq: "monthly",
+    priority: 0.85,
+    lastmod: "2025-03-15",
+    title: "About Smit Parekh — Software Developer & SEO Specialist",
+  },
+  {
+    url: "/skills",
+    changefreq: "monthly",
+    priority: 0.75,
+    lastmod: "2025-02-10",
+    title: "Professional Skills & Technical Expertise | Smit Parekh",
+  },
+  {
+    url: "/services",
+    changefreq: "monthly",
+    priority: 0.85,
+    lastmod: "2025-03-01",
+    title: "Web Development & SEO Services | Smit Parekh",
+  },
+  {
+    url: "/project",
+    changefreq: "monthly",
+    priority: 0.85,
+    lastmod: "2025-04-01",
+    title: "Projects Gallery | Smit Parekh",
   },
   {
     url: "/contact",
     changefreq: "yearly",
-    priority: 0.8,
-    lastmod: "2023-10-05",
-    title: "Contact Smit Parekh",
+    priority: 0.75,
+    lastmod: "2025-01-15",
+    title: "Contact Smit Parekh — Hire a Developer & SEO Specialist",
   },
   {
     url: "/qualification",
     changefreq: "monthly",
-    priority: 0.7,
-    lastmod: "2023-08-15",
-    title: "Qualifications & Experience | Smit Parekh",
+    priority: 0.65,
+    lastmod: "2025-02-01",
+    title: "Qualifications & Education | Smit Parekh",
   },
   {
     url: "/testimonials",
     changefreq: "monthly",
-    priority: 0.7,
-    lastmod: "2023-07-20",
-    title: "Client Testimonials | Smit Parekh",
+    priority: 0.65,
+    lastmod: "2025-03-20",
+    title: "Client Testimonials & Reviews | Smit Parekh",
+  },
+  {
+    url: "/cv-viewer",
+    changefreq: "monthly",
+    priority: 0.6,
+    lastmod: "2025-02-01",
+    title: "Smit Parekh — CV / Resume",
+  },
+  {
+    url: "/privacy-policy",
+    changefreq: "yearly",
+    priority: 0.3,
+    lastmod: "2025-01-01",
+    title: "Privacy Policy | Smit Parekh",
+  },
+  {
+    url: "/terms",
+    changefreq: "yearly",
+    priority: 0.3,
+    lastmod: "2025-01-01",
+    title: "Terms of Service | Smit Parekh",
   },
 
-  // Tools pages
+  // Tools hub
   {
     url: "/free-tools",
     changefreq: "weekly",
-    priority: 0.9,
-    lastmod: "2023-10-15",
-    title: "Free Online Tools | Smit Parekh",
+    priority: 0.95,
+    lastmod: new Date().toISOString(),
+    title: "Free Online Productivity Tools | Smit Parekh",
   },
 
-  // Individual tool pages with detailed metadata
+  // Individual tool pages
   {
     url: "/free-tools/background-remover",
     changefreq: "monthly",
-    priority: 0.8,
-    lastmod: "2023-10-20",
-    title: "Free Background Remover Tool",
+    priority: 0.85,
+    lastmod: "2025-03-10",
+    title: "Free Background Remover — Remove Image Background Online",
     img: [
       {
         url: "https://www.smitparekh.co.in/images/Background-Remover.png",
-        caption: "Free Background Remover Tool",
+        caption: "Free Background Remover Tool by Smit Parekh",
       },
     ],
   },
   {
     url: "/free-tools/viral-linkedin-post-generator",
     changefreq: "monthly",
-    priority: 0.8,
-    lastmod: "2023-11-15",
-    title: "Free AI LinkedIn Post Generator",
+    priority: 0.85,
+    lastmod: "2025-03-10",
+    title: "Free AI LinkedIn Post Generator — Create Viral Posts",
     img: [
       {
         url: "https://www.smitparekh.co.in/images/viral-linkedin-post-generator.webp",
-        caption: "LinkedIn Post Generator Tool",
+        caption: "AI LinkedIn Post Generator Tool",
       },
     ],
   },
   {
-    url: "/free-tools/meta-tag-checker",
+    url: "/free-tools/linkedin-media-downloader",
     changefreq: "monthly",
     priority: 0.8,
-    lastmod: "2023-10-30",
-    title: "Free Meta Tag Checker Tool",
+    lastmod: "2025-03-10",
+    title: "Free LinkedIn Video & Image Downloader",
+  },
+  {
+    url: "/free-tools/meta-tag-checker",
+    changefreq: "monthly",
+    priority: 0.85,
+    lastmod: "2025-03-10",
+    title: "Free Meta Tag Checker — Analyze Website SEO Tags Online",
     img: [
       {
         url: "https://www.smitparekh.co.in/images/Meta-Checker-Image.webp",
-        caption: "Meta Tag Checker Tool",
+        caption: "Meta Tag Checker & SEO Analyzer Tool",
+      },
+    ],
+  },
+  {
+    url: "/free-tools/seo-analyzer",
+    changefreq: "monthly",
+    priority: 0.85,
+    lastmod: "2025-04-01",
+    title: "Free SEO Analyzer — Website SEO Audit Tool Online",
+    img: [
+      {
+        url: "https://www.smitparekh.co.in/images/SEO-Analyzer-Tool.webp",
+        caption: "Free SEO Analyzer & Audit Tool",
       },
     ],
   },
   {
     url: "/free-tools/qr-code-generator",
     changefreq: "monthly",
-    priority: 0.7,
-    lastmod: "2023-10-10",
-    title: "Free QR Code Generator Tool",
+    priority: 0.75,
+    lastmod: "2025-02-15",
+    title: "Free QR Code Generator — Create Custom QR Codes Online",
   },
   {
     url: "/free-tools/image-compressor",
     changefreq: "monthly",
-    priority: 0.7,
-    lastmod: "2023-09-15",
-    title: "Free Image Compression Tool",
+    priority: 0.75,
+    lastmod: "2025-02-15",
+    title: "Free Image Compressor — Reduce Image Size Without Quality Loss",
   },
   {
     url: "/free-tools/image-converter",
     changefreq: "monthly",
-    priority: 0.7,
-    lastmod: "2023-09-20",
-    title: "Free Image Format Converter Tool",
-  },
-  {
-    url: "/free-tools/seo-analyzer",
-    changefreq: "monthly",
-    priority: 0.8,
-    lastmod: "2023-11-12",
-    title: "Free SEO Analyzer Tool",
-    img: [
-      {
-        url: "https://www.smitparekh.co.in/images/SEO-Analyzer-Tool.webp",
-        caption: "SEO Analyzer Tool",
-      },
-    ],
-  },
-  {
-    url: "/cv-viewer",
-    changefreq: "monthly",
-    priority: 0.6,
-    lastmod: "2023-08-05",
-    title: "Smit Parekh's CV",
+    priority: 0.75,
+    lastmod: "2025-02-15",
+    title: "Free Image Converter — Convert PNG, JPEG, WebP Online",
   },
 ]
 
@@ -407,15 +428,49 @@ const generateSitemapHTML = () => {
 // Function to generate robots.txt file
 const generateRobotsTxt = () => {
   try {
-    const robotsTxt = `User-agent: *
+    const robotsTxt = `# Smit Parekh — robots.txt v2.0
+# https://www.smitparekh.co.in
+
+# ─── Default: allow all crawlers ───────────────────────────────────────────
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /*?source=*
+Disallow: /*?ref=*
+Crawl-delay: 1
+
+# ─── Googlebot: explicit permissions ───────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# ─── AI training crawlers: allowed (enables AI citations & brand visibility) ──
+User-agent: GPTBot
 Allow: /
 
-# Sitemaps
-Sitemap: https://www.smitparekh.co.in/sitemap.xml
+User-agent: ChatGPT-User
+Allow: /
 
-# Disallow sensitive directories
-Disallow: /admin/
-Disallow: /private/
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Block ByteDance AI training crawler
+User-agent: Bytespider
+Disallow: /
+
+# Allow Google Gemini training (AI Overviews benefit)
+User-agent: Google-Extended
+Allow: /
+
+# ─── Sitemaps ───────────────────────────────────────────────────────────────
+Sitemap: https://www.smitparekh.co.in/sitemap.xml
 `
 
     // Ensure the public directory exists

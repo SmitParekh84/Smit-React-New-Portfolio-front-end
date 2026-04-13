@@ -35,7 +35,7 @@ const ToolsShowcasePage = () => {
         "@type": "CollectionPage",
         "name": "Free Online Tools for Productivity | Smit Parekh",
         "description": "Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity with no cost.",
-        "url": "/free-tools",
+        "url": getFullUrl("/"),
         "mainEntity": {
             "@type": "ItemList",
             "itemListElement": toolsData.map((tool, index) => ({
@@ -66,7 +66,7 @@ const ToolsShowcasePage = () => {
     // Generate FAQ schema
     const faqSchema = generateFAQSchema(toolsFaqs);
 
-    // Generate breadcrumb schema
+    // Generate breadcrumb schema (homepage = root, no parent needed)
     const breadcrumbSchema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -74,14 +74,8 @@ const ToolsShowcasePage = () => {
             {
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Home",
+                "name": "Free Online Tools",
                 "item": getFullUrl("/")
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Free Tools",
-                "item": getFullUrl("/free-tools")
             }
         ]
     };
@@ -93,22 +87,24 @@ const ToolsShowcasePage = () => {
 
     return (
         <>
-            <SEO 
+            <SEO
                 title="Free Online Tools for Productivity | Smit Parekh"
-                description="Access powerful, free online tools including AI-powered LinkedIn Post Generator, Background Remover, and Meta Tag Checker. Boost productivity with no cost."
-                keywords="free online tools, productivity tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools, AI tools, image compressor, QR code generator, SEO analyzer"
-                canonicalUrl={getFullUrl("/free-tools")}
+                description="Free online tools by Smit Parekh: AI LinkedIn post generator, background remover, SEO analyzer, image compressor, QR code generator & more — all 100% free, no sign-up needed."
+                keywords="free online tools, productivity tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools, AI tools, image compressor, QR code generator, SEO analyzer, image converter, LinkedIn downloader"
+                canonicalUrl={getFullUrl("/")}
                 ogType="website"
                 ogImage={getFullUrl("/images/Tools-Page-Image.webp")}
-                ogTitle="Free Professional Tools - Smit Parekh"
+                ogTitle="Free Online Tools for Productivity | Smit Parekh"
+                ogImageWidth="1200"
+                ogImageHeight="630"
                 twitterImage={getFullUrl("/images/Tools-Page-Image.webp")}
-                twitterTitle="Free Online Tools by Smit Parekh"
+                twitterTitle="Free Online Tools by Smit Parekh — No Sign-up Required"
                 structuredData={[processedPageSchema, processedFaqSchema, processedBreadcrumbSchema]}
                 lastUpdated={new Date().toISOString()}
                 language="en-US"
                 author="Smit Parekh"
                 alternateLanguages={[
-                    { lang: "en", url: getFullUrl("/free-tools") }
+                    { lang: "en", url: getFullUrl("/") }
                 ]}
             >
                 {/* Add extra SEO tags */}
