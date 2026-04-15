@@ -21,7 +21,8 @@ import {
   faqDataImageCompressor,
   faqDataImageConverter,
   faqDataSEOAnalyzer,
-  faqDataContact
+  faqDataContact,
+  faqDataResumeAnalyzer
 } from './faqData';
 
 // Add FAQ data for SEO Analyzer
@@ -49,5 +50,6 @@ export {
   faqDataImageCompressor,
   faqDataImageConverter,
   faqDataSEOAnalyzer,
-  faqDataContact
+  faqDataContact,
+  faqDataResumeAnalyzer
 };

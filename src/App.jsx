@@ -42,6 +42,7 @@ import Qualification from "./components/Qualification"
 import Testimonials from "./components/Testimonials"
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage"
 import TermsPage from "./pages/TermsPage"
+import ResumeAnalyzerPage from "./pages/ResumeAnalyzerPage"
 
 // URL utilities
 import { formatUrlSlug, slugToTitle } from "./utils/urlUtils"
@@ -102,6 +103,7 @@ const App = () => {
             <Route path="/free-tools/image-converter" element={<ImageConverterPage />} />
             <Route path="/free-tools/seo-analyzer" element={<SEOAnalyzerPage />} />
             <Route path="/free-tools/linkedin-media-downloader" element={<LinkedInMediaDownloaderPage />} />
+            <Route path="/free-tools/ats-resume-checker" element={<ResumeAnalyzerPage />} />
             <Route path="/free-tools/html-minifier" element={<Navigate to="/free-tools" replace />} />
             
             {/* Admin Routes */}

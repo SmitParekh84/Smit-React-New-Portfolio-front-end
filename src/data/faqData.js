@@ -406,3 +406,36 @@ export const faqDataContact = [
     answer: "Yes, I integrate SEO best practices into all website development projects. This includes optimizing site structure, meta tags, content, and ensuring mobile responsiveness and fast loading speeds. I can also provide more comprehensive SEO services including keyword research, content optimization, and ongoing SEO strategy."
   }
 ];
+
+export const faqDataResumeAnalyzer = [
+  {
+    question: "What is an ATS score?",
+    answer:
+      "An ATS (Applicant Tracking System) score measures how well your resume matches the requirements of a job posting. Most companies use ATS software to automatically filter resumes before a human ever reads them. A higher score means your resume is more likely to get through the filter.",
+  },
+  {
+    question: "Is this tool free to use?",
+    answer:
+      "Yes, completely free. No account, no sign-up, no credit card required. You can analyze as many resumes as you want.",
+  },
+  {
+    question: "What file formats are supported?",
+    answer:
+      "You can upload PDF or DOCX files up to 5 MB. You can also simply paste your resume text directly — no file upload needed.",
+  },
+  {
+    question: "Do I need to provide a job description?",
+    answer:
+      "No. The job description field is optional. If you provide one, the tool matches your resume against the specific role and identifies missing keywords from that job posting. If you skip it, the tool analyzes your resume against general ATS best practices.",
+  },
+  {
+    question: "How does the AI improve my bullet points?",
+    answer:
+      "The AI identifies your weakest bullet points — typically ones that describe tasks rather than achievements — and rewrites them to be results-focused, specific, and quantified where possible. You get the original and improved version side by side and can copy the improved one with one click.",
+  },
+  {
+    question: "Is my resume data stored or shared?",
+    answer:
+      "No. Your resume text is sent to the AI model for analysis and immediately discarded. We do not store, share, or use your resume data for any other purpose.",
+  },
+];

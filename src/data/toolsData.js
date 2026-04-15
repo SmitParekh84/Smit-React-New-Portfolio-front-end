@@ -42,6 +42,19 @@ export const toolsData = [
     description: ["Download videos and images from LinkedIn", "Simple paste-and-download interface", "Save media in high quality"]
   },
   {
+    title: "ATS Resume Checker",
+    icon: "uil-file-check-alt",
+    shortDescription: "Check your ATS score and get AI-powered resume improvements.",
+    path: "/free-tools/ats-resume-checker",
+    category: "Career Tools",
+    description: [
+      "ATS compatibility score (0–100)",
+      "Missing keywords identified",
+      "Section-by-section feedback",
+      "AI-rewritten bullet points"
+    ]
+  },
+  {
     title: "Meta Tag Checker",
     icon: "uil-search",
     shortDescription: "Check the meta tags of any website.",
