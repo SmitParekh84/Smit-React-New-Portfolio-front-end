@@ -122,7 +122,7 @@ const ToolsShowcasePage = () => {
             
             {/* In-article Ad between sections - Strategically placed after substantial content */}
             <div className="ad-container content-ad">
-                <InArticleAd adSlot="2345678901" />
+                <InArticleAd adSlot="3604478369" />
             </div>
             
             {/* Features Section */}
@@ -168,7 +168,7 @@ const ToolsShowcasePage = () => {
 
             {/* In-article Ad before FAQ section - Strategic placement with substantial content above and below */}
             <div className="ad-container content-ad">
-                <InArticleAd adSlot="4567890123" />
+                <InArticleAd adSlot="1053502494" />
             </div>
 
             {/* FAQ Section */}
