@@ -41,12 +41,12 @@ const ResumeAnalyzer = () => {
         formData.append("resumeFile", resumeFile);
         if (jobDescription) formData.append("jobDescription", jobDescription);
 
-        response = await axios.post(`${apiUrl}/api/resume/analyze`, formData, {
+        response = await axios.post(`${apiUrl}/resume/analyze`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       } else {
         // Paste text — use JSON
-        response = await axios.post(`${apiUrl}/api/resume/analyze`, {
+        response = await axios.post(`${apiUrl}/resume/analyze`, {
           resumeText,
           jobDescription,
         });
