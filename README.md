@@ -4,6 +4,8 @@ A personal portfolio website built with React + Vite, featuring a project showca
 
 **Live:** [smitparekh.co.in](https://smitparekh.co.in)
 
+> Add a screenshot or GIF here — e.g. `![Preview](./public/preview.png)`
+
 ---
 
 ## Features
@@ -88,7 +90,7 @@ front-end/
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/smitparekh/Smit-React-New-Portfolio.git
+git clone https://github.com/SmitParekh84/Smit-React-New-Portfolio.git
 cd Smit-React-New-Portfolio/front-end
 
 # 2. Install dependencies
