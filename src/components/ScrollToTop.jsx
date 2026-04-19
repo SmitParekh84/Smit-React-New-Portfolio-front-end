@@ -9,8 +9,8 @@ const ScrollToTop = () => {
     };
 
     return (
-        <a href="#" className="scrollup" id="scroll-up" onClick={handleScrollToTop}>
-            <i className="uil uil-arrow-up scrollup__icon"></i>
+        <a href="#" className="scrollup" id="scroll-up" onClick={handleScrollToTop} aria-label="Scroll to top">
+            <i className="uil uil-arrow-up scrollup__icon" aria-hidden="true"></i>
         </a>
     );
 };

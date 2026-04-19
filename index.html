@@ -54,6 +54,8 @@
     <!-- Performance: preconnect to external origins only -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unicons.iconscout.com" crossorigin />
+    <link rel="preconnect" href="https://randomuser.me" crossorigin />
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
     <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
@@ -67,20 +69,28 @@
     <link rel="icon" href="/favicon_512.png" sizes="512x512" type="image/png" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Unicons (only working CDN) -->
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
-    />
+    <!-- Google Fonts: non-blocking via preload -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" /></noscript>
 
-    <!-- FontAwesome -->
+    <!-- Unicons: non-blocking -->
     <link
-      rel="stylesheet"
+      rel="preload" as="style"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" /></noscript>
+
+    <!-- FontAwesome: non-blocking -->
+    <link
+      rel="preload" as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" /></noscript>
 
     <!-- Primary Meta -->
     <meta

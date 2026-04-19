@@ -7,8 +7,8 @@ const Home = () => {
                 <div className="home__content grid">
                     <div className="home__social">
                         {homeData.socialLinks.map((social, index) => (
-                            <a key={index} href={social.href} target="_blank" rel="noopener noreferrer" className="home__social-icon">
-                                <i className={social.iconClass}></i>
+                            <a key={index} href={social.href} target="_blank" rel="noopener noreferrer" className="home__social-icon" aria-label={social.label}>
+                                <i className={social.iconClass} aria-hidden="true"></i>
                             </a>
                         ))}
                     </div>

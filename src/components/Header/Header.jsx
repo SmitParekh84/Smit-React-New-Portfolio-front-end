@@ -237,13 +237,15 @@ const Header = () => {
             </div>
           )}
           
-          <i
-            className={`uil ${theme === "light" ? "uil-moon" : "uil-sun"} change-theme`}
+          <button
+            className="change-theme__btn"
             id="theme-button"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
             title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-          ></i>
+          >
+            <i className={`uil ${theme === "light" ? "uil-moon" : "uil-sun"} change-theme`} aria-hidden="true"></i>
+          </button>
           <div 
             className="nav__toggle" 
             id="nav-toggle" 
