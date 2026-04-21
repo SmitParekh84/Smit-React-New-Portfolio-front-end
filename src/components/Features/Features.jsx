@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { fadeUp, slideInLeft, staggerContainer } from "../../animations/variants"
+import { fadeUp, slideInLeft, staggerContainer, getResponsiveVariant } from "../../animations/variants"
 import "./Features.css"
 
 const Features = ({ title, subtitle, features }) => {
@@ -28,7 +28,7 @@ const Features = ({ title, subtitle, features }) => {
             <motion.div
               className="feature-card"
               key={index}
-              variants={slideInLeft}
+              variants={getResponsiveVariant(slideInLeft)}
             >
               <div className="feature-icon-container">
                 <i className={`uil ${feature.icon}`}></i>

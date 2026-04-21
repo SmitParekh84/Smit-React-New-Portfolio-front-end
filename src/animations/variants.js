@@ -50,3 +50,21 @@ export const staggerContainer = {
     },
   },
 }
+
+export const fadeUpMobile = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+}
+
+export const getResponsiveVariant = (desktopVariant) => {
+  if (
+    typeof window !== "undefined" &&
+    window.innerWidth < 480
+  ) {
+    return fadeUpMobile
+  }
+  return desktopVariant
+}

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
-import { fadeUp, staggerContainer } from "../../animations/variants"
+import { fadeUp, staggerContainer, getResponsiveVariant } from "../../animations/variants"
 import "./ToolsGrid.css"
 
 const ToolsGrid = ({ tools }) => {
@@ -37,7 +37,7 @@ const ToolsGrid = ({ tools }) => {
             <motion.div
               className="tools__content"
               key={index}
-              variants={fadeUp}
+              variants={getResponsiveVariant(fadeUp)}
             >
               <div>
                 <div className="tools__header">
