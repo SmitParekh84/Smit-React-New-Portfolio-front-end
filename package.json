@@ -25,6 +25,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "font-awesome": "^4.7.0",
+    "framer-motion": "^11.18.2",
     "fs": "^0.0.1-security",
     "he": "^1.2.0",
     "marked": "^15.0.4",
