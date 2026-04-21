@@ -1,71 +1,61 @@
-import React, { useEffect, useRef } from "react";
-import "./HowItWorks.css";
+import { motion } from "framer-motion"
+import { fadeUp, staggerContainer } from "../../animations/variants"
+import "./HowItWorks.css"
 
 const HowItWorks = ({ title, subtitle, steps }) => {
-  const stepsRef = useRef([]);
-
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.3
-    };
-
-    const handleIntersect = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('workflow__step--visible');
-          observer.unobserve(entry.target); // Stop observing once it's visible
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersect, observerOptions);
-    
-    // Observe all step elements
-    stepsRef.current.forEach(step => {
-      if (step) observer.observe(step);
-    });
-
-    return () => {
-      if (observer) {
-        stepsRef.current.forEach(step => {
-          if (step) observer.unobserve(step);
-        });
-      }
-    };
-  }, [steps]);
-
-  // Ensure stepsRef array has the right length
-  stepsRef.current = stepsRef.current.slice(0, steps.length);
-
   return (
     <section className="workflow section" id="how-it-works">
-      <h2 className="section__title">{title}</h2>
-      <span className="section__subtitle">{subtitle}</span>
+      <motion.h2
+        className="section__title"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {title}
+      </motion.h2>
+      <motion.span
+        className="section__subtitle"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {subtitle}
+      </motion.span>
 
       <div className="workflow__container container">
-        <div className="workflow__steps">
+        <motion.div
+          className="workflow__steps"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {steps.map((step, index) => (
-            <div 
-              className="workflow__step" 
-              key={index} 
-              ref={el => stepsRef.current[index] = el}
+            <motion.div
+              className="workflow__step workflow__step--visible"
+              key={index}
+              variants={fadeUp}
             >
               <div className="workflow__step-number">{index + 1}</div>
               <div className="workflow__step-content">
                 <h3 className="workflow__step-title">{step.title}</h3>
                 <p className="workflow__step-description">{step.description}</p>
                 {step.image && (
-                  <img src={step.image} alt={step.title} className="workflow__step-image" />
+                  <img
+                    src={step.image}
+                    alt={step.title}
+                    className="workflow__step-image"
+                  />
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default HowItWorks;
+export default HowItWorks
