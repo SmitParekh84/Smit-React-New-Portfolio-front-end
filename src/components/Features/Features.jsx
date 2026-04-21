@@ -1,18 +1,35 @@
-import React from "react";
-import "./Features.css";
+import { motion } from "framer-motion"
+import { fadeUp, slideInLeft, staggerContainer } from "../../animations/variants"
+import "./Features.css"
 
 const Features = ({ title, subtitle, features }) => {
   return (
     <section className="features__section" id="features">
-      <div className="features__header">
+      <motion.div
+        className="features__header"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         <h2 className="section__title">{title}</h2>
         <span className="section__subtitle">{subtitle}</span>
-      </div>
+      </motion.div>
 
       <div className="features__container container">
-        <div className="features__grid">
+        <motion.div
+          className="features__grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {features.map((feature, index) => (
-            <div className="feature-card" key={index} data-aos="fade-up" data-aos-delay={index * 100}>
+            <motion.div
+              className="feature-card"
+              key={index}
+              variants={slideInLeft}
+            >
               <div className="feature-icon-container">
                 <i className={`uil ${feature.icon}`}></i>
               </div>
@@ -20,12 +37,12 @@ const Features = ({ title, subtitle, features }) => {
                 <h3 className="feature__title">{feature.title}</h3>
                 <p className="feature__description">{feature.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Features;
+export default Features
