@@ -1,43 +1,44 @@
-import React from "react";
-import "./Testimonials.css";
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
-// Import required modules
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { motion } from "framer-motion"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css"
+import "swiper/css/pagination"
+import { Navigation, Pagination, Autoplay } from "swiper/modules"
+import { fadeUp } from "../../animations/variants"
+import "./Testimonials.css"
 
 const Testimonials = ({ title, subtitle, testimonials }) => {
   return (
     <section className="testimonial section">
-      <h2 className="section__title">{title}</h2>
-      <span className="section__subtitle">{subtitle}</span>
+      <motion.h2
+        className="section__title"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {title}
+      </motion.h2>
+      <motion.span
+        className="section__subtitle"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {subtitle}
+      </motion.span>
 
       <div className="testimonial__container container">
         <Swiper
           loop={true}
           grabCursor={true}
           spaceBetween={24}
-          pagination={{
-            clickable: true,
-          }}
+          pagination={{ clickable: true }}
           breakpoints={{
-            576: {
-              slidesPerView: 2,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 48,
-            },
+            576: { slidesPerView: 2 },
+            768: { slidesPerView: 2, spaceBetween: 48 },
           }}
-          autoplay={{
-            delay: 3500,
-            disableOnInteraction: false,
-          }}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
           modules={[Pagination, Navigation, Autoplay]}
           className="testimonial__swiper"
         >
@@ -59,7 +60,7 @@ const Testimonials = ({ title, subtitle, testimonials }) => {
         </Swiper>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Testimonials;
+export default Testimonials
