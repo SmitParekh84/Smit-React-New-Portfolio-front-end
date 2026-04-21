@@ -330,6 +330,7 @@ img {
   background-color: var(--first-color);
   color: #ffff;
   padding: 0.8rem 1.4rem;
+  min-height: 44px;
   border-radius: 10px;
   font-weight: var(--font-medium);
   position: relative;
