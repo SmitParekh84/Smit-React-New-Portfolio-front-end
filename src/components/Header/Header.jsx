@@ -189,6 +189,13 @@ const Header = () => {
   }, [location]);
   
   return (
+    <>
+    {/* Mobile backdrop */}
+    <div
+      className={`nav-overlay ${isMenuOpen ? 'visible' : ''}`}
+      onClick={closeMenu}
+      aria-hidden="true"
+    />
     <header className="header" id="header" ref={headerRef}>
       <nav className="nav container">
         <Link to="/" className="nav__logo" onClick={() => setActiveSection("home")}>
@@ -210,11 +217,11 @@ const Header = () => {
           {/* Admin Controls - Only visible when logged in */}
           {isAdmin && (
             <div className="admin-controls" ref={adminDropdownRef}>
-              <div 
+              <div
                 className={`admin-controls__button ${showAdminDropdown ? 'active' : ''}`}
                 onClick={() => setShowAdminDropdown(!showAdminDropdown)}
               >
-                <i className="uil uil-user-circle"></i>
+                <i className="uil uil-shield-check"></i>
                 <span className="admin-controls__label">Admin</span>
               </div>
               
@@ -263,6 +270,7 @@ const Header = () => {
         </div>
       </nav>
     </header>
+    </>
   );
 };
 
