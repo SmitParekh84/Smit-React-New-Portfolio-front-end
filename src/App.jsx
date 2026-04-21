@@ -72,7 +72,8 @@ const App = () => {
   return (
     <Router>
       <AdSenseProvider>
-        <Header />        <main className="main">
+        <Header />
+        <main className="main">
           <Routes>
             {/* Main Routes */}
             <Route path="/" element={<ToolsShowcasePage />} />
@@ -114,7 +115,8 @@ const App = () => {
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="/500" element={<ServerErrorPage />} />
             <Route path="*" element={<NotFoundPage />} />
-          </Routes>        </main>
+          </Routes>
+        </main>
         <HelpMessage />
         <ScrollToTop />
         <Footer />
