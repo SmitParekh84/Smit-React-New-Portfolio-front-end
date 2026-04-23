@@ -73,6 +73,11 @@
   }
 }
 
+/* Prevent white flash: html bg matches body before React mounts */
+html.dark-theme-preload {
+  background-color: hsl(210, 28%, 12%);
+}
+
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
   /* HSL color mode */

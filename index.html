@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+
+    <!-- Anti-FOUC: apply saved theme before first paint to prevent white flash -->
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem('selected-theme') === 'dark') {
+            document.documentElement.style.backgroundColor = 'hsl(210, 28%, 12%)';
+            document.documentElement.classList.add('dark-theme-preload');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta name="google-adsense-account" content="ca-pub-9526582197854160" />
     <link rel="canonical" href="https://www.smitparekh.co.in/" />
 
