@@ -21,15 +21,45 @@ const Landing = () => {
     "@type": "ProfilePage",
     mainEntity: {
       "@type": "Person",
+      "@id": "https://www.smitparekh.co.in/portfolio#smit-parekh",
       name: "Smit Parekh",
-      url: "https://www.smitparekh.co.in",
+      url: "https://www.smitparekh.co.in/portfolio",
+      mainEntityOfPage: "https://www.smitparekh.co.in/portfolio",
+      image: {
+        "@type": "ImageObject",
+        url: "https://www.smitparekh.co.in/images/Smit-Parekh-About.webp",
+        width: 800,
+        height: 800,
+      },
+      description:
+        "Smit Parekh is a Digital Software Developer and SEO Specialist from Anand, Gujarat, India, with expertise in React.js, Node.js, SEO optimisation, and digital marketing.",
+      disambiguatingDescription:
+        "Digital Software Developer and SEO Specialist based in Anand, Gujarat, India",
+      jobTitle: "Digital Software Developer & SEO Specialist",
+      identifier: {
+        "@type": "PropertyValue",
+        propertyID: "LinkedIn",
+        value: "https://www.linkedin.com/in/smit-parekh-n/",
+      },
       sameAs: [
-        "https://linkedin.com/in/smit-parekh-n/",
+        "https://www.linkedin.com/in/smit-parekh-n/",
         "https://github.com/SmitParekh84",
         "https://www.instagram.com/smit_8_4/",
         "https://www.facebook.com/SmitParekh84/",
       ],
-      jobTitle: "Digital Software Developer & SEO Specialist",
+      nationality: {
+        "@type": "Country",
+        name: "India",
+      },
+      hasOccupation: {
+        "@type": "Occupation",
+        name: "Digital Software Developer & SEO Specialist",
+        occupationLocation: {
+          "@type": "City",
+          name: "Anand, Gujarat, India",
+        },
+        skills: "React.js, Node.js, JavaScript, SEO, Web Development, Digital Marketing",
+      },
       worksFor: {
         "@type": "Organization",
         name: "Smit Parekh",
@@ -38,7 +68,7 @@ const Landing = () => {
         "@type": "PostalAddress",
         addressLocality: "Anand",
         addressRegion: "Gujarat",
-        addressCountry: "India",
+        addressCountry: "IN",
         postalCode: "388001",
       },
       alumniOf: [
@@ -52,14 +82,14 @@ const Landing = () => {
         "Web Development",
         "Digital Marketing",
         "SEO Optimization",
+        "Technical SEO",
         "Content Creation",
         "Social Media Marketing",
         "JavaScript",
         "React.js",
         "Node.js",
+        "Full-Stack Development",
       ],
-      description:
-        "Smit Parekh is a Digital Software Developer and SEO Specialist with expertise in SEO, web development, and creating engaging online content.",
     },
   }
 
@@ -67,8 +97,8 @@ const Landing = () => {
     <>
       <SEO
         title="Smit Parekh | Digital Software Developer & SEO Specialist"
-        description="Smit Parekh — Digital Software Developer & SEO Specialist. Helping businesses grow with web development, SEO, and digital marketing."
-        keywords="Smit Parekh, Digital Marketing Manager, Full-stack Developer, SEO optimization, web development services, digital marketing expert, professional portfolio"
+        description="Smit Parekh — Digital Software Developer & SEO Specialist from Anand, Gujarat, India. Expert in React.js, Node.js, SEO, and digital marketing. View portfolio, projects, and free online tools."
+        keywords="Smit Parekh, Smit Parekh developer, Smit Parekh SEO, Smit Parekh Gujarat, Smit Parekh portfolio, Smit Parekh LinkedIn, Digital Software Developer, SEO Specialist, Full-stack Developer, web development services, digital marketing expert, React developer India, Node.js developer"
         canonicalUrl="https://www.smitparekh.co.in/portfolio"
         ogImage="https://www.smitparekh.co.in/images/Smit-Parekh-About.webp"
         twitterImage="https://www.smitparekh.co.in/images/Smit-Parekh-About.webp"
