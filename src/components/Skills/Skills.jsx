@@ -1,6 +1,6 @@
 // Skills.js
 import React, { useState } from "react"
-import { skillsData } from "../data/data.js"
+import { skillsData } from "../../data/data.js"
 import { Helmet } from "react-helmet-async"
 
 const Skills = () => {

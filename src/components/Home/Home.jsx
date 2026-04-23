@@ -1,5 +1,5 @@
 import React from "react";
-import { homeData } from "../data/data"; // Adjust the import path as necessary
+import { homeData } from "../../data/data"; // Adjust the import path as necessary
 const Home = () => {
     return (
         <section className="home section" id="home">

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { qualificationsData } from "../data/data" // Adjust the path as necessary
+import { qualificationsData } from "../../data/data" // Adjust the path as necessary
 import { Helmet } from "react-helmet-async"
 
 const Qualification = () => {

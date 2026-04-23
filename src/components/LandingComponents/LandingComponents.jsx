@@ -3,7 +3,7 @@ import {
   qualificationsData,
   servicesData,
   testimonialsData,
-} from "../data/data"
+} from "../../data/data"
 import Swiper from "swiper/bundle"
 
 // Qualification Component

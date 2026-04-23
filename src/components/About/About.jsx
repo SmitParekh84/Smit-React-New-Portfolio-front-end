@@ -1,8 +1,8 @@
 // components/About.jsx
 import React, { useState, useEffect } from 'react';
-import { aboutData } from '../data/data.js'; // Adjust the path if necessary
+import { aboutData } from '../../data/data.js'; // Adjust the path if necessary
 import LazyLoad from 'react-lazyload';
-import '../assets/css/modal.css'; // Import modal styles
+import '../../assets/css/modal.css'; // Import modal styles
 import { useNavigate } from 'react-router-dom';
 
 const About = () => {
