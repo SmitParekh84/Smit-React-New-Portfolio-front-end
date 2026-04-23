@@ -3,7 +3,7 @@
     "url": "/",
     "changefreq": "weekly",
     "priority": 1,
-    "lastmod": "2026-04-23T05:50:50.511Z",
+    "lastmod": "2026-04-23T18:10:24.557Z",
     "title": "Free Online Tools & Web Development Services | Smit Parekh"
   },
   {
@@ -87,7 +87,7 @@
     "url": "/free-tools",
     "changefreq": "weekly",
     "priority": 0.95,
-    "lastmod": "2026-04-23T05:50:50.512Z",
+    "lastmod": "2026-04-23T18:10:24.559Z",
     "title": "Free Online Productivity Tools | Smit Parekh"
   },
   {
@@ -169,5 +169,26 @@
     "priority": 0.75,
     "lastmod": "2025-02-15",
     "title": "Free Image Converter — Convert PNG, JPEG, WebP Online"
+  },
+  {
+    "url": "/free-tools/ats-resume-checker",
+    "changefreq": "monthly",
+    "priority": 0.85,
+    "lastmod": "2026-04-23T18:10:24.559Z",
+    "title": "Free ATS Resume Checker — AI-Powered Resume Score & Tips"
+  },
+  {
+    "url": "/free-tools/word-counter",
+    "changefreq": "monthly",
+    "priority": 0.85,
+    "lastmod": "2026-04-23T18:10:24.559Z",
+    "title": "Free Word Counter — Count Words, Characters & Keyword Density Online"
+  },
+  {
+    "url": "/free-tools/password-generator",
+    "changefreq": "monthly",
+    "priority": 0.85,
+    "lastmod": "2026-04-23T18:10:24.559Z",
+    "title": "Free Password Generator — Strong & Secure Passwords Instantly"
   }
 ]

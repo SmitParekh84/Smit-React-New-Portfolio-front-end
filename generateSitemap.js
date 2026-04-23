@@ -179,6 +179,27 @@ const urls = [
     lastmod: "2025-02-15",
     title: "Free Image Converter — Convert PNG, JPEG, WebP Online",
   },
+  {
+    url: "/free-tools/ats-resume-checker",
+    changefreq: "monthly",
+    priority: 0.85,
+    lastmod: new Date().toISOString(),
+    title: "Free ATS Resume Checker — AI-Powered Resume Score & Tips",
+  },
+  {
+    url: "/free-tools/word-counter",
+    changefreq: "monthly",
+    priority: 0.85,
+    lastmod: new Date().toISOString(),
+    title: "Free Word Counter — Count Words, Characters & Keyword Density Online",
+  },
+  {
+    url: "/free-tools/password-generator",
+    changefreq: "monthly",
+    priority: 0.85,
+    lastmod: new Date().toISOString(),
+    title: "Free Password Generator — Strong & Secure Passwords Instantly",
+  },
 ]
 
 // Function to generate XML sitemap
