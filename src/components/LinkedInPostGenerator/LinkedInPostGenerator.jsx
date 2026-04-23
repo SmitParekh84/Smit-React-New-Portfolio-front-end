@@ -9,10 +9,9 @@ import linekedln from '../../assets/img/linkeldn.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCopy, faEarthAmericas, faCheckCircle, faMagic,
-    faLightbulb, faPen, faThumbsUp, faChevronDown, faChevronUp,
-    faListUl, faAlignLeft, faAlignCenter, faAlignJustify, faSlidersH
+    faLightbulb, faPen, faThumbsUp,
+    faListUl, faAlignLeft, faAlignCenter, faAlignJustify
 } from "@fortawesome/free-solid-svg-icons";
-import ModelSelector from "../ModelSelector";
 
 const hooks = [
     { id: 1,  icon: "🏆", label: "Superior Method",  template: "[Common belief or practice] [negative consequence]. Here's the [notable method] [famous individuals or groups] use instead:" },
@@ -42,7 +41,6 @@ const cringeMarkers = [
 ];
 
 const LinkedInPostGenerator = () => {
-    const [model, setModel] = useState("gemini");
     const [activity, setActivity] = useState("");
     const [advice, setAdvice] = useState("");
     const [cringeLevel, setCringeLevel] = useState(0);
@@ -56,7 +54,6 @@ const LinkedInPostGenerator = () => {
     const [bulletType, setBulletType] = useState("emoji");
     const [characterLength, setCharacterLength] = useState(600);
     const [scrollAfterGenerate, setScrollAfterGenerate] = useState(false);
-    const [useAdvanceOption, setUseAdvanceOption] = useState(false);
     const [copied, setCopied] = useState(false);
     const [showFullContent, setShowFullContent] = useState(false);
     const apiUrl = import.meta.env.VITE_API_URL;
@@ -87,7 +84,7 @@ const LinkedInPostGenerator = () => {
         try {
             const modifiedHookTemplate = selectedHook.replace(/X/g, xValue);
             const response = await axios.post(`${apiUrl}/generate-post`, {
-                activity, model, advice, cringeLevel,
+                activity, advice, cringeLevel,
                 modifiedHookTemplate, useBulletPoints, useEmojis, bulletType, characterLength,
             });
             setGeneratedPost(response.data.generatedPost || "Failed to generate a post.");
@@ -363,29 +360,6 @@ const LinkedInPostGenerator = () => {
                             </div>
                         </div>
 
-                        {/* ── Advanced ── */}
-                        <div className="form-section form-section--last">
-                            <button
-                                type="button"
-                                className="advanced-toggle-btn"
-                                onClick={() => setUseAdvanceOption(!useAdvanceOption)}
-                            >
-                                <span>
-                                    <FontAwesomeIcon icon={faSlidersH} className="adv-icon" />
-                                    Advanced Settings
-                                </span>
-                                <FontAwesomeIcon
-                                    icon={useAdvanceOption ? faChevronUp : faChevronDown}
-                                    className="adv-chevron"
-                                />
-                            </button>
-
-                            {useAdvanceOption && (
-                                <div className="advanced-options-container">
-                                    <ModelSelector model={model} setModel={setModel} />
-                                </div>
-                            )}
-                        </div>
 
                         {/* ── Generate ── */}
                         <button
