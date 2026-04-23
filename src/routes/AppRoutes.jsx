@@ -29,6 +29,7 @@ import PrivacyPolicyPage from '../pages/PrivacyPolicyPage'
 import TermsPage from '../pages/TermsPage'
 import ResumeAnalyzerPage from '../pages/ResumeAnalyzerPage'
 import WordCounterPage from '../pages/WordCounterPage'
+import PasswordGeneratorPage from '../pages/PasswordGeneratorPage'
 
 const AppRoutes = () => (
   <Routes>
@@ -63,6 +64,7 @@ const AppRoutes = () => (
     <Route path="/free-tools/linkedin-media-downloader" element={<LinkedInMediaDownloaderPage />} />
     <Route path="/free-tools/ats-resume-checker" element={<ResumeAnalyzerPage />} />
     <Route path="/free-tools/word-counter" element={<WordCounterPage />} />
+    <Route path="/free-tools/password-generator" element={<PasswordGeneratorPage />} />
     <Route path="/free-tools/html-minifier" element={<Navigate to="/free-tools" replace />} />
 
     {/* Admin Routes */}

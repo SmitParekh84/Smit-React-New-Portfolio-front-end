@@ -45,6 +45,7 @@ export const headerData = {
           links: [
             { id: "/free-tools/qr-code-generator", label: "QR Code Generator", icon: "uil-qrcode-scan", description: "Generate custom QR codes for any link" },
             { id: "/free-tools/ats-resume-checker", label: "ATS Resume Checker", icon: "uil-file-check-alt", description: "Check your ATS score and get AI-powered resume tips" },
+            { id: "/free-tools/password-generator", label: "Password Generator", icon: "uil-lock-alt", description: "Generate strong, secure, random passwords instantly" },
           ]
         },
       ],
@@ -66,6 +67,7 @@ export const headerData = {
         { id: "/free-tools/word-counter", label: "Word Counter", icon: "uil-file-alt" },
         { id: "/free-tools/qr-code-generator", label: "QR Code Generator", icon: "uil-qrcode-scan" },
         { id: "/free-tools/ats-resume-checker", label: "ATS Resume Checker", icon: "uil-file-check-alt" },
+        { id: "/free-tools/password-generator", label: "Password Generator", icon: "uil-lock-alt" },
       ],
     },
     { id: "/services", label: "Services", icon: "uil-briefcase-alt" },

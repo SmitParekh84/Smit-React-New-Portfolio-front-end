@@ -86,6 +86,14 @@ export const toolsData = [
     category: "Content Tools",
     description: ["Real-time word & character count", "Reading time and speaking time", "Keyword density analysis for SEO"]
   },
+  {
+    title: "Password Generator",
+    icon: "uil-lock-alt",
+    shortDescription: "Generate strong, secure, random passwords instantly.",
+    path: "/free-tools/password-generator",
+    category: "Security Tools",
+    description: ["Cryptographically secure random passwords", "Adjustable length & character types", "Password strength meter + bulk generate"]
+  },
   // {
   //   title: "HTML Minifier",
   //   icon: "uil-html5",
