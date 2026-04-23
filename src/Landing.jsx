@@ -1,7 +1,6 @@
-import React, { Suspense, lazy } from "react"
+import React, { Suspense } from "react"
 import Loader from "./components/Loader"
 import Home from "./components/Home"
-// Import About directly to avoid lazy loading issues with modal
 import About from "./components/About"
 import Skills from "./components/Skills"
 import SEO from "./components/SEO/SEO"
@@ -14,9 +13,6 @@ import {
 import Portfolio from "./components/Portfolio"
 import ContactMe from "./components/ContactMe/ContactMe"
 import { FluidAdUnit } from "./components/AdSense"
-
-// Lazy load only components that don't have immediate user interaction
-const ScrollToTop = lazy(() => import("./components/ScrollToTop"))
 
 const Landing = () => {
   // Combine all main schema information
@@ -71,69 +67,49 @@ const Landing = () => {
     <>
       <SEO
         title="Smit Parekh | Digital Software Developer & SEO Specialist"
-        description="Smit Parekh is a Digital Software Developer & SEO Specialist helping businesses grow online with SEO optimization, web development, and strategic digital marketing services."
+        description="Smit Parekh — Digital Software Developer & SEO Specialist. Helping businesses grow with web development, SEO, and digital marketing."
         keywords="Smit Parekh, Digital Marketing Manager, Full-stack Developer, SEO optimization, web development services, digital marketing expert, professional portfolio"
         canonicalUrl="https://www.smitparekh.co.in/portfolio"
         ogImage="https://www.smitparekh.co.in/images/Smit-Parekh-About.webp"
         twitterImage="https://www.smitparekh.co.in/images/Smit-Parekh-About.webp"
         structuredData={mainSchema}
       >
-        {/* Additional meta tags for portfolio page */}
-        <meta
-          name="robots"
-          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-        />
-        <meta
-          name="google-site-verification"
-          content="your-verification-code"
-        />
+        {/* Replace "your-verification-code" with your real GSC verification code */}
+        <meta name="google-site-verification" content="your-verification-code" />
         <meta name="msvalidate.01" content="your-bing-verification-code" />
-        <link
-          rel="alternate"
-          hrefLang="en"
-          href="https://www.smitparekh.co.in/portfolio"
-        />
+        <link rel="alternate" hrefLang="en" href="https://www.smitparekh.co.in/portfolio" />
       </SEO>
 
-      <main className="main">
-        <Home />
-        {/* Load About outside of Suspense to avoid modal issues */}
-        <About />
+      <Home />
+      <About />
 
-        {/* First ad placement after About section */}
+      <FluidAdUnit
+        adSlot="6960955517"
+        className="section-ad"
+        style={{ margin: "3rem auto" }}
+      />
+
+      <Suspense
+        fallback={
+          <div className="loader-overlay-componet">
+            <Loader />
+          </div>
+        }
+      >
+        <Skills />
+        <Qualification />
+        <Services />
+
         <FluidAdUnit
           adSlot="6960955517"
-          className="section-ad"
-          style={{ margin: "3rem auto" }}
+          className="mid-section-ad"
+          style={{ margin: "2.5rem auto" }}
         />
 
-        <Suspense
-          fallback={
-            <div className="loader-overlay-componet">
-              <Loader />
-            </div>
-          }
-        >
-          <Skills />
-          <Qualification />
-          <Services />
-
-          {/* Second ad placement in the middle of content */}
-          <FluidAdUnit
-            adSlot="6960955517"
-            className="mid-section-ad"
-            style={{ margin: "2.5rem auto" }}
-          />
-
-          <Portfolio />
-          <Project />
-          <Testimonials />
-          <ContactMe />
-        </Suspense>
-      </main>
-
-      <Suspense fallback={null}>
-        <ScrollToTop />
+        <Portfolio />
+        <Project />
+        <Testimonials />
+        <ContactMe />
       </Suspense>
     </>
   )

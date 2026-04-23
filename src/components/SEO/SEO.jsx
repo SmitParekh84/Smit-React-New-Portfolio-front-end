@@ -9,6 +9,7 @@ const SEO = ({
   ogType = "website",
   ogImage,
   ogTitle,
+  ogDescription,
   twitterImage,
   twitterTitle,
   twitterCard = "summary_large_image",
@@ -30,6 +31,7 @@ const SEO = ({
 }) => {
   // Use default values if specific og/twitter values aren't provided
   const metaOgTitle = ogTitle || title
+  const metaOgDescription = ogDescription || description
   const metaTwitterTitle = twitterTitle || title
   const metaOgImage =
     ogImage || "https://www.smitparekh.co.in/images/default-og-image.webp"
@@ -78,7 +80,7 @@ const SEO = ({
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={metaOgTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={metaOgDescription} />
       <meta property="og:image" content={metaOgImage} />
       {imageWidth && <meta property="og:image:width" content={imageWidth} />}
       {imageHeight && <meta property="og:image:height" content={imageHeight} />}

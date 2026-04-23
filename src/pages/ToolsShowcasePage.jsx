@@ -89,14 +89,14 @@ const ToolsShowcasePage = () => {
         <>
             <SEO
                 title="Free Online Tools for Productivity | Smit Parekh"
-                description="Free online tools by Smit Parekh: AI LinkedIn post generator, background remover, SEO analyzer, image compressor, QR code generator & more — all 100% free, no sign-up needed."
+                description="Free online tools by Smit Parekh — AI LinkedIn post generator, background remover, SEO analyzer & more. 100% free, no sign-up needed."
                 keywords="free online tools, productivity tools, background remover, LinkedIn post generator, meta tag checker, free SEO tools, AI tools, image compressor, QR code generator, SEO analyzer, image converter, LinkedIn downloader"
                 canonicalUrl={getFullUrl("/")}
                 ogType="website"
                 ogImage={getFullUrl("/images/Tools-Page-Image.webp")}
                 ogTitle="Free Online Tools for Productivity | Smit Parekh"
-                ogImageWidth="1200"
-                ogImageHeight="630"
+                imageWidth="1200"
+                imageHeight="630"
                 twitterImage={getFullUrl("/images/Tools-Page-Image.webp")}
                 twitterTitle="Free Online Tools by Smit Parekh — No Sign-up Required"
                 structuredData={[processedPageSchema, processedFaqSchema, processedBreadcrumbSchema]}
@@ -107,7 +107,7 @@ const ToolsShowcasePage = () => {
                     { lang: "en", url: getFullUrl("/") }
                 ]}
             >
-                {/* Add extra SEO tags */}
+                {/* Replace with your real GSC verification code */}
                 <meta name="google-site-verification" content="your-verification-code" />
             </SEO>
 

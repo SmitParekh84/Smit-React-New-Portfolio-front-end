@@ -110,7 +110,7 @@ const QRCodeGeneratorPage = () => {
     const processedBreadcrumbSchema = prepareStructuredData(breadcrumbSchema);
     const processedHowToSchema = prepareStructuredData(howToSchema);
 
-    const pageUrl = "/qr-code-generator";
+    const pageUrl = "/free-tools/qr-code-generator";
     const imageUrl = "/images/qr-code-generator-hero.png";
     const pageDescription = "Generate free QR codes that never expire with our lifetime QR code generator. Create permanent, custom QR codes for URLs, text, contact info, WiFi networks - no sign-up required, no watermarks.";
     

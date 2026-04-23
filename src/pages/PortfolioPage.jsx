@@ -298,7 +298,7 @@ export const PortfolioPage = () => {
       })),
     },
     datePublished: "2023-01-15",
-    dateModified: "2023-11-20",
+    dateModified: new Date().toISOString().split('T')[0],
   }
 
   // Website schema
@@ -307,24 +307,19 @@ export const PortfolioPage = () => {
     "@type": "WebSite",
     name: "Smit Parekh Portfolio",
     url: "https://www.smitparekh.co.in",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://www.smitparekh.co.in/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
   }
 
   return (
     <>
       <SEO
-        title="Portfolio | Smit Parekh - Web Development & Digital Marketing Projects"
-        description="Explore Smit Parekh's portfolio of web development projects and digital marketing campaigns. View case studies of SEO optimization, website development, and creative solutions."
+        title="Portfolio | Smit Parekh — Web Dev & Digital Marketing"
+        description="Browse Smit Parekh's portfolio of web development and digital marketing projects. SEO optimization, full-stack development, and UI/UX case studies."
         keywords="portfolio, web development projects, digital marketing portfolio, SEO case studies, Smit Parekh portfolio, web design examples"
         canonicalUrl="https://www.smitparekh.co.in/project"
         ogImage="https://www.smitparekh.co.in/images/portfolio-preview.webp"
         twitterImage="https://www.smitparekh.co.in/images/portfolio-preview.webp"
         structuredData={[portfolioSchema, websiteSchema]}
-        lastUpdated="2023-11-20"
+        lastUpdated={new Date().toISOString()}
         language="en-US"
       />
 
@@ -413,7 +408,7 @@ export const PortfolioPage = () => {
       {/* Enhanced Portfolio Header Section */}
       <section className="portfolio-nav-section">
         <div className="portfolio__container">
-          <h2 className="section__title">My Projects</h2>
+          <h1 className="section__title">My Projects</h1>
           <p className="portfolio-nav__description">
             Browse through my recent projects showcasing a range of skills in
             web development, frontend design, SEO optimization, digital
