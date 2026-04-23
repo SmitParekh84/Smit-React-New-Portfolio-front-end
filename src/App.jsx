@@ -17,6 +17,15 @@ import { formatUrlSlug, slugToTitle } from "./utils/urlUtils"
 export { formatUrlSlug, slugToTitle }
 
 const App = () => {
+  // Fade out and remove the HTML loader once React has rendered
+  useEffect(() => {
+    const loader = document.getElementById("app-loader")
+    if (!loader) return
+    loader.classList.add("fade-out")
+    const timer = setTimeout(() => loader.remove(), 420)
+    return () => clearTimeout(timer)
+  }, [])
+
   const handleScroll = useCallback(() => {
     if (window.scrollY > 600) {
       window.removeEventListener("scroll", handleScroll)
