@@ -78,6 +78,14 @@ export const toolsData = [
     category: "Developer Tools",
     description: ["Generate custom QR codes for any link", "Customizable colors and styles", "Download in high resolution"]
   },
+  {
+    title: "Word Counter",
+    icon: "uil-file-alt",
+    shortDescription: "Count words, characters, reading time & keyword density.",
+    path: "/free-tools/word-counter",
+    category: "Content Tools",
+    description: ["Real-time word & character count", "Reading time and speaking time", "Keyword density analysis for SEO"]
+  },
   // {
   //   title: "HTML Minifier",
   //   icon: "uil-html5",
