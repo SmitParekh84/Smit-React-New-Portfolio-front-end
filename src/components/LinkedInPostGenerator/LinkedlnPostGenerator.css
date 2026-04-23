@@ -663,7 +663,7 @@
     border-top: 1px solid #f0f0f0;
 }
 
-/* ── Loading ── */
+/* ── AI Loading animation ── */
 .loading-post {
     display: flex;
     justify-content: center;
@@ -675,19 +675,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+}
+
+/* Five bouncing dots */
+.ai-loader {
+    display: flex;
+    align-items: flex-end;
+    gap: 7px;
+    height: 48px;
+}
+
+.ai-loader span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--first-color);
+    animation: ai-bounce 1.2s ease-in-out infinite;
+}
+
+.ai-loader span:nth-child(1) { animation-delay: 0s;    background: var(--first-color); }
+.ai-loader span:nth-child(2) { animation-delay: 0.15s; background: var(--first-color); opacity: 0.85; }
+.ai-loader span:nth-child(3) { animation-delay: 0.30s; background: var(--first-color); opacity: 0.7;  }
+.ai-loader span:nth-child(4) { animation-delay: 0.45s; background: var(--first-color); opacity: 0.55; }
+.ai-loader span:nth-child(5) { animation-delay: 0.60s; background: var(--first-color); opacity: 0.4;  }
+
+@keyframes ai-bounce {
+    0%, 100% { transform: translateY(0);    }
+    40%       { transform: translateY(-22px); }
 }
 
 .loading-text {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text-color);
     font-style: italic;
-    animation: pulse 1.5s infinite ease-in-out;
+    animation: fade-msg 0.4s ease;
+    text-align: center;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.6; }
-    50%       { opacity: 1; }
+@keyframes fade-msg {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Mobile ── */
