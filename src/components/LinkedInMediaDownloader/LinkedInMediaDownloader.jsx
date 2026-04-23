@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import "./LinkedInMediaDownloader.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faLink, faSpinner, faCheckCircle, faImage, faVideo } from "@fortawesome/free-solid-svg-icons";
@@ -108,7 +107,6 @@ const LinkedInMediaDownloader = () => {
 
     return (
         <section className="linkedin-media-downloader-section container">
-            <ToastContainer position="top-center" autoClose={3000} />
             
             <div className="linkedin-media-downloader">
                 <div className="linkedin-media-header">

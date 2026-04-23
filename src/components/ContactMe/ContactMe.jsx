@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { contactData } from '../../data/data'; // Adjust the import path as necessary
 import { Helmet } from 'react-helmet-async';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import './ContactMe.css'; // Import the new CSS file
 
 const ContactMe = () => {
@@ -166,7 +165,6 @@ const ContactMe = () => {
                 </div>
             </section>
             {/* Toast container for notifications */}
-            <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
         </>
     );
 };

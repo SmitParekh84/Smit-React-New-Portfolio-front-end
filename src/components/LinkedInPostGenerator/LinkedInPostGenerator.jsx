@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { marked } from "marked";
 import he from "he";
 
@@ -155,7 +155,6 @@ const LinkedInPostGenerator = () => {
     return (
         <>
             <section className="bg-remover-box container">
-                <ToastContainer position="top-center" />
 
                 <div className="linkedin-post-generator">
                     <div className="linkedin-header">

@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import { ToastContainer, toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import { toast } from "react-toastify"
 import "./QRCodeGenerator.css"
 
 const QRCodeGenerator = ({ apiUrl, toolName }) => {
@@ -202,7 +201,6 @@ const QRCodeGenerator = ({ apiUrl, toolName }) => {
 
   return (
     <section className="section container">
-      <ToastContainer position="top-right" />
 
       <div className="qr-generator">
         <div className="qr-header">

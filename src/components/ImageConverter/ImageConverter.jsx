@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import "./ImageConverter.css";
 
 const ImageConverter = ({ toolName, apiUrl }) => {
@@ -266,7 +265,6 @@ const ImageConverter = ({ toolName, apiUrl }) => {
 
     return (
         <section className="tool__section section">
-            <ToastContainer position="top-right" autoClose={5000} />
             
             <div className="tool__container container">
                 <h2 className="section__title">{toolName}</h2>

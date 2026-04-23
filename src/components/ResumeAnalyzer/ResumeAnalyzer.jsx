@@ -1,8 +1,6 @@
 // front-end/src/components/ResumeAnalyzer/ResumeAnalyzer.jsx
 import { useState } from "react";
 import axios from "axios";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import ResumeInput from "./ResumeInput";
 import ScoreCard from "./ScoreCard";
@@ -63,7 +61,6 @@ const ResumeAnalyzer = () => {
 
   return (
     <div className="resume-analyzer">
-      <ToastContainer position="bottom-right" autoClose={2000} />
 
       <ResumeInput
         onResumeTextChange={setResumeText}

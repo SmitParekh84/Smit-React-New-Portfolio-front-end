@@ -1,5 +1,6 @@
 import { useEffect, useCallback } from "react"
 import { BrowserRouter as Router } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
 
 // Styles
 import "./assets/css/styles.css"
@@ -40,6 +41,17 @@ const App = () => {
   return (
     <Router>
       <AdSenseProvider>
+        <ToastContainer
+          position="top-center"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          pauseOnHover
+          draggable
+          theme="colored"
+          stacked
+        />
         <MainLayout>
           <AppRoutes />
         </MainLayout>

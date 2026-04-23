@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import "./ImageCompressor.css";
 
 const ImageCompressor = ({ toolName, apiUrl }) => {
@@ -237,7 +236,6 @@ const ImageCompressor = ({ toolName, apiUrl }) => {
     
     return (
         <div className="image-compressor section">
-            <ToastContainer position="top-center" />
             <h2 className="section__title">{toolName || "Image Compressor"}</h2>
             <span className="section__subtitle">Reduce image file size while maintaining quality</span>
             

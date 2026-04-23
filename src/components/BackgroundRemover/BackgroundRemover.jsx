@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import "./BackgroundRemover.css";
 
 const BackgroundRemover = ({ toolName, apiUrl }) => {
@@ -119,7 +118,6 @@ const BackgroundRemover = ({ toolName, apiUrl }) => {
 
     return (
         <section className="bg-remover-section container">
-            <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
             <h2 className="section__title">{toolName}</h2>
             <p className="section__subtitle">Remove backgrounds from your images in seconds</p>
             
