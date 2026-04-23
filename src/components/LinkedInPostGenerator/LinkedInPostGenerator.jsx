@@ -9,7 +9,8 @@ import linekedln from '../../assets/img/linkeldn.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCopy, faEarthAmericas, faCheckCircle, faMagic,
-    faLightbulb, faPen, faThumbsUp, faChevronDown, faChevronUp
+    faLightbulb, faPen, faThumbsUp, faChevronDown, faChevronUp,
+    faListUl, faAlignLeft, faAlignCenter, faAlignJustify, faSlidersH
 } from "@fortawesome/free-solid-svg-icons";
 import ModelSelector from "../ModelSelector";
 
@@ -25,20 +26,10 @@ const hooks = [
     { id: 10, icon: "🌱", label: "Pro Growth",        template: "I've grown so much in my career since [specific event]. I'm proud of how far I've come, and I'm excited for what's next:" },
 ];
 
-const activitySuggestions = [
-    "Launched a new project", "Led a team meeting", "Learned a new skill",
-    "Hit a major milestone", "Got promoted", "Spoke at an event",
-];
-
-const adviceSuggestions = [
-    "Consistency beats talent", "Always keep learning",
-    "Fail fast, learn faster", "Network genuinely", "Focus on impact",
-];
-
 const charPresets = [
-    { label: "Short",  value: 300,  desc: "~300 chars" },
-    { label: "Medium", value: 600,  desc: "~600 chars" },
-    { label: "Long",   value: 1200, desc: "~1200 chars" },
+    { icon: faAlignLeft,    label: "Short",  value: 300,  desc: "~300" },
+    { icon: faAlignCenter,  label: "Medium", value: 600,  desc: "~600" },
+    { icon: faAlignJustify, label: "Long",   value: 1200, desc: "~1200" },
 ];
 
 const cringeMarkers = [
@@ -242,44 +233,33 @@ const LinkedInPostGenerator = () => {
                             </div>
 
                             <div className="form-group">
-                                <span className="label-text">
-                                    <FontAwesomeIcon icon={faPen} className="input-icon" />
-                                    What did you do today?
-                                    <span className="required-star">*</span>
-                                </span>
-                                <textarea
-                                    placeholder="e.g., Worked on a new project, Had an insight about leadership..."
-                                    value={activity}
-                                    onChange={(e) => setActivity(e.target.value)}
-                                    className={`input-textarea${!activity.trim() && activity !== "" ? ' input-textarea--warn' : ''}`}
-                                />
-                                <div className="suggestion-chips">
-                                    {activitySuggestions.map((s) => (
-                                        <button key={s} type="button" className="chip" onClick={() => setActivity(s)}>
-                                            {s}
-                                        </button>
-                                    ))}
-                                </div>
+                                <label className="form-label">
+                                    <span className="label-text">
+                                        <FontAwesomeIcon icon={faPen} className="input-icon" />
+                                        What did you do today? (Topic)
+                                    </span>
+                                    <textarea
+                                        placeholder="e.g., Worked on a new project, Had an insight about leadership..."
+                                        value={activity}
+                                        onChange={(e) => setActivity(e.target.value)}
+                                        className="input-textarea"
+                                    />
+                                </label>
                             </div>
 
                             <div className="form-group">
-                                <span className="label-text">
-                                    <FontAwesomeIcon icon={faThumbsUp} className="input-icon" />
-                                    Inspirational advice
-                                </span>
-                                <textarea
-                                    placeholder="e.g., Always believe in yourself, Persistence is key..."
-                                    value={advice}
-                                    onChange={(e) => setAdvice(e.target.value)}
-                                    className="input-textarea"
-                                />
-                                <div className="suggestion-chips">
-                                    {adviceSuggestions.map((s) => (
-                                        <button key={s} type="button" className="chip" onClick={() => setAdvice(s)}>
-                                            {s}
-                                        </button>
-                                    ))}
-                                </div>
+                                <label className="form-label">
+                                    <span className="label-text">
+                                        <FontAwesomeIcon icon={faThumbsUp} className="input-icon" />
+                                        Inspirational advice
+                                    </span>
+                                    <textarea
+                                        placeholder="e.g., Always believe in yourself, Persistence is key to success..."
+                                        value={advice}
+                                        onChange={(e) => setAdvice(e.target.value)}
+                                        className="input-textarea"
+                                    />
+                                </label>
                             </div>
                         </div>
 
@@ -290,6 +270,7 @@ const LinkedInPostGenerator = () => {
                                 <span className="section-title">Tune Your Style</span>
                             </div>
 
+                            {/* Cringe */}
                             <div className="form-group">
                                 <span className="label-text">
                                     Cringe Level
@@ -318,47 +299,64 @@ const LinkedInPostGenerator = () => {
                                 </div>
                             </div>
 
+                            {/* Post length — icon buttons */}
                             <div className="form-group">
                                 <span className="label-text">Post Length</span>
-                                <div className="char-presets">
+                                <div className="icon-btn-row">
                                     {charPresets.map((p) => (
                                         <button
                                             key={p.value}
                                             type="button"
-                                            className={`char-preset-btn${characterLength === p.value ? ' char-preset-btn--active' : ''}`}
+                                            className={`icon-btn${characterLength === p.value ? ' icon-btn--active' : ''}`}
                                             onClick={() => setCharacterLength(p.value)}
+                                            title={`${p.label} — ${p.desc} characters`}
                                         >
-                                            <span className="char-preset-label">{p.label}</span>
-                                            <span className="char-preset-desc">{p.desc}</span>
+                                            <FontAwesomeIcon icon={p.icon} className="icon-btn__ico" />
+                                            <span className="icon-btn__label">{p.label}</span>
+                                            <span className="icon-btn__sub">{p.desc}</span>
                                         </button>
                                     ))}
                                 </div>
                             </div>
 
+                            {/* Formatting — icon toggle buttons */}
                             <div className="form-group">
                                 <span className="label-text">Formatting</span>
-                                <div className="pill-toggles">
+                                <div className="icon-btn-row">
                                     <button
                                         type="button"
-                                        className={`pill-toggle${useEmojis ? ' pill-toggle--active' : ''}`}
+                                        className={`icon-btn${useEmojis ? ' icon-btn--active' : ''}`}
                                         onClick={() => setUseEmojis(!useEmojis)}
+                                        title={useEmojis ? "Emojis On" : "Emojis Off"}
                                     >
-                                        😄 Emojis {useEmojis ? 'On' : 'Off'}
+                                        <span className="icon-btn__ico icon-btn__ico--emoji">😄</span>
+                                        <span className="icon-btn__label">Emojis</span>
+                                        <span className="icon-btn__sub">{useEmojis ? 'On' : 'Off'}</span>
                                     </button>
+
                                     <button
                                         type="button"
-                                        className={`pill-toggle${useBulletPoints ? ' pill-toggle--active' : ''}`}
+                                        className={`icon-btn${useBulletPoints ? ' icon-btn--active' : ''}`}
                                         onClick={() => setUseBulletPoints(!useBulletPoints)}
+                                        title={useBulletPoints ? "Bullets On" : "Bullets Off"}
                                     >
-                                        📝 Bullets {useBulletPoints ? 'On' : 'Off'}
+                                        <FontAwesomeIcon icon={faListUl} className="icon-btn__ico" />
+                                        <span className="icon-btn__label">Bullets</span>
+                                        <span className="icon-btn__sub">{useBulletPoints ? 'On' : 'Off'}</span>
                                     </button>
+
                                     {useBulletPoints && (
                                         <button
                                             type="button"
-                                            className="pill-toggle pill-toggle--sub"
+                                            className="icon-btn icon-btn--active"
                                             onClick={() => setBulletType(bulletType === 'emoji' ? 'dash' : 'emoji')}
+                                            title="Toggle bullet style"
                                         >
-                                            {bulletType === 'emoji' ? '➟ Arrow style' : '👉 Hand style'}
+                                            <span className="icon-btn__ico icon-btn__ico--emoji">
+                                                {bulletType === 'emoji' ? '➟' : '👉'}
+                                            </span>
+                                            <span className="icon-btn__label">Style</span>
+                                            <span className="icon-btn__sub">{bulletType === 'emoji' ? 'Arrow' : 'Hand'}</span>
                                         </button>
                                     )}
                                 </div>
@@ -372,7 +370,10 @@ const LinkedInPostGenerator = () => {
                                 className="advanced-toggle-btn"
                                 onClick={() => setUseAdvanceOption(!useAdvanceOption)}
                             >
-                                <span>Advanced Settings</span>
+                                <span>
+                                    <FontAwesomeIcon icon={faSlidersH} className="adv-icon" />
+                                    Advanced Settings
+                                </span>
                                 <FontAwesomeIcon
                                     icon={useAdvanceOption ? faChevronUp : faChevronDown}
                                     className="adv-chevron"
