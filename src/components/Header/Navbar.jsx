@@ -47,7 +47,7 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
 
             {/* Regular Dropdown */}
             {link.subLinks && !link.isMegaMenu && (
-              <div className="nav__dropdown">
+              <div className={`nav__dropdown${openDropdown === link.id ? " nav__dropdown--open" : ""}`}>
                 {link.subLinks.map((subLink) => (
                   <Link
                     key={subLink.id}
@@ -55,7 +55,7 @@ const Navbar = ({ isMenuOpen, closeMenu, activeSection }) => {
                     className={`nav__dropdown-link ${
                       isLinkActive(subLink.id) ? "active-link" : ""
                     }`}
-                    onClick={closeMenu}
+                    onClick={() => { setOpenDropdown(null); closeMenu(); }}
                   >
                     <i className={`uil ${subLink.icon} nav__dropdown-icon`}></i>
                     {subLink.label}

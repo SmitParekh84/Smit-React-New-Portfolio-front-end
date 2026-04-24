@@ -7,15 +7,8 @@ export const headerData = {
   name: "Smit Parekh",
   desktopNavLinks: [
     { id: "/", label: "Home", icon: "uil-estate" },
-    { 
-      id: "/portfolio", 
-      label: "Portfolio", 
-      icon: "uil-scenery",
-      subLinks: [
-        { id: "/portfolio", label: "Full Portfolio", icon: "uil-presentation-play" },
-        { id: "/project", label: "Projects Gallery", icon: "uil-image" }
-      ] 
-    },
+    { id: "/portfolio", label: "Portfolio", icon: "uil-scenery" },
+    { id: "/project", label: "Projects", icon: "uil-image" },
     {
       id: "/free-tools",
       label: "Free Tools",
