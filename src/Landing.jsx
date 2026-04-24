@@ -29,10 +29,10 @@ const Landing = () => {
         "https://www.instagram.com/smit_8_4/",
         "https://www.facebook.com/SmitParekh84/",
       ],
-      jobTitle: "Digital Software Developer & SEO Specialist",
+      jobTitle: "Full-Stack Software Developer | React + Node.js Expert",
       worksFor: {
         "@type": "Organization",
-        name: "Smit Parekh",
+        name: "Monarch Innovations",
       },
       address: {
         "@type": "PostalAddress",
@@ -44,32 +44,39 @@ const Landing = () => {
       alumniOf: [
         {
           "@type": "EducationalOrganization",
-          name: "Gujarat Technological University",
-          sameAs: "https://www.gtu.ac.in/",
+          name: "Charusat University",
+          sameAs: "https://www.charusat.ac.in/",
         },
       ],
       knowsAbout: [
-        "Web Development",
-        "Digital Marketing",
-        "SEO Optimization",
-        "Content Creation",
-        "Social Media Marketing",
-        "JavaScript",
         "React.js",
         "Node.js",
+        "TypeScript",
+        "Next.js",
+        "PostgreSQL",
+        "AWS",
+        "Docker",
+        "Redux",
+        "RESTful API Design",
+        "Full-Stack Web Development",
+        "FinTech Applications",
+        "SaaS Development",
+        "AI-Powered Applications",
+        "Technical SEO",
+        "Digital Marketing",
       ],
       description:
-        "Smit Parekh is a Digital Software Developer and SEO Specialist with expertise in SEO, web development, and creating engaging online content.",
+        "Smit Parekh is a Full-Stack Software Developer with 3.5+ years of experience building scalable web applications using React, Node.js, TypeScript, and PostgreSQL across FinTech, SaaS, and AI-powered domains.",
     },
   }
 
   return (
     <>
       <SEO
-        title="Smit Parekh | Digital Software Developer & SEO Specialist"
-        description="Smit Parekh — Digital Software Developer & SEO Specialist. Helping businesses grow with web development, SEO, and digital marketing."
-        keywords="Smit Parekh, Digital Marketing Manager, Full-stack Developer, SEO optimization, web development services, digital marketing expert, professional portfolio"
-        canonicalUrl="https://www.smitparekh.co.in/portfolio"
+        title="Smit Parekh | Full-Stack Developer — React & Node.js"
+        description="Full-Stack Software Developer with 3.5+ years building scalable web apps with React, Node.js, TypeScript & PostgreSQL. FinTech, SaaS & AI-powered projects."
+        keywords="Smit Parekh, Full-Stack Developer, React Developer, Node.js Developer, TypeScript developer, PostgreSQL, AWS, Docker, Next.js, FinTech developer, SaaS developer, software engineer portfolio, web application developer, India"
+        canonicalUrl="https://www.smitparekh.co.in/"
         ogImage="https://www.smitparekh.co.in/images/Smit-Parekh-About.webp"
         twitterImage="https://www.smitparekh.co.in/images/Smit-Parekh-About.webp"
         structuredData={mainSchema}
@@ -77,7 +84,7 @@ const Landing = () => {
         {/* Replace "your-verification-code" with your real GSC verification code */}
         <meta name="google-site-verification" content="your-verification-code" />
         <meta name="msvalidate.01" content="your-bing-verification-code" />
-        <link rel="alternate" hrefLang="en" href="https://www.smitparekh.co.in/portfolio" />
+        <link rel="alternate" hrefLang="en" href="https://www.smitparekh.co.in/" />
       </SEO>
 
       <Home />

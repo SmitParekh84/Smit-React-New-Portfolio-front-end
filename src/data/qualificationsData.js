@@ -17,19 +17,24 @@ export const qualificationsData = {
   ],
   work: [
     {
-      title: "Software Developer (Full-Stack) & SEO Specialist",
+      title: "Full Stack Software Developer",
+      subtitle: "Monarch Innovations",
+      date: "Jan 2026 - Present",
+    },
+    {
+      title: "Full Stack Software Developer",
       subtitle: "Cilans Systems",
-      date: "Aug 2024 - Present",
+      date: "Aug 2024 - Dec 2025",
     },
     {
-      title: "Web Developer Intern",
-      subtitle: "InternPe (Remote)",
-      date: "Four-week Training Program",
+      title: "Full Stack Developer (Freelance)",
+      subtitle: "MarketiXpert",
+      date: "Jan 2024 - Present",
     },
     {
-      title: "Video Editor & Digital Marketing Executive",
+      title: "Digital Marketer & Video Editor",
       subtitle: "Content Beta (Remote)",
-      date: "Jun 2023 - Jan 2024",
+      date: "Apr 2023 - Jan 2024",
     },
   ],
 };

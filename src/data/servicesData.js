@@ -3,62 +3,82 @@
 export const servicesData = [
   {
     title: "Full Stack Web Development",
-    icon: "uil uil-brackets-curly", // Icon for development
+    icon: "uil uil-brackets-curly",
     description: [
-      "Transform your ideas into reality with responsive and user-friendly web applications.",
-      "Enhance user experience by implementing dynamic features that keep your audience engaged.",
-      "Ensure seamless integration through RESTful APIs, facilitating efficient data handling.",
-      "Collaborate closely with you to design and deliver features that align perfectly with your business objectives.",
+      "Build modern, responsive web applications using React and Node.js with TypeScript.",
+      "Develop scalable RESTful APIs and backend services with Express.js and NestJS.",
+      "Implement complex state management using Redux Toolkit, Context API, and Zustand.",
+      "Deliver production-ready full-stack solutions across FinTech, SaaS, and enterprise domains.",
     ],
   },
   {
-    title: "SEO Optimization Services",
-    icon: "uil uil-search", // Icon for SEO
+    title: "React.js Frontend Development",
+    icon: "uil uil-monitor",
     description: [
-      "Boost your online visibility with comprehensive keyword research tailored to your brand.",
-      "Drive organic traffic and improve search engine rankings through effective on-page and off-page SEO strategies.",
-      "Enhance user engagement by analyzing performance metrics and refining your online presence.",
-      "Stay ahead of the competition by adapting to the latest SEO trends and algorithm updates.",
+      "Craft pixel-perfect, accessible UI components with React, Tailwind CSS, and Material-UI.",
+      "Optimize performance with memoization, code splitting, and lazy loading techniques.",
+      "Implement responsive designs that deliver seamless experiences across all devices.",
+      "Build reusable component libraries and custom hooks for efficient, maintainable codebases.",
+    ],
+  },
+  {
+    title: "Node.js Backend & API Design",
+    icon: "uil uil-server-network",
+    description: [
+      "Design and build RESTful APIs capable of handling 10,000+ daily requests with 99.9% uptime.",
+      "Implement authentication, authorization, and data validation with industry best practices.",
+      "Integrate real-time features using WebSockets and Socket.io for live data applications.",
+      "Create robust backend architectures with Node.js and Express for scalable systems.",
+    ],
+  },
+  {
+    title: "Database Design & Optimization",
+    icon: "uil uil-database",
+    description: [
+      "Design normalized PostgreSQL schemas and optimize complex queries for peak performance.",
+      "Implement indexing, caching strategies, and query optimization reducing response times by 65%+.",
+      "Manage database migrations and ensure data integrity for complex business logic.",
+      "Work with both SQL (PostgreSQL) and NoSQL (MongoDB) databases based on project needs.",
+    ],
+  },
+  {
+    title: "Cloud Deployment & DevOps",
+    icon: "uil uil-cloud-upload",
+    description: [
+      "Deploy and manage applications on AWS infrastructure using EC2, RDS, S3, and Lambda.",
+      "Containerize applications with Docker for consistent, portable development and production environments.",
+      "Set up CI/CD pipelines for automated testing and deployment workflows.",
+      "Achieve 95+ Google Lighthouse scores for performance, accessibility, and best practices.",
+    ],
+  },
+  {
+    title: "TypeScript & Code Quality",
+    icon: "uil uil-shield-check",
+    description: [
+      "Enforce type safety across frontend and backend codebases with TypeScript.",
+      "Conduct thorough code reviews implementing clean code principles and design patterns.",
+      "Write unit and integration tests using Jest and React Testing Library for reliable software.",
+      "Apply performance optimization and security best practices across every layer of the stack.",
+    ],
+  },
+  {
+    title: "Technical SEO for Web Apps",
+    icon: "uil uil-search",
+    description: [
+      "Implement technical SEO best practices directly in React and Next.js applications.",
+      "Optimize Core Web Vitals, page speed, and Lighthouse scores through code-level improvements.",
+      "Build SEO-friendly URL structures, meta tags, sitemaps, and structured data (JSON-LD).",
+      "Leverage developer expertise to bridge the gap between engineering and search visibility.",
     ],
   },
   {
     title: "Digital Marketing Strategy",
-    icon: "uil uil-megaphone", // Icon for digital marketing
+    icon: "uil uil-megaphone",
     description: [
-      "Elevate your brand with comprehensive digital marketing strategies designed for your target audience.",
-      "Enhance brand visibility and community engagement through effective social media management.",
-      "Maximize return on investment (ROI) by analyzing market trends and adjusting strategies accordingly.",
-      "Ensure continuous improvement by tracking and reporting on campaign effectiveness.",
-    ],
-  },
-  {
-    title: "Social Media Marketing",
-    icon: "uil uil-share-alt", // Icon for social media marketing
-    description: [
-      "Engage your audience with captivating social media content that reflects your brand's voice.",
-      "Grow your follower base and foster community loyalty through strategic marketing efforts.",
-      "Refine your marketing tactics by analyzing social media metrics for maximum impact.",
-      "Maintain cohesive messaging across platforms to strengthen brand identity.",
-    ],
-  },
-  {
-    title: "Professional Video Editing",
-    icon: "uil uil-video", // Icon for video editing
-    description: [
-      "Create impactful video content that resonates with your audience and enhances brand storytelling.",
-      "Utilize engaging motion graphics and animations to capture Viewer attention.",
-      "Deliver high-quality projects on time, ensuring your marketing initiatives are always timely.",
-      "Align video content with your brand goals through collaboration with your marketing team.",
-    ],
-  },
-  {
-    title: "Creative Graphic Design Services",
-    icon: "uil uil-image", // Icon for graphic design
-    description: [
-      "Design stunning graphics that elevate your social media presence and marketing materials.",
-      "Create visuals that align with your brand identity, ensuring consistency across all platforms.",
-      "Leverage Adobe Creative Suite for high-quality designs that attract and retain customer interest.",
-      "Work with your marketing team to ensure all visual elements communicate your brand message effectively.",
+      "Create and execute data-driven digital marketing strategies for developer-built products.",
+      "Drive organic traffic and conversions through SEO-optimized content and campaign planning.",
+      "Analyze performance metrics using Google Analytics and Search Console to refine strategy.",
+      "Combine software development insight with marketing execution for measurable growth.",
     ],
   },
 ];

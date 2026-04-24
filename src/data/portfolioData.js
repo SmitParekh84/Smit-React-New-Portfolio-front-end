@@ -19,6 +19,46 @@ export const marketixpertImage = "/images/marketixpertImage.jpg"
 
 export const portfolioData = [
   {
+    id: 20,
+    title: "Liquidity.io | Cap Table Management Platform",
+    description:
+      "Enterprise FinTech platform for equity management, shareholder tracking, and financial reporting. Built with React, Next.js, TypeScript, Node.js, Express, PostgreSQL, Redux, AWS, and Docker. Handles 10,000+ daily API requests with normalized Redux state across 100+ components.",
+    image: insightifiImage,
+    category: "webdev",
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
+  },
+  {
+    id: 21,
+    title: "Insightifi | SaaS Analytics Platform",
+    description:
+      "Data visualization dashboards with real-time business intelligence analytics. Built with React, Next.js, TypeScript, Node.js, PostgreSQL, Redux, and Chart.js. Optimized PostgreSQL queries with indexing and caching, reducing API response times by 65%.",
+    image: cilansImage,
+    category: "webdev",
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
+  },
+  {
+    id: 22,
+    title: "SimplCase | Legal Tech Real-time Platform",
+    description:
+      "Real-time legal collaboration platform with live chat, document sharing, and WebSocket notifications. Built with React, Next.js, TypeScript, Node.js, Socket.io, PostgreSQL, and Redux. Features optimistic UI updates and bidirectional communication.",
+    image: wordpressProjectImage,
+    category: "webdev",
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
+  },
+  {
+    id: 23,
+    title: "HRMS | Employee Management System",
+    description:
+      "Full-stack HR management system with role-based access control, leave management, payroll processing, and employee records. Built with React, Node.js, Express, TypeScript, and PostgreSQL (migrated from MongoDB). Features complex relational schema and optimized HR queries.",
+    image: contentStrategyImage,
+    category: "webdev",
+    demoLink: "https://www.smitparekh.co.in/contact",
+    markdown: "",
+  },
+  {
     id: 13,
     title: "SEO Optimization Project",
     description:

@@ -48,7 +48,9 @@ const Services = () => {
             style={{ animationDelay: `${index * 0.2}s` }}
           >
             <div className="services__card-header">
-              <i className={`${service.icon} services__icon`}></i>
+              <div className="services__icon-wrap">
+                <i className={`${service.icon} services__icon`}></i>
+              </div>
               <h3 className="services__title">{service.title}</h3>
             </div>
             <p className="services__brief">{service.brief || service.description[0]}</p>

@@ -4,9 +4,9 @@ import HomeImage from "/images/Smit-Parekh-Home.png"
 
 export const homeData = {
   title: "Hi, I'm Smit Parekh",
-  subtitle: "Software Developer & SEO Specialist",
+  subtitle: "Full-Stack Software Developer | Building Scalable Web Applications & AI-Powered Solutions",
   description:
-    "We develop scalable backend architectures while driving performance-focused SEO and marketing strategies to accelerate brand growth.",
+    "React + Node.js expert with 3.5+ years delivering scalable full-stack solutions across FinTech, AI/ML, SaaS, and enterprise domains. TypeScript | PostgreSQL | AWS | Docker.",
   socialLinks: [
     { href: "mailto:smitparekh02@gmail.com", iconClass: "uil uil-envelope", label: "Send email" },
     {
