@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Shared Card component — modern, subtle, dark-theme friendly
+   ========================================================================== */
+
+.ds-card {
+    --_pad: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    background: var(--ds-surface-2);
+    border: 1px solid var(--ds-border-subtle);
+    border-radius: var(--ds-radius-lg);
+    padding: var(--_pad);
+    color: var(--ds-text);
+    box-shadow: var(--ds-shadow-sm);
+    transition:
+        transform var(--ds-duration) var(--ds-ease-out),
+        border-color var(--ds-duration) var(--ds-ease-out),
+        box-shadow var(--ds-duration) var(--ds-ease-out);
+}
+
+.ds-card--interactive {
+    cursor: pointer;
+}
+
+.ds-card--interactive:hover {
+    transform: translateY(-3px);
+    border-color: var(--ds-border);
+    box-shadow: var(--ds-shadow-md);
+}
+
+.ds-card--elevated {
+    background: var(--ds-surface-elevated);
+    border-color: transparent;
+    box-shadow: var(--ds-shadow-md);
+}
+
+/* Glass variant — subtle blur surface for overlays */
+.ds-card--glass {
+    background: color-mix(in srgb, var(--ds-surface-2) 75%, transparent);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-color: var(--ds-border-subtle);
+}
+
+/* Accent ring on hover */
+.ds-card--accent:hover {
+    border-color: color-mix(in srgb, var(--ds-brand-600) 40%, transparent);
+    box-shadow: var(--ds-shadow-md);
+}
+
+/* Padding scale */
+.ds-card--pad-sm  { --_pad: 12px; }
+.ds-card--pad-md  { --_pad: 20px; }
+.ds-card--pad-lg  { --_pad: 28px; }
+.ds-card--pad-none { --_pad: 0; }
+
+/* Slots */
+.ds-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.ds-card__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ds-text-strong);
+    letter-spacing: -0.01em;
+}
+
+.ds-card__subtitle {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--ds-text-muted);
+}
+
+.ds-card__body {
+    color: var(--ds-text);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.ds-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 4px;
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+    .ds-card { --_pad: 16px; }
+    .ds-card--pad-lg { --_pad: 20px; }
+}

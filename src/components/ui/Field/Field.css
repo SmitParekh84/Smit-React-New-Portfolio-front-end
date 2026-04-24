@@ -1,0 +1,415 @@
+/* ==========================================================================
+   Shared Form Field primitives — modern, consistent, dark-theme friendly
+   Covers: Label, Input, Textarea, Select, Range slider, helper/error text
+   ========================================================================== */
+
+.ds-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.ds-field__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ds-text-strong);
+    letter-spacing: 0.01em;
+}
+
+.ds-field__label-icon {
+    color: var(--ds-brand-500);
+    font-size: 0.95em;
+    display: inline-flex;
+    align-items: center;
+}
+
+.ds-field__required {
+    color: var(--ds-danger);
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+.ds-field__hint {
+    font-size: 0.8rem;
+    color: var(--ds-text-muted);
+    line-height: 1.4;
+}
+
+.ds-field__error {
+    font-size: 0.8rem;
+    color: var(--ds-danger);
+    line-height: 1.4;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ds-field__counter {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--ds-text-faint);
+    font-variant-numeric: tabular-nums;
+}
+
+.ds-field__row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ==========================================================================
+   Control — shared base for input / textarea / select
+   ========================================================================== */
+.ds-control {
+    width: 100%;
+    display: block;
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ds-text-strong);
+
+    background: var(--ds-surface-1);
+    border: 1px solid var(--ds-border);
+    border-radius: var(--ds-radius-md);
+    padding: 12px 14px;
+
+    transition:
+        border-color var(--ds-duration) var(--ds-ease-out),
+        box-shadow var(--ds-duration) var(--ds-ease-out),
+        background var(--ds-duration) var(--ds-ease-out);
+
+    /* kill UA styling */
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+.ds-control::placeholder {
+    color: var(--ds-text-faint);
+    opacity: 1;
+}
+
+.ds-control:hover:not(:disabled):not(:focus) {
+    border-color: var(--ds-border-strong);
+}
+
+.ds-control:focus,
+.ds-control:focus-visible {
+    border-color: var(--ds-brand-500);
+    background: var(--ds-surface-2);
+    box-shadow: var(--ds-focus-ring);
+}
+
+.ds-control:disabled,
+.ds-control[aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+    background: var(--ds-surface-0);
+}
+
+.ds-control[aria-invalid="true"],
+.ds-field.is-invalid .ds-control {
+    border-color: var(--ds-danger);
+    box-shadow: 0 0 0 3px hsla(0, 75%, 58%, 0.2);
+}
+
+/* Neutralise Chrome/Safari autofill white-yellow background in every theme */
+.ds-control:-webkit-autofill,
+.ds-control:-webkit-autofill:hover,
+.ds-control:-webkit-autofill:focus,
+.ds-control:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--ds-text-strong);
+    -webkit-box-shadow: 0 0 0 1000px var(--ds-surface-1) inset;
+    caret-color: var(--ds-text-strong);
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Sizes */
+.ds-control--sm {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-radius: var(--ds-radius-sm);
+}
+.ds-control--lg {
+    padding: 14px 16px;
+    font-size: 1rem;
+    border-radius: var(--ds-radius-lg);
+}
+
+/* Textarea specifics */
+textarea.ds-control {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.55;
+}
+
+textarea.ds-control.ds-control--autogrow {
+    resize: none;
+    overflow: hidden;
+}
+
+/* Select chevron */
+select.ds-control {
+    padding-right: 40px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='none' stroke='%2398a2b3' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' d='M2.5 4.5 6 8l3.5-3.5'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+}
+
+select.ds-control:focus {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='none' stroke='%232e8bff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' d='M2.5 4.5 6 8l3.5-3.5'/></svg>");
+}
+
+/* ==========================================================================
+   Input group — icon/prefix/suffix addons
+   ========================================================================== */
+.ds-input-group {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+.ds-input-group .ds-control {
+    position: relative;
+    z-index: 1;
+}
+
+.ds-input-group__addon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ds-text-muted);
+    pointer-events: none;
+    z-index: 2;
+    font-size: 0.9rem;
+}
+
+.ds-input-group__addon--left {
+    left: 14px;
+}
+.ds-input-group__addon--right {
+    right: 14px;
+}
+
+.ds-input-group--has-left .ds-control {
+    padding-left: 40px;
+}
+.ds-input-group--has-right .ds-control {
+    padding-right: 40px;
+}
+
+.ds-input-group__addon--interactive {
+    pointer-events: auto;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background var(--ds-duration) var(--ds-ease-out),
+                color var(--ds-duration) var(--ds-ease-out);
+}
+
+.ds-input-group__addon--interactive:hover {
+    color: var(--ds-text-strong);
+    background: var(--ds-surface-3);
+}
+
+/* ==========================================================================
+   Checkbox & Radio — minimal custom style
+   ========================================================================== */
+.ds-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--ds-text);
+    user-select: none;
+}
+
+.ds-check input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--ds-border-strong);
+    border-radius: 5px;
+    background: var(--ds-surface-1);
+    cursor: pointer;
+    display: inline-grid;
+    place-content: center;
+    transition: background var(--ds-duration), border-color var(--ds-duration);
+}
+
+.ds-check input[type="radio"] {
+    border-radius: 50%;
+}
+
+.ds-check input:checked {
+    background: var(--ds-brand-600);
+    border-color: var(--ds-brand-600);
+}
+
+.ds-check input[type="checkbox"]:checked::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M2.5 6.5 5 9l4.5-5'/></svg>") center/contain no-repeat;
+}
+
+.ds-check input[type="radio"]:checked::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.ds-check input:focus-visible {
+    box-shadow: var(--ds-focus-ring);
+}
+
+/* ==========================================================================
+   Range slider
+   ========================================================================== */
+.ds-range {
+    --_track-h: 6px;
+    --_thumb: 18px;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    height: var(--_thumb);
+    cursor: pointer;
+}
+
+.ds-range::-webkit-slider-runnable-track {
+    height: var(--_track-h);
+    border-radius: var(--ds-radius-pill);
+    background: linear-gradient(
+        to right,
+        var(--ds-brand-600) 0%,
+        var(--ds-brand-600) var(--_value, 0%),
+        var(--ds-surface-3) var(--_value, 0%),
+        var(--ds-surface-3) 100%
+    );
+}
+
+.ds-range::-moz-range-track {
+    height: var(--_track-h);
+    border-radius: var(--ds-radius-pill);
+    background: var(--ds-surface-3);
+}
+
+.ds-range::-moz-range-progress {
+    height: var(--_track-h);
+    border-radius: var(--ds-radius-pill);
+    background: var(--ds-brand-600);
+}
+
+.ds-range::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: var(--_thumb);
+    height: var(--_thumb);
+    margin-top: calc((var(--_track-h) - var(--_thumb)) / 2);
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--ds-brand-600);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    cursor: grab;
+    transition: transform 0.15s var(--ds-ease-out);
+}
+
+.ds-range::-moz-range-thumb {
+    width: var(--_thumb);
+    height: var(--_thumb);
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--ds-brand-600);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    cursor: grab;
+}
+
+.ds-range:hover::-webkit-slider-thumb { transform: scale(1.08); }
+.ds-range:active::-webkit-slider-thumb { cursor: grabbing; transform: scale(1.12); }
+
+.ds-range:focus-visible::-webkit-slider-thumb {
+    box-shadow: var(--ds-focus-ring);
+}
+
+/* ==========================================================================
+   Switch / Toggle
+   ========================================================================== */
+.ds-switch {
+    --_w: 40px;
+    --_h: 22px;
+    position: relative;
+    display: inline-block;
+    width: var(--_w);
+    height: var(--_h);
+    flex-shrink: 0;
+}
+
+.ds-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ds-switch__slider {
+    position: absolute;
+    inset: 0;
+    background: var(--ds-surface-3);
+    border-radius: var(--ds-radius-pill);
+    cursor: pointer;
+    transition: background var(--ds-duration) var(--ds-ease-out);
+}
+
+.ds-switch__slider::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(var(--_h) - 6px);
+    height: calc(var(--_h) - 6px);
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    transition: transform var(--ds-duration) var(--ds-ease-out);
+}
+
+.ds-switch input:checked + .ds-switch__slider {
+    background: var(--ds-brand-600);
+}
+
+.ds-switch input:checked + .ds-switch__slider::before {
+    transform: translateY(-50%) translateX(calc(var(--_w) - var(--_h)));
+}
+
+.ds-switch input:focus-visible + .ds-switch__slider {
+    box-shadow: var(--ds-focus-ring);
+}
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+@media (max-width: 520px) {
+    .ds-control {
+        font-size: 0.92rem;
+        padding: 11px 13px;
+    }
+    textarea.ds-control {
+        min-height: 100px;
+    }
+}

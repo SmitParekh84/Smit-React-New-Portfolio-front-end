@@ -1,0 +1,109 @@
+/* ==========================================================================
+   DESIGN SYSTEM — tokens layered on top of existing :root in styles.css
+   Non-breaking: only adds new variables and utilities.
+   Applies to the dark theme (current default).
+   ========================================================================== */
+
+:root {
+    color-scheme: light;
+
+    /* ── Surfaces — auto-track existing theme vars (light & dark) ── */
+    --ds-surface-0: var(--body-color);
+    --ds-surface-1: var(--input-color);
+    --ds-surface-2: var(--container-color);
+    --ds-surface-3: var(--input-color);
+    --ds-surface-elevated: var(--container-color);
+
+    /* ── Borders — barely-there, very modern ── */
+    --ds-border: hsla(210, 20%, 50%, 0.12);
+    --ds-border-strong: hsla(210, 20%, 50%, 0.22);
+    --ds-border-subtle: hsla(210, 20%, 50%, 0.08);
+
+    /* ── Brand / accent — track existing --first-color ── */
+    --ds-brand-500: var(--first-color);
+    --ds-brand-600: var(--first-color);
+    --ds-brand-700: var(--first-color);
+    --ds-brand-glow: hsla(210, 93%, 55%, 0.32);
+
+    /* ── Text — track existing title/text vars ──
+       In light mode --text-color is mid-gray, --text-color-light is faint.
+       We invert the usage in dark mode via the override below. */
+    --ds-text-strong: var(--title-color);
+    --ds-text: var(--text-color);
+    --ds-text-muted: color-mix(in srgb, var(--text-color) 85%, var(--title-color));
+    --ds-text-faint: color-mix(in srgb, var(--text-color) 70%, transparent);
+
+    /* ── States ── */
+    --ds-success: hsl(152, 65%, 46%);
+    --ds-warning: hsl(38, 95%, 58%);
+    --ds-danger: hsl(0, 75%, 58%);
+
+    /* ── Radii ── */
+    --ds-radius-xs: 6px;
+    --ds-radius-sm: 8px;
+    --ds-radius-md: 12px;
+    --ds-radius-lg: 16px;
+    --ds-radius-xl: 22px;
+    --ds-radius-pill: 999px;
+
+    /* ── Shadows ── */
+    --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.06);
+    --ds-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+    --ds-shadow-md: 0 8px 22px rgba(0, 0, 0, 0.1);
+    --ds-shadow-lg: 0 18px 45px rgba(0, 0, 0, 0.12);
+    --ds-shadow-brand: 0 10px 30px -8px var(--ds-brand-glow);
+
+    /* ── Gradients ── */
+    --ds-gradient-brand: linear-gradient(135deg, hsl(210, 95%, 58%) 0%, hsl(225, 85%, 50%) 100%);
+    --ds-gradient-brand-hover: linear-gradient(135deg, hsl(210, 95%, 62%) 0%, hsl(225, 85%, 54%) 100%);
+    --ds-gradient-surface: none;
+
+    /* ── Motion ── */
+    --ds-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --ds-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ds-duration-fast: 140ms;
+    --ds-duration: 220ms;
+    --ds-duration-slow: 360ms;
+
+    /* ── Spacing ── */
+    --ds-space-1: 4px;
+    --ds-space-2: 8px;
+    --ds-space-3: 12px;
+    --ds-space-4: 16px;
+    --ds-space-5: 20px;
+    --ds-space-6: 24px;
+    --ds-space-8: 32px;
+    --ds-space-10: 40px;
+    --ds-space-12: 48px;
+
+    /* ── Focus ring ── */
+    --ds-focus-ring: 0 0 0 3px hsla(210, 93%, 55%, 0.35);
+}
+
+/* Dark theme — deeper shadows, stronger borders for depth.
+   In dark mode --text-color stays the same dark gray (unreadable),
+   so we remap --ds-text* to use the brighter --text-color-light. */
+body.dark-theme {
+    color-scheme: dark;
+
+    --ds-text: var(--text-color-light);
+    --ds-text-muted: color-mix(in srgb, var(--text-color-light) 80%, var(--title-color));
+    --ds-text-faint: color-mix(in srgb, var(--text-color-light) 65%, transparent);
+
+    --ds-border: hsla(210, 20%, 70%, 0.1);
+    --ds-border-strong: hsla(210, 20%, 70%, 0.18);
+    --ds-border-subtle: hsla(210, 20%, 70%, 0.06);
+    --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --ds-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+    --ds-shadow-md: 0 8px 22px rgba(0, 0, 0, 0.4);
+    --ds-shadow-lg: 0 18px 45px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --ds-duration-fast: 0ms;
+        --ds-duration: 0ms;
+        --ds-duration-slow: 0ms;
+    }
+}

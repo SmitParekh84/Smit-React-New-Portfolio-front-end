@@ -1,0 +1,217 @@
+/* ==========================================================================
+   Shared Button component
+   Variants: landing (bold gradient CTA) | tool (clean solid primary)
+             | ghost (text) | subtle (soft surface) | danger
+   Sizes: sm | md | lg
+   ========================================================================== */
+
+.ds-btn {
+    --_bg: var(--ds-brand-600);
+    --_bg-hover: var(--ds-brand-500);
+    --_fg: #ffffff;
+    --_border: transparent;
+    --_shadow: var(--ds-shadow-sm);
+    --_shadow-hover: var(--ds-shadow-md);
+    --_radius: var(--ds-radius-md);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 22px;
+    min-height: 44px;
+
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    white-space: nowrap;
+
+    color: var(--_fg);
+    background: var(--_bg);
+    border: 1px solid var(--_border);
+    border-radius: var(--_radius);
+    box-shadow: var(--_shadow);
+
+    cursor: pointer;
+    user-select: none;
+    transition:
+        transform var(--ds-duration-fast) var(--ds-ease-out),
+        background var(--ds-duration) var(--ds-ease-out),
+        box-shadow var(--ds-duration) var(--ds-ease-out),
+        border-color var(--ds-duration) var(--ds-ease-out),
+        color var(--ds-duration) var(--ds-ease-out);
+    will-change: transform;
+}
+
+.ds-btn:hover:not(:disabled):not(.is-loading) {
+    background: var(--_bg-hover);
+    box-shadow: var(--_shadow-hover);
+    transform: translateY(-1px);
+}
+
+.ds-btn:active:not(:disabled):not(.is-loading) {
+    transform: translateY(0);
+    box-shadow: var(--ds-shadow-xs);
+}
+
+.ds-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--_shadow), var(--ds-focus-ring);
+}
+
+.ds-btn:disabled,
+.ds-btn.is-loading {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.ds-btn__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+}
+
+.ds-btn__spinner {
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: ds-btn-spin 0.7s linear infinite;
+}
+
+@keyframes ds-btn-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Sizes ── */
+.ds-btn--sm {
+    padding: 8px 14px;
+    min-height: 36px;
+    font-size: 0.85rem;
+    --_radius: var(--ds-radius-sm);
+}
+
+.ds-btn--md {
+    /* default */
+}
+
+.ds-btn--lg {
+    padding: 14px 28px;
+    min-height: 52px;
+    font-size: 1rem;
+    --_radius: var(--ds-radius-lg);
+}
+
+/* ── Full width ── */
+.ds-btn--block {
+    width: 100%;
+}
+
+/* ==========================================================================
+   VARIANT: Landing — bold gradient CTA with glow + sheen
+   ========================================================================== */
+.ds-btn--landing {
+    --_bg: var(--ds-gradient-brand);
+    --_bg-hover: var(--ds-gradient-brand-hover);
+    --_fg: #ffffff;
+    --_shadow: var(--ds-shadow-brand);
+    --_shadow-hover: 0 16px 40px -8px var(--ds-brand-glow);
+    position: relative;
+    overflow: hidden;
+    background: var(--_bg);
+    padding: 14px 30px;
+    min-height: 52px;
+    font-size: 1rem;
+    border-radius: var(--ds-radius-lg);
+}
+
+.ds-btn--landing::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        110deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.22) 50%,
+        transparent 70%
+    );
+    transform: translateX(-120%);
+    transition: transform var(--ds-duration-slow) var(--ds-ease-out);
+    pointer-events: none;
+}
+
+.ds-btn--landing:hover:not(:disabled):not(.is-loading) {
+    background: var(--_bg-hover);
+    transform: translateY(-2px);
+}
+
+.ds-btn--landing:hover:not(:disabled):not(.is-loading)::before {
+    transform: translateX(120%);
+}
+
+/* ==========================================================================
+   VARIANT: Tool — clean solid primary (minimal, modern)
+   ========================================================================== */
+.ds-btn--tool {
+    --_bg: var(--ds-brand-600);
+    --_bg-hover: var(--ds-brand-500);
+    --_fg: #ffffff;
+    --_shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 2px 8px rgba(0, 0, 0, 0.3);
+    --_shadow-hover: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 8px 22px -4px var(--ds-brand-glow);
+}
+
+/* ==========================================================================
+   VARIANT: Ghost — transparent text button
+   ========================================================================== */
+.ds-btn--ghost {
+    --_bg: transparent;
+    --_bg-hover: hsla(210, 20%, 60%, 0.1);
+    --_fg: var(--ds-text);
+    --_shadow: none;
+    --_shadow-hover: none;
+}
+
+.ds-btn--ghost:hover:not(:disabled):not(.is-loading) {
+    color: var(--ds-text-strong);
+    transform: none;
+}
+
+/* ==========================================================================
+   VARIANT: Subtle — soft surface secondary
+   ========================================================================== */
+.ds-btn--subtle {
+    --_bg: var(--ds-surface-2);
+    --_bg-hover: var(--ds-surface-3);
+    --_fg: var(--ds-text-strong);
+    --_border: var(--ds-border);
+    --_shadow: none;
+    --_shadow-hover: var(--ds-shadow-sm);
+}
+
+/* ==========================================================================
+   VARIANT: Danger
+   ========================================================================== */
+.ds-btn--danger {
+    --_bg: var(--ds-danger);
+    --_bg-hover: hsl(0, 75%, 52%);
+    --_fg: #ffffff;
+}
+
+/* ── Mobile ── */
+@media (max-width: 520px) {
+    .ds-btn {
+        font-size: 0.9rem;
+    }
+    .ds-btn--lg,
+    .ds-btn--landing {
+        padding: 13px 22px;
+        min-height: 48px;
+        font-size: 0.95rem;
+    }
+}
